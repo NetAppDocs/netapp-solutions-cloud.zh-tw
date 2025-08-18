@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: google/gcp-gcnv-service-operation.html 
+keywords: physical security, operations team, customer responsibilities, malicious sre protection, certifications, gdpr 
+summary: Google Cloud NetApp Volumes團隊管理 Google Cloud 中的後端服務，並使用多種策略來保護平台安全並防止不必要的存取。 
+---
+= 服務營運
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Google Cloud NetApp Volumes團隊管理 Google Cloud 中的後端服務，並使用多種策略來保護平台安全並防止不必要的存取。
+
+每個客戶都有自己獨特的子網，預設情況下，該子網路的存取權限與其他客戶隔離，而Google Cloud NetApp Volumes中的每個租用戶都有自己的命名空間和 VLAN，以實現完全的資料隔離。使用者通過身份驗證後，服務交付引擎 (SDE) 只能讀取特定於該租用戶的設定資料。
+
+
+
+== 實體安全
+
+經過適當的預先批准，只有現場工程師和帶有NetApp標誌的現場支援工程師 (FSE) 才能進入籠子和機架進行實體工作。不允許儲存和網路管理。只有這些現場資源能夠執行硬體維護任務。
+
+對於現場工程師，將提出工作說明書 (SOW) 的票證，其中包括機架 ID 和設備位置 (RU)，所有其他詳細資訊都包含在票證中。對於NetApp FSE，必須向 COLO 提出現場訪問票，票上應包含訪客的詳細資料、日期和時間，以供審計。  FSE 的 SOW 在內部傳達給NetApp。
+
+
+
+== 營運團隊
+
+Google Cloud NetApp Volumes的營運團隊由Google Cloud NetApp Volumes的生產工程和站點可靠性工程師 (SRE) 以及硬體的NetApp現場支援工程師和合作夥伴組成。所有營運團隊成員均已獲得在 Google Cloud 工作的認證，每張提出的工單都會保留詳細的工作記錄。此外，還制定了嚴格的變更控制和批准流程，以確保每個決策都經過適當的審查。
+
+SRE 團隊管理控制平面以及如何將資料從 UI 請求路由到Google Cloud NetApp Volumes中的後端硬體和軟體。  SRE 團隊也管理系統資源，例如磁碟區和 inode 最大值。  SRE 不得與客戶資料互動或存取客戶資料。  SRE 還提供與退貨授權 (RMA) 的協調，例如後端硬體的新磁碟或記憶體更換要求。
+
+
+
+== 客戶責任
+
+Google Cloud NetApp Volumes的客戶管理其組織的 Active Directory 和使用者角色管理以及磁碟區和資料操作。客戶可以擁有管理角色，並且可以使用NetApp和 Google Cloud 提供的兩個預先定義角色（管理員和檢視者）將權限委託給同一 Google Cloud 專案內的其他最終使用者。
+
+管理員可以將客戶專案中的任何 VPC 與客戶認為合適的Google Cloud NetApp Volumes對等連接。客戶有責任管理對其 Google Cloud 市場訂閱的存取以及管理有權存取資料平面的 VPC。
+
+
+
+== 惡意 SRE 保護
+
+可能出現的一個問題是， Google Cloud NetApp Volumes如何防範惡意 SRE 或 SRE 憑證外洩的情況？
+
+只有有限數量的 SRE 個人可以存取生產環境。管理權限進一步限制於少數經驗豐富的管理員。 Google Cloud NetApp Volumes生產環境中任何人執行的所有操作都會被記錄下來，我們的安全資訊和事件管理 (SIEM) 威脅情報平台會偵測到基準異常或可疑活動。因此，可以在對Google Cloud NetApp Volumes後端造成太大損害之前追蹤和緩解惡意行為。
+
+
+
+== 卷生命週期
+
+Google Cloud NetApp Volumes僅管理服務內的對象，而非磁碟區內的資料。只有存取卷的客戶端才能管理資料、ACL、文件擁有者等。這些磁碟區中的資料在靜止時是加密的，且存取權限僅限於Google Cloud NetApp Volumes實例的租用戶。
+
+Google Cloud NetApp Volumes的磁碟區生命週期是建立-更新-刪除。磁碟區會保留磁碟區的 Snapshot 副本，直到磁碟區被刪除，並且只有經過驗證的Google Cloud NetApp Volumes管理員才能刪除Google Cloud NetApp Volumes中的磁碟區。當管理員要求刪除磁碟區時，需要額外輸入磁碟區名稱來驗證刪除。磁碟區被刪除後，該磁碟區將消失並且無法復原。
+
+如果Google Cloud NetApp Volumes合約終止， NetApp會在特定時段後將磁碟區標記為刪除。在該時間段到期之前，您可以根據客戶的要求恢復卷。
+
+
+
+== 認證
+
+Google Cloud NetApp Volumes for Google Cloud 目前已通過 ISO/IEC 27001:2013 和 ISO/IEC 27018:2019 標準認證。該服務最近還收到了 SOC2 Type I 認證報告。有關NetApp對資料安全和隱私的承諾，請參閱 https://www.netapp.com/company/trust-center/compliance/["合規性：資料安全和資料隱私"^]。
+
+
+
+== GDPR
+
+我們對隱私和 GDPR 合規性的承諾體現在我們的許多 https://www.netapp.com/how-to-buy/sales-terms-and-conditions%22%20/o%20%22SEO%20-%20Sales%20Terms%20and%20Conditions["客戶合約"^]，例如我們的 https://netapp.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhCqPPgcufskl_71q-FelD4DHz5EMJVOkqqT0iiORT10DlfZnZeMpDrse5W6K9LEw6o*["客戶Data Processing附錄"^]，其中包括 https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en["標準合約條款"^]由歐盟委員會提供。我們也在我們的隱私權政策中做出了這些承諾，並以我們公司行為準則中規定的核心價值為後盾。

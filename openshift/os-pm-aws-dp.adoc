@@ -1,0 +1,284 @@
+---
+sidebar: sidebar 
+permalink: openshift/os-pm-aws-dp.html 
+keywords: NetApp Solutions, redhat OpenShift, red hat OpenShift, redhat openshift container platform, ocp, openshift container platform, Advanced Cluster Management, ACM, Hub Cluster, containers, container workloads, VMWare, provider managed storage, ONTAP, AWS FSx ONTAP, Astra Control Service 
+summary:  
+---
+= 資料保護
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+此頁面顯示使用Astra Control Service 的託管 Red Hat OpenShift on AWS (ROSA) 叢集的資料保護選項。 Astra Control Service (ACS) 提供了一個易於使用的圖形使用者介面，您可以使用它來新增叢集、定義在其上運行的應用程式以及執行應用程式感知資料管理活動。還可以使用允許工作流程自動化的 API 存取 ACS 功能。
+
+為Astra Control（ACS 或 ACC）提供支援的是NetApp Trident。  Trident整合了多種類型的 Kubernetes 集群，例如 Red Hat OpenShift、EKS、AKS、SUSE Rancher、Anthos 等，以及各種類型的NetApp ONTAP存儲，例如FAS/ AFF、 ONTAP Select、CVO、Google Google Cloud NetApp Volumes、 Azure NetApp Files和Amazon FSx ONTAP。
+
+本節詳細介紹了使用 ACS 的以下資料保護選項：
+
+* 展示在一個區域運行的 ROSA 應用程式的備份和還原以及還原到另一個區域的影片。
+* 展示 ROSA 應用程式的快照和復原的影片。
+* 安裝 ROSA 叢集、 Amazon FSx ONTAP、使用NetApp Trident與儲存後端整合、在 ROSA 叢集上安裝 postgresql 應用程式、使用 ACS 建立應用程式的快照以及從中恢復應用程式的分步詳細資訊。
+* 這篇部落格逐步展示了使用 ACS 在具有 FSx ONTAP的 ROSA 叢集上為 mysql 應用程式建立和復原快照的過程。
+
+
+
+
+== 備份/從備份中恢復
+
+以下影片展示了在一個區域運行的 ROSA 應用程式的備份以及還原到另一個區域的過程。
+
+.AWS 上的 FSx NetApp ONTAP for Red Hat OpenShift 服務
+video::01dd455e-7f5a-421c-b501-b01200fa91fd[panopto]
+
+
+== 快照/從快照恢復
+
+以下影片展示如何拍攝 ROSA 應用程式的快照以及如何從快照中復原。
+
+.使用Amazon FSx ONTAP儲存為 AWS (ROSA) 叢集上的 Red Hat OpenShift Service 應用程式進行快照/還原
+video::36ecf505-5d1d-4e99-a6f8-b11c00341793[panopto]
+
+
+== 部落格
+
+* link:https://community.netapp.com/t5/Tech-ONTAP-Blogs/Using-Astra-Control-Service-for-data-management-of-apps-on-ROSA-clusters-with/ba-p/450903["使用Astra Control Service 和Amazon FSx儲存對 ROSA 叢集上的應用程式進行資料管理"]
+
+
+
+
+== 建立快照並從中復原的詳細步驟
+
+
+
+=== 先決條件設定
+
+* link:https://signin.aws.amazon.com/signin?redirect_uri=https://portal.aws.amazon.com/billing/signup/resume&client_id=signup["AWS 帳號"]
+* link:https://console.redhat.com/["Red Hat OpenShift 帳戶"]
+* IAM 用戶link:https://www.rosaworkshop.io/rosa/1-account_setup/["適當的權限"]建立並存取ROSA集群
+* link:https://aws.amazon.com/cli/["AWS CLI"]
+* link:https://console.redhat.com/openshift/downloads["ROSA CLI"]
+* link:https://console.redhat.com/openshift/downloads["OpenShift CLI"]（oc）
+* 具有子網路及適當閘道及路由的 VPC
+* link:https://docs.openshift.com/rosa/rosa_install_access_delete_clusters/rosa_getting_started_iam/rosa-installing-rosa.html["ROSA集群安裝"]進入 VPC
+* link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/getting-started-step1.html["Amazon FSx ONTAP"]在同一個 VPC 中創建
+* 從以下位置存取 ROSA 集群link:https://console.redhat.com/openshift/overview["OpenShift 混合雲控制台"]
+
+
+
+
+=== 後續步驟
+
+. 建立管理員使用者並登入叢集。
+. 為叢集建立一個 kubeconfig 檔案。
+. 在叢集上安裝Trident 。
+. 使用Trident CSI 設定器建立後端、儲存類別和快照類別配置。
+. 在叢集上部署postgresql應用程式。
+. 建立資料庫並新增記錄。
+. 將集群新增至 ACS。
+. 在 ACS 中定義應用程式。
+. 使用 ACS 建立快照。
+. 刪除 postgresql 應用程式中的資料庫。
+. 使用 ACS 從快照恢復。
+. 驗證您的應用程式已從快照還原。
+
+
+
+
+==== **1.建立管理員使用者並登入叢集**
+
+使用以下命令建立管理員使用者來存取 ROSA 叢集：（僅當您在安裝時未建立管理員使用者時才需要建立管理員使用者）
+
+`rosa create admin --cluster=<cluster-name>`
+
+該命令將提供如下所示的輸出。使用 `oc login`輸出中提供的命令。
+
+image:rhhc-rosa-cluster-admin-create.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+NOTE: 您也可以使用令牌登入叢集。如果您在建立叢集時已經建立了管理員用戶，則可以使用管理員使用者憑證從 Red Hat OpenShift Hybrid Cloud 控制台登入叢集。然後點擊右上角顯示登入使用者的名稱，您可以取得 `oc login`命令列的命令（令牌登入）。
+
+
+
+==== **2.為叢集建立 kubeconfig 檔案**
+
+遵循程序link:https://docs.netapp.com/us-en/astra-control-service/get-started/create-kubeconfig.html#create-a-kubeconfig-file-for-red-hat-openshift-service-on-aws-rosa-clusters["這裡"]為 ROSA 叢集建立 kubeconfig 檔案。當您將叢集新增至 ACS 時，稍後將使用此 kubeconfig 檔案。
+
+
+
+==== **3.在叢集上安裝Trident **
+
+在 ROSA 叢集上安裝Trident （最新版本）。為此，您可以按照以下任一程序進行操作link:https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["這裡"]。若要從叢集控制台使用 helm 安裝Trident ，先建立一個名為Trident的專案。
+
+image:rhhc-trident-project-create.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+然後從開發人員視圖建立一個 Helm 圖表儲存庫。對於 URL 欄位使用 `'https://netapp.github.io/trident-helm-chart'`。然後為Trident操作員創建一個掌舵版本。
+
+image:rhhc-helm-repo-create.png["此圖顯示輸入/輸出對話框或表示書面內容"] image:rhhc-helm-release-create.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+透過返回控制台上的管理員視圖並選擇 trident 專案中的 pod，驗證所有 trident pod 是否正在運行。
+
+image:rhhc-trident-installed.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+==== **4.使用Trident CSI 設定器建立後端、儲存類別和快照類別配置**
+
+使用下面顯示的 yaml 檔案建立 trident 後端物件、儲存類別物件和 Volumesnapshot 物件。確保在後端的設定 yaml 中提供您建立的Amazon FSx ONTAP檔案系統、管理 LIF 和檔案系統的 vserver 名稱的憑證。要獲取這些詳細信息，請轉到Amazon FSx的 AWS 控制台並選擇檔案系統，導航至「管理」標籤。另外，點擊更新以設定 `fsxadmin`用戶。
+
+
+NOTE: 您可以使用命令列建立對象，也可以使用混合雲控制台中的 yaml 檔案建立對象。
+
+image:rhhc-fsx-details.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+** Trident後端設定**
+
+[source, yaml]
+----
+apiVersion: v1
+kind: Secret
+metadata:
+  name: backend-tbc-ontap-nas-secret
+type: Opaque
+stringData:
+  username: fsxadmin
+  password: <password>
+---
+apiVersion: trident.netapp.io/v1
+kind: TridentBackendConfig
+metadata:
+  name: ontap-nas
+spec:
+  version: 1
+  storageDriverName: ontap-nas
+  managementLIF: <management lif>
+  backendName: ontap-nas
+  svm: fsx
+  credentials:
+    name: backend-tbc-ontap-nas-secret
+----
+**存儲類別**
+
+[source, yaml]
+----
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ontap-nas
+provisioner: csi.trident.netapp.io
+parameters:
+  backendType: "ontap-nas"
+  media: "ssd"
+  provisioningType: "thin"
+  snapshots: "true"
+allowVolumeExpansion: true
+----
+**快照類別**
+
+[source, yaml]
+----
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshotClass
+metadata:
+  name: trident-snapshotclass
+driver: csi.trident.netapp.io
+deletionPolicy: Delete
+----
+透過發出下方顯示的命令來驗證後端、儲存類別和 trident-snapshotclass 物件是否已建立。
+
+image:rhhc-tbc-sc-verify.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+這時候你需要做的一個重要的修改就是將 ontap-nas 設定為預設儲存類，而不是 gp3，這樣你後面部署的 postgresql app 就可以使用預設儲存類別。在叢集的 Openshift 控制台中，在「儲存」下選擇「StorageClasses」。將目前預設類別的註解編輯為 false，並為 ontap-nas 儲存類別新增註解 storageclass.kubernetes.io/is-default-class 設定為 true。
+
+image:rhhc-change-default-sc.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+image:rhhc-default-sc.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+==== **5.在叢集上部署 postgresql 應用程式**
+
+您可以從命令列部署應用程序，如下所示：
+
+`helm install postgresql bitnami/postgresql -n postgresql --create-namespace`
+
+image:rhhc-postgres-install.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+NOTE: 如果您沒有看到應用程式 pod 正在運行，那麼可能是由於安全上下文約束導致的錯誤。image:rhhc-scc-error.png["此圖顯示輸入/輸出對話框或表示書面內容"]透過編輯 `runAsUser`和 `fsGroup`中的字段 `statefuleset.apps/postgresql`具有輸出中的 uid 的對象 `oc get project`命令如下圖所示。image:rhhc-scc-fix.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+postgresql 應用程式應該正在運行並使用Amazon FSx ONTAP儲存支援的持久性磁碟區。
+
+image:rhhc-postgres-running.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+image:rhhc-postgres-pvc.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+==== **6.建立資料庫並新增記錄**
+
+image:rhhc-postgres-db-create.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+==== **7.將集群新增至 ACS**
+
+登入 ACS。選擇集群並點擊新增。選擇其他並上傳或貼上 kubeconfig 檔案。
+
+image:rhhc-acs-add-001.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+按一下“*下一步*”並選擇 ontap-nas 作為 ACS 的預設儲存類別。按一下“*下一步*”，查看詳細資料並“*新增*”叢集。
+
+image:rhhc-acs-add-002.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+==== **8.在 ACS** 中定義應用程式
+
+在 ACS 中定義 postgresql 應用程式。從登陸頁面，選擇*應用程式*、*定義*並填寫適當的詳細資訊。按一下“下一步”幾次，查看詳細信息，然後按一下“定義”。應用程式被加入到 ACS。
+
+image:rhhc-acs-add-002.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+==== **9.使用 ACS** 建立快照
+
+在 ACS 中建立快照的方法有很多種。您可以從顯示應用程式詳細資訊的頁面中選擇應用程式並建立快照。您可以點擊建立快照來建立按需快照或配置保護策略。
+
+只需按一下“*建立快照*”，提供名稱，查看詳細信息，然後按一下“*快照*”即可建立按需快照。操作完成後，快照狀態變成「健康」。
+
+image:rhhc-snapshot-create.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+image:rhhc-snapshot-on-demand.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+==== **10.刪除 postgresql 應用程式中的資料庫**
+
+重新登入 postgresql，列出可用的資料庫，刪除先前建立的資料庫，然後再次列出以確保資料庫已被刪除。
+
+image:rhhc-postgres-db-delete.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+==== **11.使用 ACS** 從快照還原
+
+若要從快照還原應用程序，請前往 ACS UI 登入頁面，選擇應用程式並選擇復原。您需要選擇一個快照或備份來從中還原。 （通常，您會根據已配置的策略建立多個）。在接下來的幾個畫面中做出適當的選擇，然後按一下「*恢復*」。從快照恢復後，應用程式狀態從「正在恢復」變為「可用」。
+
+image:rhhc-app-restore-001.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+image:rhhc-app-restore-002.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+image:rhhc-app-restore-003.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+==== **12.驗證您的應用程式已從快照還原**
+
+登入 postgresql 客戶端，您現在應該看到您之前擁有的表和表中的記錄。就是這樣。只需單擊一個按鈕，您的應用程式就會恢復到以前的狀態。這就是我們利用Astra Control 為客戶提供的便利。
+
+image:rhhc-app-restore-verify.png["此圖顯示輸入/輸出對話框或表示書面內容"]

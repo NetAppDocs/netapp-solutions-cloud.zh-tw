@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: videos/hmc-aws-videos.html 
+summary: 展示NetApp的 AWS 混合多雲解決方案的影片和演示 
+keywords: hybrid cloud, rosa, fsx ontap, azure vmware, netapp hci, videos, demos 
+---
+= 觀看有關使用NetApp的 Amazon Web Services 混合多雲解決方案的視頻
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+探索 NetApp 的綜合影片庫，其中包含NetApp為 AWS 提供的混合多雲解決方案。觀看有關 VMware Cloud on AWS 和Amazon FSx for ONTAP的客戶機連接存儲、TCO 節省、補充資料存儲和遷移工作流程的視頻，包括 Windows 和 Linux 場景。
+
+
+
+== 來賓連接存儲
+
+.使用 iSCSI 的 Windows 用戶端連線儲存與 FSx ONTAP
+video::0d03e040-634f-4086-8cb5-b01200fb8515[panopto,width=360]
+.使用 NFS 連接 Linux 用戶端和 FSx ONTAP 的存儲
+video::c3befe1b-4f32-4839-a031-b01200fb6d60[panopto,width=360]
+
+
+== TCO 和補充資料存儲
+
+.VMware Cloud on AWS 使用Amazon FSx ONTAP節省 TCO
+video::f0fedec5-dc17-47af-8821-b01200f00e08[panopto,width=360]
+.VMware Cloud on AWS 補充資料儲存（附Amazon FSx ONTAP）
+video::2065dcc1-f31a-4e71-a7d5-b01200f01171[panopto,width=360]
+
+
+== 遷移工作流程 (HCX)
+
+.VMC 的 VMware HCX 部署與設定
+video::6132c921-a44c-4c81-aab7-b01200fb5d29[panopto,width=360]
+.使用 VMware HCX for VMC 和 FSx ONTAP進行 vMotion 遷移演示
+video::52661f10-3f90-4f3d-865a-b01200f06d31[panopto,width=360]
+.使用 VMware HCX for VMC 和 FSx ONTAP進行冷遷移演示
+video::685c0dc2-9d8a-42ff-b46d-b01200f056b0[panopto,width=360]

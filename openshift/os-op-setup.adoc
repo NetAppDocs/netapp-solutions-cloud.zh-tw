@@ -1,0 +1,86 @@
+---
+sidebar: sidebar 
+permalink: openshift/os-op-setup.html 
+keywords: NetApp Solutions, redhat OpenShift, red hat OpenShift, redhat openshift container platform, ocp, openshift container platform, Advanced Cluster Management, ACM, Hub Cluster, containers, container workloads, VMware, customer managed storage, ONTAP 
+summary:  
+---
+= 在 VMware 上部署並設定 Red Hat OpenShift Container 平台
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+本節介紹如何設定和管理 OpenShift 叢集以及管理其上的有狀態應用程式的高階工作流程。它展示瞭如何使用NetApp ONTAP儲存陣列借助Trident來提供持久性磁碟區。
+
+
+NOTE: 部署 Red Hat OpenShift Container 平台叢集有多種方法。此設定的高級描述提供了所使用的特定方法的文檔連結。您可以參考link:os-solutions-resources.html["資源部分"]。
+
+下面是描述資料中心內 VMware 上部署的叢集的圖表。
+
+image:rhhc-on-premises.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+設定過程可分為以下步驟：
+
+.部署並配置 CentOS VM
+[%collapsible%open]
+====
+* 它部署在VMware vSphere環境中。
+* 此虛擬機器用於為解決方案部署一些元件，例如NetApp Trident和NetApp Trident Protect。
+* 安裝期間，此虛擬機器上配置了一個 root 使用者。
+
+
+====
+.在 VMware vSphere（Hub Cluster）上部署和設定 OpenShift Container Platform 叢集
+[%collapsible%open]
+====
+請參閱link:https://docs.openshift.com/container-platform/4.17/installing/installing_vsphere/installing-vsphere-assisted-installer.html["協助部署"]部署 OCP 叢集的方法。
+
+
+TIP: 請記住以下內容： - 建立 ssh 公鑰和私鑰以提供給安裝程式。如果需要，這些金鑰將用於登入主節點和工作節點。 - 從輔助安裝程式下載安裝程式。此程式用於啟動您在 VMware vSphere 環境中為主節點和工作節點所建立的虛擬機器。  - 虛擬機器應具備最低 CPU、記憶體和硬碟需求。  （請參閱 vm create 命令link:https://docs.redhat.com/en/documentation/assisted_installer_for_openshift_container_platform/2024/html/installing_openshift_container_platform_with_the_assisted_installer/installing-on-vsphere["這"]提供此資訊的主節點和工作節點的頁面） - 應在所有虛擬機器上啟用 diskUUID。  - 為 master 建立至少 3 個節點，為 worker 建立至少 3 個節點。  - 一旦安裝程式發現它們，請開啟 VMware vSphere 整合切換按鈕。
+
+====
+.在 Hub 叢集上安裝進階叢集管理
+[%collapsible%open]
+====
+這是使用 Hub 叢集上的高級叢集管理操作員安裝的。參考說明link:https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.7/html/install/installing#doc-wrapper["這裡"]。
+
+====
+.安裝兩個額外的 OCP 叢集（來源和目標）
+[%collapsible%open]
+====
+* 可以使用 Hub 叢集上的 ACM 部署附加叢集。
+* 參考說明link:https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.7/html/clusters/cluster_mce_overview#vsphere_prerequisites["這裡"]。
+
+
+====
+.配置NetApp ONTAP存儲
+[%collapsible%open]
+====
+* 在 VMWare 環境中安裝與 OCP VM 連線的ONTAP叢集。
+* 建立 SVM。
+* 配置 NAS 資料生命週期以存取 SVM 中的儲存。
+
+
+====
+.在 OCP 叢集上安裝NetApp Trident
+[%collapsible%open]
+====
+* 在所有三個叢集上安裝NetApp Trident ：中心叢集、來源叢集和目標集群
+* 參考說明link:https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html["這裡"]。
+* 為 ontap-nas 建立儲存後端。
+* 為 ontap-nas 建立儲存類別。
+* 參考說明link:https://docs.netapp.com/us-en/trident/trident-use/create-stor-class.html["這裡"]。
+
+
+====
+.在來源集群上部署應用程式
+[%collapsible%open]
+====
+使用 OpenShift GitOps 部署應用程式。  （例如 Postgres、Ghost）
+
+====
+下一步是使用Trident Protect 進行資料保護和從來源叢集到目標叢集的資料遷移。參考link:os-dp-tp-solution.html["這裡"]以取得說明。

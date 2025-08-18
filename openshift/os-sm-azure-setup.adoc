@@ -1,0 +1,117 @@
+---
+sidebar: sidebar 
+permalink: openshift/os-sm-azure-setup.html 
+keywords: NetApp Solutions, redhat OpenShift, red hat OpenShift, redhat openshift container platform, ocp, openshift container platform, Advanced Cluster Management, ACM, Hub Cluster, containers, container workloads, VMware, customer managed storage, ONTAP, Azure, Azure Cloud. 
+summary:  
+---
+= 在 Azure 上部署並設定 Red Hat OpenShift 容器平台
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+本節介紹如何在 Azure 中設定和管理 OpenShift 叢集以及在其上部署有狀態應用程式的進階工作流程。它展示瞭如何使用NetApp Cloud Volumes ONTAP儲存在Trident的幫助下提供持久卷。提供了有關使用Trident Protect 為有狀態應用程式執行資料保護和遷移活動的詳細資訊。
+
+下圖顯示了在 Azure 上部署並使用 VPN 連接到資料中心的叢集。
+
+image:rhhc-self-managed-azure.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+NOTE: 有幾種方法可以在 Azure 中部署 Red Hat OpenShift Container 平台叢集。此設定的高級描述提供了所使用的特定方法的文檔連結。您可以參考link:os-solutions-resources.html["資源部分"]。
+
+設定過程可分為以下步驟：
+
+.從 CLI 在 Azure 上安裝 OCP 叢集。
+[%collapsible%open]
+====
+* 確保您已滿足所有規定的先決條件link:https://docs.openshift.com/container-platform/4.13/installing/installing_azure/installing-azure-vnet.html["這裡"]。
+* 建立 VPN、子網路和網路安全群組以及私人 DNS 區域。建立 VPN 閘道和網站到站台 VPN 連線。
+* 為了實現本地和 Azure 之間的 VPN 連接，我們建立並配置了一個 pfSense VM。有關說明，請參閱link:https://docs.netgate.com/pfsense/en/latest/recipes/ipsec-s2s-psk.html["這裡"]。
+* 取得安裝程式和pull secret，按照文件提供的步驟部署集群link:https://docs.openshift.com/container-platform/4.13/installing/installing_azure/installing-azure-vnet.html["這裡"]。
+* 叢集安裝完成，會提供一個kubeconfig檔案以及登入叢集控制台的使用者名稱和密碼。
+
+
+下面給了一個範例 install-config.yaml 檔案。
+
+....
+apiVersion: v1
+baseDomain: sddc.netapp.com
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  platform:
+    azure:
+      encryptionAtHost: false
+      osDisk:
+        diskSizeGB: 512
+        diskType: "StandardSSD_LRS"
+      type: Standard_D2s_v3
+      ultraSSDCapability: Disabled
+      #zones:
+      #- "1"
+      #- "2"
+      #- "3"
+  replicas: 3
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  platform:
+    azure:
+      encryptionAtHost: false
+      osDisk:
+        diskSizeGB: 1024
+        diskType: Premium_LRS
+      type: Standard_D8s_v3
+      ultraSSDCapability: Disabled
+  replicas: 3
+metadata:
+  creationTimestamp: null
+  name: azure-cluster
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  machineNetwork:
+  - cidr: 10.0.0.0/16
+  networkType: OVNKubernetes
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  azure:
+    baseDomainResourceGroupName: ocp-base-domain-rg
+    cloudName: AzurePublicCloud
+    computeSubnet: ocp-subnet2
+    controlPlaneSubnet: ocp-subnet1
+    defaultMachinePlatform:
+      osDisk:
+        diskSizeGB: 1024
+        diskType: "StandardSSD_LRS"
+      ultraSSDCapability: Disabled
+    networkResourceGroupName: ocp-nc-us-rg
+    #outboundType: UserDefinedRouting
+    region: northcentralus
+    resourceGroupName: ocp-cluster-ncusrg
+    virtualNetwork: ocp_vnet_ncus
+publish: Internal
+pullSecret:
+....
+====
+.使用BlueXP在 Azure 中部署Cloud Volumes ONTAP 。
+[%collapsible%open]
+====
+* 在 Azure 中安裝連接器。參考說明 https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-azure-bluexp.html["這裡"]。
+* 使用連接器在 Azure 中部署 CVO 執行個體。請參閱說明連結： https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-getting-started-azure.html [此處。 ]
+
+
+====
+.使用Trident的 CSI 拓樸功能實現多區域架構
+如今，雲端提供者使 Kubernetes/OpenShift 叢集管理員能夠產生基於區域的叢集節點。節點可以位於一個區域內的不同可用區，也可以跨越多個區域。為了方便在多區域架構中為工作負載配置卷， Trident使用了 CSI 拓撲。使用 CSI 拓撲功能，可以根據區域和可用區域將對磁碟區的存取限製到節點子集。參考link:https://docs.netapp.com/us-en/trident/trident-use/csi-topology.html["這裡"]了解更多詳細資訊。
+
+
+NOTE: Kubernetes 支援兩種磁碟區綁定模式： - 當 **_VolumeBindingMode_ 設定為 _Immediate_**（預設）時， Trident會在沒有任何拓樸感知的情況下建立磁碟區。持久性卷的建立不依賴請求 pod 的調度要求。 - 當 **_VolumeBindingMode_ 設定為 _WaitForFirstConsumer_** 時，PVC 的持久卷的建立和綁定將被延遲，直到使用該 PVC 的 pod 被調度和建立。這樣，就可以建立磁碟區來滿足拓樸要求所強制執行的調度約束。 Trident儲存後端可設計為根據可用區域（拓撲感知後端）選擇性地配置磁碟區。對於使用此類後端的 StorageClasses，只有在受支援的區域/區域中調度的應用程式請求時才會建立磁碟區。  （拓樸感知 StorageClass）參考link:https://docs.netapp.com/us-en/trident/trident-use/csi-topology.html["這裡"]了解更多詳細資訊。

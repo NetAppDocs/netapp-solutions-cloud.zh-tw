@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: openshift/os-solutions-value-prop.html 
+keywords: NetApp Solutions, hybrid cloud, container workloads, containers, Red Hat OpenShift, RedHat OpenShift, VMware, ROSA, ACC, Trident Protect, Advanced Cluster Management, ACM, Hub Cluster 
+summary:  
+---
+= NetApp混合多雲解決方案針對 Red Hat OpenShift 容器工作負載的價值主張
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+大多數客戶不會在沒有任何現有基礎設施的情況下開始建立基於 Kubernetes 的環境。也許他們是一家傳統的 IT 商店，在虛擬機器上運行大多數企業應用程式（例如在大型 VMware 環境中）。然後，他們開始建立基於小型容器的環境來滿足現代應用程式開發團隊的需求。這些措施通常從小處開始，隨著團隊學習這些新技術和技能並開始認識到採用它們的許多好處，它們開始變得更加普遍。對客戶來說，好消息是NetApp可以滿足這兩種環境的需求。這套採用 Red Hat OpenShift 的混合多雲解決方案將使NetApp客戶能夠採用現代雲端技術和服務，而無需徹底改造其整個基礎架構和組織。無論客戶應用程式和資料託管在本機、雲端、虛擬機器上運作或容器上， NetApp都能提供一致的資料管理、保護、安全性和可攜性。借助這些新解決方案， NetApp數十年來在本地資料中心環境中提供的相同價值將在整個企業資料範圍內提供，而無需進行大量投資來重新裝備、獲取新技能或組建新團隊。無論客戶處於雲端之旅的哪個階段， NetApp都能夠協助客戶解決這些業務挑戰。
+
+NetApp混合多雲與 Red Hat Openshift：
+
+* 為客戶提供經過驗證的設計和實踐，展示客戶在使用基於NetApp 的Red Hat OpenShift 儲存解決方案時管理、保護、保護和遷移其資料和應用程式的最佳方法。
+* 為在 VMware 環境、裸機基礎架構或兩者結合中運行 Red Hat OpenShift 和NetApp儲存的客戶提供最佳實務。
+* 展示本地和雲端環境以及兩者混合環境的策略和選項。
+

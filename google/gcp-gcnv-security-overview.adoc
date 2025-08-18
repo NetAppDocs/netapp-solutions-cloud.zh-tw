@@ -1,0 +1,74 @@
+---
+sidebar: sidebar 
+permalink: google/gcp-gcnv-security-overview.html 
+keywords: secure, architecture, tenancy model, identity management, control plane, security hardening, encryption, zero trust, ransomware 
+summary: Google Cloud 中的Google Cloud NetApp Volumes提供了多種方式來原生保護您的資料。 
+---
+= Google Cloud 中的Google Cloud NetApp Volumes如何保護您的數據
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Google Cloud 中的Google Cloud NetApp Volumes提供了多種方式來原生保護您的資料。
+
+
+
+== 安全架構和租賃模型
+
+Google Cloud NetApp Volumes透過將服務管理（控制平面）和資料存取（資料平面）劃分到不同的端點，從而彼此之間不會產生影響，從而在 Google Cloud 中提供安全架構（請參閱link:gcp-gcnv-arch-detail.html["Google Cloud NetApp Volumes架構"]）。它使用谷歌的 https://cloud.google.com/vpc/docs/private-services-access?hl=en_US["私人服務訪問"^]（PSA）框架來提供服務。此框架區分了服務生產者（由NetApp提供和營運）和服務消費者（客戶專案中的虛擬私有雲 (VPC)，用於託管想要存取Google Cloud NetApp Volumes檔案共用的用戶端）。
+
+在此架構中，租用戶（參見link:gcp-gcnv-arch-detail.html#tenancy-model["租賃模型"]) 被定義為除非使用者明確連接，否則彼此完全隔離的 Google Cloud 專案。租用戶可以使用Google Cloud NetApp Volumes磁碟區平台將資料磁碟區、外部名稱服務以及解決方案的其他重要部分與其他租用戶完全隔離。由於Google Cloud NetApp Volumes平台透過 VPC 對等連接，因此這種隔離也適用於它。您可以使用共用 VPC 在多個專案之間共用Google Cloud NetApp Volumes磁碟區（請參閱link:gcp-gcnv-arch-detail.html#shared-vpcs["共享 VPC"]）。您可以對 SMB 共用和 NFS 匯出套用存取控制，以限制誰或什麼可以檢視或修改資料集。
+
+
+
+== 控制平面的強大身分管理
+
+在進行Google Cloud NetApp Volumes配置的控制平面中，身分識別管理透過使用 https://cloud.google.com/iam/docs/overview["身分存取管理 (IAM)"^]。 IAM 是一項標準服務，可讓您控制對 Google Cloud 專案執行個體的驗證（登入）和授權（權限）。所有設定均透過使用 TLS 1.2 加密的安全 HTTPS 傳輸使用Google Cloud NetApp Volumes API 執行，並使用 JWT 令牌執行驗證以增強安全性。  Google Cloud NetApp Volumes的 Google 控制台 UI 將使用者輸入轉換為Google Cloud NetApp Volumes API 呼叫。
+
+
+
+== 安全強化－限制攻擊面
+
+有效安全的一部分是限制服務中可用的攻擊面數量。攻擊面可以包括各種各樣的東西，包括靜態資料、動態傳輸資料、登入資料和資料集本身。
+
+託管服務消除了其設計中固有的一些攻擊面。基礎設施管理，如本節所述link:gcp-gcnv-service-operation.html["服務運營，"]由專門的團隊處理並實現自動化，以減少人工實際接觸配置的次數，有助於減少有意和無意的錯誤。網路被隔離，以便只有必要的服務才能相互存取。加密已融入資料儲存中，只有資料平面需要Google Cloud NetApp Volumes管理員的安全關注。透過將大部分管理隱藏在 API 介面後面，可以透過限制攻擊面來實現安全性。
+
+
+
+== 零信任模型
+
+從歷史上看，IT 安全理念一直是信任但要驗證，並表現為僅依靠外部機制（如防火牆和入侵偵測系統）來減輕威脅。然而，攻擊和入侵已經演變成透過網路釣魚、社會工程、內部威脅和其他提供驗證的方法來繞過環境中的驗證，從而進入網路並造成破壞。
+
+零信任已成為安全領域的一種新方法，其當前的口號是「不信任任何事物，但仍然驗證一切」。因此，預設情況下不允許任何內容存取。這一口號透過多種方式執行，包括標準防火牆和入侵偵測系統 (IDS)，以及以下方法：
+
+* 強式驗證方法（例如 AES 加密的 Kerberos 或 JWT 令牌）
+* 單一強大的身分來源（例如 Windows Active Directory、輕量級目錄存取協定 (LDAP) 和 Google IAM）
+* 網路分段和安全多租戶（預設只允許租戶存取）
+* 使用最小特權存取策略進行細粒度存取控制
+* 擁有專門的、值得信賴的管理員的小型獨家名單，具有數位審計和紙本記錄
+
+
+在 Google Cloud 中運行的Google Cloud NetApp Volumes透過實施「不信任任何事物，驗證一切」的立場來遵循零信任模型。
+
+
+
+== 加密
+
+加密靜態資料（請參閱link:gcp-gcnv-data-encrypt-at-rest.html["靜態資料加密"]) 透過使用 XTS-AES-256 密碼與NetApp卷加密 (NVE) 以及link:gcp-gcnv-data-encrypt-in-transit.html#smb-encryption["SMB 加密"]或 NFS Kerberos 5p 支援。請放心，跨區域複製傳輸受到 TLS 1.2 加密的保護（請參閱部分連結：gcp-gcnv-security-considerations.html#Detection, Prevention and mitigation of ransomware, Malware, and viral#cross-region-replication["Cross-region replication"]）。此外，Google 網路也提供加密通訊（請參閱link:gcp-gcnv-data-encrypt-in-transit.html["傳輸中的資料加密"]) 來增加一層防禦攻擊的保護。有關傳輸加密的更多信息，請參閱link:gcp-gcnv-data-encrypt-in-transit.html#google-cloud-network["Google Cloud 網路"]。
+
+
+
+== 資料保護和備份
+
+安全不僅僅意味著預防攻擊。它還涉及我們如何在攻擊發生時恢復。該策略包括資料保護和備份。 Google Cloud NetApp Volumes提供了在發生中斷時複製到其他區域的方法（請參閱link:gcp-gcnv-security-considerations.html#cross-region-replication["跨區域複製"]）或資料集是否受到勒索軟體攻擊的影響。它還可以透過以下方式將資料非同步備份到Google Cloud NetApp Volumes實例之外的位置：link:gcp-gcnv-security-considerations.html#cloud-volumes-service-backup["Google Cloud NetApp Volumes備份"] 。透過定期備份，緩解安全事件可以花費更少的時間，並為管理員節省金錢和精力。
+
+
+
+== 利用業界領先的 Snapshot 副本快速緩解勒索軟體
+
+除了資料保護和備份之外， Google Cloud NetApp Volumes還支援不可變的 Snapshot 副本（請參閱link:gcp-gcnv-security-considerations.html#immutable-snapshot-copies["不可變的 Snapshot 副本"]）允許從勒索軟體攻擊中恢復的捲（請參閱link:gcp-gcnv-service-operation.html["服務營運"]) 在發現問題後的幾秒鐘內就能解決問題，並且幹擾最小。恢復時間和效果取決於 Snapshot 計劃，但您可以建立在勒索軟體攻擊中提供僅一小時增量的 Snapshot 副本。快照副本對效能和容量使用的影響可以忽略不計，並且是一種保護資料集的低風險、高回報的方法。

@@ -1,0 +1,62 @@
+---
+indexpage:
+  title: NetApp公有雲與混合雲解決方案
+  summary: NetApp解決方案是一套策略和技術能力，強調NetApp產品和服務組合來支援客戶最關鍵的業務需求。
+  lead: NetApp解決方案是一套策略和技術能力，強調NetApp產品和服務組合來支援客戶最關鍵的業務需求。
+  tiles:
+  - title: 開始
+    links:
+    - title: 什麼是新的
+      url: "/whats-new.html"
+    - title: 部落格
+      url: "/blogs.html"
+    - title: 影片和演示
+      url: "/videos/index.html"
+  - title: 適用於 VMware 的NetApp雲端解決方案
+    links:
+    - title: VMware 的公有雲
+      url: "/vmware/vmw-hybrid-overview.html"
+    - title: VMware 混合雲端用例
+      url: "/vmware/vmw-hybrid-use-cases.html"
+    - title: 適用於 AWS/VMC 的NetApp
+      url: "/vmware/vmw-aws-vmc-overview.html"
+    - title: 適用於 AWS/EVS 的NetApp
+      url: "/vmware/evs-mount-fsxn-intro.html"
+    - title: NetApp適用於 Azure/AVS
+      url: "/vmware/vmw-azure-avs-overview.html"
+    - title: NetApp適用於 GCP/GCVE
+      url: "/vmware/vmw-gcp-gcve-overview.html"
+    - title: 適用於 VMware 的BlueXP disaster recovery
+      url: "/vmware/vmw-hybrid-dr-overview.html"
+  - title: 適用於 OpenShift 的NetApp雲端解決方案
+    links:
+    - title: 適用於本機的 OpenShift
+      url: "/openshift/os-op-solution.html"
+    - title: 具有自管理元件的混合雲
+      url: "/openshift/os-sm-solution.html"
+    - title: 具有提供者管理元件的混合雲
+      url: "/openshift/os-pm-solution.html"
+    - title: 使用Trident Protect 保護數據
+      url: "/openshift/os-dp-tp-solution.html"
+    - title: 使用第三方工具保護容器應用
+      url: "/openshift/os-dp-velero-solution.html"
+  - title: VMware Sovereign Cloud 解決方案
+    links:
+    - title: 了解主權雲
+      url: https://docs.netapp.com/us-en/netapp-solutions-virtualization/vmware/vmw-sovereign-cloud.html
+    - title: NetApp與 Sovereign Cloud 的集成
+      url: https://docs.netapp.com/us-en/netapp-solutions-virtualization/vmware/vmw-sovereign-cloud-use-cases.html
+    - title: 主權雲端解決方案概述
+      url: https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/docs/vmw-sovereign-cloud-solution-brief-customer.pdf
+    - title: 主權雲解釋
+      url: https://www.vmware.com/topics/glossary/content/sovereign-cloud.html
+    - title: VMware Sovereign Cloud 安全合規的基礎架構
+      url: https://www.vmware.com/solutions/cloud-infrastructure/sovereign-cloud
+  - title: 解決方案請求和回饋
+    links:
+    - title: 請求自動化
+      url: https://github.com/NetAppDocs/netapp-solutions/issues/new?body=[Request%20Automation]%0d%0a%0d%0aSolution%20Name:%20%0d%0aRequest%20Title:%20%0d%0aDescription:%0d%0aSuggestions:&title=Request%20Automation%20-%20%3Crequest_title%3E
+    - title: 提出新的解決方案
+      url: https://github.com/NetAppDocs/netapp-solutions/issues/new?body=[Request%20Solution]%0d%0a%0d%0aSolution%20Use%20Case:%20%0d%0aSolution%20Description:%20%0d%0aAdditional%20Comments:&title=Request%20Solution%20-%20%3Csolution%3E
+    - title: 提供解決方案回饋
+      url: https://github.com/NetAppDocs/netapp-solutions/issues/new?body=[Solution%20Feedback]%0d%0a%0d%0aSolution%20Name:%20%0d%0aSolution%20Feedback:%20%0d%0aAdditional%20Comments:&title=Solution%20Feedback%20-%20%3Csolution%3E

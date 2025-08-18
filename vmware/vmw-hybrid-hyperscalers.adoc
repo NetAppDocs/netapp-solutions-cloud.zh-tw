@@ -1,0 +1,168 @@
+---
+sidebar: sidebar 
+permalink: vmware/vmw-hybrid-hyperscalers.html 
+keywords: NetApp Solutions, hyperscalers, amazon, vmc, vmware managed cloud, microsoft, azure, avs, azure vmware solution, google cloud platform, gcp, google cloud virtualization engine, gcve, enterprise, hybrid, cloud, migrate, migration, disaster recovery, dr 
+summary:  
+---
+= 針對超大規模企業 VMware 的NetApp解決方案
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+進一步了解NetApp為三大 (3) 個主要超大規模企業帶來的功能 - 從NetApp作為來賓連接儲存設備或補充 NFS 資料儲存到遷移工作流程、擴展/爆發到雲端、備份/復原和災難復原。
+
+選擇您的雲，讓NetApp完成剩下的工作！
+
+image:netapp-cloud.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+NOTE: 若要查看特定超大規模器的功能，請按一下該超大規模器的對應標籤。
+
+透過選擇以下選項跳到所需內容的部分：
+
+* link:#config["超大規模配置中的 VMware"]
+* link:#datastore["NetApp儲存選項"]
+* link:#solutions["NetApp /VMware 雲端解決方案"]
+
+
+
+
+== 超大規模配置中的 VMware
+
+與本地一樣，規劃基於雲端的虛擬化環境對於成功創建虛擬機器和遷移的生產就緒環境至關重要。
+
+[role="tabbed-block"]
+====
+.AWS/VMC
+--
+本節介紹如何設定和管理 VMware Cloud on AWS SDDC，並將其與可用於連接NetApp儲存的選項結合使用。
+
+
+NOTE: 客戶機內儲存是將Cloud Volumes ONTAP連接到 AWS VMC 的唯一支援方法。
+
+設定過程可分為以下步驟：
+
+* 部署和配置 VMware Cloud for AWS
+* 將 VMware Cloud 連接到 FSx ONTAP
+
+
+查看詳細信息link:../vmware/vmw-aws-vmc-setup.html["VMC 的設定步驟"]。
+
+--
+.Azure/AVS
+--
+本部分介紹如何設定和管理 Azure VMware 解決方案，並將其與用於連接NetApp儲存裝置的可用選項結合使用。
+
+
+NOTE: 來賓內儲存是將Cloud Volumes ONTAP連接到 Azure VMware 解決方案的唯一支援方法。
+
+設定過程可分為以下步驟：
+
+* 註冊資源提供者並建立私有雲
+* 連接到新的或現有的 ExpressRoute 虛擬網路網關
+* 驗證網路連線並存取私有雲
+
+
+查看詳細信息link:azure-setup.html["AVS設定步驟"]。
+
+--
+.良好操作規範/良好行為規範
+--
+本節介紹如何設定和管理 GCVE，以及如何將其與可用於連接NetApp儲存的選項結合使用。
+
+
+NOTE: 客戶機內儲存是將Cloud Volumes ONTAP和Google Cloud NetApp Volumes連接到 GCVE 的唯一支援方法。
+
+設定過程可分為以下步驟：
+
+* 部署和配置 GCVE
+* 啟用對 GCVE 的私人訪問
+
+
+查看詳細信息link:gcp-setup.html["GCVE 的設定步驟"]。
+
+--
+====
+
+
+== NetApp儲存選項
+
+NetApp儲存可以在 3 個主要超大規模伺服器中以多種方式使用 - 既可以作為客戶機連接，也可以作為補充 NFS 資料儲存。
+
+請訪問link:vmw-hybrid-support-configs.html["支援的NetApp儲存選項"]了解更多。
+
+[role="tabbed-block"]
+====
+.AWS/VMC
+--
+AWS 支援以下配置的NetApp儲存：
+
+* FSx ONTAP作為來賓連接存儲
+* Cloud Volumes ONTAP (CVO) 作為來賓連接存儲
+* FSx ONTAP作為補充 NFS 資料存儲
+
+
+查看詳細信息link:aws-guest.html["VMC 的用戶機連線儲存選項"]。查看詳細信息link:aws-native-nfs-datastore-option.html["VMC 的補充 NFS 資料儲存選項"]。
+
+--
+.Azure/AVS
+--
+Azure 支援以下配置的NetApp儲存體：
+
+* Azure NetApp Files(ANF) 作為來賓連接儲存
+* Cloud Volumes ONTAP (CVO) 作為來賓連接存儲
+* Azure NetApp Files(ANF) 作為補充 NFS 資料存儲
+
+
+查看詳細信息link:azure-guest.html["AVS 的來賓連線儲存選項"]。查看詳細信息link:azure-native-nfs-datastore-option.html["AVS 的補充 NFS 資料儲存選項"]。
+
+--
+.良好操作規範/良好行為規範
+--
+Google Cloud 支援以下配置的NetApp儲存：
+
+* Cloud Volumes ONTAP (CVO) 作為來賓連接存儲
+* Google Cloud NetApp Volumes （NetApp Volumes）作為來賓連接存儲
+* Google Cloud NetApp Volumes （NetApp Volumes）作為補充 NFS 資料存儲
+
+
+查看詳細信息link:gcp-guest.html["GCVE 的來賓連接儲存選項"]。查看詳細信息link:gcp-ncvs-datastore.html["GCVE 的補充 NFS 資料儲存選項"]。
+
+閱讀更多link:https://www.netapp.com/blog/cloud-volumes-service-google-cloud-vmware-engine/["Google Cloud NetApp Volumes資料儲存區支援 Google Cloud VMware Engine（NetApp部落格）"^]或者link:https://cloud.google.com/blog/products/compute/how-to-use-netapp-cvs-as-datastores-with-vmware-engine["如何將Google Cloud NetApp Volumes用作 Google Cloud VMware Engine 的資料儲存區（Google 部落格）"^]
+
+--
+====
+
+
+== NetApp /VMware 雲端解決方案
+
+透過NetApp和 VMware 雲端解決方案，許多用例都可以輕鬆部署在您選擇的超大規模中。  VMware 將主要的雲端工作負載用例定義為：
+
+* 保護（包括災難復原和備份/還原）
+* 遷移
+* 延長
+
+
+[role="tabbed-block"]
+====
+.AWS/VMC
+--
+link:vmw-aws-vmc-solutions.html["瀏覽適用於 AWS/VMC 的NetApp解決方案"]
+
+--
+.Azure/AVS
+--
+link:vmw-azure-avs-solutions.html["瀏覽適用於 Azure/AVS 的NetApp解決方案"]
+
+--
+.良好操作規範/良好行為規範
+--
+link:vmw-gcp-gcve-solutions.html["瀏覽適用於 Google Cloud Platform (GCP)/GCVE 的NetApp解決方案"]
+
+--
+====

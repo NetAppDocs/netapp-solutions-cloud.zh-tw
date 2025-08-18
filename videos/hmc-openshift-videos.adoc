@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: videos/hmc-openshift-videos.html 
+summary: 展示NetApp混合雲虛擬化解決方案的影片和演示 
+keywords: hybrid cloud, rosa, fsx ontap, azure vmware, netapp hci, videos, demos 
+---
+= 觀看有關NetApp的 Red Hat OpenShift 混合多雲解決方案的視頻
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+探索 NetApp 的綜合影片庫，其中包含NetApp為 Red Hat OpenShift 提供的混合多雲解決方案。該集合包括使用 FSx ONTAP對 AWS 上的 OpenShift (ROSA) 進行快照和復原、與Trident 的整合、應用程式的故障轉移和故障復原以及使用 Ansible 在FlexPod上自動部署 Oracle RAC 的示範。
+
+
+
+== 快照和恢復
+
+.使用Amazon FSx ONTAP儲存為 AWS (ROSA) 叢集上的 Red Hat OpenShift Service 應用程式進行快照/還原
+video::36ecf505-5d1d-4e99-a6f8-b11c00341793[panopto,width=360]
+
+
+== 儲存集成
+
+.FSx ONTAP與Trident的集成
+video::621ae20d-7567-4bbf-809d-b01200fa7a68[panopto,width=360]
+
+
+== 故障轉移和故障恢復
+
+.使用 FSx ONTAP在 ROSA 上實現應用程式的故障轉移和故障復原
+video::e9a07d79-42a1-4480-86be-b01200fa62f5[panopto,width=360]
+
+
+== 解決方案自動化
+
+.使用 Ansible 在FlexPod上自動部署 Oracle 19c RAC
+video::VcQMJIRzhoY[youtube,width=360]

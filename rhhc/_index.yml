@@ -1,0 +1,64 @@
+---
+indexpage:
+  title: NetApp混合多雲與 Red Hat OpenShift 容器工作負載
+  summary: NetApp混合多雲解決方案與 Red Hat OpenShift 容器平台結合，是一組策略和技術能力，展示了在本地和公有雲中輕鬆協調有狀態容器工作負載的資料保護和遷移功能。
+  lead: NetApp混合多雲解決方案與 Red Hat OpenShift 容器平台結合，是一組策略和技術能力，展示了在本地和公有雲中輕鬆協調有狀態容器工作負載的資料保護和遷移功能。
+  tiles:
+  - title: 開始
+    links:
+    - title: 概況
+      url: "../openshift/os-solutions-overview.html"
+    - title: 價值主張
+      url: "../openshift/os-solutions-value-prop.html"
+    - title: 經過驗證的解決方案
+      url: "../openshift/os-solutions-validated.html"
+    - title: 已驗證版本
+      url: "../openshift/os-solutions-versions.html"
+    - title: 支援的儲存選項
+      url: "../openshift/os-solutions-storage-options.html"
+  - title: 本地工作負載
+    links:
+    - title: 本地解決方案
+      url: "../openshift/os-op-solution.html"
+    - title: 配置環境
+      url: "../openshift/os-op-setup.html"
+    - title: 使用 ACC 保護數據
+      url: "../openshift/os-op-data-protection.html"
+    - title: 使用 ACC 遷移數據
+      url: "../openshift/os-op-data-migration.html"
+  - title: 自我管理的混合雲工作負載
+    links:
+    - title: 解決方案概述
+      url: "../openshift/os-sm-solution.html"
+    - title: 配置環境
+      url: "../openshift/os-sm-setup.html"
+    - title: 使用 ACC 保護數據
+      url: "../openshift/os-sm-data-protection.html"
+    - title: 使用 ACC 遷移數據
+      url: "../openshift/os-sm-data-migration.html"
+  - title: 提供者管理的混合雲工作負載
+    links:
+    - title: 具有提供者管理元件的混合雲解決方案
+      url: "../openshift/os-pm-solution.html"
+    - title: 配置環境
+      url: "../openshift/os-pm-setup.html"
+    - title: 使用 ACS 保護數據
+      url: "../openshift/os-pm-aws-dp.html"
+    - title: 使用BlueXP遷移數據
+      url: "../openshift/os-pm-aws-data-migration.html"
+    - title: 其他解決方案
+      url: "../openshift/os-pm-rosa-additional.html"
+  - title: 使用第三方工具保護容器應用
+    links:
+    - title: 概況
+      url: "../openshift/os-dp-velero-solution.html"
+    - title: 安裝 OADP
+      url: "../openshift/os-dp-velero-installation.html"
+    - title: 使用 Velero 備份容器應用程式
+      url: "../openshift/os-dp-velero-backup.html"
+    - title: 使用 Velero 從備份恢復
+      url: "../openshift/os-dp-velero-restore.html"
+    - title: 遷移應用程式
+      url: "../openshift/os-dp-velero-migrate.html"
+    - title: 刪除備份和還原
+      url: "../openshift/os-dp-velero-delete.html"

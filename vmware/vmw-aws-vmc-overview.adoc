@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: vmware/vmw-aws-vmc-overview.html 
+keywords: NetApp Solutions, hyperscalers, amazon, vmc, vmware managed cloud, enterprise, hybrid, cloud, migrate, migration, disaster recovery, dr 
+summary:  
+---
+= NetApp的 AWS VMC 功能
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+進一步了解NetApp為 AWS VMware Cloud (VMC) 帶來的功能 - 從NetApp作為來賓連接儲存裝置或補充 NFS 資料儲存到遷移工作流程、擴展/爆發到雲端、備份/復原和災難復原。
+
+透過選擇以下選項跳到所需內容的部分：
+
+* link:#config["在 AWS 中配置 VMC"]
+* link:#datastore["適用於 VMC 的NetApp儲存選項"]
+* link:#solutions["NetApp /VMware 雲端解決方案"]
+
+
+
+
+== 在 AWS 中配置 VMC
+
+與本地一樣，規劃基於雲端的虛擬化環境對於成功創建虛擬機器和遷移的生產就緒環境至關重要。
+
+本節介紹如何設定和管理 VMware Cloud on AWS SDDC，並將其與可用於連接NetApp儲存的選項結合使用。
+
+
+NOTE: 客戶機內儲存是將Cloud Volumes ONTAP連接到 AWS VMC 的唯一支援方法。
+
+設定過程可分為以下步驟：
+
+* 部署和配置 VMware Cloud for AWS
+* 將 VMware Cloud 連接到 FSx ONTAP
+
+
+查看詳細信息link:../vmware/vmw-aws-vmc-setup.html["VMC 的設定步驟"]。
+
+
+
+== 適用於 VMC 的NetApp儲存選項
+
+NetApp儲存在 AWS VMC 中可以以多種方式使用 - 既可以作為猜測連接，也可以作為補充 NFS 資料儲存。
+
+請訪問link:vmw-hybrid-support-configs.html["支援的NetApp儲存選項"]了解更多。
+
+AWS 支援以下配置的NetApp儲存：
+
+* FSx ONTAP作為來賓連接存儲
+* Cloud Volumes ONTAP (CVO) 作為來賓連接存儲
+* FSx ONTAP作為補充 NFS 資料存儲
+
+
+查看詳細信息link:aws-guest.html["VMC 的用戶機連線儲存選項"]。查看詳細信息link:aws-native-nfs-datastore-option.html["VMC 的補充 NFS 資料儲存選項"]。
+
+
+
+== 解決方案用例
+
+透過NetApp和 VMware 雲端解決方案，許多用例都可以輕鬆部署在您的 AWS VMC 中。針對 VMware 定義的每個雲端區域都定義了用例：
+
+* 保護（包括災難復原和備份/還原）
+* 延長
+* 遷移
+
+
+link:vmw-aws-vmc-solutions.html["瀏覽適用於 AWS VMC 的NetApp解決方案"]

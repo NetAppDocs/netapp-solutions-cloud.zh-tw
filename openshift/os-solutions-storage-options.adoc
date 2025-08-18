@@ -1,0 +1,69 @@
+---
+sidebar: sidebar 
+permalink: openshift/os-solutions-storage-options.html 
+keywords: NetApp Solutions, hybrid cloud, container workloads, containers, Red Hat OpenShift, RedHat OpenShift, VMware, ROSA, ACC, Trident Protect, Advanced Cluster Management, ACM, Hub Cluster, VMware CSI, nconnect, session trunking, SMBC 
+summary:  
+---
+= 支援NetApp Storage 與 Red Hat OpenShift Containers 的集成
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+無論 Red Hat OpenShift 容器是在 VMware 上運行還是在超大規模環境中運行， NetApp Trident都可以用作其支援的各種類型的後端NetApp儲存的 CSI 配置器。
+
+下圖描述了可使用NetApp Trident與 OpenShift 叢集整合的各種後端NetApp儲存。
+
+image:a-w-n-astra-trident.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+ONTAP儲存虛擬機器 (SVM) 提供安全的多租戶。單一 OpenShift 叢集可以連接到單一 SVM 或多個 SVM，甚至多個ONTAP叢集。儲存類別根據參數或標籤過濾後端儲存。儲存管理員使用 trident 後端設定定義連接到儲存系統的參數。成功建立連線後，它會建立 trident 後端並填入儲存類別可以過濾的資訊。
+
+storageclass和backend的關係如下圖所示。
+
+image:rhhc-storage-options-sc2ontap.png["儲存類別與ONTAP 的關係"]
+
+應用程式擁有者請求使用儲存類別的持久性磁碟區。儲存類別過濾後端儲存。
+
+pod與後端儲存的關係如下圖所示。
+
+image:rhhc-storage-opt-pod2vol.png["Pod 與ONTAP卷的關係"]
+
+
+
+== 容器儲存介面 (CSI) 選項
+
+在 vSphere 環境中，客戶可以選擇 VMware CSI 驅動程式和/或Trident CSI 與ONTAP整合。使用 VMware CSI 時，持久性磁碟區將作為本機 SCSI 磁碟使用，而使用Trident時，它將與網路一起使用。
+
+由於 VMware CSI 不支援ONTAP的 RWX 存取模式，因此如果需要 RWX 模式，應用程式需要使用Trident CSI。對於基於 FC 的部署，VMware CSI 是首選，而SnapMirror業務連續性 (SMBC) 可提供區域層級的高可用性。
+
+
+
+=== VMware CSI 支援
+
+* 基於核心區塊的資料儲存（FC、FCoE、iSCSI、NVMeoF）
+* 基於核心檔案的資料儲存（NFS v3、v4）
+* vVol 資料儲存（區塊和檔案）
+
+
+
+
+=== Trident有以下驅動程式支援ONTAP
+
+* ontap-san（專用卷）
+* ontap-san-economy（共享卷）
+* ontap-nas（專用卷）
+* ontap-nas-economy（共享卷）
+* ontap-nas-flexgroup（專用大規模卷）
+
+
+對於 VMware CSI 和Trident CSI， ONTAP支援 NFS 的 nconnect、會話中繼、kerberos 等以及區塊協定的多路徑、chap 驗證等。
+
+在 AWS 中， Amazon FSx for NetApp ONTAP （FSx ONTAP）可以部署在單一可用區（AZ）或多可用區中。對於需要高可用性的生產工作負載，與單可用區相比，多可用區提供區域級容錯能力並具有更好的 NVMe 讀取快取。欲了解更多信息，請查看link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/performance.html["AWS 效能指南"]。
+
+為了節省災難復原站點的成本，可以使用單一 AZ FSx ONTAP 。image:rhhc-storage-options-fsxn-options.png["多可用區和單可用區之間的複製"]
+
+有關 FSx ONTAP支援的 SVM 數量，請參閱link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html#max-svms["管理 FSx ONTAP儲存虛擬機"]

@@ -1,0 +1,295 @@
+---
+sidebar: sidebar 
+permalink: vmware/vmw-aws-vmc-nfs-ds-config.html 
+keywords:  
+summary:  
+---
+= 在 AWS 中建立補充 NFS 資料存儲
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware Cloud 準備好並連接到 AWS VPC 後，您必須將Amazon FSx ONTAP部署到新指定的 VPC 中，而不是原來連接的或現有的預設 VPC 中。
+
+首先，在 SDDC 所在的相同區域和可用區中部署一個額外的 VPC，然後將Amazon FSx ONTAP部署到新的 VPC 中。 https://docs.vmware.com/en/VMware-Cloud-on-AWS/services/com.vmware.vmc-aws-networking-security/GUID-C957DBA7-16F5-412B-BB72-15B49B714723.html["VMware Cloud 中的 SDDC 群組的配置"^]控制台啟用連線到將部署 FSx ONTAP 的新指定的 VPC 所需的網路設定選項。
+
+
+NOTE: 在與 VMware Cloud on AWS SDDC 相同的可用區域中部署 FSx ONTAP 。
+
+
+NOTE: 您無法在已連線的 VPC 中部署 FSx ONTAP 。相反，您必須將其部署在新的指定 VPC 中，然後透過 SDDC 群組將 VPC 連接到 VMware Managed Transit Gateway (vTGW)。
+
+.步驟 1：在新的指定 VPC 中建立Amazon FSx ONTAP
+[%collapsible%open]
+====
+若要建立和掛載Amazon FSx ONTAP檔案系統，請完成下列步驟：
+
+. 開啟Amazon FSx控制台 `https://console.aws.amazon.com/fsx/`並選擇*建立檔案系統*來啟動*檔案系統建立*精靈。
+. 在選擇檔案系統類型頁面上，選擇 * Amazon FSx ONTAP*，然後按一下 *下一步*。出現「建立檔案系統」頁面。
++
+image:fsx-nfs-002.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 對於建立方法，選擇*標準建立*。
++
+image:fsx-nfs-003.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+image:fsx-nfs-004.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+
+NOTE: 不同客戶的資料儲存大小差異很大。雖然每個 NFS 資料儲存區建議的虛擬機器數量是主觀的，但許多因素決定了可放置在每個資料儲存區上的虛擬機器的最佳數量。雖然大多數管理員只考慮容量，但發送到 VMDK 的並發 I/O 量是影響整體效能的最重要因素之一。使用本地的效能統計資料來相應地調整資料儲存卷的大小。
+
+. 在虛擬私有雲 (VPC) 的 *網路* 部分中，選擇適當的 VPC 和首選子網路以及路由表。在這種情況下，從下拉式選單中選擇 Demo-FSxforONTAP-VPC。
++
+
+NOTE: 確保這是一個新的指定 VPC，而不是連接的 VPC。
+
++
+
+NOTE: 預設情況下，FSx ONTAP使用 198.19.0.0/16 作為檔案系統的預設端點 IP 位址範圍。確保端點 IP 位址範圍與 AWS SDDC 上的 VMC、關聯的 VPC 子網路和本機基礎架構不衝突。如果您不確定，請使用沒有衝突的不重疊範圍。
+
++
+image:fsx-nfs-005.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 在加密金鑰的「*安全與加密*」部分中，選擇保護檔案系統靜態資料的 AWS Key Management Service (AWS KMS) 加密金鑰。對於*檔案系統管理密碼*，請輸入 fsxadmin 使用者的安全密碼。
++
+image:fsx-nfs-006.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 在「預設儲存虛擬機器配置」部分中，指定 SVM 的名稱。
++
+
+NOTE: 從 GA 開始，支援四個 NFS 資料儲存。
+
++
+image:fsx-nfs-007.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 在「*預設磁碟區配置*」部分中，指定資料儲存所需的磁碟區名稱和大小，然後按一下「*下一步*」。這應該是一個 NFSv3 磁碟區。對於*儲存效率*，選擇*已啟用*以開啟ONTAP儲存效率功能（壓縮、重複資料刪除和壓縮）。建立完成後，使用shell使用*_volumemodify_*修改磁碟區參數，如下所示：
++
+[cols="50%, 50%"]
+|===
+| 環境 | 配置 
+
+
+| 容量保證（空間保證方式） | 無（精簡配置）– 預設設定 
+
+
+| fractional_reserve（部分儲備） | 0% – 預設設定 
+
+
+| snap_reserve（快照空間百分比） | 0% 
+
+
+| 自動調整大小（自動調整大小模式） | 擴大_縮小 
+
+
+| 儲存效率 | 已啟用 – 預設設定 
+
+
+| 自動刪除 | 卷/oldest_first 
+
+
+| 卷分層策略 | 僅限快照 – 預設設定 
+
+
+| 嘗試先行 | 自動成長 
+
+
+| 快照策略 | 沒有任何 
+|===
++
+使用以下 SSH 命令建立和修改磁碟區：
+
++
+*從 shell 建立新資料儲存卷的命令：*
+
++
+ volume create -vserver FSxONTAPDatastoreSVM -volume DemoDS002 -aggregate aggr1 -size 1024GB -state online -tiering-policy snapshot-only -percent-snapshot-space 0 -autosize-mode grow -snapshot-policy none -junction-path /DemoDS002
++
+*注意：*透過 shell 建立的磁碟區將需要幾分鐘才能顯示在 AWS 控制台中。
+
++
+*修改預設未設定的音量參數的命令：*
+
++
+....
+volume modify -vserver FSxONTAPDatastoreSVM -volume DemoDS002 -fractional-reserve 0
+volume modify -vserver FSxONTAPDatastoreSVM -volume DemoDS002 -space-mgmt-try-first vol_grow
+volume modify -vserver FSxONTAPDatastoreSVM -volume DemoDS002 -autosize-mode grow
+....
++
+image:fsx-nfs-008.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+image:fsx-nfs-009.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+
+NOTE: 在初始遷移場景中，預設快照策略可能會導致資料儲存容量已滿的問題。為了克服這個問題，修改快照策略以滿足需求。
+
+. 查看「建立檔案系統」頁面上顯示的檔案系統配置。
+. 按一下“建立檔案系統”。
++
+image:fsx-nfs-010.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+image:fsx-nfs-011.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+
+NOTE: 根據容量和效能要求重複上述步驟，建立更多儲存虛擬機器或檔案系統以及資料儲存磁碟區。
+
+
+
+若要了解Amazon FSx ONTAP效能，請參閱 https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/performance.html["Amazon FSx ONTAP效能"^]。
+
+====
+.步驟 2：建立 SDDC 群組
+[%collapsible%open]
+====
+建立檔案系統和 SVM 後，使用 VMware Console 建立 SDDC 群組並設定 VMware Transit Connect。為此，請完成以下步驟，並記住必須在 VMware Cloud Console 和 AWS Console 之間導覽。
+
+. 登入 VMC 控制台 `https://vmc.vmware.com`。
+. 在「*庫存*」頁面上，按一下「*SDDC 群組*」。
+. 在 *SDDC Groups* 標籤上，按一下 *ACTIONS* 並選擇 *Create SDDC Group*。為了演示目的，SDDC 組被稱為 `FSxONTAPDatastoreGrp`。
+. 在成員資格網格上，選擇要作為群組成員包含的 SDDC。
++
+image:fsx-nfs-012.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 驗證是否選取“為您的群組配置 VMware Transit Connect 將產生每個附件和資料傳輸的費用”，然後選擇*建立群組*。過程可能需要幾分鐘才能完成。
++
+image:fsx-nfs-013.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+====
+.步驟 3：設定 VMware Transit 連接
+[%collapsible%open]
+====
+. 將新建立的指定 VPC 附加到 SDDC 群組。選擇“外部 VPC”標籤並按照 https://docs.vmware.com/en/VMware-Cloud-on-AWS/services/com.vmware.vmc-aws-networking-security/GUID-A3D03968-350E-4A34-A53E-C0097F5F26A9.html["將外部 VPC 附加到群組的說明"^]。此過程可能需要 10-15 分鐘才能完成。
++
+image:fsx-nfs-014.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 按一下「新增帳戶」。
++
+.. 提供用於設定 FSx ONTAP檔案系統的 AWS 帳戶。
+.. 按一下“*新增*”。
+
+
+. 返回 AWS 控制台，登入同一個 AWS 帳戶並導覽至 *資源存取管理器* 服務頁面。有一個按鈕供您接受資源共享。
++
+image:fsx-nfs-015.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+
+NOTE: 作為外部 VPC 流程的一部分，您將透過 AWS 主控台透過資源存取管理員提示新的共用資源。共享資源是由 VMware Transit Connect 管理的 AWS Transit Gateway。
+
+. 點選*接受資源共享*。
++
+image:fsx-nfs-016.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 回到 VMC 控制台，您現在看到外部 VPC 處於關聯狀態。這可能需要幾分鐘才能出現。
+
+
+====
+.步驟 4：建立中轉網關連接
+[%collapsible%open]
+====
+. 在 AWS 控制台中，前往 VPC 服務頁面並導覽至用於設定 FSx 檔案系統的 VPC。在這裡，您可以透過點擊右側導覽窗格上的「*Transit Gateway Attachment*」來建立傳輸網關附件。
+. 在 *VPC 附件* 下，請確保選取 DNS 支援並選擇部署了 FSx ONTAP的 VPC。
++
+image:fsx-nfs-017.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 按一下「建立」****「中轉網關附件」****。
++
+image:fsx-nfs-018.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 返回 VMware Cloud Console，導覽回 SDDC 群組 > 外部 VPC 標籤。選擇用於 FSx 的 AWS 帳戶 ID，按一下 VPC，然後按一下 *接受*。
++
+image:fsx-nfs-019.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+image:fsx-nfs-020.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+
+NOTE: 此選項可能需要幾分鐘才會出現。
+
+. 然後在 *外部 VPC* 標籤中的 *路由* 欄位中，按一下 *新增路由* 選項並新增所需的路由：
++
+** Amazon FSx ONTAP浮動 IP 的浮動 IP 範圍的路由。
+** 新建立的外部 VPC 位址空間的路由。
++
+image:fsx-nfs-021.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+image:fsx-nfs-022.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+
+
+====
+.步驟 5：設定路由（AWS VPC 和 SDDC）和安全群組
+[%collapsible%open]
+====
+. 在 AWS 控制台中，透過在 VPC 服務頁面中找到 VPC 並選擇 VPC 的 *主* 路由表來建立返回 SDDC 的路由。
+. 瀏覽到下方面板中的路線表，然後按一下「*編輯路線*」。
++
+image:fsx-nfs-023.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 在*編輯路由*面板中，按一下*新增路由*，然後選擇*Transit Gateway*和關聯的 TGW ID 輸入 SDDC 基礎架構的 CIDR。按一下“儲存變更”。
++
+image:fsx-nfs-024.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 下一步是驗證關聯 VPC 中的安全性群組是否使用 SDDC 群組 CIDR 的正確入站規則進行更新。
+. 使用 SDDC 基礎架構的 CIDR 區塊更新入站規則。
++
+image:fsx-nfs-025.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+
+NOTE: 驗證 VPC（FSx ONTAP所在的位置）路由表是否已更新，以避免連線問題。
+
++
+
+NOTE: 更新安全群組以接受 NFS 流量。
+
+
+
+這是準備與適當的 SDDC 連線的最後一步。設定檔系統、新增路由並更新安全群組後，就可以掛載資料儲存了。
+
+====
+.步驟 6：將 NFS 磁碟區作為資料儲存附加到 SDDC 集群
+[%collapsible%open]
+====
+在設定檔系統並建立連線後，存取 VMware Cloud Console 來掛載 NFS 資料儲存。
+
+. 在 VMC 控制台中，開啟 SDDC 的 *儲存* 標籤。
++
+image:fsx-nfs-027.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 點擊“*附加資料儲存*”並填寫所需的值。
++
+
+NOTE: NFS 伺服器位址是 NFS IP 位址，可以在 AWS 控制台中的 FSx > 儲存虛擬機器標籤 > 端點下找到。
+
++
+image:fsx-nfs-028.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 點擊“*ATTACH DATASTORE*”將資料儲存附加到叢集。
++
+image:fsx-nfs-029.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 透過存取 vCenter 來驗證 NFS 資料存儲，如下所示：
++
+image:fsx-nfs-030.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+====

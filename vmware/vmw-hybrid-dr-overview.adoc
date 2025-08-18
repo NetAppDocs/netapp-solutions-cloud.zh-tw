@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: vmware/vmw-hybrid-dr-overview.html 
+keywords: dr, draas, bluexp, disaster recovery, vmfs datastore, nfs datastore, overview 
+summary: 本文檔的此部分介紹了BlueXP DRaaS 的配置，以便為本地 VMware VM 設定災難復原到另一個指定站點。 
+---
+= 概況
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+災難復原是每個 VMware 管理員最關心的問題。由於 VMware 將整個伺服器封裝成構成虛擬機器的一系列檔案；管理員利用基於區塊儲存的技術（例如複製、快照和副本）來保護這些虛擬機器。  ONTAP陣列提供內建複製功能，用於將磁碟區資料（以及駐留在指定資料儲存 LUN 上的虛擬機器）從一個站點傳輸到另一個站點。 BlueXP DRaaS 與 vSphere 整合並自動化整個工作流程，以便在災難發生時實現無縫故障轉移和故障復原。透過將儲存複製與智慧自動化相結合，管理員現在不僅可以採用可管理的方式來配置、自動化和測試災難復原計劃，而且還可以在災難發生時輕鬆運行這些計劃。
+
+VMware vSphere 環境中 DR 故障轉移最耗時的部分是在 DR 站點執行清點、註冊、重新配置和啟動虛擬機器所需的步驟。理想的解決方案既具有低 RPO（以分鐘為單位），又具有低 RTO（以分鐘到小時為單位）。  DR 解決方案中經常被忽略的一個因素是定期有效地測試 DR 解決方案的能力。
+
+要建立 DR 解決方案，請牢記以下因素：
+
+* 恢復時間目標 (RTO)。  RTO 是指企業從災難中復原的速度，或者更具體地說，是執行復原過程以使業務服務再次可用所需的時間。
+* 恢復點目標 (RPO)。  RPO 是指復原的資料相對於災難發生的時間而言，可供使用的時間。
+* 可擴展性和適應性。此因素包括隨著需求的增加而逐步增加儲存資源的能力。
+
+
+有關可用解決方案的更多技術信息，請參閱：
+
+* link:vmw-hybrid-dr-nfs.html["使用BlueXP DRaaS 為 NFS 資料儲存進行災難復原"]
+* link:vmw-hybrid-dr-vmfs.html["使用BlueXP DRaaS 對 VMFS 資料儲存進行災難復原"]
+

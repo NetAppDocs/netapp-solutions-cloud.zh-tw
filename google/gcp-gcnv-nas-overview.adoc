@@ -1,0 +1,20 @@
+---
+sidebar: sidebar 
+permalink: google/gcp-gcnv-nas-overview.html 
+keywords: nas, nfs, smb, cifs 
+summary: NAS 協定包括 NFS（v3 和 v4.1）和 SMB/CIFS（2.x 和 3.x）。這些協定是NetApp Volumes 允許跨多個 NAS 用戶端共用存取資料的方式。此外， Google Cloud NetApp Volumes可以同時提供對 NFS 和 SMB/CIFS 用戶端的存取（雙協定），同時遵守 NAS 共用中檔案和資料夾的所有身分和權限設定。 
+---
+= NAS 協定概述
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+NAS 協定包括 NFS（v3 和 v4.1）和 SMB/CIFS（2.x 和 3.x）。這些協定是NetApp Volumes 允許跨多個 NAS 用戶端共用存取資料的方式。此外， Google Cloud NetApp Volumes可以同時提供對 NFS 和 SMB/CIFS 用戶端的存取（雙協定），同時遵守 NAS 共用中檔案和資料夾的所有身分和權限設定。為了維持最高的資料傳輸安全性， Google Cloud NetApp Volumes支援使用 SMB 加密和 NFS Kerberos 5p 進行飛行中的協定加密。
+
+
+NOTE: 雙協定僅適用於NetApp Volumes-Performance。

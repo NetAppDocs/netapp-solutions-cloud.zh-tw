@@ -1,0 +1,354 @@
+---
+sidebar: sidebar 
+permalink: vmware/vmw-aws-vmc-migrate-hcx.html 
+keywords: aws, vmc, hybrid multicloud, migrate, vmware hcx, hcx 
+summary:  
+---
+= TR 4942：使用 VMware HCX 將工作負載遷移到 FSx ONTAP資料儲存區
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Amazon Web Services (AWS) 上的 VMware Cloud (VMC) 及其在Amazon FSx ONTAP上的補充 NFS 資料儲存的常見用例是遷移 VMware 工作負載。  VMware HCX 是一種首選方案，它提供了各種遷移方法，將在任何 VMware 支援的資料儲存上運行的本機虛擬機 (VM) 及其資料移至 VMC 資料存儲，其中包括 FSx ONTAP上的補充 NFS 資料儲存。
+
+
+
+== 概述：使用 VMware HCX、FSx ONTAP補充資料儲存區和 VMware Cloud 遷移虛擬機
+
+VMware HCX 主要是一個行動平台，旨在簡化跨雲端的工作負載遷移、工作負載重新平衡和業務連續性。它是 AWS 上 VMware Cloud 的一部分，提供多種遷移工作負載的方法，並可用於災難復原 (DR) 操作。
+
+本文檔提供了在本機和雲端資料中心端部署和配置 VMware HCX（包括其所有主要元件）的逐步指導，從而實現各種 VM 遷移機制。
+
+有關詳細信息，請參閱 https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10.html["VMware HCX 使用者指南"^]和 https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/getting-started-with-vmware-hcx-4-10/install-checklist-b-hcx-with-a-vmc-sddc-instance.html["安裝清單 B - 使用 VMware Cloud on AWS SDDC 目標環境的 HCX"^]。
+
+.摘要步驟
+[%collapsible%open]
+====
+此清單提供了安裝和設定 VMware HCX 的進階步驟：
+
+. 透過 VMware Cloud Services Console 為 VMC 軟體定義資料中心 (SDDC) 啟動 HCX。
+. 在本機 vCenter Server 中下載並部署 HCX Connector OVA 安裝程式。
+. 使用許可證金鑰啟動 HCX。
+. 將本機 VMware HCX Connector 與 VMC HCX Cloud Manager 配對。
+. 設定網路設定檔、計算設定檔和服務網格。
+. （可選）執行網路擴展以擴展網路並避免重新 IP。
+. 驗證設備狀態並確保可以遷移。
+. 遷移虛擬機器工作負載。
+
+
+====
+.先決條件
+[%collapsible%open]
+====
+在開始之前，請確保滿足以下先決條件。有關更多信息，請參閱 https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/preparing-for-hcx-installations.html["準備安裝"^] 。在滿足先決條件（包括連接性）後，透過從 VMC 的 VMware HCX 控制台產生許可證金鑰來設定和啟動 HCX。  HCX 啟動後，vCenter 外掛程式即部署，可透過 vCenter 控制台存取管理。
+
+在繼續 HCX 啟動和部署之前，必須完成以下安裝步驟：
+
+. 使用現有的 VMC SDDC 或按照此步驟建立新的 SDDClink:vmw-aws-vmc-setup.html["NetApp連結"^]或者這個 https://docs.vmware.com/en/VMware-Cloud-on-AWS/services/com.vmware.vmc-aws.getting-started/GUID-EF198D55-03E3-44D1-AC48-6E2ABA31FF02.html["VMware 連結"^]。
+. 從本機 vCenter 環境到 VMC SDDC 的網路路徑必須支援使用 vMotion 遷移虛擬機器。
+. 確保所需的 https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/preparing-for-hcx-installations/network-port-and-protocol-requirements.html["防火牆規則和連接埠"^]允許在本機 vCenter Server 和 SDDC vCenter 之間進行 vMotion 流量。
+. FSx ONTAP NFS 磁碟區應作為補充資料儲存安裝在 VMC SDDC 中。若要將 NFS 資料儲存附加到適當的集群，請按照此處概述的步驟操作link:vmw-aws-vmc-nfs-ds-overview.html["NetApp連結"^]或者這個 https://docs.vmware.com/en/VMware-Cloud-on-AWS/services/com.vmware.vmc-aws-operations/GUID-D55294A3-7C40-4AD8-80AA-B33A25769CCA.html["VMware 連結"^]。
+
+
+====
+.進階架構
+[%collapsible%open]
+====
+為了測試目的，用於此驗證的本機實驗室環境透過站點到站點 VPN 連接到 AWS VPC，從而允許透過外部傳輸網關在本地連接到 AWS 和 VMware 雲端 SDDC。 HCX 遷移和網路擴充流量透過網際網路在本地和 VMware 雲端目標 SDDC 之間流動。可以修改此架構以使用 Direct Connect 私有虛擬介面。
+
+下圖描述了高階架構。
+
+image:fsx-hcx-001.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+====
+
+
+== 解決方案部署
+
+請按照一系列步驟完成此解決方案的部署：
+
+.步驟 1：使用附加組件選項透過 VMC SDDC 啟動 HCX
+[%collapsible%open]
+====
+若要執行安裝，請完成以下步驟：
+
+. 登入 VMC 控制台 https://vmc.vmware.com/home["vmc.vmware.com"^]並訪問庫存。
+. 若要選擇適當的 SDDC 並存取附加元件，請按一下 SDDC 上的「檢視詳細資料」並選擇「附加元件」標籤。
+. 按一下「啟動 VMware HCX」。
++
+
+NOTE: 此步驟最多需要 25 分鐘才能完成。
+
++
+image:fsx-hcx-002.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 部署完成後，透過確認 HCX Manager 及其相關外掛程式在 vCenter 控制台中可用於驗證部署。
+. 建立適當的管理網關防火牆以開啟存取 HCX 雲端管理器所需的連接埠。 HCX 雲端管理器現在已準備好進行 HCX 作業。
+
+
+====
+.步驟 2：在本機 vCenter Server 中部署安裝程式 OVA
+[%collapsible%open]
+====
+為了使本地連接器能夠與 VMC 中的 HCX 管理器通信，請確保在本地環境中開啟了相應的防火牆連接埠。
+
+. 從 VMC 控制台導覽至 HCX 儀表板，前往管理，然後選擇系統更新標籤。按一下「請求下載連結」以取得 HCX 連接器 OVA 映像。
+. 下載 HCX 連接器後，在本機 vCenter Server 中部署 OVA。右鍵點選 vSphere 叢集並選擇部署 OVF 範本選項。
++
+image:fsx-hcx-005.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 在部署 OVF 範本精靈中輸入所需信息，按一下下一步，然後按一下完成以部署 VMware HCX 連接器 OVA。
+. 手動啟動虛擬設備。有關逐步說明，請轉至 https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-BFD7E194-CFE5-4259-B74B-991B26A51758.html["VMware HCX 使用者指南"^]。
+
+
+====
+.步驟 3：使用許可證金鑰啟動 HCX Connector
+[%collapsible%open]
+====
+在本機部署 VMware HCX Connector OVA 並啟動裝置後，請完成以下步驟以啟動 HCX Connector。從 VMC 的 VMware HCX 控制台產生許可證金鑰，並在 VMware HCX 連接器設定期間輸入許可證。
+
+. 從 VMware Cloud Console 中，前往“清單”，選擇 SDDC，然後按一下“查看詳細資料”。在「附加元件」標籤的 VMware HCX 磁貼中，按一下「開啟 HCX」。
+. 在「啟動金鑰」標籤中，按一下「建立啟動金鑰」。選擇系統類型為HCX連接器，然後按一下確認以產生金鑰。複製啟動密鑰。
++
+image:fsx-hcx-007.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+
+NOTE: 每個在本地部署的 HCX 連接器都需要單獨的金鑰。
+
+. 登入本機 VMware HCX 連接器，網址為 `"https://hcxconnectorIP:9443"`使用管理員憑證。
++
+
+NOTE: 使用 OVA 部署期間定義的密碼。
+
+. 在許可部分，輸入從步驟 2 複製的啟動金鑰，然後按一下啟動。
++
+
+NOTE: 本機 HCX 連接器必須具有 Internet 存取權限才能成功完成啟動。
+
+. 在資料中心位置下，提供在本機安裝 VMware HCX 管理器所需的位置。按一下「Continue（繼續）」。
+. 在系統名稱下，更新名稱並按一下繼續。
+. 選擇“是”，然後“繼續”。
+. 在「連接您的 vCenter」下，提供 vCenter Server 的 IP 位址或完全限定網域名稱 (FQDN) 和憑證，然後按一下「繼續」。
++
+
+NOTE: 使用 FQDN 以避免日後出現通訊問題。
+
+. 在設定 SSO/PSC 下，提供平台服務控制器的 FQDN 或 IP 位址，然後按一下繼續。
++
+
+NOTE: 輸入 vCenter Server 的 IP 位址或 FQDN。
+
+. 驗證資訊輸入是否正確，然後按一下「重新啟動」。
+. 完成後，vCenter Server 顯示為綠色。  vCenter Server 和 SSO 都必須具有正確的設定參數，這些參數應與上一頁相同。
++
+
+NOTE: 此過程大約需要 10 到 20 分鐘，以便將插件新增至 vCenter Server。
+
+
+
+image:fsx-hcx-008.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+====
+.步驟 4：將本機 VMware HCX Connector 與 VMC HCX Cloud Manager 配對
+[%collapsible%open]
+====
+. 若要在本機 vCenter Server 和 VMC SDDC 之間建立網站對，請登入本機 vCenter Server 並造訪 HCX vSphere Web Client 外掛程式。
++
+image:fsx-hcx-009.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 在基礎架構下，按一下新增網站配對。若要對遠端網站進行驗證，請輸入 VMC HCX Cloud Manager URL 或 IP 位址以及 CloudAdmin 角色的憑證。
++
+image:fsx-hcx-010.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+
+NOTE: 可以從 SDDC 設定頁面檢索 HCX 資訊。
+
++
+image:fsx-hcx-011.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+image:fsx-hcx-012.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 若要啟動網站配對，請按一下「連線」。
++
+
+NOTE: VMware HCX Connector 必須能夠透過連接埠 443 與 HCX Cloud Manager IP 通訊。
+
+. 建立配對後，新配置的網站配對可在 HCX 儀表板上取得。
+
+
+====
+.步驟 5：設定網路設定檔、計算設定檔和服務網格
+[%collapsible%open]
+====
+VMware HCX Interconnect (HCX-IX) 裝置透過網際網路提供安全隧道功能以及與目標網站的專用連接，從而實現複製和基於 vMotion 的功能。互連提供加密、流量工程和 SD-WAN。若要建立 HCI-IX 互連設備，請完成下列步驟：
+
+. 在「基礎架構」下，選擇「互連」>「多站點服務網格」>「計算設定檔」>「建立計算設定檔」。
++
+
+NOTE: 計算設定檔包含部署互連虛擬設備所需的運算、儲存和網路部署參數。他們還指定 VMware 資料中心的哪些部分可供 HCX 服務存取。
+
++
+有關詳細說明，請參閱 https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/configuring-and-managing-the-hcx-interconnect/configuring-the-hcx-service-mesh/create-a-compute-profile.html["建立計算配置檔案"^]。
+
++
+image:fsx-hcx-013.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 建立計算設定檔後，透過選擇多站點服務網格 > 網路設定檔 > 建立網路設定檔來建立網路設定檔。
+. 網路設定檔定義了 HCX 將用於其虛擬設備的一系列 IP 位址和網路。
++
+
+NOTE: 這將需要兩個或更多 IP 位址。這些 IP 位址將從管理網路指派給虛擬設備。
+
++
+image:fsx-hcx-014.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+有關詳細說明，請參閱 https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/configuring-and-managing-the-hcx-interconnect/configuring-the-hcx-service-mesh/create-a-network-profile.html["建立網路設定檔"^]。
+
++
+
+NOTE: 如果您透過網際網路連接 SD-WAN，則必須在「網路和安全性」部分下保留公共 IP。
+
+. 若要建立服務網格，請選擇「互連」選項中的「服務網格」標籤，然後選擇本機和 VMC SDDC 網站。
++
+服務網格建立本地和遠端計算和網路設定檔對。
+
++
+image:fsx-hcx-015.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+
+NOTE: 此過程的一部分涉及部署將在來源站點和目標站點上自動配置的 HCX 設備，從而建立安全的傳輸結構。
+
+. 選擇來源和遠端計算配置文件，然後按一下繼續。
++
+image:fsx-hcx-016.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 選擇需要啟動的服務並點擊繼續。
++
+image:fsx-hcx-017.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+
+NOTE: 複製輔助 vMotion 遷移、SRM 整合和 OS 輔助遷移需要 HCX Enterprise 授權。
+
+. 為服務網格建立名稱，然後按一下「完成」開始建立程序。部署大約需要 30 分鐘才能完成。配置服務網格後，遷移工作負載虛擬機器所需的虛擬基礎架構和網路已建立。
++
+image:fsx-hcx-018.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+====
+.步驟 6：遷移工作負載
+[%collapsible%open]
+====
+HCX 在兩個或多個不同的環境（例如本地和 VMC SDDC）之間提供雙向遷移服務。可以使用各種遷移技術將應用程式工作負載遷移到 HCX 激活站點和從 HCX 激活站點遷移，例如 HCX 批量遷移、HCX vMotion、HCX 冷遷移、HCX 複製輔助 vMotion（HCX 企業版提供）和 HCX OS 輔助遷移（HCX 企業版提供）。
+
+要了解有關可用的 HCX 遷移技術的更多信息，請參閱 https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/migrating-virtual-machines-with-vmware-hcx/vmware-hcx-migration-types.html["VMware HCX 遷移類型"^]
+
+HCX-IX 設備使用行動代理服務執行 vMotion、Cold 和複製輔助 vMotion (RAV) 遷移。
+
+
+NOTE: HCX-IX 設備將行動代理服務新增為 vCenter Server 中的主機物件。此物件上顯示的處理器、記憶體、儲存和網路資源並不代表託管 IX 裝置的實體虛擬機器管理程式上的實際消耗。
+
+image:fsx-hcx-019.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+.VMware HCX vMotion
+[%collapsible%open]
+=====
+本節介紹 HCX vMotion 機制。此遷移技術使用 VMware vMotion 協定將虛擬機器遷移到 VMC SDDC。 vMotion 遷移選項用於一次遷移單一 VM 的 VM 狀態。此遷移方法期間不會中斷服務。
+
+
+NOTE: 應該實施網路擴充（針對虛擬機器所連接的連接埠群組），以便遷移虛擬機器而無需更改 IP 位址。
+
+. 從本機 vSphere 用戶端，前往“清單”，右鍵點選要遷移的虛擬機，然後選擇“HCX 動作”>“遷移到 HCX 目標網站”。
++
+image:fsx-hcx-020.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 在遷移虛擬機器精靈中，選擇遠端站點連線（目標 VMC SDDC）。
++
+image:fsx-hcx-021.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 新增群組名，並在傳輸和放置下更新必填欄位（叢集、儲存和目標網路），按一下驗證。
++
+image:fsx-hcx-022.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 驗證檢查完成後，按一下“Go”開始遷移。
++
+
+NOTE: vMotion 傳輸擷取 VM 活動記憶體、其執行狀態、其 IP 位址和其 MAC 位址。有關 HCX vMotion 的要求和限制的更多信息，請參閱 https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/migrating-virtual-machines-with-vmware-hcx/understanding-vmware-hcx-vmotion-and-cold-migration.html#GUID-517866F6-AF06-4EFC-8FAE-DA067418D584-en["了解 VMware HCX vMotion 和冷遷移"^]。
+
+. 您可以從 HCX > 遷移儀表板監控 vMotion 的進度和完成情況。
++
+image:fsx-hcx-023.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+=====
+.VMware 複製輔助 vMotion
+[%collapsible%open]
+=====
+您可能從 VMware 文件中註意到，VMware HCX Replication Assisted vMotion (RAV) 結合了批量遷移和 vMotion 的優勢。批次遷移使用 vSphere Replication 並行遷移多個虛擬機器 - 虛擬機器在切換期間重新啟動。  HCX vMotion 遷移時無需停機，但它是在複製群組中一次一個虛擬機器地連續執行的。 RAV 並行複製虛擬機器並保持同步，直到切換視窗。在切換過程中，它一次遷移一個虛擬機，虛擬機不會停機。
+
+以下螢幕截圖顯示了作為複製輔助 vMotion 的遷移設定檔。
+
+image:fsx-hcx-024.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+與少量虛擬機器的 vMotion 相比，複製的持續時間可能會更長。使用 RAV，僅同步增量並包含記憶體內容。以下是遷移狀態的螢幕截圖 - 它顯示了遷移的開始時間對於每個虛擬機器都是相同的，而結束時間是不同的。
+
+image:fsx-hcx-025.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+=====
+有關 HCX 遷移選項以及如何使用 HCX 將工作負載從本地遷移到 VMware Cloud on AWS 的更多信息，請參閱 https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/migrating-virtual-machines-with-vmware-hcx.html["VMware HCX 使用者指南"^]。
+
+
+NOTE: VMware HCX vMotion 需要 100Mbps 或更高的吞吐量能力。
+
+
+NOTE: 目標 VMC FSx ONTAP資料儲存必須有足夠的空間來容納遷移。
+
+====
+
+
+== 結論
+
+無論您的目標是全雲還是混合雲，以及駐留在本地任何類型/供應商存儲上的數據， Amazon FSx ONTAP和 HCX 都提供了部署和遷移工作負載的絕佳選擇，同時通過使數據要求無縫連接到應用程序層來降低 TCO。無論用例如何，選擇 VMC 和 FSx ONTAP資料儲存都可以快速實現雲端優勢、跨本地和多個雲端的一致基礎架構和操作、工作負載的雙向可移植性以及企業級容量和效能。使用 VMware vSphere 複製、VMware vMotion 甚至 NFC 複製來連接儲存和遷移虛擬機器所採用的流程和程式相同。
+
+
+
+== 總結
+
+該文件的要點包括：
+
+* 現在您可以將Amazon FSx ONTAP用作 VMC SDDC 的資料儲存。
+* 您可以輕鬆地將資料從任何本地資料中心遷移到使用 FSx ONTAP資料儲存運行的 VMC
+* 您可以輕鬆擴大或縮小 FSx ONTAP資料儲存以滿足遷移活動期間的容量和效能要求。
+
+
+
+
+== 在哪裡可以找到更多信息
+
+要了解有關本文檔中描述的信息的更多信息，請參閱以下網站連結：
+
+* VMware Cloud 文件
++
+https://docs.vmware.com/en/VMware-Cloud-on-AWS/["https://docs.vmware.com/en/VMware-Cloud-on-AWS/"^]
+
+* Amazon FSx ONTAP文檔
++
+https://docs.aws.amazon.com/fsx/latest/ONTAPGuide["https://docs.aws.amazon.com/fsx/latest/ONTAPGuide"^]
+
++
+VMware HCX 使用者指南
+
+* https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10.html["https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10.html"^]
+

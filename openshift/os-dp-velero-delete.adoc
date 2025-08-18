@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: openshift/os-dp-velero-delete.html 
+keywords: OpenShift, OCP, Trident, NetApp ONTAP, Red Hat OpenShift, OADP operator, Openshift Data Protection Application operator, Velero 
+summary: Red Hat OpenShift 容器應用程式資料保護與NetApp ONTAP 
+---
+= 使用 Velero 刪除備份和恢復
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+本節概述如何使用 Velero 刪除 OpenShift 容器平台中應用程式的備份和還原。
+
+
+
+== 列出所有備份
+
+您可以使用 OC CLI 工具或 Velero CLI 工具列出所有備份 CR。按照說明下載 Velero CLIlink:https://velero.io/docs/v1.3.0/basic-install/#install-the-cli["Velero 文檔"] 。
+
+image:redhat-openshift-oadp-delete-001.png["列出備份"]
+
+
+
+== 刪除備份
+
+您可以使用 OC CLI 工具刪除備份 CR，而不刪除物件儲存資料。備份將從 CLI/控制台輸出中刪除。但是，由於相應的備份沒有從物件儲存中刪除，它將重新出現在 CLI/控制台輸出中。
+
+image:redhat-openshift-oadp-delete-002.png["刪除備份"]
+
+**如果您想刪除備份 CR 和相關的物件儲存數據，您可以使用 Velero CLI 工具來執行此操作。 **
+
+image:redhat-openshift-oadp-delete-003.png["刪除備份和關聯的物件存儲"]
+
+
+
+== 刪除還原
+
+您可以使用 OC CLI 或 Velero CLI 刪除恢復 CR 對象
+
+image:redhat-openshift-oadp-delete-004.png["刪除 恢復"]

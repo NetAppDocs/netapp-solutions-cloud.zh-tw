@@ -1,0 +1,204 @@
+---
+section: ehc
+title: NetApp與 VMware 的混合多雲
+url: "/ehc/index.html"
+entries:
+- title: VMware 的公有雲
+  pdf-filename: NetApp上用於公有雲的 VMware
+  entries:
+  - title: 解決方案概述
+    url: "/vmware/vmw-hybrid-overview.html"
+  - title: 超大規模雲端上的 VMware Cloud
+    url: "/vmware/vmw-hybrid-hyperscalers.html"
+  - title: 支援的配置
+    url: "/vmware/vmw-hybrid-support-configs.html"
+  - title: 超大規模配置中的 VMware
+    entries:
+    - title: 介紹
+      url: "/vmware/vmw-hybrid-compute-config.html"
+    - title: 為 AWS 配置 VMC
+      url: "/vmware/vmw-aws-vmc-setup.html"
+    - title: 為 Azure 設定 AVS
+      url: "/vmware/vmw-azure-avs-setup.html"
+    - title: 為 GCP 配置 GCVE
+      url: "/vmware/vmw-gcp-gcve-setup.html"
+  - title: 公有雲中的NetApp存儲
+    entries:
+    - title: 公有雲提供者的儲存選項
+      url: "/vmware/vmw-hybrid-storage.html"
+    - title: AWS 中 VMC 的儲存選項
+      url: "/vmware/vmw-aws-vmc-storage.html"
+    - title: 關於 VMC 的補充 NFS 資料存儲
+      url: "/vmware/vmw-aws-vmc-nfs-ds-overview.html"
+    - title: 在 AWS 中建立補充 NFS 資料存儲
+      url: "/vmware/vmw-aws-vmc-nfs-ds-config.html"
+    - title: VMC 的用戶機連接存儲
+      url: "/vmware/vmw-aws-vmc-guest-storage.html"
+    - title: Azure 中的 AVS 儲存選項
+      url: "/vmware/vmw-azure-avs-storage.html"
+    - title: 關於 AVS 的補充 NFS 資料存儲
+      url: "/vmware/vmw-azure-avs-nfs-ds-overview.html"
+    - title: 在 Azure 中建立補充 NFS 資料存儲
+      url: "/vmware/vmw-azure-avs-nfs-ds-config.html"
+    - title: 用於 AVS 的客戶連接存儲
+      url: "/vmware/vmw-azure-avs-guest-storage.html"
+    - title: Google Cloud 中 GCVE 的儲存選項
+      url: "/vmware/vmw-gcp-gcve-storage.html"
+    - title: 關於 GCVE 的補充 NFS 資料存儲
+      url: "/vmware/vmw-gcp-gcve-nfs-ds-overview.html"
+    - title: 用於 GCVE 的客戶機連接存儲
+      url: "/vmware/vmw-gcp-gcve-guest-storage.html"
+  - title: 總結
+    url: "/vmware/vmw-hybrid-summary.html"
+- title: VMware 混合雲端用例
+  pdf-filename: VMware 混合雲端用例
+  entries:
+  - title: 用例概述
+    url: "/vmware/vmw-hybrid-use-cases.html"
+  - title: 解決方案概述
+    url: "/vmware/vmw-hybrid-solutions.html"
+  - title: AWS/VMC 解決方案
+    url: "/vmware/vmw-aws-vmc-solutions.html"
+  - title: Azure/AVS 解決方案
+    url: "/vmware/vmw-azure-avs-solutions.html"
+  - title: GCP/GCVE 解決方案
+    url: "/vmware/vmw-gcp-gcve-solutions.html"
+- title: 適用於 AWS/VMC 的NetApp
+  entries:
+  - title: 概況
+    pdf-filename: 關於NetApp for AWS
+    url: "/vmware/vmw-aws-vmc-overview.html"
+  - title: 保護 AWS/VMC 上的工作負載
+    entries:
+    - title: 使用 AWS 上的 VMC 進行災難復原
+      pdf-filename: 使用 AWS 上的 VMC 進行災難復原（來賓連線）
+      url: "/vmware/vmw-aws-vmc-guest-storage-dr.html"
+    - title: VMware Cloud 中的 Veeam 備份與還原
+      pdf-filename: 使用 AWS FSx ONTAP在 VMware Cloud 中進行 Veeam 備份和還原
+      url: "/vmware/vmw-aws-vmc-backup-restore-veeam.html"
+    - title: 使用 FSx ONTAP和 VMC 進行災難復原
+      pdf-filename: 使用 FSx ONTAP和 VMC 實現災難復原 (DRO)
+      url: "/vmware/vmw-aws-vmc-dro.html"
+    - title: 使用 Veeam 複製和 FSx ONTAP進行災難復原
+      pdf-filename: 使用 Veeam Replication 和 FSx ONTAP實作 VMware Cloud on AWS 災難復原
+      url: "/vmware/vmw-aws-fsxn-vmc-ds-dr-veeam.html"
+  - title: 在 AWS/VMC 上遷移工作負載
+    entries:
+    - title: 使用 VMware HCX 將工作負載遷移到 FSx ONTAP資料儲存區
+      pdf-filename: 使用 VMware HCX 將工作負載遷移到 FSx ONTAP資料儲存區
+      url: "/vmware/vmw-aws-vmc-migrate-hcx.html"
+- title: 適用於 AWS/EVS 的NetApp
+  entries:
+  - title: 將 FSx ONTAP掛載為 EVS 的外部資料存儲
+    entries:
+    - title: 介紹
+      url: "/vmware/evs-mount-fsxn-intro.html"
+    - title: 部署為 NFS 資料儲存區
+      url: "/vmware/evs-mount-fsxn-nfs.html"
+    - title: 部署為 iSCSI 資料儲存區
+      url: "/vmware/evs-mount-fsxn-iscsi.html"
+    - title: 結論
+      url: "/vmware/evs-mount-fsxn-conclusion.html"
+- title: NetApp適用於 Azure/AVS
+  entries:
+  - title: NetApp for Azure 概述
+    pdf-filename: NetApp for Azure 概述
+    url: "/vmware/vmw-azure-avs-overview.html"
+  - title: 保護 Azure/AVS 上的工作負載
+    entries:
+    - title: 使用 ANF 和 JetStream 進行災難復原
+      pdf-filename: 使用 ANF 和 JetStream 進行災難復原（補充 NFS 資料儲存）
+      url: "/vmware/vmw-azure-avs-dr-jetstream.html"
+    - title: 使用 ANF 和 CVO 進行災難復原
+      pdf-filename: 使用 ANF 和 CVO（來賓連接儲存）進行災難復原
+      url: "/vmware/vmw-azure-avs-guest-storage-dr.html"
+    - title: 使用Azure NetApp Files和 AVS 進行災難復原
+      pdf-filename: 使用Azure NetApp Files和 AVS 進行災難復原 (DRO)
+      url: "/vmware/vmw-azure-avs-dro.html"
+    - title: 使用 Veeam 複製和Azure NetApp Files進行災難復原
+      pdf-filename: 使用 Veeam Replication 和Azure NetApp Files資料儲存區對 Azure VMware 解決方案進行災難復原
+      url: "/vmware/vmw-azure-anf-avs-ds-dr-veeam.html"
+  - title: 在 Azure/AVS 上遷移工作負載
+    entries:
+    - title: 使用 VMware HCX 將工作負載遷移到 ANF 資料存儲
+      pdf-filename: 使用 VMware HCX 將工作負載遷移到 ANF 資料存儲
+      url: "/vmware/vmw-azure-avs-migrate-hcx.html"
+- title: NetApp適用於 GCP/GCVE
+  entries:
+  - title: Netapp 適用於 Google Cloud 概述
+    pdf-filename: Netapp 適用於 Google Cloud 的概述
+    url: "/vmware/vmw-gcp-gcve-overview.html"
+  - title: 保護 GCP/GCVE 上的工作負載
+    entries:
+    - title: 使用 Veeam 補充 NFS 資料儲存進行災難復原
+      pdf-filename: 使用 Veeam 進行災難復原（補充 NFS 資料儲存）
+      url: "/vmware/vmw-gcp-gcve-app-dr-ds-veeam.html"
+    - title: 使用 Veeam 來賓連接儲存進行災難復原
+      pdf-filename: 使用 Veeam 進行災難復原（來賓連接儲存）
+      url: "/vmware/vmw-gcp-gcve-app-dr-guest-veeam.html"
+    - title: 使用 Veeam 複製和Google Cloud NetApp Volumes實現災難復原
+      pdf-filename: 使用 Veeam Replication 和Google Cloud NetApp Volumes資料儲存實現 GCVE 災難復原
+      url: "/vmware/vmw-gcp-gcnv-gcve-ds-dr-veeam.html"
+  - title: 遷移 GCP/GCVE 上的工作負載
+    entries:
+    - title: 使用 VMware HCX 將工作負載遷移到 Cloud Volume Service
+      pdf-filename: 使用 VMware HCX 將工作負載遷移到 Cloud Volume Service NFS 資料儲存區
+      url: "/vmware/vmw-gcp-gcve-migrate-hcx.html"
+    - title: 使用 Veeam Replication 將虛擬機器工作負載遷移到Google Cloud NetApp Volumes
+      pdf-filename: 使用 Veeam Replication 將虛擬機器工作負載遷移到Google Cloud NetApp Volumes NFS
+        資料儲存區
+      url: "/vmware/vmw-gcp-gcve-migrate-veeam.html"
+  - title: 使用Google Cloud NetApp Volumes保護 Google Cloud 中的數據
+    entries:
+    - title: 安全概述
+      url: "/google/gcp-gcnv-overview.html"
+    - title: Google Cloud 中的Google Cloud NetApp Volumes如何保護您的數據
+      url: "/google/gcp-gcnv-security-overview.html"
+    - title: 安全考慮和攻擊面
+      url: "/google/gcp-gcnv-security-considerations.html"
+    - title: 架構概述
+      url: "/google/gcp-gcnv-arch-overview.html"
+    - title: Google Cloud NetApp Volumes架構
+      url: "/google/gcp-gcnv-arch-detail.html"
+    - title: 控制平面架構
+      url: "/google/gcp-gcnv-control-plane-arch.html"
+    - title: 資料平面架構
+      url: "/google/gcp-gcnv-data-plane-arch.html"
+    - title: 傳輸中的資料加密
+      url: "/google/gcp-gcnv-data-encrypt-in-transit.html"
+    - title: 靜態資料加密
+      url: "/google/gcp-gcnv-data-encrypt-at-rest.html"
+    - title: 防火牆
+      url: "/google/gcp-gcnv-firewall.html"
+    - title: NAS 協定概述
+      url: "/google/gcp-gcnv-nas-overview.html"
+    - title: NAS 協定基礎知識
+      url: "/google/gcp-gcnv-nas-basics.html"
+    - title: NFS
+      url: "/google/gcp-gcnv-nfs.html"
+    - title: 中小企業
+      url: "/google/gcp-gcnv-smb.html"
+    - title: 雙協議/多協議
+      url: "/google/gcp-gcnv-multiprotocol.html"
+    - title: 建立 Active Directory 連線的注意事項
+      url: "/google/gcp-gcnv-ad-connections.html"
+    - title: 其他 NAS 基礎設施服務相依性（KDC、LDAP、DNS）
+      url: "/google/gcp-gcnv-nas-dependencies.html"
+    - title: 服務營運
+      url: "/google/gcp-gcnv-service-operation.html"
+    - title: 附加資訊
+      url: "/vmware/gcp-gcnv-additional-info.html"
+- title: BlueXP disaster recovery
+  entries:
+  - title: 使用SnapCenter插件和BlueXP保護 VMware 數據
+    pdf-filename: 使用SnapCenter插件和BlueXP backup and recovery為虛擬機器提供 3-2-1 資料保護
+    url: "/vmware/vmw-hybrid-321-dp-scv.html"
+  - title: 使用BlueXP DRaaS 進行災難復原
+    pdf-filename: 使用BlueXP DRaaS 進行災難復原
+    entries:
+    - title: 解決方案概述
+      url: "/vmware/vmw-hybrid-dr-overview.html"
+    - title: NFS 資料儲存區的災難復原
+      url: "/vmware/vmw-hybrid-dr-nfs.html"
+    - title: VMFS 資料儲存的災難復原
+      url: "/vmware/vmw-hybrid-dr-vmfs.html"

@@ -1,0 +1,39 @@
+---
+settings:
+  name: NetApp public and hybrid cloud solutions
+  internal:
+    pdf_enabled: true
+    lipi_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+    lipi_enabled: true
+  pdf:
+    gen-type: named-only
+    zip-level: 1
+    zip-filename: netapp-solutions-cloud.zip
+  langs: zh-tw,us-en,de-de,es-es,fr-fr,it-it,pt-br,ja-jp,ko-kr,zh-cn
+sidebar:
+  entries:
+  - title: 公有和混合雲解決方案
+    url: "/index.html"
+  - title: 什麼是新的
+    url: "/whats-new.html"
+  - section: ehc
+  - section: rhhc
+  - title: 影片
+    url: "/videos/index.html"
+    entries:
+    - title: AWS 混合雲
+      url: "/videos/hmc-aws-videos.html"
+    - title: Azure 混合雲
+      url: "/videos/hmc-azure-videos.html"
+    - title: OpenShift 混合雲
+      url: "/videos/hmc-openshift-videos.html"
+  - title: 部落格
+    url: "/blogs.html"
+  - title: 法律聲明
+    url: "/legal-notices.html"
+product-family:
+  name: NetApp solutions
+  repo: netapp-solutions-family

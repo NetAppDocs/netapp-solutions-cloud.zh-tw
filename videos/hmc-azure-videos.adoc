@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: videos/hmc-azure-videos.html 
+summary: 展示NetApp混合雲 AVS 解決方案的影片和演示 
+keywords: hybrid cloud, rosa, fsx ontap, azure vmware, netapp hci, videos, demos 
+---
+= 觀看有關使用NetApp的 Azure VMware 雲端的混合多雲解決方案的視頻
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+探索 NetApp 的綜合影片庫，其中包含NetApp針對 Azure VMware 解決方案 (AVS) 的混合多雲解決方案。該系列包括有關補充資料儲存、災難復原和遷移工作流程的影片。
+
+
+
+== 補充資料存儲
+
+.Azure VMware 解決方案補充資料儲存概述（包含Azure NetApp Files）
+video::8c5ddb30-6c31-4cde-86e2-b01200effbd6[panopto,width=360]
+
+
+== 災難復原
+
+.帶有Cloud Volumes ONTAP、 SnapCenter和 JetStream 的 Azure VMware 解決方案 DR
+video::5cd19888-8314-4cfc-ba30-b01200efff4f[panopto,width=360]
+
+
+== 遷移工作流程 (HCX)
+
+.使用 VMware HCX 進行 AVS 和 ANF 冷遷移演示
+video::b7ffa5ad-5559-4e56-a166-b01200f025bc[panopto,width=360]
+.使用 VMware HCX 進行 AVS 和 ANF 的 vMotion 演示
+video::986bb505-6f3d-4a5a-b016-b01200f03f18[panopto,width=360]
+.使用 VMware HCX 進行 AVS 和 ANF 批量遷移演示
+video::255640f5-4dff-438c-8d50-b01200f017d1[panopto,width=360]

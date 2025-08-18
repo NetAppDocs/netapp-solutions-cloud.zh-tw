@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: openshift/os-pm-solution.html 
+keywords: NetApp Solutions, redhat OpenShift, red hat OpenShift, redhat openshift container platform, ocp, openshift container platform, Advanced Cluster Management, ACM, Hub Cluster, containers, container workloads, VMware, customer managed storage, ONTAP 
+summary:  
+---
+= 具有託管 Red Hat OpenShift 容器平台工作負載的NetApp解決方案
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+客戶可能“誕生於雲端”，或正處於現代化歷程的某個階段，準備將部分選定的工作負載或所有工作負載從資料中心遷移到雲端。他們可以選擇在雲端中使用供應商管理的 OpenShift 容器和供應商管理的NetApp儲存體來運行他們的工作負載。他們應該在雲端中規劃和部署託管的 Red Hat OpenShift 容器集群，以便為他們的容器工作負載提供成功的生產就緒環境。  NetApp為三大領先公有雲中的託管 Red Hat 解決方案提供完全託管的儲存產品。
+
+*Amazon FSx for NetApp ONTAP (FSx ONTAP)*
+
+FSx ONTAP為 AWS 中的容器部署提供資料保護、可靠性和靈活性。  Trident作為動態儲存供應器，為客戶的有狀態應用程式使用持久性 FSx ONTAP儲存。
+
+由於 ROSA 可以在 HA 模式下部署，並且控制平面節點分佈在多個可用區域，因此 FSx ONTAP還可以配置多可用區選項，以提供高可用性並防止可用區故障。
+
+* Google Cloud NetApp Volumes*
+
+Red Hat OpenShift Dedicated 是一個完全託管的應用程式平台，可讓您在混合雲中快速建置、部署和擴展應用程式。  Google Cloud NetApp Volumes提供持久性卷，將 ONTAP 的全套企業資料管理功能帶入 Google Cloud 中的 OpenShift 部署。

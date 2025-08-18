@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: openshift/os-sm-data-protection.html 
+keywords: NetApp Solutions, redhat OpenShift, red hat OpenShift, redhat openshift container platform, ocp, openshift container platform, Advanced Cluster Management, ACM, Hub Cluster, containers, container workloads, VMware, customer managed storage, ONTAP 
+summary:  
+---
+= 使用Trident Protect 進行資料保護
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+此頁面顯示了使用Trident Protect (ACC) 在 VMware vSphere 或雲端中運行的基於 Red Hat OpenShift Container 的應用程式的資料保護選項。
+
+當使用者使用 Red Hat OpenShift 對其應用程式進行現代化改造時，應該制定資料保護策略來保護它們免受意外刪除或任何其他人為錯誤的影響。通常，出於監管或合規目的，還需要製定保護策略來保護其資料免受災難。
+
+資料保護的要求多種多樣，從恢復到某個時間點的副本到無需任何人工幹預即可自動故障轉移到不同的故障域。許多客戶選擇ONTAP作為其 Kubernetes 應用程式的首選儲存平台，因為它具有豐富的功能，例如多租戶、多協定、高效能和容量產品、多站點位置的複製和快取、安全性和靈活性。
+
+客戶可以將雲端環境設定為其資料中心的擴展，以便他們可以利用雲端的優勢，並為將來轉移其工作負載做好準備。對於這樣的客戶，將他們的OpenShift應用程式和資料備份到雲端環境成為不可避免的選擇。然後，他們可以將應用程式和相關資料還原到雲端或資料中心的 OpenShift 叢集。
+
+
+
+== 使用 ACC 備份和恢復
+
+應用程式擁有者可以審查和更新 ACC 發現的應用程式。 Trident Protect 可使用 CSI 取得 Snapshot 副本，並使用時間點 Snapshot 副本執行備份。備份目標可以是雲端環境中的物件儲存。可以為排程備份和要保留的備份版本數量配置保護策略。最小 RPO 為一小時。
+
+
+
+=== 使用 ACC 從備份還原應用程式
+
+image:rhhc-onprem-dp-br.png["Trident Protect 復原選項"]
+
+
+
+== 應用程式特定的執行鉤子
+
+儘管儲存陣列級資料保護功能可用，但通常需要採取額外的步驟來使備份和復原應用程式保持一致。特定於應用程式的附加步驟可以是： - 在建立 Snapshot 副本之前或之後。  - 在建立備份之前或之後。  - 從 Snapshot 副本或備份還原後。
+
+Trident Protect 可以執行這些特定於應用程式的步驟，這些步驟被編碼為稱為執行鉤子的自訂腳本。
+
+NetApp 的link:https://github.com/NetApp/Verda["開源專案 Verda"]為流行的雲端原生應用程式提供執行掛鉤，使保護應用程式變得簡單、強大且易於協調。如果您擁有存儲庫中沒有的應用程式的足夠信息，請隨意為該專案做出貢獻。
+
+
+
+== Redis 應用程式預快照的範例執行掛鉤。
+
+image:rhhc-onprem-dp-br-hook.png["Trident Protect 執行鉤子"]
+
+
+
+== 使用 ACC 進行複製
+
+對於區域保護或低 RPO 和 RTO 解決方案，可以將應用程式複製到在不同網站（最好是在另一個區域）運行的另一個 Kubernetes 實例。 Trident Protect 利用ONTAP非同步SnapMirror ，RPO 低至 5 分鐘。參考link:https://docs.netapp.com/us-en/astra-control-center/use/replicate_snapmirror.html["這裡"]有關SnapMirror設定說明。
+
+
+
+=== 帶有 ACC 的SnapMirror
+
+image:rhhc-onprem-dp-rep.png["Trident Protect 複製"]
+
+
+NOTE: san-economy 和 nas-economy 儲存驅動程式不支援複製功能。參考link:https://docs.netapp.com/us-en/astra-control-center/get-started/requirements.html#astra-trident-requirements["這裡"]了解更多詳細資訊。
+
+
+
+=== 示範影片：
+
+link:https://www.netapp.tv/details/29504?mcid=35609780286441704190790628065560989458["Trident Protect 災難復原示範影片"]
+
+.使用Trident Protect 進行資料保護
+video::0cec0c90-4c6f-4018-9e4f-b09700eefb3a[panopto,width=360]
+有關Trident Protect 資料保護功能的詳細信息link:https://docs.netapp.com/us-en/astra-control-center/concepts/data-protection.html["這裡"]
+
+
+
+== 使用 ACC 進行災難復原（使用複製進行故障轉移和故障復原）
+
+.使用Astra Control 進行應用程式故障轉移和故障恢復
+video::1546191b-bc46-42eb-ac34-b0d60142c58d[panopto,width=360]

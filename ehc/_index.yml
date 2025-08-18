@@ -1,0 +1,82 @@
+---
+indexpage:
+  title: NetApp混合多雲與 VMware 解決方案
+  summary: NetApp混合多雲與 VMware 解決方案是一組策略與技術能力，展現了NetApp儲存在主要公有雲超大規模的能力。
+  lead: NetApp混合多雲與 VMware 解決方案是一組策略與技術能力，展現了NetApp儲存在主要公有雲超大規模的能力。
+  tiles:
+  - title: 開始
+    links:
+    - title: 概況
+      url: "../vmware/vmw-hybrid-overview.html"
+    - title: NetApp為超大規模雲端中的 VMware 提供解決方案
+      url: "../vmware/vmw-hybrid-hyperscalers.html"
+    - title: 支援的儲存選項
+      url: "../vmware/vmw-hybrid-support-configs.html"
+    - title: 支援的解決方案
+      url: "../vmware/vmw-hybrid-solutions.html"
+    - title: 總結
+      url: "../vmware/vmw-hybrid-summary.html"
+  - title: AWS 上的NetApp (VMC)
+    links:
+    - title: NetApp混合多雲與 VMware for VMC
+      url: "../vmware/vmw-aws-vmc-overview.html"
+    - title: 配置虛擬化環境
+      url: "../vmware/vmw-aws-vmc-setup.html"
+    - title: 連接NetApp儲存空間的選項
+      url: "../vmware/vmw-aws-vmc-storage.html"
+    - title: VMC 的混合多雲解決方案
+      url: "../vmware/vmw-aws-vmc-solutions.html"
+  - title: Azure 上的NetApp (AVS)
+    links:
+    - title: NetApp混合多雲與 VMware 一起用於 AVS
+      url: "../vmware/vmw-azure-avs-overview.html"
+    - title: 配置虛擬化環境
+      url: "../vmware/vmw-azure-avs-setup.html"
+    - title: 連接NetApp儲存空間的選項
+      url: "../vmware/vmw-azure-avs-storage.html"
+    - title: AVS 的混合式多雲解決方案
+      url: "../vmware/vmw-azure-avs-solutions.html"
+  - title: NetApp在 Google Cloud Platform 上
+    links:
+    - title: NetApp混合多雲與 VMware 輔助 GCVE
+      url: "../vmware/vmw-gcp-gcve-overview.html"
+    - title: 配置虛擬化環境
+      url: "../vmware/vmw-gcp-gcve-setup.html"
+    - title: 連接NetApp儲存空間的選項
+      url: "../vmware/vmw-gcp-gcve-storage.html"
+    - title: 面向 GCVE 的混合多雲解決方案
+      url: "../vmware/vmw-gcp-gcve-solutions.html"
+    - title: Google Cloud 中的NetApp卷
+      url: "../google/gcp-gcnv-overview.html"
+  - title: 模擬器
+    links:
+    - title: FSx ONTAP + VMC 模擬器
+      url: https://netapp-automation.github.io/FSx-VMC-Simulator
+    - title: ANF + AVS模擬器
+      url: https://netapp-automation.github.io/ANF-AVS-Simulator
+    - title: 帶有 VMC 模擬器的 AWS DRO
+      url: https://netapp-automation.github.io/dro-simulator/?intro-1
+    - title: 帶有 AVS 模擬器的 ANF 的 DRO
+      url: https://netapp-automation.github.io/dro-simulator-avs-anf/?intro-1
+    - title: BlueXP DRaaS模擬器
+      url: https://netapp-automation.github.io/DRaaS_Simulator/?0.1
+    - title: BlueXP - 虛擬機器模擬器的備份和恢復
+      url: https://netapp-automation.github.io/Backup_and_Recovery_for_VMs_Simulator/?0.1
+  - title: TCO計算機
+    links:
+    - title: FSx ONTAP + VMC TCO 計算器
+      url: https://cloud.netapp.com/vmc-aws-fsx-ontap/roi
+    - title: ANF + AVS TCO 計算器
+      url: https://bluexp.netapp.com/anf-avs/tcoestimator
+    - title: GCVE + NetApp Volumes TCO 估算器
+      url: https://bluexp.netapp.com/gcve-cvs/roi
+  - title: BlueXP disaster recovery
+    links:
+    - title: 使用SnapCenter插件和BlueXP backup and recovery保護 VMware 數據
+      url: "../vmware/vmw-hybrid-321-dp-scv.html"
+    - title: 使用BlueXP進行災難復原
+      url: "../vmware/vmw-hybrid-dr-overview.html"
+    - title: 使用BlueXP對 NFS 資料儲存進行災難復原
+      url: "../vmware/vmw-hybrid-dr-nfs.html"
+    - title: 使用BlueXP對 VMFS 資料儲存進行災難復原
+      url: "../vmware/vmw-hybrid-dr-vmfs.html"

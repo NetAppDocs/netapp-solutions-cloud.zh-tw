@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: google/gcp-gcnv-multiprotocol.html 
+keywords: access control, user mapping, permission model 
+summary: Google Cloud NetApp Volumes能夠與 SMB 和 NFS 用戶端共享相同的資料集，同時保持適當的雙協定存取權限。這是透過協調協定之間的身份映射並使用集中式後端 LDAP 伺服器向Google Cloud NetApp Volumes提供 UNIX 身分來實現的。您可以使用 Windows Active Directory 為 Windows 和 UNIX 使用者提供易用性。 
+---
+= 雙協議/多協議
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Google Cloud NetApp Volumes能夠與 SMB 和 NFS 用戶端共享相同的資料集，同時保持適當的存取權限(https://cloud.google.com/architecture/partners/netapp-cloud-volumes/managing-dual-protocol-access["雙協議"^]）。這是透過協調協定之間的身份映射並使用集中式後端 LDAP 伺服器向Google Cloud NetApp Volumes提供 UNIX 身分來實現的。您可以使用 Windows Active Directory 為 Windows 和 UNIX 使用者提供易用性。
+
+
+
+== 存取控制
+
+* *共享存取控制。 *確定哪些客戶端和/或使用者和群組可以存取 NAS 共用。對於 NFS，導出策略和規則控制用戶端對導出的存取。  NFS 匯出由Google Cloud NetApp Volumes實例管理。 SMB 利用 CIFS/SMB 共用和共用 ACL 在使用者和群組層級提供更精細的控制。您只能透過使用https://library.netapp.com/ecmdocs/ECMP1401220/html/GUID-C1772CDF-8AEE-422B-AB87-CFCB7E50FF94.html [MMC/Computer Management^] 和在Google Cloud NetApp Volumes實例上具有共享管理員的帳戶權限ACL（請參閱部分連結：gcp-gcnv-smb.html#Accounts with local/BUILTIN administrator/backup rights["Accounts with local/BUILTIN administrator/backup rights."]）。
+* *檔案存取控制。 *控製檔案或資料夾層級的權限，並始終從 NAS 用戶端進行管理。  NFS 用戶端可以使用傳統模式位元 (rwx) 或 NFSv4 ACL。  SMB 用戶端利用 NTFS 權限。
+
+
+向 NFS 和 SMB 提供資料的磁碟區的存取控制取決於所使用的協定。有關雙協議權限的信息，請參閱“<<權限模型>> “
+
+
+
+== 使用者映射
+
+當用戶端存取磁碟區時， Google Cloud NetApp Volumes會嘗試將傳入使用者對應到相反方向的有效使用者。這對於跨協定確定正確的存取權限以及確保請求存取的使用者確實是他們所聲稱的使用者來說是必要的。
+
+例如，如果 Windows 使用者名稱為 `joe`嘗試透過 SMB 存取具有 UNIX 權限的捲，然後Google Cloud NetApp Volumes執行搜尋以尋找名為 `joe`。如果存在，則以 Windows 使用者身分寫入 SMB 共用的文件 `joe`顯示為 UNIX 用戶 `joe`來自 NFS 客戶端。
+
+或者，如果 UNIX 使用者名稱為 `joe`嘗試使用 Windows 權限存取Google Cloud NetApp Volumes卷，則 UNIX 使用者必須能夠對應到有效的 Windows 使用者。否則，將拒絕存取該磁碟區。
+
+目前，僅支援使用 LDAP 進行外部 UNIX 身分識別管理的 Active Directory。有關配置此服務的存取權限的更多信息，請參閱 https://cloud.google.com/architecture/partners/netapp-cloud-volumes/creating-smb-volumes["建立 AD 連接"^]。
+
+
+
+== 權限模型
+
+使用雙協定設定時， Google Cloud NetApp Volumes會利用磁碟區的安全樣式來決定 ACL 的類型。這些安全樣式是根據指定的 NAS 協定設定的，或者在雙協定的情況下，是在建立Google Cloud NetApp Volumes區時所做的選擇。
+
+* 如果您僅使用 NFS， Google Cloud NetApp Volumes磁碟區將使用 UNIX 權限。
+* 如果您只使用 SMB， Google Cloud NetApp Volumes磁碟區將使用 NTFS 權限。
+
+
+如果您正在建立雙協定卷，則可以在建立磁碟區時選擇 ACL 樣式。此決定應根據所需的權限管理做出。如果您的使用者從 Windows/SMB 用戶端管理權限，請選擇 NTFS。如果您的使用者喜歡使用 NFS 用戶端和 chmod/chown，請使用 UNIX 安全樣式。

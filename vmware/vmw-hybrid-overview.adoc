@@ -1,0 +1,149 @@
+---
+sidebar: sidebar 
+permalink: vmware/vmw-hybrid-overview.html 
+keywords: NetApp Solutions, hybrid, multicloud, multi cloud, enterprise hybrid cloud, hyperscalers, vmware 
+summary:  
+---
+= NetApp與 VMware 的混合多雲概述
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+大多數 IT 組織都遵循混合雲優先方法。這些組織正處於轉型階段，客戶正在評估其當前的 IT 環境，然後根據評估和發現練習將其工作負載遷移到雲端。
+
+客戶遷移到雲端的因素可能包括彈性和爆發、資料中心退出、資料中心整合、生命週期終止場景、合併、收購等。遷移的原因可能因每個組織及其各自的業務優先順序而異。當遷移到混合雲時，選擇正確的雲端儲存對於釋放雲端部署和彈性的威力非常重要。
+
+
+
+== 公有雲中的 VMware Cloud 選項
+
+本節介紹每個雲端供應商如何在各自的公有雲產品中支援 VMware 軟體定義資料中心 (SDDC) 和/或 VMware Cloud Foundation (VCF) 堆疊。
+
+
+
+=== Azure VMware 解決方案
+
+Azure VMware 解決方案是一種混合雲端服務，可在 Microsoft Azure 公有雲中完全執行 VMware SDDC。 Azure VMware 解決方案是完全由 Microsoft 管理和支援的第一方解決方案，並由 VMware 利用 Azure 基礎架構進行了驗證。這意味著，當部署 Azure VMware 解決方案時，客戶可以獲得 VMware 的 ESXi 用於計算虛擬化、vSAN 用於超融合儲存以及 NSX 用於網路和安全，同時利用 Microsoft Azure 的全球影響力、一流的資料中心設施以及靠近豐富的原生 Azure 服務和解決方案生態系統的優勢。
+
+
+
+=== AWS 上的 VMware Cloud
+
+VMware Cloud on AWS 將 VMware 的企業級 SDDC 軟體引入 AWS 雲，並優化了對原生 AWS 服務的存取。  VMware Cloud on AWS 由 VMware Cloud Foundation 提供支持，整合了 VMware 的運算、儲存和網路虛擬化產品（VMware vSphere、VMware vSAN 和 VMware NSX）以及 VMware vCenter Server 管理，並針對專用、彈性、裸機 AWS 基礎架構上運行進行了最佳化。
+
+
+
+=== Google Cloud VMware 引擎
+
+Google Cloud VMware Engine 是一款基礎架構即服務 (IaaS) 產品，它是基於 Google Cloud 高效能可擴充基礎架構和 VMware Cloud Foundation 堆疊（VMware vSphere、vCenter、vSAN 和 NSX-T）建構。此服務可快速遷移至雲端，將現有 VMware 工作負載從本地環境無縫遷移或擴展到 Google Cloud Platform，無需承擔重構應用程式或重新調整運維的成本、精力或風險。這是一項由 Google 銷售和支援的服務，並與 VMware 密切合作。
+
+
+NOTE: SDDC 私有雲和NetApp Cloud Volumes 主機託管以最小的網路延遲提供最佳效能。
+
+
+
+== 你可知道？
+
+無論使用哪種雲，部署 VMware SDDC 時，初始叢集都包含以下產品：
+
+* VMware ESXi 主機用於運算虛擬化，並使用 vCenter Server Appliance 進行管理
+* VMware vSAN 超融合存儲，整合了每個 ESXi 主機的實體儲存資產
+* VMware NSX 用於虛擬網路和安全，並使用 NSX Manager 叢集進行管理
+
+
+
+
+== 儲存配置
+
+對於規劃託管儲存密集型工作負載並在任何雲端託管 VMware 解決方案上進行擴充的客戶，預設的超融合基礎架構要求擴充應同時在運算和儲存資源上進行。
+
+透過與NetApp Cloud Volumes（例如Azure NetApp Files、 Amazon FSx ONTAP、 Cloud Volumes ONTAP （適用於所有三大超大規模伺服器）以及適用於 Google Cloud 的Google Cloud NetApp Volumes ）集成，客戶現在可以選擇單獨擴展其存儲，並且僅根據需要向 SDDC 叢集添加計算節點。
+
+
+
+=== 筆記：
+
+* VMware 不建議不平衡的叢集配置，因此擴充儲存意味著新增更多主機，這意味著更多的 TCO。
+* 僅可實作一個 vSAN 環境。因此，所有儲存流量將直接與生產工作負載競爭。
+* 沒有提供多個效能層來滿足應用程式要求、效能和成本的選項。
+* 建立在叢集主機之上的 vSAN 的儲存容量很容易達到極限。使用NetApp Cloud Volumes 擴充儲存空間以託管活動資料集或將較冷的資料分層到持久性儲存。
+
+
+Azure NetApp Files、 Amazon FSx ONTAP、 Cloud Volumes ONTAP （三大超大規模伺服器皆可使用）以及 Google Cloud 適用的Google Cloud NetApp Volumes可與來賓虛擬機器結合使用。這種混合式儲存架構由保存客戶作業系統和應用程式二進位資料的 vSAN 資料儲存組成。應用程式資料透過基於來賓的 iSCSI 啟動器或 NFS/SMB 掛載附加到虛擬機，這些掛載分別與Amazon FSx ONTAP、Cloud Volume ONTAP、 Azure NetApp Files和 Google Cloud 的Google Cloud NetApp Volumes直接通訊。這種配置可讓您輕鬆克服儲存容量方面的挑戰，就像使用 vSAN 一樣，可用的空閒空間取決於所使用的鬆弛空間和儲存策略。
+
+讓我們考慮一下 VMware Cloud on AWS 上的三節點 SDDC 叢集：
+
+* 三節點 SDDC 的總原始容量 = 31.1TB（每個節點約 10TB）。
+* 在增加其他主機之前需要維護的鬆弛空間 = 25% = (.25 x 31.1TB) = 7.7TB。
+* 扣除剩餘空間後的可用原始容量 = 23.4TB
+* 可用的有效空閒空間取決於所應用的儲存策略。
++
+例如：
+
++
+** RAID 0 = 有效可用空間 = 23.4TB（可用原始容量/1）
+** RAID 1 = 有效可用空間 = 11.7TB（可用原始容量/2）
+** RAID 5 = 有效可用空間 = 17.5TB（可用原始容量/1.33）
+
+
+
+
+因此，使用NetApp Cloud Volumes 作為客戶機連接儲存將有助於擴展儲存和最佳化 TCO，同時滿足效能和資料保護要求。
+
+
+NOTE: 在撰寫本文檔時，客艙內儲存是唯一可用的選項。
+
+
+
+=== 需要記住的要點
+
+* 在混合儲存模型中，將第 1 層或高優先級工作負載放置在 vSAN 資料儲存上，以滿足任何特定的延遲要求，因為它們是主機本身的一部分並且在附近。對於任何可以接受交易延遲的工作負載虛擬機，請使用客戶機內機制。
+* 使用NetApp SnapMirror技術將工作負載資料從本機ONTAP系統複製到Cloud Volumes ONTAP或Amazon FSx ONTAP ，以簡化使用區塊級機制的遷移。這不適用於Azure NetApp Files和Google Cloud NetApp Volumes。若要將資料移轉到Azure NetApp Files或Google Cloud NetApp Volumes，請根據所使用的檔案協定使用NetApp XCP、 BlueXP Copy and Sync、rysnc 或 robocopy。
+* 測試表明，從相應的 SDDC 存取儲存空間時會有 2-4ms 的額外延遲。在映射儲存時，將此額外的延遲考慮進應用程式要求中。
+* 為了在測試故障轉移和實際故障轉移期間掛載來賓連接的存儲，請確保重新配置 iSCSI 啟動器、為 SMB 共享更新 DNS、並在 fstab 中更新 NFS 掛載點。
+* 確保虛擬機器內部的 Microsoft 多路徑 I/O (MPIO)、防火牆和磁碟逾時登錄設定配置正確。
+
+
+
+NOTE: 這僅適用於來賓連接的儲存。
+
+
+
+== NetApp雲端儲存的優勢
+
+NetApp雲端儲存有以下優勢：
+
+* 透過獨立於計算擴展存儲來提高計算到存儲的密度。
+* 允許您減少主機數量，從而降低整體 TCO。
+* 計算節點故障不會影響儲存效能。
+* Azure NetApp Files的磁碟區重塑和動態服務等級功能可讓您透過調整穩定狀態工作負載的大小來最佳化成本，從而防止過度配置。
+* Cloud Cloud Volumes ONTAP的儲存效率、雲端分層和實例類型修改功能允許以最佳方式新增和擴展儲存。
+* 防止過度配置儲存資源，僅在需要時新增。
+* 高效的 Snapshot 副本和克隆可讓您快速建立副本而不會對效能產生任何影響。
+* 透過使用 Snapshot 副本的快速恢復來幫助應對勒索軟體攻擊。
+* 提供高效的基於增量區塊傳輸的區域災難復原和跨區域的整合備份區塊級別，提供更好的 RPO 和 RTO。
+
+
+
+
+== 假設
+
+* 啟用SnapMirror技術或其他相關資料遷移機制。有許多連接選項，從本地到任何超大規模雲端。使用適當的路徑並與相關的網路團隊合作。
+* 在撰寫本文檔時，客艙內儲存是唯一可用的選項。
+
+
+
+NOTE: 與NetApp解決方案架構師和相應的超大規模雲端架構師合作，規劃和確定儲存空間以及所需的主機數量。  NetApp建議在使用Cloud Volumes ONTAP大小調整器之前先確定儲存效能需求，以確定儲存實例類型或具有正確吞吐量的適當服務等級。
+
+
+
+== 詳細架構
+
+從高層次的角度來看，該架構（如下圖所示）涵蓋如何使用NetApp Cloud Volumes ONTAP、 Google Cloud NetApp Volumes for Google Cloud 和Azure NetApp Files作為額外的客戶機儲存選項，實現跨多個雲端供應商的混合多雲連接和應用程式可移植性。
+
+image:ehc-architecture.png["企業混合雲架構"]

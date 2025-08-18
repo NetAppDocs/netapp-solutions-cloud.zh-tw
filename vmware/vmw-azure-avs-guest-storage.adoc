@@ -1,0 +1,251 @@
+---
+sidebar: sidebar 
+permalink: vmware/vmw-azure-avs-guest-storage.html 
+keywords: NetApp Solutions, microsoft azure, avs, azure, vmware managed cloud, enterprise, hybrid, cloud, anf, azure netapp files, cvo, cloud volumes ontap, guest connected 
+summary:  
+---
+= 適用於 Azure 的NetApp來賓連線儲存選項
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Azure 支援透過本機Azure NetApp Files(ANF) 服務或Cloud Volumes ONTAP (CVO) 連接來賓的NetApp儲存體。
+
+
+
+== Azure NetApp Files(ANF)
+
+Azure netApp Files 為 Azure 帶來企業級資料管理和存儲，以便您可以輕鬆管理工作負載和應用程式。將您的工作負載遷移到雲端並運行它們，而不會犧牲效能。
+
+Azure netApp Files 消除了障礙，因此您可以將所有基於檔案的應用程式移轉到雲端。這是第一次，您不必重新建立您的應用程序，並且您可以輕鬆獲得應用程式的持久性儲存。
+
+由於該服務是透過 Microsoft Azure 入口網站提供的，因此使用者可以作為 Microsoft 企業協議的一部分體驗完全託管的服務。由 Microsoft 管理的世界級的支援讓您完全放心。此單一解決方案可讓您快速輕鬆地新增多協定工作負載。您可以建置和部署基於 Windows 和 Linux 檔案的應用程序，甚至對於傳統環境也是如此。
+
+
+
+=== Azure NetApp Files(ANF) 作為來賓連接儲存
+
+.使用 Azure VMware 解決方案 (AVS) 設定Azure NetApp Files
+[%collapsible%open]
+====
+可以從 Azure VMware 解決方案 SDDC 環境中建立的 VM 裝載Azure NetApp Files共用。由於Azure NetApp Files支援 SMB 和 NFS 協議，因此磁碟區也可以安裝在 Linux 用戶端上並對應到 Windows 用戶端上。只需五個簡單的步驟即可設定Azure NetApp Files磁碟區。
+
+Azure NetApp Files和 Azure VMware 解決方案必須位於相同 Azure 區域。
+
+====
+.建立和裝載Azure NetApp Files卷
+[%collapsible%open]
+====
+若要建立和裝載Azure NetApp Files卷，請完成以下步驟：
+
+. 登入 Azure 入口網站並存取Azure NetApp Files。驗證對Azure NetApp Files服務的訪問，並使用NetApp provider register --namespace Microsoft.NetApp –wait 命令註冊Azure NetApp Files資源提供者。註冊完成後，建立一個NetApp帳戶。
++
+詳細步驟請參見link:https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-create-netapp-account["Azure NetApp Files共享"]。本頁將引導您完成逐步的過程。
+
++
+image:azure-anf-guest-001.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 建立NetApp帳戶後，設定具有所需服務等級和大小的容量池。
++
+有關更多信息，請參閱link:https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool["設定容量池Set up a capacity pool"] 。
+
++
+image:azure-anf-guest-002.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 為Azure NetApp Files設定委派子網，並在建立磁碟區時指定此子網路。有關建立委託子網路的詳細步驟，請參閱link:https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-delegate-subnet["將子網路委託給Azure NetApp Files"]。
++
+image:azure-anf-guest-003.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 使用「容量池」側邊欄標籤下的「磁碟區」側邊欄標籤新增 SMB 磁碟區。確保在建立 SMB 磁碟區之前配置了 Active Directory 連接器。
++
+image:azure-anf-guest-004.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 按一下「檢視 + 建立」以建立 SMB 磁碟區。
++
+如果應用程式是 SQL Server，則啟用 SMB 持續可用性。
+
++
+image:azure-anf-guest-005.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+image:azure-anf-guest-006.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+若要詳細了解Azure NetApp Files磁碟區按大小或配額的效能，請參閱link:https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-performance-considerations["Azure NetApp Files的效能注意事項"]。
+
+. 連接建立後，即可掛載該磁碟區並將其用於應用程式資料。
++
+為此，請在 Azure 入口網站中按一下「磁碟區」側邊欄選項卡，然後選擇要掛載的磁碟區並存取掛載說明。複製路徑並使用映射網路磁碟機選項將磁碟區載入到在 Azure VMware 解決方案 SDDC 上執行的 VM 上。
+
++
+image:azure-anf-guest-007.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+image:azure-anf-guest-008.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 若要在 Azure VMware 解決方案 SDDC 上執行的 Linux VM 上裝載 NFS 卷，請使用相同的程序。使用磁碟區重塑或動態服務等級功能來滿足工作負載需求。
++
+image:azure-anf-guest-009.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+有關更多信息，請參閱link:https://docs.microsoft.com/en-us/azure/azure-netapp-files/dynamic-change-volume-service-level["動態變更卷的服務級別"] 。
+
+
+
+====
+
+
+== Cloud Volumes ONTAP (CVO)
+
+Cloud Volumes ONTAP（或稱 CVO）是基於 NetApp 的ONTAP儲存軟體所建置的業界領先的雲端資料管理解決方案，可在 Amazon Web Services (AWS)、Microsoft Azure 和 Google Cloud Platform (GCP) 上原生使用。
+
+它是ONTAP的軟體定義版本，使用雲端原生存儲，允許您在雲端和本地使用相同的存儲軟體，從而無需重新培訓 IT 人員採用全新方法來管理資料。
+
+CVO 使客戶能夠無縫地將資料從邊緣移動到資料中心、雲端並返回，從而將您的混合雲整合在一起 - 所有這些都透過單一窗格管理控制台NetApp Cloud Manager 進行管理。
+
+CVO 的設計旨在提供極致的效能和先進的資料管理功能，以滿足您在雲端最嚴苛的應用程式
+
+
+
+=== Cloud Volumes ONTAP (CVO) 作為來賓連接存儲
+
+.在 Azure 中部署新的Cloud Volumes ONTAP
+[%collapsible%open]
+====
+可以從 Azure VMware 解決方案 SDDC 環境中建立的 VM 掛載Cloud Volumes ONTAP共用和 LUN。由於Cloud Volumes ONTAP支援 iSCSI、SMB 和 NFS 協議，因此磁碟區也可以安裝在 Linux 用戶端和 Windows 用戶端上。只需幾個簡單的步驟即可設定Cloud Volumes ONTAP磁碟區。
+
+若要將磁碟區從本機環境複製到雲端以用於災難復原或遷移目的，請使用站台對站台 VPN 或 ExpressRoute 建立與 Azure 的網路連線。將資料從本地複製到Cloud Volumes ONTAP超出了本文檔的範圍。若要在本機和Cloud Volumes ONTAP系統之間複製數據，請參閱link:https://docs.netapp.com/us-en/occm/task_replicating_data.html#setting-up-data-replication-between-systems["設定係統之間的資料複製"]。
+
+
+NOTE: 使用link:https://cloud.netapp.com/cvo-sizer["Cloud Volumes ONTAP大小調整器"]準確地確定Cloud Volumes ONTAP實例的大小。也可以監控本機效能以用作Cloud Volumes ONTAP大小調整器的輸入。
+
+. 登入NetApp Cloud Central — 顯示 Fabric View 畫面。找到Cloud Volumes ONTAP標籤並選擇前往雲端管理員。登入後，將顯示 Canvas 畫面。
++
+image:azure-cvo-guest-001.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 在雲端管理器首頁上，按一下新增工作環境，然後選擇 Microsoft Azure 作為雲端和系統設定類型。
++
+image:azure-cvo-guest-002.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 建立第一個Cloud Volumes ONTAP工作環境時，Cloud Manager 會提示您部署連接器。
++
+image:azure-cvo-guest-003.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 建立連接器後，更新詳細資訊和憑證欄位。
++
+image:azure-cvo-guest-004.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 提供要建立的環境的詳細信息，包括環境名稱和管理員憑證。新增 Azure 環境的資源組標籤作為可選參數。完成後，按一下“繼續”。
++
+image:azure-cvo-guest-005.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 選擇Cloud Volumes ONTAP部署的附加服務，包括BlueXP分類、 BlueXP backup and recovery以及Cloud Insights。選擇服務，然後按一下繼續。
++
+image:azure-cvo-guest-006.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 配置 Azure 位置和連線。選擇要使用的 Azure 區域、資源群組、VNet 和子網路。
++
+image:azure-cvo-guest-007.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 選擇授權選項：按使用量付費或使用現有授權的 BYOL。在此範例中，使用了按使用量付費選項。
++
+image:azure-cvo-guest-008.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 在適用於各種類型工作負載的幾個預先配置套件中進行選擇。
++
+image:azure-cvo-guest-009.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 接受兩個關於啟動支援和分配 Azure 資源的協定。若要建立Cloud Volumes ONTAP實例，請按一下「Go」。
++
+image:azure-cvo-guest-010.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 配置Cloud Volumes ONTAP後，它會列在 Canvas 頁面上的工作環境中。
++
+image:azure-cvo-guest-011.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+====
+.SMB 磁碟區的附加配置
+[%collapsible%open]
+====
+. 工作環境準備好後，請確保 CIFS 伺服器配置了適當的 DNS 和 Active Directory 設定參數。在建立 SMB 磁碟區之前，需要執行此步驟。
++
+image:azure-cvo-guest-020.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 建立 SMB 磁碟區是一個簡單的過程。選擇要建立磁碟區的 CVO 實例，然後按一下「建立磁碟區」選項。選擇適當的大小，雲端管理器選擇包含的聚合或使用進階分配機制放置在特定的聚合上。對於此演示，選擇 SMB 作為協定。
++
+image:azure-cvo-guest-021.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 磁碟區配置完成後，它將在「磁碟區」窗格下可用。由於已配置 CIFS 共享，請授予您的使用者或群組對檔案和資料夾的權限，並驗證這些使用者是否可以存取共用並建立檔案。如果從本機環境複製卷，則不需要此步驟，因為檔案和資料夾權限都將作為SnapMirror複製的一部分保留。
++
+image:azure-cvo-guest-022.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 建立磁碟區後，使用 mount 指令從 Azure VMware 解決方案 SDDC 主機上執行的 VM 連線到共用。
+. 複製以下路徑並使用映射網路磁碟機選項將磁碟區載入到在 Azure VMware 解決方案 SDDC 上執行的 VM 上。
++
+image:azure-cvo-guest-023.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
++
+image:azure-cvo-guest-024.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+====
+.將 LUN 連接到主機
+[%collapsible%open]
+====
+若要將 LUN 連接到主機，請完成下列步驟：
+
+. 在「畫布」頁面上，雙擊Cloud Volumes ONTAP工作環境以建立和管理磁碟區。
+. 按一下新增磁碟區 > 新磁碟區並選擇 iSCSI，然後按一下建立啟動器群組。按一下「Continue（繼續）」。
++
+image:azure-cvo-guest-030.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 配置磁碟區後，選擇該磁碟區，然後按一下目標 IQN。若要複製 iSCSI 限定名稱 (IQN)，請按一下複製。建立從主機到 LUN 的 iSCSI 連線。
++
+若要對駐留在 Azure VMware 解決方案 SDDC 上的主機完成相同操作，請執行下列操作：
+
++
+.. 透過 RDP 連接 Azure VMware 解決方案 SDDC 上託管的 VM。
+.. 開啟 iSCSI 發起程式屬性對話方塊：伺服器管理員 > 儀表板 > 工具 > iSCSI 發起程式。
+.. 在“發現”標籤中，按一下“發現入口網站”或“新增入口網站”，然後輸入 iSCSI 目標連接埠的 IP 位址。
+.. 從「目標」標籤中，選擇發現的目標，然後按一下「登入」或「連線」。
+.. 選擇啟用多路徑，然後選擇電腦啟動時自動恢復此連線或將此連線新增至收藏目標清單。按一下“進階”。
++
+*注意：*Windows 主機必須與叢集中的每個節點建立 iSCSI 連線。本機 DSM 選擇要使用的最佳路徑。
+
++
+image:azure-cvo-guest-031.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+
+
+儲存虛擬機器 (SVM) 上的 LUN 對於 Windows 主機來說顯示為磁碟。主機不會自動發現任何新新增的磁碟。透過完成以下步驟觸發手動重新掃描以發現磁碟：
+
+. 開啟 Windows 電腦管理公用程式：開始 > 管理工具 > 電腦管理。
+. 在導航樹中展開儲存節點。
+. 按一下“磁碟管理”。
+. 按一下操作 > 重新掃描磁碟。
+
+
+image:azure-cvo-guest-032.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+當 Windows 主機首次存取新的 LUN 時，它沒有分割區或檔案系統。初始化 LUN；並且（可選）透過完成以下步驟使用檔案系統格式化 LUN：
+
+. 啟動 Windows 磁碟管理。
+. 右鍵單擊 LUN，然後選擇所需的磁碟或分割區類型。
+. 請按照精靈中的說明進行操作。在此範例中，已安裝磁碟機 E:
+
+
+image:azure-cvo-guest-033.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+image:azure-cvo-guest-034.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+====

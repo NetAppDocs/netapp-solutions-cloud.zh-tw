@@ -1,0 +1,92 @@
+---
+sidebar: sidebar 
+permalink: vmware/vmw-azure-avs-nfs-ds-overview.html 
+keywords:  
+summary:  
+---
+= ANF 資料儲存解決方案概述
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+每個成功的組織都走在轉型和現代化的道路上。作為此過程的一部分，公司通常會使用其現有的 VMware 投資，同時利用雲端優勢並探索如何盡可能使遷移、爆發、擴展和災難復原過程無縫。遷移到雲端的客戶必須評估彈性和爆發、資料中心退出、資料中心整合、生命週期終止場景、合併、收購等問題。每個組織所採用的方法可能因其各自的業務優先事項而異。在選擇基於雲端的操作時，選擇具有適當效能和最小阻礙的低成本模型是一個關鍵目標。除了選擇正確的平台之外，儲存和工作流程編排對於釋放雲端部署和彈性的力量也特別重要。
+
+
+
+== 用例
+
+儘管 Azure VMware 解決方案為客戶提供了獨特的混合功能，但有限的本機儲存選項限制了其對於儲存工作負載繁重的組織的實用性。由於儲存直接與主機綁定，因此擴展儲存的唯一方法是添加更多主機，這可能會使儲存密集型工作負載的成本增加 35-40% 或更多。這些工作負載需要額外的儲存空間，而不是額外的馬力，但這意味著需要支付額外的主機費用。
+
+讓我們考慮以下場景；客戶需要六台主機來提供馬力（vCPU/vMem），但他們對儲存也有很大的需求。根據他們的評估，他們需要 12 台主機來滿足儲存需求。這會增加整體 TCO，因為他們必須購買所有額外的馬力，而他們真正需要的只是更多的儲存空間。這適用於任何用例，包括遷移、災難復原、爆發、開發/測試等等。
+
+Azure VMware 解決方案的另一個常見用例是災難復原 (DR)。大多數組織都沒有萬無一失的 DR 策略，或者他們可能很難證明僅為了 DR 而運行幽靈資料中心是合理的。管理員可能會使用試點叢集或按需叢集來探索零佔用空間 DR 選項。然後他們可以擴展儲存而無需添加額外的主機，這可能是一個有吸引力的選擇。
+
+總而言之，用例可以用兩種方式分類：
+
+* 使用 ANF 資料儲存擴充儲存容量
+* 使用 ANF 資料儲存作為災難復原目標，以便在軟體定義資料中心 (SDDC) 之間的本機或 Azure 區域內實現成本優化的復原工作流程。本指南深入介紹如何使用Azure NetApp Files為資料儲存提供最佳化儲存（目前處於公共預覽階段）以及 Azure VMware 解決方案中一流的資料保護和 DR 功能，使您能夠從 vSAN 儲存中卸載儲存容量。
+
+
+
+NOTE: 有關使用 ANF 資料儲存的更多信息，請聯繫您所在地區的NetApp或 Microsoft 解決方案架構師。
+
+
+
+== Azure 中的 VMware Cloud 選項
+
+
+
+=== Azure VMware 解決方案
+
+Azure VMware 解決方案 (AVS) 是一種混合雲服務，可在 Microsoft Azure 公有雲中提供功能齊全的 VMware SDDC。 AVS 是使用 Azure 基礎架構、完全由 Microsoft 管理和支援並經過 VMware 驗證的第一方解決方案。因此，客戶可以獲得用於計算虛擬化的 VMware ESXi、用於超融合儲存的 vSAN 以及用於網路和安全的 NSX，同時利用 Microsoft Azure 的全球影響力、一流的資料中心設施以及與豐富的原生 Azure 服務和解決方案生態系統的接近性。  Azure VMware 解決方案 SDDC 和Azure NetApp Files的組合以最小的網路延遲提供了最佳效能。
+
+無論使用哪種雲，部署 VMware SDDC 時，初始叢集都包含以下元件：
+
+* VMware ESXi 主機用於計算虛擬化，並使用 vCenter 伺服器設備進行管理。
+* VMware vSAN 超融合存儲，整合了每個 ESXi 主機的實體儲存資產。
+* VMware NSX 用於虛擬網路和安全，並使用 NSX Manager 叢集進行管理。
+
+
+
+
+== 結論
+
+無論您的目標是全雲還是混合雲，Azure NetApp檔案都提供了出色的選項來部署和管理應用程式工作負載以及檔案服務，同時透過將資料需求無縫連接到應用程式層來降低 TCO。無論用例如何，選擇 Azure VMware 解決方案以及Azure NetApp Files都可以快速實現雲端優勢、跨本地和多個雲端的一致基礎架構和操作、工作負載的雙向可移植性以及企業級容量和效能。它與用於連接儲存的熟悉的過程和程序相同。請記住，只是資料的位置隨著新名稱而改變了；工具和流程都保持不變， Azure NetApp Files有助於優化整體部署。
+
+
+
+== 總結
+
+該文件的要點包括：
+
+* 現在您可以將Azure NetApp Files用作 AVS SDDC 上的資料儲存。
+* 提高應用程式回應時間並提供更高的可用性，以便在需要的時間和地點提供存取工作負載資料。
+* 透過簡單、即時的調整大小功能簡化 vSAN 儲存的整體複雜性。
+* 使用動態重塑功能保證關鍵任務工作負載的效能。
+* 如果 Azure VMware 解決方案雲端是目標，Azure NetApp Files是最佳化部署的正確儲存解決方案。
+
+
+
+
+== 在哪裡可以找到更多信息
+
+要了解有關本文檔中描述的信息的更多信息，請參閱以下網站連結：
+
+* Azure VMware 解決方案文檔
++
+https://docs.microsoft.com/en-us/azure/azure-vmware/["https://docs.microsoft.com/en-us/azure/azure-vmware/"^]
+
+* Azure NetApp Files文檔
++
+https://docs.microsoft.com/en-us/azure/azure-netapp-files/["https://docs.microsoft.com/en-us/azure/azure-netapp-files/"^]
+
+* 將Azure NetApp Files儲存體附加到 Azure VMware 解決方案主機（預覽版）
++
+https://docs.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal/["https://docs.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal/"^]
+
+

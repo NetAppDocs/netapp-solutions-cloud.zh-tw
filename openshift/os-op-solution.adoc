@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: openshift/os-op-solution.html 
+keywords: NetApp Solutions, redhat OpenShift, red hat OpenShift, redhat openshift container platform, ocp, openshift container platform, Advanced Cluster Management, ACM, Hub Cluster, containers, container workloads, VMware, customer managed storage, ONTAP 
+summary:  
+---
+= NetApp解決方案與 VMware 上的 Red Hat OpenShift Container 平台工作負載
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果客戶需要在其私人資料中心的基礎設施上運行現代容器化應用程序，他們可以這樣做。他們應該規劃和部署 Red Hat OpenShift 容器平台 (OCP)，以便成功建構可用於生產的環境來部署他們的容器工作負載。他們的 OCP 叢集可以部署在 VMware 或裸機上。
+
+NetApp ONTAP儲存為容器部署提供資料保護、可靠性和靈活性。  Trident作為動態儲存配置器，為客戶的有狀態應用程式使用持久性ONTAP儲存。  NetApp Trident Protect 可用於滿足有狀態應用程式的多種資料管理需求，例如資料保護、遷移和業務連續性。
+
+透過 VMware vSphere， NetApp ONTAP工具提供了可用於設定資料儲存區的 vCenter 外掛程式。應用標籤並將其與 OpenShift 一起使用來儲存節點配置和資料。基於 NVMe 的儲存提供更低的延遲和高效能。
+
+
+
+== 使用Trident Protect 為 OpenShift Container 工作負載提供資料保護和遷移解決方案
+
+image:rhhc-on-premises.png["此圖顯示輸入/輸出對話框或表示書面內容"]

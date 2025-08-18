@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: vmware/vmw-hybrid-solutions.html 
+keywords: NetApp Solutions, aws, amazon, vmc, vmware managed cloud, azure, avs, gcp, gcve, enterprise, hybrid, cloud, migrate, migration, disaster recovery, dr, backup, burst 
+summary:  
+---
+= 針對超大規模企業 VMware 的NetApp解決方案
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+進一步了解NetApp為每個超大規模企業中的 VMware 環境提供的解決方案 - 從遷移工作流程、擴展/爆發到雲端、備份/還原到災難復原。
+
+
+
+== 適用於 VMware 環境的NetApp解決方案
+
+無論您採用混合雲模型還是「雲端優先」模型， NetApp都提供各種解決方案來滿足在雲端或混合雲模型中管理工作負載的最常見用例。
+
+NetApp也為每個超大規模伺服器中的儲存提供解決方案，這些儲存可作為客戶機內（客戶機連接）儲存或補充 NFS 資料儲存。所有解決方案均依照 VMware 的雲端工作負載分類進行分類。這些分類包括：
+
+* 保護（包括災難復原和備份/還原）
+* 遷移
+* 延長
+
+
+有關每個超大規模企業可用解決方案的更多詳細信息，請訪問：
+
+* link:vmw-aws-vmc-solutions.html["AWS/VMC 解決方案"]
+* link:vmw-azure-avs-solutions.html["Azure/AVS 解決方案"]
+* link:vmw-gcp-gcve-solutions.html["GCP/GCVE 解決方案"]
+

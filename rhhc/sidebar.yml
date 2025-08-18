@@ -1,0 +1,83 @@
+---
+section: rhhc
+title: NetApp混合多雲與 Red Hat OpenShift
+url: "/rhhc/index.html"
+entries:
+- title: 開始
+  pdf-filename: 適用於混合多雲的 Red Hat Openshift
+  entries:
+  - title: 解決方案概述
+    url: "/openshift/os-solutions-overview.html"
+  - title: 價值主張
+    url: "/openshift/os-solutions-value-prop.html"
+  - title: 經過驗證的解決方案
+    url: "/openshift/os-solutions-validated.html"
+  - title: 已驗證版本
+    url: "/openshift/os-solutions-versions.html"
+  - title: 支援的儲存選項
+    url: "/openshift/os-solutions-storage-options.html"
+  - title: 其他資源
+    url: "/openshift/os-solutions-resources.html"
+- title: Openshift 適用於本地
+  pdf-filename: 適用於本地的 Red Hat Openshift
+  entries:
+  - title: 解決方案概述
+    url: "/openshift/os-op-solution.html"
+  - title: 在 VMware 上設定 OpenShift 容器工作負載
+    url: "/openshift/os-op-setup.html"
+  - title: 保護 VMware 上的容器工作負載
+    url: "/openshift/os-op-data-protection.html"
+  - title: 在 VMware 上遷移容器工作負載
+    url: "/openshift/os-op-data-migration.html"
+- title: 具有自管理元件的混合雲
+  pdf-filename: 採用 Red Hat OpenShift 自管理元件的混合雲（本地/AWS/GCP/Azure）
+  entries:
+  - title: 解決方案概述
+    url: "/openshift/os-sm-solution.html"
+  - title: 在 AWS 上設定 OpenShift 容器工作負載
+    url: "/openshift/os-sm-setup.html"
+  - title: 在 GCP 上設定 OpenShift 容器工作負載
+    url: "/openshift/os-sm-gcp-setup.html"
+  - title: 在 Azure 上設定 OpenShift 容器工作負載
+    url: "/openshift/os-sm-azure-setup.html"
+  - title: 保護 AWS/GCP/Azure 上的容器工作負載
+    url: "/openshift/os-sm-data-protection.html"
+  - title: 將容器工作負載遷移到 AWS/GCP/Azure
+    url: "/openshift/os-sm-data-migration.html"
+- title: 具有提供者管理元件的混合雲
+  pdf-filename: 採用 Red Hat OpenShift 供應商管理元件的混合雲
+  entries:
+  - title: 解決方案概述
+    url: "/openshift/os-pm-solution.html"
+  - title: 在 AWS 上設定 OpenShift 容器工作負載
+    url: "/openshift/os-pm-setup.html"
+  - title: 在 Google Cloud 上設定 OpenShift Dedicated
+    url: "/openshift/os-pm-gcnv-setup.html"
+  - title: 保護 AWS 上的容器工作負載
+    url: "/openshift/os-pm-aws-dp.html"
+  - title: 在 AWS 上遷移容器工作負載
+    url: "/openshift/os-pm-aws-data-migration.html"
+  - title: 適用於容器和虛擬化的其他 ROSA 解決方案
+    url: "/openshift/os-pm-rosa-additional.html"
+- title: 使用Trident Protect 保護數據
+  pdf-filename: 使用Trident Protect 進行資料保護
+  entries:
+  - title: 使用Trident Protect 保護容器應用程式
+    url: "/openshift/os-dp-tp-solution.html"
+  - title: 使用Trident Protect 保護虛擬機
+    url: "/openshift/osv-vm-dp-using-tp.html"
+- title: 使用第三方工具保護容器應用
+  pdf-filename: 使用第三方工具保護容器應用程式的數據
+  entries:
+  - title: 解決方案概述
+    url: "/openshift/os-dp-velero-solution.html"
+  - title: 安裝 OADP
+    url: "/openshift/os-dp-velero-installation.html"
+  - title: 使用 Velero 備份容器應用程式
+    url: "/openshift/os-dp-velero-backup.html"
+  - title: 遷移應用程式
+    url: "/openshift/os-dp-velero-migrate.html"
+  - title: 使用 Velero 從備份恢復
+    url: "/openshift/os-dp-velero-restore.html"
+  - title: 刪除備份和還原
+    url: "/openshift/os-dp-velero-delete.html"

@@ -1,0 +1,352 @@
+---
+sidebar: sidebar 
+permalink: vmware/vmw-azure-avs-migrate-hcx.html 
+keywords: azure, avs, hybrid multicloud, migrate, vmware hcx, hcx 
+summary:  
+---
+= TR-4940：使用 VMware HCX 將工作負載移轉到Azure NetApp Files資料儲存 - 快速入門指南
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Azure VMware 解決方案和Azure NetApp Files儲存最常見的用例之一是遷移 VMware 工作負載。  VMware HCX 是首選方案，它提供了各種遷移機制，可將本機虛擬機器 (VM) 及其資料移至Azure NetApp Files資料儲存。
+
+
+
+== 概述：使用 VMware HCX、 Azure NetApp Files資料儲存和 Azure VMware 解決方案遷移虛擬機
+
+VMware HCX 主要是一個遷移平台，旨在簡化應用程式遷移、工作負載重新平衡甚至跨雲端的業務連續性。它是 Azure VMware 解決方案私有雲的一部分，提供了多種遷移工作負載的方法，可用於災難復原 (DR) 作業。
+
+本文檔提供了配置Azure NetApp Files資料儲存以及下載、部署和配置 VMware HCX 的逐步指導，包括本地和 Azure VMware 解決方案端的所有主要元件（包括互連、網路擴展和 WAN 最佳化），以啟用各種 VM 遷移機制。
+
+
+NOTE: VMware HCX 適用於任何資料儲存類型，因為遷移是在 VM 層級進行的。因此，本文檔適用於現有NetApp客戶和計畫使用 Azure VMware 解決方案部署Azure NetApp Files以實現經濟高效的 VMware 雲端部署的非NetApp客戶。
+
+.摘要步驟
+[%collapsible%open]
+====
+此清單提供了在 Azure 雲端安裝和設定 HCX Cloud Manager 以及在本機安裝 HCX Connector 所需的進階步驟：
+
+. 透過 Azure 入口網站安裝 HCX。
+. 在本機 VMware vCenter Server 中下載並部署 HCX Connector Open Virtualization Appliance (OVA) 安裝程式。
+. 使用許可證金鑰啟動 HCX。
+. 將本機 VMware HCX 連接器與 Azure VMware 解決方案 HCX 雲端管理器配對。
+. 設定網路設定檔、計算設定檔和服務網格。
+. （可選）執行網路擴展以避免在遷移期間重新分配 IP。
+. 驗證設備狀態並確保可以遷移。
+. 遷移虛擬機器工作負載。
+
+
+====
+.先決條件
+[%collapsible%open]
+====
+在開始之前，請確保滿足以下先決條件。有關詳細信息，請參閱 https://docs.microsoft.com/en-us/azure/azure-vmware/configure-vmware-hcx["關聯"^]。滿足先決條件（包括連接性）後，透過從 Azure VMware 解決方案入口網站產生許可證金鑰來設定和啟動 HCX。下載 OVA 安裝程式後，請依照如下所述進行安裝程序。
+
+
+NOTE: HCX 高級版是預設選項，VMware HCX 企業版也可透過支援票獲得，且無需額外付費即可獲得支援。
+
+* 使用現有的 Azure VMware 解決方案軟體定義資料中心 (SDDC) 或使用此解決方案建立私有雲link:vmw-azure-avs-setup.html["NetApp連結"^]或者這個 https://docs.microsoft.com/en-us/azure/azure-vmware/deploy-azure-vmware-solution?tabs=azure-portal["微軟連結"^]。
+* 從支援 VMware vSphere 的內部部署資料中心遷移虛擬機器和相關資料需要從資料中心到 SDDC 環境的網路連線。在遷移工作負載之前， https://docs.microsoft.com/en-us/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud["設定站台到站台 VPN 或 Express 路由 Global Access 連接"^]在本地環境和對應的私有雲之間。
+* 從本機 VMware vCenter Server 環境到 Azure VMware 解決方案私有雲的網路路徑必須支援使用 vMotion 遷移 VM。
+* 確保所需的 https://learn.microsoft.com/en-us/azure/azure-vmware/tutorial-network-checklist?source=recommendations["防火牆規則和連接埠"^]允許在本機 vCenter Server 和 SDDC vCenter 之間進行 vMotion 流量。在私有雲上，預設配置vMotion網路上的路由。
+* Azure NetApp FilesNFS 磁碟區應會作為資料儲存體裝載在 Azure VMware 解決方案中。請按照本文中詳細說明的步驟操作 https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal["關聯"^]將Azure NetApp Files資料儲存附加到 Azure VMware 解決方案主機。
+
+
+====
+.進階架構
+[%collapsible%open]
+====
+出於測試目的，用於此驗證的本機實驗室環境會透過站點對站點 VPN 連接，這允許本機連接到 Azure VMware 解決方案。
+
+image:anfd-hcx-001.png["該圖描述了該解決方案中使用的高階架構。"]
+
+====
+
+
+== 解決方案部署
+
+請按照一系列步驟完成此解決方案的部署：
+
+.步驟 1：使用附加元件選項透過 Azure 入口網站安裝 HCX
+[%collapsible%open]
+====
+若要執行安裝，請完成以下步驟：
+
+. 登入 Azure 入口網站並存取 Azure VMware 解決方案私有雲。
+. 選擇適當的私有雲並存取附加元件。這可以透過導航到*管理>附加元件*來完成。
+. 在 HCX Workload Mobility 部分，按一下 *開始*。
++
+image:anfd-hcx-002.png["HCX 工作負載移動性部分的螢幕截圖。"]
+
+. 選擇*我同意條款和條件*選項，然後點擊*啟用和部署*。
++
+
+NOTE: 預設部署是 HCX Advanced。開啟支援請求以啟用企業版。
+
++
+
+NOTE: 部署大約需要 25 到 30 分鐘。
+
++
+image:anfd-hcx-003.png["HCX Workload Mobility 部分完成的螢幕截圖。"]
+
+
+
+====
+.步驟 2：在本機 vCenter Server 中部署安裝程式 OVA
+[%collapsible%open]
+====
+為了讓本機連接器連接到 Azure VMware 解決方案中的 HCX 管理器，請確保在本機環境中開啟了對應的防火牆連接埠。
+
+若要在本機 vCenter Server 中下載並安裝 HCX Connector，請完成下列步驟：
+
+. 從 Azure 入口網站前往 Azure VMware 解決方案，選擇私有雲，然後使用 HCX 選擇 *管理 > 附加元件 > 遷移*，並複製 HCX 雲端管理器入口網站以下載 OVA 檔案。
++
+
+NOTE: 使用預設 CloudAdmin 使用者憑證存取 HCX 入口網站。
+
++
+image:anfd-hcx-004.png["用於下載 HCX OVA 檔案的 Azure 入口網站的螢幕截圖。"]
+
+. 使用 jumphost 透過 mailto:cloudadmin@vsphere.local[cloudadmin@vsphere.local^] 存取 HCX 入口網站後，導覽至 *管理 > 系統更新*，然後按 *要求下載連結*。
++
+
+NOTE: 下載或複製 OVA 連結並將其貼上到瀏覽器中，開始下載 VMware HCX Connector OVA 檔案以部署在本機 vCenter Server 上。
+
++
+image:anfd-hcx-005.png["OVA 下載連結的截圖。"]
+
+. 下載 OVA 後，使用 *部署 OVF 範本* 選項將其部署到本機 VMware vSphere 環境。
++
+image:anfd-hcx-006.png["螢幕截圖以選擇正確的 OVA 模板。"]
+
+. 輸入 OVA 部署所需的所有信息，按一下“下一步”，然後按一下“完成”以部署 VMware HCX 連接器 OVA。
++
+
+NOTE: 手動啟動虛擬設備。
+
+
+
+有關逐步說明，請參閱 https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-BFD7E194-CFE5-4259-B74B-991B26A51758.html["VMware HCX 使用者指南"^]。
+
+====
+.步驟 3：使用許可證金鑰啟動 HCX Connector
+[%collapsible%open]
+====
+在本機部署 VMware HCX Connector OVA 並啟動裝置後，請完成以下步驟以啟動 HCX Connector。從 Azure VMware 解決方案入口網站產生授權金鑰，並在 VMware HCX 管理器中啟動它。
+
+. 從 Azure 入口網站前往 Azure VMware 解決方案，選擇私有雲，然後選擇「管理」>「附加元件」>「使用 HCX 遷移」。
+. 在*使用 HCX 金鑰連接本機*下，按一下*新增*並複製啟動金鑰。
++
+image:anfd-hcx-007.png["新增 HCX 密鑰的螢幕截圖。"]
+
++
+
+NOTE: 部署的每個本機 HCX 連接器都需要單獨的金鑰。
+
+. 登入本機 VMware HCX 管理器 `"https://hcxmanagerIP:9443"`使用管理員憑證。
++
+
+NOTE: 使用 OVA 部署期間定義的密碼。
+
+. 在許可中，輸入從步驟 3 複製的金鑰，然後按一下 *啟動*。
++
+
+NOTE: 本地 HCX 連接器應該具有網路存取權限。
+
+. 在「資料中心位置」下，提供在本機安裝 VMware HCX 管理器的最近位置。按一下“繼續”。
+. 在“*系統名稱*”下，更新名稱並按一下“*繼續*”。
+. 點擊“是，繼續”。
+. 在「連接您的 vCenter」下，提供 vCenter Server 的完全限定網域名稱 (FQDN) 或 IP 位址以及對應的憑證，然後按一下「繼續」。
++
+
+NOTE: 使用 FQDN 以避免日後出現連線問題。
+
+. 在「設定 SSO/PSC」下，提供平台服務控制器的 FQDN 或 IP 位址，然後按一下「繼續」。
++
+
+NOTE: 輸入 VMware vCenter Server FQDN 或 IP 位址。
+
+. 驗證輸入的資訊是否正確，然後按一下「*重新啟動*」。
+. 服務重新啟動後，vCenter Server 在出現的頁面上顯示為綠色。  vCenter Server 和 SSO 都必須具有適當的設定參數，這些參數應與上一頁相同。
++
+
+NOTE: 此過程大約需要 10 到 20 分鐘，以便將插件新增至 vCenter Server。
+
++
+image:anfd-hcx-008.png["螢幕截圖顯示了已完成的過程。"]
+
+
+
+====
+.步驟 4：將本機 VMware HCX 連接器與 Azure VMware 解決方案 HCX 雲端管理器配對
+[%collapsible%open]
+====
+在本機和 Azure VMware 解決方案中安裝 HCX 連接器後，透過新增配對為 Azure VMware 解決方案私有雲配置本機 VMware HCX 連接器。若要設定網站配對，請完成以下步驟：
+
+. 若要在本機 vCenter 環境和 Azure VMware 解決方案 SDDC 之間建立網站對，請登入本機 vCenter Server 並造訪新的 HCX vSphere Web Client 外掛程式。
+
+
+image:anfd-hcx-009.png["HCX vSphere Web Client 插件的螢幕截圖。"]
+
+. 在基礎架構下，按一下*新增網站配對*。
+
+
+
+NOTE: 輸入 Azure VMware 解決方案 HCX 雲端管理器 URL 或 IP 位址以及用於存取私有雲的 CloudAdmin 角色的憑證。
+
+image:anfd-hcx-010.png["螢幕截圖 CloudAdmin 角色的 URL 或 IP 位址和憑證。"]
+
+. 按一下“連接”。
+
+
+
+NOTE: VMware HCX Connector 必須能夠透過連接埠 443 路由至 HCX Cloud Manager IP。
+
+. 建立配對後，新配置的網站配對可在 HCX 儀表板上取得。
+
+
+image:anfd-hcx-011.png["HCX 儀表板上已完成流程的螢幕截圖。"]
+
+====
+.步驟 5：設定網路設定檔、計算設定檔和服務網格
+[%collapsible%open]
+====
+VMware HCX Interconnect 服務設備透過網際網路和與目標網站的專用連線提供複製和基於 vMotion 的遷移功能。互連提供加密、流量工程和 VM 移動性。若要建立互連服務設備，請完成以下步驟：
+
+. 在基礎架構下，選擇*互連>多站點服務網格>計算設定檔>建立計算設定檔*。
+
+
+
+NOTE: 計算設定檔定義部署參數，包括部署的設備以及 VMware 資料中心的哪些部分可供 HCX 服務存取。
+
+image:anfd-hcx-012.png["vSphere 用戶端互連頁面的螢幕截圖。"]
+
+. 建立計算設定檔後，透過選擇「多站點服務網格」>「網路設定檔」>「建立網路設定檔」來建立網路設定檔。
+
+
+網路設定檔定義了 HCX 用於其虛擬設備的一系列 IP 位址和網路。
+
+
+NOTE: 此步驟需要兩個或更多 IP 位址。這些 IP 位址由管理網路指派給互連設備。
+
+image:anfd-hcx-013.png["將 IP 位址新增至 vSphere 用戶端互連頁面的螢幕截圖。"]
+
+. 此時，計算和網路設定檔已成功建立。
+. 透過選擇「*Interconnect*」選項中的「*Service Mesh*」標籤並選擇本機和 Azure SDDC 網站來建立服務網格。
+. 服務網格指定本地和遠端計算和網路設定檔對。
+
+
+
+NOTE: 作為此流程的一部分，HCX 裝置在來源網站和目標網站上部署並自動配置，以建立安全的傳輸結構。
+
+image:anfd-hcx-014.png["vSphere 用戶端互連頁面上的服務網格標籤的螢幕截圖。"]
+
+. 這是配置的最後一步。完成部署大約需要 30 分鐘。配置服務網格後，環境已準備就緒，並已成功建立 IPsec 隧道來遷移工作負載虛擬機器。
+
+
+image:anfd-hcx-015.png["vSphere 用戶端互連頁面上已完成程序的螢幕截圖。"]
+
+====
+.步驟 6：遷移工作負載
+[%collapsible%open]
+====
+可使用各種 VMware HCX 遷移技術在本機和 Azure SDDC 之間雙向遷移工作負載。可以使用多種遷移技術將虛擬機器移至 VMware HCX 啟動的實體或從中移出，例如 HCX 批量遷移、HCX vMotion、HCX 冷遷移、HCX 複製輔助 vMotion（HCX 企業版提供）和 HCX OS 輔助遷移（HCX 企業版提供）。
+
+要了解有關各種 HCX 遷移機制的更多信息，請參閱 https://learn.microsoft.com/en-us/azure/azure-vmware/architecture-migrate#vmware-hcx-migration-options["VMware HCX 遷移類型"^]。
+
+大量遷移
+
+本節詳細介紹批量遷移機制。在批次遷移期間，HCX 的批次遷移功能使用 vSphere Replication 遷移磁碟文件，同時在目標 vSphere HCX 實例上重新建立虛擬機器。
+
+若要啟動批次虛擬機器遷移，請完成以下步驟：
+
+. 存取「*服務 > 遷移*」下的「*遷移*」標籤。
+
+
+image:anfd-hcx-016.png["vSphere 用戶端中遷移部分的螢幕截圖。"]
+
+. 在*遠端站點連線*下，選擇遠端站點連線並選擇來源和目標。在此範例中，目標是 Azure VMware 解決方案 SDDC HCX 終點。
+. 按一下“選擇要遷移的虛擬機器”。這提供了所有本地虛擬機器的清單。根據匹配：值表達式選擇虛擬機，然後按一下*新增*。
+. 在「*傳輸和放置*」部分中，更新必填欄位（「叢集*」、「儲存*」、「目標*」和「網路*」），包括遷移設定文件，然後按一下「*驗證*」。
+
+
+image:anfd-hcx-017.png["vSphere 用戶端的傳輸和放置部分的螢幕截圖。"]
+
+. 驗證檢查完成後，按一下“*開始*”以啟動遷移。
+
+
+image:anfd-hcx-018.png["遷移啟動的螢幕截圖。"]
+
+
+NOTE: 在此遷移期間，將在目標 vCenter 內的指定Azure NetApp Files資料儲存體上建立佔位磁碟，以便將來源 VM 磁碟的資料複製到佔位磁碟。 HBR 觸發與目標的完全同步，在基準完成後，根據復原點目標 (RPO) 週期執行增量同步。全量/增量同步完成後，除非設定特定的計劃，否則會自動觸發切換。
+
+. 遷移完成後，透過存取目標 SDDC vCenter 進行驗證。
+
+
+image:anfd-hcx-019.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+有關各種遷移選項以及如何使用 HCX 將工作負載從本地遷移到 Azure VMware 解決方案的更多詳細信息，請參閱 https://learn.microsoft.com/en-us/azure/azure-vmware/architecture-migrate["VMware HCX 遷移注意事項"^]。
+
+要了解有關此過程的更多信息，請觀看以下視頻：
+
+.使用 HCX 進行工作負載遷移
+video::255640f5-4dff-438c-8d50-b01200f017d1[panopto]
+這是 HCX vMotion 選項的螢幕截圖。
+
+image:anfd-hcx-020.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+要了解有關此過程的更多信息，請觀看以下視頻：
+
+.HCX vMotion
+video::986bb505-6f3d-4a5a-b016-b01200f03f18[panopto]
+
+NOTE: 確保有足夠的頻寬來處理遷移。
+
+
+NOTE: 目標 ANF 資料儲存應具有足夠的空間來處理遷移。
+
+====
+
+
+== 結論
+
+無論您的目標是全雲還是混合雲，以及駐留在本地任何類型/供應商儲存上的數據， Azure NetApp Files和 HCX 都提供了部署和遷移應用程式工作負載的絕佳選擇，同時透過使資料需求無縫連接到應用程式層來降低 TCO。無論用例如何，選擇 Azure VMware 解決方案以及Azure NetApp Files都可以快速實現雲端優勢、跨本地和多個雲端的一致基礎架構和操作、工作負載的雙向可移植性以及企業級容量和效能。使用 VMware vSphere Replication、VMware vMotion 甚至網路檔案複製 (NFC) 連接儲存和遷移虛擬機器所使用的流程和程式相同。
+
+
+
+== 總結
+
+該文件的要點包括：
+
+* 現在可以將Azure NetApp Files用作 Azure VMware 解決方案 SDDC 上的資料儲存。
+* 您可以輕鬆地將資料從本機遷移到Azure NetApp Files資料儲存。
+* 您可以輕鬆擴大或縮小Azure NetApp Files資料儲存以滿足遷移活動期間的容量和效能要求。
+
+
+
+
+== 在哪裡可以找到更多信息
+
+要了解有關本文檔中描述的信息的更多信息，請參閱以下網站連結：
+
+* Azure VMware 解決方案文檔
+
+
+https://docs.microsoft.com/en-us/azure/azure-vmware/["https://docs.microsoft.com/en-us/azure/azure-vmware/"^]
+
+* Azure NetApp Files文檔
+
+
+https://docs.microsoft.com/en-us/azure/azure-netapp-files/["https://docs.microsoft.com/en-us/azure/azure-netapp-files/"^]
+
+* VMware HCX 遷移注意事項
+
+
+https://learn.microsoft.com/en-us/azure/azure-vmware/architecture-migrate["https://learn.microsoft.com/en-us/azure/azure-vmware/architecture-migrate"^]

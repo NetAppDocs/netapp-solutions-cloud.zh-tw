@@ -1,0 +1,234 @@
+---
+sidebar: sidebar 
+permalink: vmware/vmw-azure-anf-avs-ds-dr-veeam.html 
+keywords: disaster recovery, avs, azure vmware solution, anf, azure netapp files, disaster recovery, dr, veeam, replication 
+summary:  
+---
+= 使用 Veeam Replication 和Azure NetApp Files資料儲存區對 Azure VMware 解決方案進行災難復原
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Azure NetApp Files (ANF) 資料儲存體將儲存體與運算分離，並釋放了任何組織將其工作負載轉移到雲端所需的靈活性。它為客戶提供靈活、高效能的儲存基礎設施，可獨立於運算資源進行擴充。  Azure NetApp Files資料儲存簡化並最佳化了與 Azure VMware 解決方案 (AVS) 一起的部署，作為本地 VMWare 環境的災難復原站點。
+
+
+
+== 概況
+
+基於Azure NetApp Files(ANF) 磁碟區的 NFS 資料儲存可用於使用任何經過驗證的提供 VM 複製功能的第三方解決方案從本機複製資料。透過新增Azure NetApp Files資料存儲，它將實現成本優化部署，而不是建立具有大量 ESXi 主機來容納儲存的 Azure VMware 解決方案 SDDC。這種方法被稱為「Pilot Light Cluster」。試點燈叢集是最小 AVS 主機配置（3 x AVS 節點）以及Azure NetApp Files資料儲存容量。
+
+目標是維護一個擁有所有核心組件的低成本基礎設施來處理故障轉移。如果發生故障轉移，指示燈叢集可以擴展並提供更多的 AVS 主機。一旦故障轉移完成並且恢復正常操作，指示燈叢集就可以縮減到低成本的運作模式。
+
+
+
+== 本文件的目的
+
+本文介紹如何將Azure NetApp Files資料儲存與 Veeam Backup 和複製結合使用，以使用 Veeam VM 複製軟體功能為本機 VMware VM 到 (AVS) 設定災難復原。
+
+Veeam Backup & Replication 是一款用於虛擬環境的備份和複製應用程式。當虛擬機器被複製時，Veeam Backup & Replication 會從 AVS 上複製，該軟體將在目標 AVS SDDC 叢集上以原生 VMware vSphere 格式建立虛擬機器的精確副本。 Veeam Backup & Replication 將使副本與原始 VM 保持同步。複製提供了最佳的復原時間目標 (RTO)，因為 DR 站點上有一個處於準備啟動狀態的 VM 的安裝副本。
+
+這種複製機制可確保在災難事件發生時工作負載能夠在 AVS SDDC 中快速啟動。 Veeam Backup & Replication 軟體也優化了透過 WAN 和慢速連線進行複製的流量傳輸。此外，它還過濾掉重複的資料區塊、零資料區塊、交換檔案和「排除的 VM 客戶作業系統檔案」。該軟體還將壓縮副本流量。為了防止複製作業消耗整個網路頻寬，可以利用 WAN 加速器和網路限制規則。
+
+Veeam Backup & Replication 中的複製過程由作業驅動，這表示複製是透過設定複製作業來執行的。如果發生災難事件，可以觸發故障轉移，透過故障轉移到其副本來恢復虛擬機器。當執行故障轉移時，複製的虛擬機器將接管原始虛擬機器的角色。可以執行故障轉移至副本的最新狀態或任何已知的良好還原點。這使得勒索軟體恢復或隔離測試能夠根據需要進行。  Veeam Backup & Replication 提供多種選項來處理不同的災難復原場景。
+
+image:dr-veeam-anf-001.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+== 解決方案部署
+
+
+
+=== 進階步驟
+
+. Veeam Backup and Replication 軟體在具有適當網路連線的本機環境中運作。
+. link:https://learn.microsoft.com/en-us/azure/azure-vmware/deploy-azure-vmware-solution?tabs=azure-portal["部署 Azure VMware 解決方案 (AVS)"]私有雲和link:https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal["附加Azure NetApp Files資料存儲"]到 Azure VMware 解決方案主機。
++
+可以使用以最小配置設定的指示燈環境來實現 DR 目的。一旦發生事故，虛擬機器將故障轉移到該集群，並且可以添加其他節點）。
+
+. 設定複製作業以使用 Veeam Backup and Replication 建立 VM 副本。
+. 建立故障轉移計劃並執行故障轉移。
+. 災難事件結束且主站點啟動後，切換回生產虛擬機器。
+
+
+
+
+=== Veeam VM 複製到 AVS 和 ANF 資料儲存區的先決條件
+
+. 確保 Veeam Backup & Replication 備份 VM 連線到來源以及目標 AVS SDDC 叢集。
+. 備份伺服器必須能夠解析短名稱並連接到來源 vCenter 和目標 vCenter。
+. 目標Azure NetApp Files資料儲存必須有足夠的可用空間來儲存複製的 VM 的 VMDK。
+
+
+有關更多信息，請參閱“注意事項和限制”link:https://helpcenter.veeam.com/docs/backup/vsphere/replica_limitations.html?ver=120["這裡"] 。
+
+
+
+=== 部署詳情
+
+.步驟 1：複製虛擬機
+[%collapsible%open]
+====
+Veeam Backup & Replication 利用 VMware vSphere 快照功能/在複製期間，Veeam Backup & Replication 請求 VMware vSphere 建立 VM 快照。  VM 快照是 VM 的時間點副本，其中包括虛擬磁碟、系統狀態、配置和元資料。  Veeam Backup & Replication 使用快照作為複製的資料來源。
+
+若要複製虛擬機，請依照下列步驟操作：
+
+. 開啟 Veeam 備份和複製控制台。
+. 在主頁視圖上。右鍵點選作業節點並選擇複製作業>虛擬機器。
+. 指定作業名稱並選擇適當的進階控制複選框。按一下“下一步”。
++
+** 如果本機和 Azure 之間的連線頻寬受限，請勾選「副本種子」複選框。  *如果 Azure VMware 解決方案 SDDC 上的段與本機站台網路的段不匹配，請勾選「網路重新對應（針對具有不同網路的 AVS SDDC 站台）」複選框。
+** 如果本機生產站點中的 IP 位址方案與目標 AVS 站點中的方案不同，請勾選「副本重新 IP（適用於具有不同 IP 位址方案的 DR 站點）」複選框。
++
+image:dr-veeam-anf-002.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+. 在「虛擬」*電腦*步驟中選擇要複製到附加到 Azure VMware 解決方案 SDDC的 Azure NetApp Files資料儲存的 VM。可以將虛擬機器放置在 vSAN 上以填入可用的 vSAN 資料儲存容量。在試點叢集中，3 節點叢集的可用容量將受到限制。其餘資料可輕鬆放置在Azure NetApp Files資料儲存中，以便可以恢復虛擬機，並且擴展叢集以滿足 CPU/記憶體需求。按一下*新增*，然後在*新增物件*視窗中選擇必要的虛擬機器或虛擬機器容器，然後按一下*新增*。按一下“下一步”。
++
+image:dr-veeam-anf-003.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 之後，選擇目標作為 Azure VMware 解決方案 SDDC 叢集/主機，並選擇適當的資源池、VM 資料夾和 VM 副本的 FSx ONTAP資料儲存。然後按一下“下一步”。
++
+image:dr-veeam-anf-004.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 下一步根據需要建立來源虛擬網路和目標虛擬網路之間的對應。
++
+image:dr-veeam-anf-005.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 在*作業設定*步驟中，指定將儲存 VM 副本、保留原則等元資料的備份儲存庫。
+. 在*資料傳輸*步驟中更新*來源*和*目標*代理伺服器，保留*自動*選擇（預設）並保持選擇*直接*選項，然後按一下*下一步*。
+. 在*Guest Processing*步驟中，依需求選擇*Enable application-aware processing*選項。按一下“下一步”。
++
+image:dr-veeam-anf-006.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 選擇複製計畫來定期執行複製作業。
++
+image:dr-veeam-anf-007.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 在精靈的*摘要*步驟中，查看複製作業的詳細資訊。若要在精靈關閉後立即啟動作業，請選取*按一下「完成」時執行作業*複選框，否則請不要選取該複選框。然後按一下「*完成*」關閉精靈。
++
+image:dr-veeam-anf-008.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+複製作業啟動後，具有指定後綴的虛擬機器將填入目標 AVS SDDC 叢集/主機上。
+
+image:dr-veeam-anf-009.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+有關 Veeam 複製的更多信息，請參閱link:https://helpcenter.veeam.com/docs/backup/vsphere/replication_process.html?ver=120["複製的工作原理"]
+
+====
+.步驟 2：建立故障轉移計劃
+[%collapsible%open]
+====
+初始複製或播種完成後，建立故障轉移計劃。故障轉移計畫有助於自動對從屬虛擬機器逐一或按群組執行故障轉移。故障轉移計劃是虛擬機器處理順序（包括啟動延遲）的藍圖。故障轉移計劃還有助於確保關鍵依賴的虛擬機器已經在運作。
+
+若要建立計劃，請導覽至名為「*副本*」的新子部分並選擇「*故障轉移計劃*」。選擇適當的虛擬機器。  Veeam Backup & Replication 將尋找最接近此時間點的還原點並使用它們啟動 VM 副本。
+
+
+NOTE: 僅當初始複製完成且 VM 副本處於就緒狀態後，才能新增故障轉移計劃。
+
+
+NOTE: 執行故障轉移計畫時可同時啟動的虛擬機器數量上限為 10
+
+
+NOTE: 在故障轉移過程中，來源虛擬機器不會關閉
+
+若要建立*故障轉移計劃*，請執行下列操作：
+
+. 在主頁視圖上。右鍵點選「副本」節點並選擇「故障轉移計畫」>「故障轉移計畫」>「VMware vSphere」。
++
+image:dr-veeam-anf-010.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 接下來為計劃提供名稱和描述。可根據需要新增故障轉移前和故障轉移後腳本。例如，在啟動複製的虛擬機器之前執行腳本來關閉虛擬機器。
++
+image:dr-veeam-anf-011.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+. 將虛擬機器新增至計畫中，並修改虛擬機器啟動順序和啟動延遲以滿足應用程式依賴關係。
++
+image:dr-veeam-anf-012.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+
+有關建立複製作業的其他信息，請參閱link:https://helpcenter.veeam.com/docs/backup/vsphere/replica_job.html?ver=120["建立複製作業"]。
+
+====
+.步驟 3：運行故障轉移計劃
+[%collapsible%open]
+====
+在故障轉移期間，生產站點中的來源虛擬機器將切換到災難復原站點上的副本。作為故障轉移過程的一部分，Veeam Backup & Replication 將 VM 副本還原到所需的復原點，並將所有 I/O 活動從來源 VM 移至其副本。副本不僅可用於災難發生時，還可用於模擬災難復原演習。在故障轉移模擬期間，來源虛擬機器仍保持運作。一旦完成所有必要的測試，您就可以撤銷故障轉移並恢復正常操作。
+
+
+NOTE: 確保網路分段到位，以避免故障轉移期間發生 IP 衝突。
+
+要啟動故障轉移計劃，只需按一下「*故障轉移計劃*」選項卡，然後右鍵單擊您的故障轉移計劃。選擇“開始”。這將使用 VM 副本的最新還原點進行故障轉移。若要故障轉移到 VM 副本的特定還原點，請選擇*開始*。
+
+image:dr-veeam-anf-013.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+image:dr-veeam-anf-014.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+VM 副本的狀態從“就緒”變更為“故障轉移”，並且 VM 將在目標 Azure VMware 解決方案 (AVS) SDDC 叢集/主機上啟動。
+
+image:dr-veeam-anf-015.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+故障轉移完成後，虛擬機器的狀態將變為「故障轉移」。
+
+image:dr-veeam-anf-016.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+
+NOTE: Veeam Backup & Replication 停止來源 VM 的所有複製活動，直到其副本返回就緒狀態。
+
+有關故障轉移計劃的詳細信息，請參閱link:https://helpcenter.veeam.com/docs/backup/vsphere/failover_plan.html?ver=120["故障轉移計劃"]。
+
+====
+.步驟 4：故障恢復到生產站點
+[%collapsible%open]
+====
+當故障轉移計劃運行時，它被視為一個中間步驟，需要根據需求最終確定。選項包括以下內容：
+
+* *故障恢復到生產* - 切換回原始 VM，並將 VM 副本運行時發生的所有變更傳輸到原始 VM。
+
+
+
+NOTE: 當您執行故障回應時，變更僅傳輸但不會被發布。如果原始虛擬機器未如預期運作，請選擇*提交故障復原*（一旦確認原始虛擬機器按預期工作）或撤銷故障復原以傳回虛擬機器副本。
+
+* *撤銷故障轉移* - 切換回原始虛擬機器並放棄運行時對虛擬機器副本所做的所有變更。
+* *永久故障轉移* - 從原始 VM 永久切換到 VM 副本，並使用此副本作為原始 VM。
+
+
+在這個演示中，選擇了故障恢復到生產。在精靈的目標步驟中選擇了故障回復到原始虛擬機，並且啟用了「恢復後啟動虛擬機」複選框。
+
+image:dr-veeam-anf-017.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+image:dr-veeam-anf-018.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+image:dr-veeam-anf-019.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+image:dr-veeam-anf-020.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+故障回復提交是完成故障回復操作的方法之一。當故障回復被提交時，它會確認發送到故障回復的虛擬機器（生產虛擬機器）的變更是否如預期般運作。提交操作後，Veeam Backup & Replication 將恢復生產虛擬機器的複製活動。
+
+有關故障恢復過程的詳細信息，請參閱 Veeam 文檔link:https://helpcenter.veeam.com/docs/backup/vsphere/failover_failback.html?ver=120["複製的故障轉移和故障恢復"]。
+
+image:dr-veeam-anf-021.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+故障復原生產成功後，所有虛擬機器都將恢復到原始生產站點。
+
+image:dr-veeam-anf-022.png["此圖顯示輸入/輸出對話框或表示書面內容"]
+
+====
+
+
+== 結論
+
+Azure NetApp Files資料儲存功能使 Veeam 或任何經過驗證的第三方工具能夠利用 Pilot light 叢集來提供低成本的 DR 解決方案，而不是僅僅為了容納 VM 副本而建立大型叢集。這提供了一種有效的方法來處理量身定制的災難復原計劃，並重複使用內部現有的備份產品進行災難恢復，透過退出內部災難復原資料中心實現基於雲端的災難復原。發生災難時，可以透過點擊按鈕進行故障轉移，或在發生災難時自動進行故障轉移。
+
+要了解有關此過程的更多信息，請隨意觀看詳細的演示視頻。
+
+video::2855e0d5-97e7-430f-944a-b061015e9278[panopto,width=Video walkthrough of the solution]
