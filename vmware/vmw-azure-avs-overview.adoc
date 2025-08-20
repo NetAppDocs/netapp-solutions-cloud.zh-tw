@@ -41,7 +41,7 @@ NOTE: 來賓內儲存是將Cloud Volumes ONTAP連接到 Azure VMware 解決方�
 * 驗證網路連線並存取私有雲
 
 
-查看詳細信息link:azure-setup.html["AVS設定步驟"]。
+查看詳細信息link:../vmware/vmw-azure-avs-setup.html["AVS設定步驟"]。
 
 
 
@@ -58,7 +58,7 @@ Azure 支援以下配置的NetApp儲存體：
 * Azure NetApp Files(ANF) 作為補充 NFS 資料存儲
 
 
-查看詳細信息link:azure-guest.html["AVS 的來賓連線儲存選項"]。查看詳細信息link:azure-native-nfs-datastore-option.html["AVS 的補充 NFS 資料儲存選項"]。
+查看詳細信息link:../vmware/vmw-azure-avs-guest-storage.html["AVS 的來賓連線儲存選項"]。查看詳細信息link:../vmware/vmw-azure-avs-nfs-ds-config.html["AVS 的補充 NFS 資料儲存選項"]。
 
 
 

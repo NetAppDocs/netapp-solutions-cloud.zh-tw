@@ -27,7 +27,7 @@ AWS 支援以下配置的NetApp儲存：
 * FSx ONTAP作為補充 NFS 資料存儲
 
 
-查看詳細信息link:aws-guest.html["VMC 的用戶機連線儲存選項"]。查看詳細信息link:aws-native-nfs-datastore-option.html["VMC 的補充 NFS 資料儲存選項"]。
+查看詳細信息link:../vmware/vmw-aws-vmc-guest-storage.html["VMC 的用戶機連線儲存選項"]。查看詳細信息link:../vmware/vmw-aws-vmc-nfs-ds-config.html["VMC 的補充 NFS 資料儲存選項"]。
 
 --
 .Azure/AVS
@@ -39,7 +39,7 @@ Azure 支援以下配置的NetApp儲存體：
 * Azure NetApp Files(ANF) 作為補充 NFS 資料存儲
 
 
-查看詳細信息link:azure-guest.html["AVS 的來賓連線儲存選項"]。查看詳細信息link:azure-native-nfs-datastore-option.html["AVS 的補充 NFS 資料儲存選項"]。
+查看詳細信息link:../vmware/vmw-azure-avs-guest-storage.html["AVS 的來賓連線儲存選項"]。查看詳細信息link:../vmware/vmw-azure-avs-nfs-ds-config.html["AVS 的補充 NFS 資料儲存選項"]。
 
 --
 .良好操作規範/良好行為規範
@@ -51,7 +51,7 @@ Google Cloud 支援以下配置的NetApp儲存：
 * Google Cloud NetApp Volumes （NetApp Volumes）作為補充 NFS 資料存儲
 
 
-查看詳細信息link:gcp-guest.html["GCVE 的來賓連接儲存選項"]。查看詳細信息link:gcp-ncvs-datastore.html["GCVE 的補充 NFS 資料儲存選項"]。
+查看詳細信息link:../vmware/vmw-gcp-gcve-guest-storage.html["GCVE 的來賓連接儲存選項"]。查看詳細信息link:../vmware/vmw-gcp-gcve-nfs-ds-overview.html["GCVE 的補充 NFS 資料儲存選項"]。
 
 閱讀更多link:https://www.netapp.com/blog/cloud-volumes-service-google-cloud-vmware-engine/["Google Cloud NetApp Volumes資料儲存區支援 Google Cloud VMware Engine（NetApp部落格）"^]或者link:https://cloud.google.com/blog/products/compute/how-to-use-netapp-cvs-as-datastores-with-vmware-engine["如何將Google Cloud NetApp Volumes用作 Google Cloud VMware Engine 的資料儲存區（Google 部落格）"^]
 

@@ -16,33 +16,28 @@
   <block id="a1123889b6465e93a2209c2a0ca667ef" category="list-text">連接到新的或現有的 ExpressRoute 虛擬網路網關</block>
   <block id="ae1764c7cb70aed2d4548c424d7bf34a" category="list-text">驗證網路連線並存取私有雲</block>
   <block id="293193a848a4345d095f41ff490fd1a4" category="inline-link-macro">AVS設定步驟</block>
-  <block id="9e348c60eb79913385ed14a65efffff6" category="paragraph">查看詳細信息<block ref="be78464beb9b2a2b1696a7fe38c0e484" category="inline-link-macro-rx"></block>。</block>
   <block id="7e7790ea083a371632d0764a881695f6" category="open-title">良好操作規範/良好行為規範</block>
   <block id="6ad49d2b544134f2192d1612a572bdd6" category="paragraph">本節介紹如何設定和管理 GCVE，以及如何將其與可用於連接NetApp儲存的選項結合使用。</block>
   <block id="e4ac6590eaafc744b9bb0e6c275293ff" category="admonition">客戶機內儲存是將Cloud Volumes ONTAP和Google Cloud NetApp Volumes連接到 GCVE 的唯一支援方法。</block>
   <block id="11a31c6d83a723b3ea9c348c22e86238" category="list-text">部署和配置 GCVE</block>
   <block id="3e5cc29621d2619be0d7b1569da6909c" category="list-text">啟用對 GCVE 的私人訪問</block>
   <block id="e44b11e9adb07a14c72f48599f700cd4" category="inline-link-macro">GCVE 的設定步驟</block>
-  <block id="80d79003a84a32474624e54935709e67" category="paragraph">查看詳細信息<block ref="996ade122099ed78c4d5fea15d95f62c" category="inline-link-macro-rx"></block>。</block>
   <block id="60ce80493de8468bdfd597af1c219a9f" category="paragraph">AWS 支援以下配置的NetApp儲存：</block>
   <block id="4a7272ea95323d5fef2e377b91b5f16d" category="list-text">FSx ONTAP作為來賓連接存儲</block>
   <block id="3017a9031d66c55b0258c102decfd1b9" category="list-text">Cloud Volumes ONTAP (CVO) 作為來賓連接存儲</block>
   <block id="b6f0b1a9bd2c9c15cf02f97ead58d81f" category="list-text">FSx ONTAP作為補充 NFS 資料存儲</block>
   <block id="52be4c6acc8cca3a598e3a651421de3d" category="inline-link-macro">VMC 的用戶機連線儲存選項</block>
   <block id="aa98d71f784cc09bb41639407a3263d5" category="inline-link-macro">VMC 的補充 NFS 資料儲存選項</block>
-  <block id="7bf09ad035c9bf793d2fa043537aefb5" category="paragraph">查看詳細信息<block ref="cfba6c34c6cd33cf1694f8b48900db44" category="inline-link-macro-rx"></block>。查看詳細信息<block ref="a17693751f1eec7b9dedb49cf6a85cf2" category="inline-link-macro-rx"></block>。</block>
   <block id="5f18b04dd7d7089a2177c4c930d8d57f" category="paragraph">Azure 支援以下配置的NetApp儲存體：</block>
   <block id="1ffaf40c19facb6829b48b667d1dcaa3" category="list-text">Azure NetApp Files(ANF) 作為來賓連接儲存</block>
   <block id="dd4fe8081ff6ae9c7e9975937aff6576" category="list-text">Azure NetApp Files(ANF) 作為補充 NFS 資料存儲</block>
   <block id="a8e9a5787febc7740af29cd0bebf2e95" category="inline-link-macro">AVS 的來賓連線儲存選項</block>
   <block id="483a9a3bc528f4d194f9f8f3d2a8411a" category="inline-link-macro">AVS 的補充 NFS 資料儲存選項</block>
-  <block id="026198900efc3d72ea20d8258c67523f" category="paragraph">查看詳細信息<block ref="c21bcdb7b1f85738a3211dff01d327ef" category="inline-link-macro-rx"></block>。查看詳細信息<block ref="266132cd9b913032bfeaea66cd238ea6" category="inline-link-macro-rx"></block>。</block>
   <block id="8f08ff97ca555f50f0d05fdf950a0568" category="paragraph">Google Cloud 支援以下配置的NetApp儲存：</block>
   <block id="13c9aa5db84b0793da880f92259e86a8" category="list-text">Google Cloud NetApp Volumes （NetApp Volumes）作為來賓連接存儲</block>
   <block id="9a655f5968512f9b5a6ac3d7ca7d8c24" category="list-text">Google Cloud NetApp Volumes （NetApp Volumes）作為補充 NFS 資料存儲</block>
   <block id="2da991b20a7647acbdd67154515723cf" category="inline-link-macro">GCVE 的來賓連接儲存選項</block>
   <block id="a7b6c76fe3c75a606fc5ad0ee979c7a0" category="inline-link-macro">GCVE 的補充 NFS 資料儲存選項</block>
-  <block id="52951c404cd8a792f61575d91db609c5" category="paragraph">查看詳細信息<block ref="8e20eef09273fc2519292ca4ed666573" category="inline-link-macro-rx"></block>。查看詳細信息<block ref="360b24f09c452ad4e86b669403b2e504" category="inline-link-macro-rx"></block>。</block>
   <block id="b1226d82171c6b5a5ac14486a4c2af1a" category="inline-link-macro">Google Cloud NetApp Volumes資料儲存區支援 Google Cloud VMware Engine（NetApp部落格）</block>
   <block id="4a2ace490c98c4f7710897863663da19" category="inline-link-macro">如何將Google Cloud NetApp Volumes用作 Google Cloud VMware Engine 的資料儲存區（Google 部落格）</block>
   <block id="97c9bc4040e0d56fe099f6411084efef" category="paragraph">閱讀更多<block ref="c663ec1ecc8ea67713f2e708d7cc9f6e" category="inline-link-macro-rx"></block>或者<block ref="0518cf5f68c42268cceb7f7b5ee23c85" category="inline-link-macro-rx"></block></block>
@@ -6260,4 +6255,9 @@
   <block id="a638bb61e9909c59017790f8b29c643f" category="sidebar">使用Trident Protect 保護虛擬機</block>
   <block id="3362fe331f4245dbf60f2b33efd7d690" category="sidebar">使用第三方工具保護容器應用程式的數據</block>
   <block id="ac63f7319a9181981b0c2b12cea84ee3" category="sidebar">使用 Velero 備份容器應用程式</block>
+  <block id="a3d90c83e33e56f114c88f5c62cefd55" category="paragraph">查看詳細信息<block ref="14e0908bf01fc611452cde33030abe0c" category="inline-link-macro-rx"></block>。</block>
+  <block id="6b4a2d0d43fabf2f5829234f0803dc2b" category="paragraph">查看詳細信息<block ref="0fef3d372b01e8a51764a4db624ef5db" category="inline-link-macro-rx"></block>。</block>
+  <block id="672aa1824d3e6acff1aa5b29ebf335a5" category="paragraph">查看詳細信息<block ref="7d3eb805f5f18cab5e25af1bfb1916a8" category="inline-link-macro-rx"></block>。查看詳細信息<block ref="345d3355912c80f57744cc75b1801894" category="inline-link-macro-rx"></block>。</block>
+  <block id="c76791103485ee91ffe26d6c26727aa3" category="paragraph">查看詳細信息<block ref="7579be3a2f29ef8b8644f2450aa0cb4d" category="inline-link-macro-rx"></block>。查看詳細信息<block ref="8b86682762859e711b97d12219a25190" category="inline-link-macro-rx"></block>。</block>
+  <block id="0c70ebfdf47c8b6d6f765a59f6cadb07" category="paragraph">查看詳細信息<block ref="a7706837cfe556ca1ad5d59ff2868a4a" category="inline-link-macro-rx"></block>。查看詳細信息<block ref="85f8710f267dcb444c5c088521a37c34" category="inline-link-macro-rx"></block>。</block>
 </blocks>
