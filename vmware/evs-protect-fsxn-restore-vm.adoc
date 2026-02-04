@@ -1,0 +1,97 @@
+---
+sidebar: sidebar 
+permalink: vmware/evs-protect-fsxn-restore-vm.html 
+keywords: Amazon, AWS, EVS, Elastic VMware Service, ONTAP, FSx, iscsi 
+summary: 本節介紹從備份還原 VM 的步驟。 
+---
+= 受 SnapCenter Plug-in for VMware 保護的虛擬機器的還原程序
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+本節介紹從備份還原 VM 的步驟。SCV 可用於還原 vCenter 內的 VM，允許將其還原到原始 ESXi 主機上的原始資料存放區（覆寫現有內容）、從備份副本還原已刪除或重新命名的 VM、還原到原始 ESXi 主機上的不同資料存放區、還原到由同一 vCenter 管理的不同 ESXi 主機上的原始資料存放區，或還原到同一 vCenter 環境中另一個 ESXi 主機上的不同資料存放區。
+
+
+
+== 執行還原作業的步驟
+
+若要執行還原作業，請依照下列步驟操作：
+
+. 在 EVS vSphere Web 用戶端 GUI 中，前往「清單 > 資料儲存區」，然後選擇所需的資料儲存區。接下來，導覽至「SnapCenter Plug-in for VMware vSphere」部分下的「設定 > 備份」。
++
+image:evs-protect-fsxn-009.png["該圖表示上述步驟的對話框"]
+
+. 雙擊備份檔案即可查看該備份中包含的所有 VM。在清單中找到要還原的 VM，然後選擇「還原」。
++
+image:evs-protect-fsxn-010.png["該圖表示上述步驟的對話框"]
+
+. 在「選擇範圍」頁面上，在「還原範圍」欄位中選擇「整個虛擬機器」，然後選擇「還原位置」，並輸入備份應掛載的目標 ESXi 資訊。
+. 如果虛擬機需要在還原作業後開啟電源，請啟用「重新啟動 VM」核取方塊。
+. 在「選擇位置」頁面上，選擇主要位置。
++
+image:evs-protect-fsxn-011.png["該圖表示上述步驟的對話框"]
+
+. 檢閱「摘要」頁面，然後選取「完成」。
++
+image:evs-protect-fsxn-012.png["該圖表示上述步驟的對話框"]
+
+. 在螢幕底部選擇 "Recent Tasks"，即可監控操作進度。
++
+image:evs-protect-fsxn-013.png["該圖表示上述步驟的對話框"]
+
+
+
+
+NOTE: 雖然 VM 已還原，但不會自動新增至先前的資源群組。如果您想要保護這些 VM ，請手動將其新增至適當的資源群組。
+
+
+NOTE: 也可以從個別 VM 層級觸發還原作業。
+
+
+
+== 還原已刪除 VM 的步驟
+
+使用 SCV 還原已刪除的 VM 是一個簡單的程序。
+
+可以從資料儲存層級執行已刪除 VM 的還原作業。
+
+. 前往對應的 Datastore > Configure > Backups。在那裡，選擇已刪除的 VM，然後選擇「Restore」。
++
+image:evs-protect-fsxn-014.png["該圖表示上述步驟的對話框"]
+
++
+image:evs-protect-fsxn-015.png["該圖表示上述步驟的對話框"]
+
+. 接下來的螢幕截圖流程涵蓋了將 VM 還原到備用 ESXi 主機和不同資料儲存區的過程。
++
+image:evs-protect-fsxn-016.png["該圖表示上述步驟的對話框"]
+
++
+image:evs-protect-fsxn-017.png["該圖表示上述步驟的對話框"]
+
++
+image:evs-protect-fsxn-018.png["該圖表示上述步驟的對話框"]
+
++
+image:evs-protect-fsxn-019.png["該圖表示上述步驟的對話框"]
+
++
+image:evs-protect-fsxn-020.png["該圖表示上述步驟的對話框"]
+
+
+
+
+NOTE: 目標資料儲存區必須有足夠的可用空間，且在「還原到備用位置」欄位中指定的 vCenter 必須可透過 DNS 解析。
+
+
+NOTE: 為了提高 NFS 環境中的還原效率，請開啟 VMware vStorage API for Array Integration （ VAAI ）。
+
+
+NOTE: 也可以從次要位置（例如 SnapMirror 目的地）執行還原。
+
++ image:evs-protect-fsxn-021.png["該圖表示上述步驟的對話框"]

@@ -50,11 +50,11 @@ NOTE: 傳遞給 Active Directory 網域的使用者名稱和密碼在機器帳�
 
 == Active Directory 連接詳細信息
 
-這 https://cloud.google.com/architecture/partners/netapp-cloud-volumes/creating-smb-volumes["Active Directory 連接詳細信息"^]為管理員提供字段，以便為機器帳戶放置提供特定的 Active Directory 架構訊息，例如：
+ https://docs.cloud.google.com/netapp/volumes/docs/configure-and-use/active-directory/about-ad["Active Directory 連接詳細信息"^]為管理員提供指導，以便提供用於放置電腦帳戶的特定 Active Directory 架構資訊，例如：
 
 * Active Directory 連線類型。用於指定區域中的 Active Directory 連線是否用於Google Cloud NetApp Volumes或NetApp Volumes-Performance 服務類型的磁碟區。如果在現有連線上設定不正確，使用或編輯時可能無法正常運作。
 * *領域。 *  Active Directory 網域。
-* *地點。 *出於安全性和效能考慮，將 Active Directory 伺服器限製到特定站點 https://cloud.google.com/architecture/partners/netapp-cloud-volumes/managing-active-directory-connections["注意事項"^]。當多個 Active Directory 伺服器跨區域時，這是必要的，因為Google Cloud NetApp Volumes目前不支援允許 Active Directory 驗證請求傳送到與Google Cloud NetApp Volumes實例不同區域的 Active Directory 伺服器。  （例如，Active Directory 網域控制站位於僅NetApp Volumes-Performance 支援的區域中，但您希望在NetApp Volumes-SW 實例中進行 SMB 共用。）
+* *站台。*將 Active Directory 伺服器限制在特定站台，以提升安全性與效能 https://docs.cloud.google.com/compute/docs/instances/windows/best-practices["注意事項"^]。當多個 Active Directory 伺服器橫跨多個區域時，這是必要的，因為 Google Cloud NetApp Volumes 目前不支援允許 Active Directory 驗證請求發送至與 Google Cloud NetApp Volumes 實例不同區域的 Active Directory 伺服器。（例如，Active Directory 網域控制器位於僅支援 NetApp Volumes-Performance 的區域，但您希望在 NetApp Volumes-SW 實例中建立 SMB 共用。）
 * DNS 伺服器。用於名稱查找的 DNS 伺服器。
 * NetBIOS 名稱（可選）。如果需要，伺服器的 NetBIOS 名稱。這是使用 Active Directory 連線建立新機器帳戶時所使用的內容。例如，如果 NetBIOS 名稱設定為NetApp Volumes-EAST，則機器帳戶名稱將為NetApp Volumes-EAST-{1234}。請參閱link:gcp-gcnv-ad-connections.html#how-cloud-volumes-service-shows-up-in-active-directory["Google Cloud NetApp Volumes如何在 Active Directory 中顯示"]了解更多。
 * 組織單位 (OU)。建立計算機帳戶的特定 OU。如果您將機器帳戶的控制權委託給特定 OU 的用戶，這將非常有用。
@@ -149,4 +149,4 @@ Google Cloud NetApp Volumes在 Active Directory 中顯示為一般機器帳戶�
 |===
 若要為 SMB 機器帳戶啟用 AES 加密，請在建立 Active Directory 連線時按一下為 AD 驗證啟用 AES 加密。
 
-若要為 NFS Kerberos 啟用 AES 加密， https://cloud.google.com/architecture/partners/netapp-cloud-volumes/creating-nfs-volumes["請參閱Google Cloud NetApp Volumes文檔"^] 。
+若要為 NFS Kerberos 啟用 AES 加密， https://docs.cloud.google.com/netapp/volumes/docs/plan-and-prepare/security-considerations["請參閱Google Cloud NetApp Volumes文檔"^]

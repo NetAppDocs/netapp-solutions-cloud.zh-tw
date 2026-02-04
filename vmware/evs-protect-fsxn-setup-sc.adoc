@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: vmware/evs-protect-fsxn-setup-sc.html 
+keywords: Amazon, AWS, EVS, Elastic VMware Service, ONTAP, FSx 
+summary: 本節介紹如何設定 SnapCenter Plug-in for VMware 的步驟。 
+---
+= SnapCenter Plug-in for VMware 的設定程序
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+本節介紹如何設定 SnapCenter Plug-in for VMware 的步驟。
+
+
+
+== 先決條件
+
+開始之前需要滿足以下先決條件：
+
+. 在部署 OVA 時註冊 vCenter 伺服器時，請指定 vCenter 的完全限定網域名稱（FQDN）或 IP 位址。
+. 對於 vCenter 憑證，請使用具有最低所需權限的帳戶
+. 為 vCenter Server 存取開放防火牆連接埠。
+. 更新執行 FSx for ONTAP 的 Amazon VPC 安全群組，以允許 SCV 存取 FSx for ONTAP。
+
+
+
+NOTE: SCV 可免費使用。
+
+
+
+== 設定 SnapCenter Plug-in for VMware
+
+為了保護 VM 及其託管的基於 NFS/iSCSI 的資料存儲，必須部署 SCV。這是一個簡單的 OVF 匯入。
+
+部署步驟如下：
+
+. 從 link:https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_download_the_ova_open_virtual_appliance.html["NetApp 支援網站"] 下載 OVA。
+. 登入 Amazon EVS vCenter。
+. 在 vCenter 中，以滑鼠右鍵按一下任何目錄物件（例如資料中心、資料夾、叢集或主機），然後選取「部署 OVF 範本」。
+. 選擇正確的設定，包括儲存、區段，並自訂範本以更新 vCenter 及其認證資料、建立 SCV 認證資料和 IP 詳細資料。檢閱後，選取「完成」。
+. 等待 OVF 匯入和部署任務完成。
+. 成功部署 SCV 後，將在 vCenter 內註冊。
+. 若要存取插件，請導覽至 vCenter Web 用戶端頁面的左側邊欄，選擇「SnapCenter Plug-in for VMware」。
+
+
+image:evs-protect-fsxn-001.png["該圖表示上述步驟的對話框"]

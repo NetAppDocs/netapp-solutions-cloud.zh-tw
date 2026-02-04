@@ -51,12 +51,7 @@
   <block id="7786f845adbf4ae5b4b31e55192f5d6c" category="inline-link-macro">Amazon EVS 宣布支援 FSx for ONTAP</block>
   <block id="8d88f632c6fffd96d1c3fd8be60480a5" category="list-text"><block ref="8d88f632c6fffd96d1c3fd8be60480a5" category="inline-link-macro-rx"></block></block>
   <block id="14d00863ef683631706683292e1e1b3c" category="inline-link-macro">使用 VMware HCX 配置具有 FSx ONTAP和 VMware Cloud on AWS SDDC 的混合雲</block>
-  <block id="e2d970cd6feb419cd8796624bacf677d" category="list-text"><block ref="e2d970cd6feb419cd8796624bacf677d" category="inline-link-macro-rx"></block></block>
   <block id="4c59a2b73bbff0a790b5fcbf60645c6f" category="section-title">Azure VMware 解決方案</block>
-  <block id="8d7efa937e97b1a8187ff8f122d9732a" category="inline-link-macro">優化基於雲端的 VMware 部署的存儲</block>
-  <block id="5a6bd3a9e0048284caf2b5f521d90959" category="list-text"><block ref="5a6bd3a9e0048284caf2b5f521d90959" category="inline-link-macro-rx"></block></block>
-  <block id="2483c6a0c908ef17b60dc322f9f15352" category="inline-link-macro">使用基於NetApp的雲端產品開始使用 Azure VMware 解決方案</block>
-  <block id="8fa69e6a61b03e4d15560c5e224cb577" category="list-text"><block ref="8fa69e6a61b03e4d15560c5e224cb577" category="inline-link-macro-rx"></block></block>
   <block id="8cb69aa5b1609d0a39f0fcd576c07df6" category="section-title">Google Cloud VMware 引擎</block>
   <block id="2cd9dbbc556004ec4c63b9db15995320" category="inline-link-macro">Google Cloud NetApp Volumes資料儲存區支援 Google Cloud VMware Engine (NetApp)</block>
   <block id="81d8e8f3d71b597f33ac08980d0f1c96" category="list-text"><block ref="81d8e8f3d71b597f33ac08980d0f1c96" category="inline-link-macro-rx"></block></block>
@@ -66,12 +61,9 @@
   <block id="4587279425a64cfc00b685b8bfc28bf4" category="list-text"><block ref="4587279425a64cfc00b685b8bfc28bf4" category="inline-link-macro-rx"></block></block>
   <block id="273f11e723794ed27039b86d108dda1c" category="section-title">資料保護和管理</block>
   <block id="cc090bcb755694ec2b8ab2fa1beb2258" category="inline-link-macro">透過SnapCenter插件和BlueXP虛擬機器備份與恢復，為 VMware 提供 3-2-1 資料保護</block>
-  <block id="02a6363ad4835fb1fc2f0babd8ded2b6" category="list-text"><block ref="02a6363ad4835fb1fc2f0babd8ded2b6" category="inline-link-macro-rx"></block></block>
   <block id="3c91c8125baee1371b566d079a57a8f3" category="inline-link-macro">利用NetApp Cloud Insights實現現代資料中心的可觀察性</block>
-  <block id="462277815cdb60d9aabf9bac09d8c73e" category="list-text"><block ref="462277815cdb60d9aabf9bac09d8c73e" category="inline-link-macro-rx"></block></block>
   <block id="71fbb94034ace383d669c7a15d92bc40" category="section-title">NetApp適用於 OpenShift 容器工作負載</block>
   <block id="cbc56988457f1c69580cdc28974caa1d" category="inline-link-macro">NetApp ONTAP兼作 Red Hat OpenShift 容器平台中的日誌存儲</block>
-  <block id="19e86b6e1e8bff9c2b3cd8a8f8f2b540" category="list-text"><block ref="19e86b6e1e8bff9c2b3cd8a8f8f2b540" category="inline-link-macro-rx"></block></block>
   <block id="d97c288618e32f00d576f83cf79a1fbb" category="section-title">VMware 主權雲</block>
   <block id="fb51c7e7bf375f2f918b283331273975" category="inline-link-macro">推出全新主權雲端計劃</block>
   <block id="56b1f9644d1224160bec47a23c843b2e" category="list-text"><block ref="56b1f9644d1224160bec47a23c843b2e" category="inline-link-macro-rx"></block></block>
@@ -95,11 +87,9 @@
   <block id="66d939bc6b363153976bbd24624850b8" category="admonition">傳遞給 Active Directory 網域的使用者名稱和密碼在機器帳戶物件查詢和建立期間利用 Kerberos 加密來增強安全性。</block>
   <block id="8575c9ec9ca166098f9d546c3c12e9b1" category="section-title">Active Directory 連接詳細信息</block>
   <block id="452740f6c26f32def386962441d5cb2c" category="inline-link">Active Directory 連接詳細信息</block>
-  <block id="af31d4ab1f284e1f94d3522fd1fa36fe" category="paragraph">這<block ref="9255123c1378b2d08be170075ba389b5" category="inline-link-rx"></block>為管理員提供字段，以便為機器帳戶放置提供特定的 Active Directory 架構訊息，例如：</block>
   <block id="a8f8e7f7a81fce771e2a9f8710b0681a" category="list-text">Active Directory 連線類型。用於指定區域中的 Active Directory 連線是否用於Google Cloud NetApp Volumes或NetApp Volumes-Performance 服務類型的磁碟區。如果在現有連線上設定不正確，使用或編輯時可能無法正常運作。</block>
   <block id="d5cc4c55027c65e3b8d52c15d308935d" category="list-text">*領域。 *  Active Directory 網域。</block>
   <block id="c3fab9d188d8e1e4a9e0ba27a52306c6" category="inline-link">注意事項</block>
-  <block id="004c3dcd54f00327d602ce8f426ad65d" category="list-text">*地點。 *出於安全性和效能考慮，將 Active Directory 伺服器限製到特定站點<block ref="cae534855afa8eaefaa37d26edea88d5" category="inline-link-rx"></block>。當多個 Active Directory 伺服器跨區域時，這是必要的，因為Google Cloud NetApp Volumes目前不支援允許 Active Directory 驗證請求傳送到與Google Cloud NetApp Volumes實例不同區域的 Active Directory 伺服器。  （例如，Active Directory 網域控制站位於僅NetApp Volumes-Performance 支援的區域中，但您希望在NetApp Volumes-SW 實例中進行 SMB 共用。）</block>
   <block id="bc3a6531a92e21b83c95f7d7044fd498" category="list-text">DNS 伺服器。用於名稱查找的 DNS 伺服器。</block>
   <block id="2ffe8f82969374459354afd90245abab" category="inline-link-macro">Google Cloud NetApp Volumes如何在 Active Directory 中顯示</block>
   <block id="05d7562f171fbe208b6e30440ba6e51a" category="list-text">NetBIOS 名稱（可選）。如果需要，伺服器的 NetBIOS 名稱。這是使用 Active Directory 連線建立新機器帳戶時所使用的內容。例如，如果 NetBIOS 名稱設定為NetApp Volumes-EAST，則機器帳戶名稱將為NetApp Volumes-EAST-{1234}。請參閱<block ref="9d9599c3e33e4155210640bba51be746" category="inline-link-macro-rx"></block>了解更多。</block>
@@ -157,14 +147,11 @@
   <block id="bbfe7622403fb2a786b158ba768ac4ca" category="cell">DES_CBC_MD5、RC4_HMAC、AES128_CTS_HMAC_SHA1_96 和 AES256_CTS_HMAC_SHA1_96</block>
   <block id="adfa4c5560980c9b2841dda24bda5935" category="paragraph">若要為 SMB 機器帳戶啟用 AES 加密，請在建立 Active Directory 連線時按一下為 AD 驗證啟用 AES 加密。</block>
   <block id="cda1353d8c57da59be157c734cb73343" category="inline-link">請參閱Google Cloud NetApp Volumes文檔</block>
-  <block id="42f38135a00c376f892f71ca4e0b9dc2" category="paragraph">若要為 NFS Kerberos 啟用 AES 加密，<block ref="84114ccbe211c12d6602b47f9a69054b" category="inline-link-rx"></block> 。</block>
   <block id="154572217b52fa342506f702c7871459" category="summary">與 CloudSQL、Google Cloud VMware Engine (GCVE) 和 FileStore 等其他 Google Cloud 原生服務類似， Google Cloud NetApp Volumes使用 Google PSA 提供服務。</block>
   <block id="1e325b848d7c8cce5b0aa502fc5c2675" category="doc">Google Cloud NetApp Volumes架構</block>
   <block id="98cdf6a29cf39ecd5239e5071cb0dc88" category="inline-link">谷歌公益廣告</block>
   <block id="d4d6aaf620a68430d28b38f847f2a6af" category="inline-link">VPC 網路對等連接</block>
   <block id="c63afa8cb87144f5caf6fa2d6ae4fca5" category="paragraph">與 CloudSQL、Google Cloud VMware Engine (GCVE) 和 FileStore 等其他 Google Cloud 原生服務類似， Google Cloud NetApp Volumes使用<block ref="0f93a99b9e468a051182b66dabbf3bed" category="inline-link-rx"></block>來提供服務。在 PSA 中，服務是在服務生產者專案內部建構的，該專案使用<block ref="2d8d4488e7ed7b53a7aafab379ba8587" category="inline-link-rx"></block>連接到服務消費者。服務生產者由NetApp提供和經營，服務消費者是客戶專案中的 VPC，託管想要存取Google Cloud NetApp Volumes檔案共享的用戶端。</block>
-  <block id="353164decd5aa0c4f58b4e56559e1b13" category="inline-link">建築部分</block>
-  <block id="6863d96e2a62d5eb6e3de0d5f2cce44b" category="paragraph">下圖，引自<block ref="6a8b5039754626811ee5b8fe5289e273" category="inline-link-rx"></block>Google Cloud NetApp Volumes文檔，展示了進階視圖。</block>
   <block id="79373690575009fc8cdf0c6b0a17e5ab" category="paragraph"><block ref="79373690575009fc8cdf0c6b0a17e5ab" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a6f34964d3060f5dd66e2cc7c8711679" category="paragraph">虛線上方部分顯示了服務的控制平面，它控制著卷的生命週期。虛線以下部分錶示資料平面。左邊藍色框表示使用者VPC（服務消費者），右邊藍色框表示NetApp提供的服務生產者。兩者透過 VPC 對等連接。</block>
   <block id="0d127864a05110e3053c2690dea7d914" category="section-title">租賃模型</block>
@@ -6114,7 +6101,6 @@
   <block id="6abf23f75427b3ebb151f7c93ba3e162" category="sidebar">BlueXP DRaaS模擬器</block>
   <block id="525d3bfbda194b5879b732661e63b9d2" category="sidebar">BlueXP - 虛擬機器模擬器的備份和恢復</block>
   <block id="7be0bd11f67b1a57d57f3d9c343755ad" category="sidebar">TCO計算機</block>
-  <block id="3a70b2513452ccc7061eb3f8a1daf584" category="sidebar">FSx ONTAP + VMC TCO 計算器</block>
   <block id="1281f32cf6fc0bc363006abf453df792" category="sidebar">ANF + AVS TCO 計算器</block>
   <block id="053d2c0952babedd93245bc3164b6003" category="sidebar">GCVE + NetApp Volumes TCO 估算器</block>
   <block id="c08885153d0680dab7349b930f5310c4" category="sidebar">BlueXP disaster recovery</block>
@@ -6208,7 +6194,6 @@
   <block id="5a79bf403d6c3f25e02f82d49f90919c" category="sidebar">使用 Veeam 複製和Azure NetApp Files進行災難復原</block>
   <block id="189030940d7b26af4f7154de15c05fd8" category="sidebar">在 Azure/AVS 上遷移工作負載</block>
   <block id="6bcf38420bfe0cd94e0d1e077ca21bb6" category="sidebar">使用 VMware HCX 將工作負載遷移到 ANF 資料存儲</block>
-  <block id="e790db2f9c7fc2b69cbf0a8507e98caa" category="sidebar">Netapp 適用於 Google Cloud 概述</block>
   <block id="0c7e9ecd57b37f44cfc93839e21849df" category="sidebar">Netapp 適用於 Google Cloud 的概述</block>
   <block id="3cbfe9482d211417dbb903b0998bf7c5" category="sidebar">保護 GCP/GCVE 上的工作負載</block>
   <block id="78efda5a20813282f26286aafd5e47cb" category="sidebar">使用 Veeam 補充 NFS 資料儲存進行災難復原</block>
@@ -6260,4 +6245,244 @@
   <block id="672aa1824d3e6acff1aa5b29ebf335a5" category="paragraph">查看詳細信息<block ref="7d3eb805f5f18cab5e25af1bfb1916a8" category="inline-link-macro-rx"></block>。查看詳細信息<block ref="345d3355912c80f57744cc75b1801894" category="inline-link-macro-rx"></block>。</block>
   <block id="c76791103485ee91ffe26d6c26727aa3" category="paragraph">查看詳細信息<block ref="7579be3a2f29ef8b8644f2450aa0cb4d" category="inline-link-macro-rx"></block>。查看詳細信息<block ref="8b86682762859e711b97d12219a25190" category="inline-link-macro-rx"></block>。</block>
   <block id="0c70ebfdf47c8b6d6f765a59f6cadb07" category="paragraph">查看詳細信息<block ref="a7706837cfe556ca1ad5d59ff2868a4a" category="inline-link-macro-rx"></block>。查看詳細信息<block ref="85f8710f267dcb444c5c088521a37c34" category="inline-link-macro-rx"></block>。</block>
+  <block id="65e48a5c6d94f293b84e8465b3e14b7c" category="list-text"><block ref="65e48a5c6d94f293b84e8465b3e14b7c" category="inline-link-macro-rx"></block></block>
+  <block id="ca821d0143286d806ddd63968470ded6" category="inline-link-macro">在任何雲端環境中最佳化儲存和資料密集型 VMware 工作負載</block>
+  <block id="068f5a3c2c43d2c98585ba811f53448d" category="list-text"><block ref="068f5a3c2c43d2c98585ba811f53448d" category="inline-link-macro-rx"></block></block>
+  <block id="b5ab67622f999884d1e02f03a5ff9516" category="inline-link-macro">將 VMware 工作負載遷移到 Azure VMware Solution ？請先閱讀本文。</block>
+  <block id="3aa22d916fadd4a53cbd677391da8dfe" category="list-text"><block ref="3aa22d916fadd4a53cbd677391da8dfe" category="inline-link-macro-rx"></block></block>
+  <block id="3a8cc54cc77b4e52aebe58c284605cad" category="list-text"><block ref="3a8cc54cc77b4e52aebe58c284605cad" category="inline-link-macro-rx"></block></block>
+  <block id="ee66058cbe8482df37bb01fb27da7a35" category="list-text"><block ref="ee66058cbe8482df37bb01fb27da7a35" category="inline-link-macro-rx"></block></block>
+  <block id="52e7ee593147c20e72ba0d82102407ba" category="list-text"><block ref="52e7ee593147c20e72ba0d82102407ba" category="inline-link-macro-rx"></block></block>
+  <block id="cdde9d74010f079e21c7c6bb9f28e361" category="paragraph"><block ref="b8ddfaae9f91b6ce3bc63839a5a12b48" category="inline-link-rx"></block>為管理員提供指導，以便提供用於放置電腦帳戶的特定 Active Directory 架構資訊，例如：</block>
+  <block id="1a505d2b7cf01cdffad80d9a569a87c1" category="list-text">*站台。*將 Active Directory 伺服器限制在特定站台，以提升安全性與效能<block ref="9ae4d78b6039ba66958ed0a04325d1c3" category="inline-link-rx"></block>。當多個 Active Directory 伺服器橫跨多個區域時，這是必要的，因為 Google Cloud NetApp Volumes 目前不支援允許 Active Directory 驗證請求發送至與 Google Cloud NetApp Volumes 實例不同區域的 Active Directory 伺服器。（例如，Active Directory 網域控制器位於僅支援 NetApp Volumes-Performance 的區域，但您希望在 NetApp Volumes-SW 實例中建立 SMB 共用。）</block>
+  <block id="30085707de23bf9812576b042d534e80" category="paragraph">若要為 NFS Kerberos 啟用 AES 加密，<block ref="07a5f0105d897fdcd0e98a65b187215b" category="inline-link-rx"></block></block>
+  <block id="471bdb0aa2d84f6d114789368ffc1cc1" category="inline-link">Google Cloud NetApp Volumes 說明文件</block>
+  <block id="1bbb43f7ec90df29cb4d5f98f417ce62" category="paragraph">下圖參考自<block ref="352f464aaf87296a88e4bc9188d2dd41" category="inline-link-rx"></block>，概述了高層次的視圖。</block>
+  <block id="b30af43f838a7224c22c1c5162401c48" category="summary">本文件提供了在使用 FSx for ONTAP 作為 Amazon EVS 叢集的補充資料存放區時，使用 SCV 和 SnapCenter Plug-in for SQL Server（SCSQL）的詳細步驟。</block>
+  <block id="37d50cb165ea89b30c23382b2b489939" category="inline-link-macro">SnapCenter Plug-in for SQL Server（SCSQL）</block>
+  <block id="7e6b85a5fb5d26bd836466ad53625458" category="paragraph">在本文件中，我們提供了詳細的逐步指導，說明如何部署、配置和使用 SCV 和<block ref="e68e2db9500130263e28d7f711ecf88f" category="inline-link-macro-rx"></block>，同時使用 FSx for ONTAP 作為 Amazon EVS 叢集的補充資料存放區。</block>
+  <block id="52df9deb72312c2fcb71a0d475241258" category="paragraph">總而言之，當使用 FSx for ONTAP 來最佳化 Amazon EVS 部署的 TCO 時，SCV 提供了一種簡單且有效率的虛擬機器備份方法。由於它依賴 Snapshot 複本，因此可以無縫快速地備份和還原虛擬機器，而 Snapshot 複本的建立只需幾秒鐘即可完成。</block>
+  <block id="85b01f3e5f19381f3dd6f321e7043d1b" category="inline-link-macro">立即免費試用適用於 VMware 的 SnapCenter 插件</block>
+  <block id="2eb2c384433d0ae9f5902f976b61cb03" category="paragraph"><block ref="06919a4447655c181dcc90c278d553e7" category="inline-link-macro-rx"></block>。</block>
+  <block id="4fc3b3fecccf8801843dd15778e16221" category="summary">本節介紹如何設定 SnapCenter Plug-in for VMware 的步驟。</block>
+  <block id="631a87b702f1c67d9cc89fb9a973127f" category="doc">SnapCenter Plug-in for VMware 的組態程序</block>
+  <block id="c83585226b9d581eba4052b5e2f0f231" category="paragraph">本節介紹配置 SnapCenter Plug-in for VMware vSphere 的步驟。後續章節將詳細介紹如何新增儲存空間、建立備份原則以及如何建立資源群組。</block>
+  <block id="da244e6e98c8d1480cacf0c509ed12bc" category="section-title">新增儲存系統</block>
+  <block id="a63b744959732dab4238d9c4c064453a" category="inline-link-macro">儲存系統</block>
+  <block id="23fdc7ab07db02be5d0e64d9e1863556" category="paragraph">使用 SVC 保護工作負載的下一步是新增 <block ref="3c434451880c019a14fa9dcce68bb866" category="inline-link-macro-rx"></block>。新增儲存後，SCV 可以偵測和管理 vCenter 內的備份和還原作業。將 FSx for NetApp ONTAP 管理端點或儲存虛擬機器（SVM）管理端點 IP 作為儲存系統，以啟用 VM 備份和還原。</block>
+  <block id="5c31ab76c198965c4535047808a2ff37" category="list-text">從 EVS vCenter 的左側導覽選單中，選擇「SnapCenter Plug-in for VMware」。</block>
+  <block id="9cc9f3cc7d78515baee8c1d0767ae1ae" category="list-text">選擇「Storage System」。</block>
+  <block id="d4abd3a30e0aad4af8d3d1e28d305119" category="list-text">選擇「新增」以新增 FSx for ONTAP 詳細資料。</block>
+  <block id="19199889eaf538e3b3f87a474eb07957" category="list-text">使用「憑證作為驗證」方法，並輸入 FSxadmin 作為使用者名稱和密碼。然後選擇「新增」以儲存設定。</block>
+  <block id="b5c6335b339d0d1ead2248a77cb73dc4" category="paragraph"><block ref="b5c6335b339d0d1ead2248a77cb73dc4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2ae6f5c08b7bdb0aada48aa78ed2c48d" category="admonition">新增檔案系統時，所有 SVM 都會自動新增。</block>
+  <block id="2756933d177b5beb609ac6d7c871ca85" category="inline-link-macro">SCV 支援頁面</block>
+  <block id="666cfecc15cc0e31d2dacac73c43e40e" category="paragraph">如果 SCV 版本為 6.2 、請前往 <block ref="4d3ef6440a4ce3f8431b2d0b437b843b" category="inline-link-macro-rx"></block> 並下載 SCV 6.2P1 版本。</block>
+  <block id="7ccda687a56b7d6ba882c62e6e9aae4c" category="section-title">建立備份原則</block>
+  <block id="8880e379e3ad2096f277aa405f346afc" category="paragraph">一個完善的備份策略應明確備份排程、待備份資料以及備份保留期限等關鍵因素。可以按小時或按天安排 Snapshot 複本，以保護整個資料存放區。這種備份排程方式不僅可以保護資料存放區，還支援對這些資料存放區中包含的 VM 和 VMDK 進行備份和還原作業。</block>
+  <block id="6c03aa1717232d545a44daaae4b5b0ad" category="inline-link-macro">備份原則</block>
+  <block id="147c185b502850dab557a58605d29ac0" category="paragraph">在啟動 VM 和資料存放區的備份之前，請建立<block ref="c63ece1059219cfd2438a3499314dec5" category="inline-link-macro-rx"></block>和資源群組。備份原則會指定備份排程和保留設定等參數。</block>
+  <block id="42d21bf9f7f9e257e8db696bf3ee9053" category="paragraph">以下是建立備份原則的步驟：</block>
+  <block id="60664711039054a10a61b579d5c236c1" category="list-text">前往 SCV 中的左側導覽選單，然後選取「原則」。</block>
+  <block id="ce0b6617d53eaf62a852d479e45e7987" category="list-text">在「策略」頁面上，選取「建立」以啟動精靈。</block>
+  <block id="3898a18492e366f9aabd66003a9431d5" category="list-text">在「新備份策略」頁面上，輸入策略名稱。</block>
+  <block id="2e0b8e5903b465eb574428be899315f3" category="list-text">指定保留期限、備份頻率和複寫設定。</block>
+  <block id="11c8de5c288d0748c2cca35c7a2e31bb" category="list-text">選取「鎖定週期」核取方塊以啟用 Snapshot 鎖定。您可以選擇主要和次要 Snapshot 鎖定週期，單位可以是天 / 月 / 年。</block>
+  <block id="82bf28371127096ae8ee2f31a4b5cd24" category="admonition">無論 SnapMirror 策略中定義的保留值為何，輔助 Snapshot 複本都會保持完整，直到指定的輔助 Snapshot 鎖定期到期為止。</block>
+  <block id="9377a9b616d2d6cf6dd991436d2698fd" category="paragraph"><block ref="9377a9b616d2d6cf6dd991436d2698fd" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="44260f628159614f44f858bd501fc13a" category="admonition">若要啟用 VM 一致性備份，必須安裝並執行 VMware Tools。勾選「VM 一致性」複選框後，VM 會先進入靜默狀態，然後 VMware 執行 VM 一致性快照（不含記憶體），接著 SCV 執行備份作業，最後還原 VM 運作。</block>
+  <block id="17a00b692be8e5e1959b6b37c46d9c3d" category="admonition">若要將 Snapshot 複本複寫到次要鏡射或資料保險箱檔案系統，必須事先設定關係。</block>
+  <block id="818f86715b4efb6aa82bde5db5837d3c" category="paragraph"><block ref="818f86715b4efb6aa82bde5db5837d3c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5665ca5c684f3293f42b9ba9f589c9dc" category="paragraph">建立原則後、下一步是建立資源群組、以定義應備份的適當 NFS 或 iSCSI 資料存放區和 VM 。</block>
+  <block id="548b49f4267cb06525a994818f01fc03" category="section-title">建立資源群組</block>
+  <block id="a44ae5f30e399fc2569f53d8e3a3927b" category="paragraph">資源群組用作需要保護的 VM 和資料存放區的容器。可以隨時在資源群組中新增或移除資源，從而靈活地管理備份組態。</block>
+  <block id="982d9ffc2f05939531141f649d83f96b" category="inline-link-macro">資源群組</block>
+  <block id="306e302b9f42269476bea7241a0cb938" category="paragraph">您可以使用以下步驟建立 <block ref="604185b423c0e2fc425951537b52dfae" category="inline-link-macro-rx"></block>：</block>
+  <block id="4795f5726d9f4403e47a34b89400e21f" category="list-text">前往 SCV 左側導覽窗格，然後選擇「Resource Groups」。</block>
+  <block id="13f9d0c1c343ee0f9004c3d171ff1963" category="list-text">在「資源群組」頁面上，選取「建立」以啟動資源群組建立精靈。</block>
+  <block id="a3a8cadf91711e2752d647365208fb55" category="admonition">建立資源群組的另一個選項是選取個別 VM 或資料存放區，並建立僅包含該資源的資源群組。</block>
+  <block id="ac1c5df48a13c79ce08fa401a50b85b8" category="list-text">在「資源」頁面上、選擇範圍（ VM 或資料存放區）和資料中心。</block>
+  <block id="686628889eae6c6f96a0fa270dac6ed0" category="list-text">在「跨磁碟」頁面上、選擇「跨多個資料儲存區的具有多個 VMDK 的虛擬機器」選項。</block>
+  <block id="bf54ede7e8c62841869c29d2bd5b1a44" category="list-text">接下來、建立備份原則的關聯。選取現有原則或建立新的備份原則。</block>
+  <block id="e1112a48d2ab981f514ae379e4a06cb9" category="list-text">在「排程」頁面上，為每個選定的原則設定備份排程。</block>
+  <block id="a771e5d13844eb026dcdfb27f91d3b9a" category="list-text">完成相應選擇後，選擇「完成」。這將建立一個新的資源群組並將其新增至資源群組清單。</block>
+  <block id="fb41a0c29fe05fcdef5684ff7490a6df" category="paragraph"><block ref="fb41a0c29fe05fcdef5684ff7490a6df" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f8bfe77c61f442ab35f0b4dce70d8355" category="section-title">備份資源群組</block>
+  <block id="e84b41206a2d96420f443f0633919f2e" category="paragraph">備份作業會在資源群組內定義的所有資源上執行。如果資源群組已附加原則並設定了排程，則備份會根據排程自動進行。</block>
+  <block id="5c1eb726704b0915b1aa60d44abe4e55" category="list-text">在 vCenter Web 用戶端頁面的左側導覽列中，選擇「SnapCenter Plug-in for VMware」，然後選擇「資源群組」。</block>
+  <block id="b0eff15cac62ff23eb29a3c76769999c" category="list-text">在「資源群組」頁面中，找到指定的資源群組，然後選取「立即執行」以啟動手動備份。</block>
+  <block id="d8e352e64c799dca541860ee2129cff8" category="paragraph"><block ref="d8e352e64c799dca541860ee2129cff8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e840c3fcc97190605e4db3a58cf81f53" category="list-text">如果資源群組配置了多個原則，請在「立即備份」對話方塊中選擇備份作業的原則。</block>
+  <block id="efcdb64684b673dae87c022028691624" category="list-text">選擇「OK」以啟動備份。</block>
+  <block id="468b5d33ec94fd0ac934e1e1c429aa06" category="paragraph"><block ref="468b5d33ec94fd0ac934e1e1c429aa06" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="933951efd0cee56541542a59ee9b978d" category="paragraph">您可以透過選擇視窗底部的「最近任務」來監控操作進度，或者，要了解更多詳細資訊，請在儀表板上選擇「作業監控」。</block>
+  <block id="842cb1bf4a39006507cb3720fb0a982b" category="admonition">建立備份原則、設定資源群組和執行備份作業的程序在不同的儲存傳輸協定（包括 NFS 和 iSCSI）之間是一致的。</block>
+  <block id="41f96745358af5bf7e15c96bc091a7da" category="admonition">備份會根據原則中定義的排程執行。</block>
+  <block id="168194d803aa59f6442374579382e4e5" category="paragraph">備份完成後，可以透過從下拉清單中選擇「SnapCenter Plug-in for VMware vSphere」，然後選擇「還原」，在資料儲存層級或單一虛擬機器層級查看備份。</block>
+  <block id="b90ea9eaa96639d1d1eb09e346790dca" category="paragraph"><block ref="b90ea9eaa96639d1d1eb09e346790dca" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8976b9773b77d4dcc8f15dde9e86b0cf" category="summary">本節介紹如何使用 SnapCenter for SQL（SCSQL）保護在 VMware VMDK 上執行的資料庫。</block>
+  <block id="47c13aef82844eab4d710d0fdbc16eb2" category="doc">針對在 VMware VMDK 上執行的資料庫使用 SnapCenter for SQL（SCSQL）的保護程序</block>
+  <block id="4a0e48a60813b8d3b0d96808bda0e650" category="paragraph">以下部分展示如何使用 SnapCenter for SQL（SCSQL）保護在 VMware VMDK 上執行的資料庫。</block>
+  <block id="4832772a1ec1bf97a07ace822a9e66ca" category="section-title">設定 SCSQL</block>
+  <block id="1ec89265cbb7cf88fcd96bd98588de5d" category="paragraph">使用 SCSQL 保護 VMDK 上資料庫的設定如下：</block>
+  <block id="9f1444ca3aac0720c37a8103593b319f" category="inline-link-macro">安裝和配置</block>
+  <block id="fb2838c85d1a49a920ff7f12f54faf75" category="list-text"><block ref="686426a2e5638cbbfb39f2645cdaec55" category="inline-link-macro-rx"></block> SnapCenter 伺服器。</block>
+  <block id="6d7798cec137958c8ec64d5333d31800" category="list-text">登入 SnapCenter。</block>
+  <block id="61993e37023600482e684b0ed6a2165f" category="list-text">配置 SnapCenter 環境：</block>
+  <block id="dcd7f2cc28dc2d3ee208c21637e2b0fd" category="inline-link-macro">新增或指派</block>
+  <block id="ba1ba7295e4153923a4774f4511a9102" category="list-text"><block ref="bead66de8df6345dc57ec82523e17293" category="inline-link-macro-rx"></block> 儲存系統連接。</block>
+  <block id="686e697538050e4664636337cc3b834f" category="inline-link-macro">建立</block>
+  <block id="c566c03ccfa8e2e1a436cabc6cdc30d6" category="list-text"><block ref="20ec9adc14c4f6ea99ce24b48854d431" category="inline-link-macro-rx"></block> 認證資料。</block>
+  <block id="6dbbe23d168759a5580868526cfc72a4" category="list-text">對於 VMware VMDK 上的 Microsoft SQL Server 資料庫：</block>
+  <block id="506f322d7d6468340c423ee0caa43823" category="inline-link-macro">部署 SCV</block>
+  <block id="09c02bcbe1d6f524d3e416bba4e9d172" category="list-text"><block ref="0681f41fa4d16ac177cdde987e418a1c" category="inline-link-macro-rx"></block>（已在設定部分介紹）。</block>
+  <block id="1f4a6987e729eef966b1123f74bd18f8" category="list-text">向 SnapCenter 註冊外掛程式。</block>
+  <block id="73325ef54689cc4653385742bba1d125" category="inline-link-macro">SQL Server 主機與安裝外掛程式</block>
+  <block id="f470dd570e41124f2a085b620c128e51" category="list-text">新增 <block ref="a1623dcb1d1837e5f8e99ec98c658255" category="inline-link-macro-rx"></block>：</block>
+  <block id="556d928d71035c9101824cd93d4e3e60" category="inline-link-macro">設定 SQL 外掛程式</block>
+  <block id="259e3df1866cd47b36e104c82e94a1ea" category="list-text"><block ref="7f92f3566c9d7c697c56f6caa7d4eded" category="inline-link-macro-rx"></block>。</block>
+  <block id="89fd3d8f4292adf6b17ae0002f7d7e9b" category="inline-link-macro">設定資料庫和日誌的保護計畫和排程</block>
+  <block id="77970ca2800bfbae6db2b63e8e7c37fe" category="list-text"><block ref="5bb1ec267950d3ee3237f217ded6e14d" category="inline-link-macro-rx"></block>。</block>
+  <block id="ae219b1ce8e95443e03d9d11a6fe5162" category="paragraph"><block ref="ae219b1ce8e95443e03d9d11a6fe5162" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a792c7b694674071cc9be4a8b3ad4617" category="section-title">設定備份原則</block>
+  <block id="21c40ea177c71633bddab004f481cf31" category="paragraph">以下步驟將說明如何設定備份原則。</block>
+  <block id="ce77833f1d3f454bf68c2d9db06e95f4" category="list-text">從資源標籤中選擇資料庫，然後從右上角選擇「Protect」。</block>
+  <block id="a72c6ad8ec51b10e5b4341d98447fdf2" category="admonition">驗證是針對在客體虛擬機器上執行的 SQL Server 資料庫執行。</block>
+  <block id="a56481adf1701c4192b66c702435574c" category="paragraph"><block ref="a56481adf1701c4192b66c702435574c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7774403b5051979ee81edc5591b8e405" category="list-text">點選加號圖示以配置 SQL Server 備份原則。</block>
+  <block id="511ba8b69497a3a4e499f500f20e2a40" category="paragraph"><block ref="511ba8b69497a3a4e499f500f20e2a40" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e1d5a90e7af548bbf72655eeef877b17" category="list-text">在此演示中，已選擇「完整備份」。選擇「下一步」繼續。</block>
+  <block id="71027235dcc5f761bde4dde4b5e2dcbc" category="paragraph"><block ref="71027235dcc5f761bde4dde4b5e2dcbc" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0e61dc53763c31d362b5de0da12a7458" category="list-text">在「摘要」頁面上、選取「完成」。</block>
+  <block id="72ad8855cf1bafa3a8b8d0ad7013ca97" category="paragraph"><block ref="72ad8855cf1bafa3a8b8d0ad7013ca97" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1df0351aac2a873ed52a17ddc27ad1bb" category="list-text">繼續執行「完成」操作。</block>
+  <block id="b733ec7b3f38cefba4a2c5942f9f3822" category="paragraph"><block ref="b733ec7b3f38cefba4a2c5942f9f3822" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="de2b2f67516097d9823976dc8f3c4cb7" category="section-title">監控備份</block>
+  <block id="2e71de5c8d2027fa41b328ce24b05845" category="paragraph">設定備份策略後，您可以即時監控備份操作。您可以點擊 Backup now 觸發按需備份操作，也可以等待預定的備份策略生效。</block>
+  <block id="52cdcf9ad45422b93c6f7cd56ef4ba79" category="list-text">使用「監控 &gt; 作業」監控作業進度。</block>
+  <block id="82bce2456fbc7a1392b63b731433fcae" category="list-text">選擇備份作業，然後按一下「Details」以查看如下所示的作業詳細資訊。</block>
+  <block id="248a2299668d34377034670b75aff2bf" category="paragraph"><block ref="248a2299668d34377034670b75aff2bf" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="cf7285fc88f2ab6a0a7a259a478966b0" category="section-title">還原駐留在 VMDK 上的資料庫</block>
+  <block id="8320d02a1d8f50adedcfc28f40c4b59d" category="paragraph">VMDK 上的資料庫可以還原到特定的時間點。</block>
+  <block id="2fb2bbf453e2d2e921068b0f97a7631e" category="paragraph">我們可以透過刪除資料庫中的一些表格來模擬此操作的重要性，然後透過執行時間點還原來修正。</block>
+  <block id="803d3d65afbb8e967552df58deba4fc1" category="paragraph">從下面的截圖中可以看出，第一張截圖中顯示的資料庫中的幾個表格在第二張截圖中已被刪除：</block>
+  <block id="b7ae57f08b52a83b3ccd468e6dab36a1" category="paragraph"><block ref="b7ae57f08b52a83b3ccd468e6dab36a1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c29bbc5f2126b3771f9de0170e136634" category="paragraph"><block ref="c29bbc5f2126b3771f9de0170e136634" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="648e47669e235c85d0c43d04ebcbdc02" category="paragraph">以下步驟顯示如何執行還原以復原已刪除的表格：</block>
+  <block id="35f043bccf6a62843cba66db0be83891" category="list-text">從資源群組中選取資料庫。</block>
+  <block id="a9d9157b7b626cc9897dedd91988a1b8" category="paragraph"><block ref="a9d9157b7b626cc9897dedd91988a1b8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fa3a7c3979e352efd8dc7a72b2b441a2" category="list-text">在「復原」頁面中、選取「將資料庫還原至建立備份的相同主機」選項。</block>
+  <block id="a7f57098b934f772763bac4eb68b34d6" category="paragraph"><block ref="a7f57098b934f772763bac4eb68b34d6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fb525c6cdf5e90c79913cfc2e15486b8" category="list-text">選擇使用日誌備份到特定時間點的選項。</block>
+  <block id="873bd68992257434c2ac688b7bdff2b7" category="paragraph"><block ref="873bd68992257434c2ac688b7bdff2b7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="920f7b8670bca6c0737d8cd36e8502fd" category="list-text">選擇「還原時覆寫同名資料庫、還原前建立交易記錄備份」，然後選擇「下一步」。</block>
+  <block id="291dc488191dcf66c5525ee4148c19a7" category="paragraph"><block ref="291dc488191dcf66c5525ee4148c19a7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="dbc18bafe2acf4d01d0f5d12f8a1d1f1" category="list-text">從清單選項中選擇您希望資料庫在還原後達到的狀態，然後選擇「下一步」。</block>
+  <block id="7f662d87cbd8762cb9638ccabe4c7ac4" category="paragraph"><block ref="7f662d87cbd8762cb9638ccabe4c7ac4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="16063576da339a1fa0ce650a789cb8b3" category="list-text">在摘要頁面上，選取「完成」。</block>
+  <block id="6f80e2662ed48cdc39b8aef0c1c0bbe4" category="paragraph"><block ref="6f80e2662ed48cdc39b8aef0c1c0bbe4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="60189432b5e5c2b94fa902b1712c0c14" category="list-text">監控工作直至完成。</block>
+  <block id="510982aa14fb552f5b1ecd176330eb89" category="paragraph"><block ref="510982aa14fb552f5b1ecd176330eb89" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="69fc960a3d94d981f9ea00c275e6acc5" category="list-text">確認已刪除的表已成功還原。</block>
+  <block id="42d587aabbdbfaaa5e389297c14da8be" category="paragraph"><block ref="42d587aabbdbfaaa5e389297c14da8be" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f14a0a0ca4cfedb5ca0f5f76b4d48806" category="summary">本指南將示範一種簡單的部署方法，用於使用 NetApp SnapCenter® Plug-in for VMware vSphere (SCV) 備份和復原解決方案來保護 FSx for ONTAP Network File System (NFS) 和 iSCSI Amazon EVS 資料儲存區以及相關的 VM。</block>
+  <block id="aba8b8901709ea1177d88859144a7528" category="doc">如何使用 Amazon Elastic VMware Service 及 NetApp SnapCenter Plug-in for VMware 保護 Amazon FSx for NetApp ONTAP 資料存放區</block>
+  <block id="6fb87bfb37748a4a080f7554adbd3f38" category="paragraph">基於 Amazon FSx for NetApp ONTAP（FSx for ONTAP）的 Amazon Elastic VMware Service（Amazon EVS）補充資料儲存區為執行對效能要求高的工作負載（例如運用 nConnect、Amazon Virtual Private Cloud（Amazon VPC）對等互連，以及每個資料儲存區掛載使用多個網路連線）和儲存密集型工作負載提供了絕佳的解決方案。</block>
+  <block id="0e1dfd5cf176ee88c1738dbde51abb43" category="paragraph">此功能使客戶能夠克服虛擬儲存區域網路 (vSAN) 提供的本機實例儲存的限制，實現儲存與運算資源的獨立擴展，並降低整體擁有成本。除了整體擁有成本 (TCO) 優勢之外，FSx for ONTAP 還為 Amazon EVS 提供企業級功能，這些功能是內部部署 ONTAP® 客戶所熟悉的，有助於優化和簡化部署。使用 FSx for ONTAP 可以存取 NetApp® Snapshot™、SnapMirror® 和 SnapVault® 技術，這些技術支援虛擬機器 (VM)、資料儲存區和虛擬機器磁碟 (VMDK) 的備份和還原作業。其中一項關鍵功能是基於 Snapshot 的保護。</block>
+  <block id="3629747b9e7a0b79ef39f3605d421fe2" category="paragraph">隨著企業規模的擴大和環境的整合，保護工作負載及其底層儲存的需求變得日益重要。SCV 可用於直接從 Amazon EVS vSphere 客戶端備份資料儲存和虛擬機器。</block>
+  <block id="eddbb433cf6d0d4fcdfb9baa578318e6" category="paragraph">本指南提供如何使用 SCV 保護 Amazon EVS 的 FSx for ONTAP 資料存放區的說明。指南中也提供了保護 VM 和資料庫的範例場景以及還原方法。</block>
+  <block id="d06b54c2b8a38f0e47ea7cadd1889634" category="section-title">部署和配置的高階步驟</block>
+  <block id="0e1ebc73b6253b048d799a0c4096a1f6" category="paragraph">以下是部署和配置 SCV 以保護 Amazon FSx for NetApp ONTAP 上的虛擬機器和資料儲存區的高階步驟：</block>
+  <block id="0e7d1df6e8d6149e5b7740c2d008d147" category="list-text">下載 SCV Open Virtual Appliance（OVA）。</block>
+  <block id="90c588d7abe2eda2eef7c31f8eb59bf6" category="list-text">使用 vSphere Client 憑證登入 Amazon EVS。</block>
+  <block id="c6ad86efc3a8b0ac38046476153e965e" category="list-text">部署 Open Virtualization Format（OVF）範本以啟動 VMware 部署精靈。</block>
+  <block id="7df3ace22749be96340e016fca7e8eed" category="list-text">若要存取該插件，請從選單中選擇 SnapCenter Plug-in for VMware。</block>
+  <block id="5265ea57ec48d0259cc881d6a67819d4" category="list-text">新增儲存設備。</block>
+  <block id="97fd666c30620b060b46717719fda411" category="list-text">建立備份原則。</block>
+  <block id="60b4b8c0b498ecdc476f16d945477f16" category="list-text">建立資源群組。</block>
+  <block id="51aea0aada0ecf28b4546e4a6244099a" category="list-text">備份資源群組。</block>
+  <block id="63027ccde34ecb04a335dd08ca40ad3d" category="list-text">還原整個虛擬機器、特定虛擬磁碟或客體檔案。</block>
+  <block id="429edc7578192e1549964e7ea1fa9f94" category="summary">本節介紹恢復受 SnapCenter Plug-in for VMware vSphere 保護的客體檔案和資料夾的步驟。</block>
+  <block id="4ebaf97273a3d45a92dc71fe4be35b8a" category="doc">由 SnapCenter Plug-in for VMware 保護的客體檔案和資料夾的還原程序</block>
+  <block id="6620ae7e5aecc2256d950195e5b026a8" category="paragraph">以下部分展示如何從 VMDK 中還原客體檔案和資料夾。</block>
+  <block id="607fbffc6ca93b14de741f522573da94" category="admonition">SnapCenter 僅當客體作業系統為 Windows 時才支援從 VMDK 復原檔案和資料夾。</block>
+  <block id="797e987dea709205da0dc86b06321bec" category="paragraph">使用 SCV 還原客體檔案和資料夾的考量事項：</block>
+  <block id="8c35b099944a45af88cb8ac0224cbadd" category="list-text">虛擬機器上必須執行 VMware 工具。</block>
+  <block id="91bf6098e6979da6d1f96097b53f0b61" category="list-text">預設情況下，附加的 VMDK 可存取 24 小時。</block>
+  <block id="a72cc8245fafc9ef38d2fe789cf57bb8" category="list-text">一台虛擬機器一次只能執行一個還原或附加作業。</block>
+  <block id="d43023d5f8fd858823f8b96d882b5701" category="list-text">系統檔案、隱藏檔案和加密檔案可以還原；但是，它們的原始屬性將無法保留。</block>
+  <block id="1c3d5169e6f0d3918fd545cc2adf6111" category="list-text">避免將加密檔案還原到加密資料夾或覆寫系統檔案。</block>
+  <block id="5ad1fb931eed873354195e0dd8059cd4" category="paragraph">恢復客體檔案和資料夾的步驟：</block>
+  <block id="86faa3dd08e3099d5031fc12b1c33a52" category="list-text">右鍵點選目標虛擬機，然後選擇「NetApp SnapCenter &gt; Guest File Restore」。</block>
+  <block id="c84c82f697aad32e26605bee266d7834" category="paragraph"><block ref="c84c82f697aad32e26605bee266d7834" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d4a3d6e891c2cde28b583204c65bfe34" category="list-text">選擇包含所需 VMDK 的備份。指定 VMDK 及其位置（主位置或次要位置）。</block>
+  <block id="355671c161fb2afe0d3e12015ae964a8" category="paragraph"><block ref="355671c161fb2afe0d3e12015ae964a8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="046ccd6f93be2578e4f99a6659c998c3" category="list-text">選擇 "Disk Attachment Method"。</block>
+  <block id="773444c50a0a5c6e34503fb078f96cef" category="paragraph"><block ref="773444c50a0a5c6e34503fb078f96cef" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e8c1b343f2964afa494125f0e799f4fe" category="list-text">客戶虛擬機器選項：將磁碟連接到原始虛擬機器（需要預先設定憑證）。本示範中使用的是此選項。</block>
+  <block id="d5c87f9521144e141ab033e3dbed224f" category="list-text">Proxy VM 選項：將磁碟連接到指定的 Proxy VM（必須預先配置）。</block>
+  <block id="b23c6cb59c160872660b2658dad1a1c5" category="list-text">請等待附加操作完成後再瀏覽和還原檔案。操作完成後， SnapCenter 會自動建立訪客檔案還原工作階段。 <block ref="f264ac312656c99d0c4d47e7b48889a5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="dea67f722abe17f090331416531a65c4" category="paragraph"><block ref="dea67f722abe17f090331416531a65c4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c1be816903e2828c60098c6e9c58b99d" category="list-text">在客戶機檔案復原工作階段中瀏覽至 VMDK ，選擇所需的檔案或資料夾，然後將其還原至指定位置。</block>
+  <block id="1f1cf4dd5e4453e50d0c84d2b4521a2a" category="summary">本節介紹從備份還原 VM 的步驟。</block>
+  <block id="7ddc26fc8eddc937be7b0ee665bb6417" category="doc">受 SnapCenter Plug-in for VMware 保護的虛擬機器的還原程序</block>
+  <block id="a03a7cb687b392261609a45b2117ab5e" category="paragraph">本節介紹從備份還原 VM 的步驟。SCV 可用於還原 vCenter 內的 VM，允許將其還原到原始 ESXi 主機上的原始資料存放區（覆寫現有內容）、從備份副本還原已刪除或重新命名的 VM、還原到原始 ESXi 主機上的不同資料存放區、還原到由同一 vCenter 管理的不同 ESXi 主機上的原始資料存放區，或還原到同一 vCenter 環境中另一個 ESXi 主機上的不同資料存放區。</block>
+  <block id="305a5a088aa8a4718f814b763705dc71" category="section-title">執行還原作業的步驟</block>
+  <block id="75c8e875c7fd2d80c91347a89e53b92f" category="paragraph">若要執行還原作業，請依照下列步驟操作：</block>
+  <block id="704c77fce9044dfc57f99b50bc7719d4" category="list-text">在 EVS vSphere Web 用戶端 GUI 中，前往「清單 &gt; 資料儲存區」，然後選擇所需的資料儲存區。接下來，導覽至「SnapCenter Plug-in for VMware vSphere」部分下的「設定 &gt; 備份」。</block>
+  <block id="9037161b875d9e6d76ad93e9544893c7" category="paragraph"><block ref="9037161b875d9e6d76ad93e9544893c7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="75aa7198e4a893d00eafa6a31bec79e5" category="list-text">雙擊備份檔案即可查看該備份中包含的所有 VM。在清單中找到要還原的 VM，然後選擇「還原」。</block>
+  <block id="426e911e4346023661772e7fc63b04b7" category="paragraph"><block ref="426e911e4346023661772e7fc63b04b7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9980445dc315761818673337765d1beb" category="list-text">在「選擇範圍」頁面上，在「還原範圍」欄位中選擇「整個虛擬機器」，然後選擇「還原位置」，並輸入備份應掛載的目標 ESXi 資訊。</block>
+  <block id="df4f89b8bb6c917b11455515b3cf12c9" category="list-text">如果虛擬機需要在還原作業後開啟電源，請啟用「重新啟動 VM」核取方塊。</block>
+  <block id="96b658f368565f37a46461b6694731e5" category="list-text">在「選擇位置」頁面上，選擇主要位置。</block>
+  <block id="66eeaf60f5aa62e8a639c90217ceec6f" category="paragraph"><block ref="66eeaf60f5aa62e8a639c90217ceec6f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="93977ac19671d7f2a00b0f8c5389cde6" category="list-text">檢閱「摘要」頁面，然後選取「完成」。</block>
+  <block id="d548e80c434779a7f9e5bee72d3478e0" category="paragraph"><block ref="d548e80c434779a7f9e5bee72d3478e0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="961a956837138b06da48098651f6f150" category="list-text">在螢幕底部選擇 "Recent Tasks"，即可監控操作進度。</block>
+  <block id="284b357fdae6facfd11b5dc85171d559" category="paragraph"><block ref="284b357fdae6facfd11b5dc85171d559" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5792be444c8951b962442be29a3a8008" category="admonition">雖然 VM 已還原，但不會自動新增至先前的資源群組。如果您想要保護這些 VM ，請手動將其新增至適當的資源群組。</block>
+  <block id="c1a513a9c9445e7655d988ed0a12ccd3" category="admonition">也可以從個別 VM 層級觸發還原作業。</block>
+  <block id="204cb92becf36c94ad5f5b8169b3d26d" category="section-title">還原已刪除 VM 的步驟</block>
+  <block id="031b9bbcd03d9ec284fb76cdaeca9f27" category="paragraph">使用 SCV 還原已刪除的 VM 是一個簡單的程序。</block>
+  <block id="d70dfc35daa9c6e7dded8f46b2e15b10" category="paragraph">可以從資料儲存層級執行已刪除 VM 的還原作業。</block>
+  <block id="bab22b122940f34392dab00949957965" category="list-text">前往對應的 Datastore &gt; Configure &gt; Backups。在那裡，選擇已刪除的 VM，然後選擇「Restore」。</block>
+  <block id="164db7aa5e5f0ad493a5925ce3d91292" category="paragraph"><block ref="164db7aa5e5f0ad493a5925ce3d91292" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e68a6cc6d3b4d12532f7f78ea4d2af20" category="paragraph"><block ref="e68a6cc6d3b4d12532f7f78ea4d2af20" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2c51841635eb1b3f87ca2ec4eaf9e66c" category="list-text">接下來的螢幕截圖流程涵蓋了將 VM 還原到備用 ESXi 主機和不同資料儲存區的過程。</block>
+  <block id="4d9f4423a83ef5ead3333e799e6431c1" category="paragraph"><block ref="4d9f4423a83ef5ead3333e799e6431c1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="895bd466e1e1230b4272eea21f076c6a" category="paragraph"><block ref="895bd466e1e1230b4272eea21f076c6a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f75d1e262e634bde2ba06286b10050c1" category="paragraph"><block ref="f75d1e262e634bde2ba06286b10050c1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ef7063a75f7ab17f9b8b4987d86bf704" category="paragraph"><block ref="ef7063a75f7ab17f9b8b4987d86bf704" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c86f6679c09fc0b95d709003bcf0efe9" category="paragraph"><block ref="c86f6679c09fc0b95d709003bcf0efe9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="684d759b7fa5bff84c80be03e6e7a0ea" category="admonition">目標資料儲存區必須有足夠的可用空間，且在「還原到備用位置」欄位中指定的 vCenter 必須可透過 DNS 解析。</block>
+  <block id="fd790e596fbb4ebe5dfd16c0b7efbf58" category="admonition">為了提高 NFS 環境中的還原效率，請開啟 VMware vStorage API for Array Integration （ VAAI ）。</block>
+  <block id="d04d698a79644ae7e96515943beaf479" category="admonition">也可以從次要位置（例如 SnapMirror 目的地）執行還原。</block>
+  <block id="79f6f51275b65def8fa792eae3eb60ac" category="paragraph">+ <block ref="851e6748eb211612f10d8108677d6a68" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="822c8930b036f82906df386ea80997b2" category="doc">SnapCenter Plug-in for VMware 的設定程序</block>
+  <block id="bccbf9ab3a62681b4a9025248057385d" category="paragraph">開始之前需要滿足以下先決條件：</block>
+  <block id="b4a7efffc2997fc2c3478827facb84c4" category="list-text">在部署 OVA 時註冊 vCenter 伺服器時，請指定 vCenter 的完全限定網域名稱（FQDN）或 IP 位址。</block>
+  <block id="9dc56bf7fafe9413bf68c179b66804e7" category="list-text">對於 vCenter 憑證，請使用具有最低所需權限的帳戶</block>
+  <block id="b7a995681b3fb2e06d6edc26eef9e240" category="list-text">為 vCenter Server 存取開放防火牆連接埠。</block>
+  <block id="97e5a33a5be16801642cab3c80363d19" category="list-text">更新執行 FSx for ONTAP 的 Amazon VPC 安全群組，以允許 SCV 存取 FSx for ONTAP。</block>
+  <block id="9ec23f78186771ba12ee9dc1d4f1db8f" category="admonition">SCV 可免費使用。</block>
+  <block id="7d7e0d9bf074d3730b1e0181405e2909" category="section-title">設定 SnapCenter Plug-in for VMware</block>
+  <block id="b679cfda60bdc7d11b1317a8b7919319" category="paragraph">為了保護 VM 及其託管的基於 NFS/iSCSI 的資料存儲，必須部署 SCV。這是一個簡單的 OVF 匯入。</block>
+  <block id="9b534f797082f23c5f33e1e135204cf3" category="paragraph">部署步驟如下：</block>
+  <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link-macro">NetApp 支援網站</block>
+  <block id="b8508c0004c984851700b0c1750062e7" category="list-text">從 <block ref="c94efbdbbc1eaa3fde4a5571dda7c210" category="inline-link-macro-rx"></block> 下載 OVA。</block>
+  <block id="5ac9c8c7146a08343e061acbd12966b7" category="list-text">登入 Amazon EVS vCenter。</block>
+  <block id="852641d7edb41c38a975534056af54df" category="list-text">在 vCenter 中，以滑鼠右鍵按一下任何目錄物件（例如資料中心、資料夾、叢集或主機），然後選取「部署 OVF 範本」。</block>
+  <block id="695f6a37e6bb3512f8f9c2b05b7d88a9" category="list-text">選擇正確的設定，包括儲存、區段，並自訂範本以更新 vCenter 及其認證資料、建立 SCV 認證資料和 IP 詳細資料。檢閱後，選取「完成」。</block>
+  <block id="5a3884a4180bfb0625a603b87015ae95" category="list-text">等待 OVF 匯入和部署任務完成。</block>
+  <block id="f5326ac8378d23c30feb85764f4567e5" category="list-text">成功部署 SCV 後，將在 vCenter 內註冊。</block>
+  <block id="cf5cbf9f3e7b1d6961048b96ee53e29f" category="list-text">若要存取插件，請導覽至 vCenter Web 用戶端頁面的左側邊欄，選擇「SnapCenter Plug-in for VMware」。</block>
+  <block id="dccf1b5830c71b902372f777e75ec2e4" category="paragraph"><block ref="dccf1b5830c71b902372f777e75ec2e4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6f306c4b5620fa2c071b39591760be91" category="sidebar">FSx ONTAP + EVS TCO 計算器</block>
+  <block id="91042b70bed7598de8aebe905f23b84f" category="sidebar">保護 FSx ONTAP 資料存放區以用於 EVS</block>
+  <block id="dfa0a5f6f263d3c337831d4f86959f42" category="sidebar">設定 SnapCenter Plug-in for VMware</block>
+  <block id="34d024220a8f970ec1866f7b76371883" category="sidebar">配置適用於 VMware 的 SnapCenter 插件</block>
+  <block id="9cda0c7b074ab9336e54e5c799f32f1d" category="sidebar">從 VMDK 還原客體檔案和資料夾</block>
+  <block id="801c7fa476257c3eb5aa2c101b78642c" category="sidebar">保護 VMDK 上的資料庫</block>
+  <block id="cc79f1d011dd390eb495c4430f17ce2e" category="sidebar">NetApp for Google Cloud 概覽</block>
 </blocks>

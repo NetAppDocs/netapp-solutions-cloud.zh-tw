@@ -16,7 +16,7 @@ summary: '與 CloudSQL、Google Cloud VMware Engine (GCVE) 和 FileStore 等其�
 [role="lead"]
 與 CloudSQL、Google Cloud VMware Engine (GCVE) 和 FileStore 等其他 Google Cloud 原生服務類似， Google Cloud NetApp Volumes使用 https://cloud.google.com/vpc/docs/private-services-access?hl=en_US["谷歌公益廣告"^]來提供服務。在 PSA 中，服務是在服務生產者專案內部建構的，該專案使用 https://cloud.google.com/vpc/docs/vpc-peering?hl=en_US["VPC 網路對等連接"^]連接到服務消費者。服務生產者由NetApp提供和經營，服務消費者是客戶專案中的 VPC，託管想要存取Google Cloud NetApp Volumes檔案共享的用戶端。
 
-下圖，引自 https://cloud.google.com/architecture/partners/netapp-cloud-volumes/architecture?hl=en_US["建築部分"^]Google Cloud NetApp Volumes文檔，展示了進階視圖。
+下圖參考自 https://docs.cloud.google.com/netapp/volumes/docs["Google Cloud NetApp Volumes 說明文件"^]，概述了高層次的視圖。
 
 image:ncvs-gc-001.png["此圖顯示輸入/輸出對話框或表示書面內容"]
 

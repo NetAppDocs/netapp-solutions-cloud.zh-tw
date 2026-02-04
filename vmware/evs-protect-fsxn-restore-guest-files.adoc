@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: vmware/evs-protect-fsxn-restore-guest-files.html 
+keywords: Amazon, AWS, EVS, Elastic VMware Service, ONTAP, FSx, iscsi 
+summary: 本節介紹恢復受 SnapCenter Plug-in for VMware vSphere 保護的客體檔案和資料夾的步驟。 
+---
+= 由 SnapCenter Plug-in for VMware 保護的客體檔案和資料夾的還原程序
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+以下部分展示如何從 VMDK 中還原客體檔案和資料夾。
+
+
+NOTE: SnapCenter 僅當客體作業系統為 Windows 時才支援從 VMDK 復原檔案和資料夾。
+
+使用 SCV 還原客體檔案和資料夾的考量事項：
+
+* 虛擬機器上必須執行 VMware 工具。
+* 預設情況下，附加的 VMDK 可存取 24 小時。
+* 一台虛擬機器一次只能執行一個還原或附加作業。
+* 系統檔案、隱藏檔案和加密檔案可以還原；但是，它們的原始屬性將無法保留。
+* 避免將加密檔案還原到加密資料夾或覆寫系統檔案。
+
+
+恢復客體檔案和資料夾的步驟：
+
+. 右鍵點選目標虛擬機，然後選擇「NetApp SnapCenter > Guest File Restore」。
++
+image:evs-protect-fsxn-022.png["該圖表示上述步驟的對話框"]
+
+. 選擇包含所需 VMDK 的備份。指定 VMDK 及其位置（主位置或次要位置）。
++
+image:evs-protect-fsxn-023.png["該圖表示上述步驟的對話框"]
+
+. 選擇 "Disk Attachment Method"。
++
+image:evs-protect-fsxn-024.png["該圖表示上述步驟的對話框"]
+
++
+** 客戶虛擬機器選項：將磁碟連接到原始虛擬機器（需要預先設定憑證）。本示範中使用的是此選項。
+** Proxy VM 選項：將磁碟連接到指定的 Proxy VM（必須預先配置）。
+
+
+. 請等待附加操作完成後再瀏覽和還原檔案。操作完成後， SnapCenter 會自動建立訪客檔案還原工作階段。 image:evs-protect-fsxn-025.png["該圖表示上述步驟的對話框"]
++
+image:evs-protect-fsxn-026.png["該圖表示上述步驟的對話框"]
+
+. 在客戶機檔案復原工作階段中瀏覽至 VMDK ，選擇所需的檔案或資料夾，然後將其還原至指定位置。
+

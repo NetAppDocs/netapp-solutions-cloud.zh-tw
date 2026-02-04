@@ -1,0 +1,120 @@
+---
+sidebar: sidebar 
+permalink: vmware/evs-protect-fsxn-configure.html 
+keywords: Amazon, AWS, EVS, Elastic VMware Service, ONTAP, FSx, iscsi 
+summary: 本節介紹如何設定 SnapCenter Plug-in for VMware 的步驟。 
+---
+= SnapCenter Plug-in for VMware 的組態程序
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+本節介紹配置 SnapCenter Plug-in for VMware vSphere 的步驟。後續章節將詳細介紹如何新增儲存空間、建立備份原則以及如何建立資源群組。
+
+
+
+== 新增儲存系統
+
+使用 SVC 保護工作負載的下一步是新增 link:https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_add_storage_01.html["儲存系統"]。新增儲存後，SCV 可以偵測和管理 vCenter 內的備份和還原作業。將 FSx for NetApp ONTAP 管理端點或儲存虛擬機器（SVM）管理端點 IP 作為儲存系統，以啟用 VM 備份和還原。
+
+. 從 EVS vCenter 的左側導覽選單中，選擇「SnapCenter Plug-in for VMware」。
+. 選擇「Storage System」。
+. 選擇「新增」以新增 FSx for ONTAP 詳細資料。
+. 使用「憑證作為驗證」方法，並輸入 FSxadmin 作為使用者名稱和密碼。然後選擇「新增」以儲存設定。
+
+
+image:evs-protect-fsxn-002.png["該圖表示上述步驟的對話框"]
+
+
+NOTE: 新增檔案系統時，所有 SVM 都會自動新增。
+
+如果 SCV 版本為 6.2 、請前往 link:https://mysupport.netapp.com/site/products/all/details/scv/downloads-tab["SCV 支援頁面"] 並下載 SCV 6.2P1 版本。
+
+
+
+== 建立備份原則
+
+一個完善的備份策略應明確備份排程、待備份資料以及備份保留期限等關鍵因素。可以按小時或按天安排 Snapshot 複本，以保護整個資料存放區。這種備份排程方式不僅可以保護資料存放區，還支援對這些資料存放區中包含的 VM 和 VMDK 進行備份和還原作業。
+
+在啟動 VM 和資料存放區的備份之前，請建立link:https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_create_backup_policies_for_vms_and_datastores.html["備份原則"]和資源群組。備份原則會指定備份排程和保留設定等參數。
+
+以下是建立備份原則的步驟：
+
+. 前往 SCV 中的左側導覽選單，然後選取「原則」。
+. 在「策略」頁面上，選取「建立」以啟動精靈。
+. 在「新備份策略」頁面上，輸入策略名稱。
+. 指定保留期限、備份頻率和複寫設定。
+. 選取「鎖定週期」核取方塊以啟用 Snapshot 鎖定。您可以選擇主要和次要 Snapshot 鎖定週期，單位可以是天 / 月 / 年。
+
+
+
+NOTE: 無論 SnapMirror 策略中定義的保留值為何，輔助 Snapshot 複本都會保持完整，直到指定的輔助 Snapshot 鎖定期到期為止。
+
+image:evs-protect-fsxn-003.png["該圖表示上述步驟的對話框"]
+
+
+NOTE: 若要啟用 VM 一致性備份，必須安裝並執行 VMware Tools。勾選「VM 一致性」複選框後，VM 會先進入靜默狀態，然後 VMware 執行 VM 一致性快照（不含記憶體），接著 SCV 執行備份作業，最後還原 VM 運作。
+
+
+NOTE: 若要將 Snapshot 複本複寫到次要鏡射或資料保險箱檔案系統，必須事先設定關係。
+
+image:evs-protect-fsxn-004.png["該圖表示上述步驟的對話框"]
+
+建立原則後、下一步是建立資源群組、以定義應備份的適當 NFS 或 iSCSI 資料存放區和 VM 。
+
+
+
+== 建立資源群組
+
+資源群組用作需要保護的 VM 和資料存放區的容器。可以隨時在資源群組中新增或移除資源，從而靈活地管理備份組態。
+
+您可以使用以下步驟建立 link:https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_create_resource_groups_for_vms_and_datastores.html["資源群組"]：
+
+. 前往 SCV 左側導覽窗格，然後選擇「Resource Groups」。
+. 在「資源群組」頁面上，選取「建立」以啟動資源群組建立精靈。
++
+
+NOTE: 建立資源群組的另一個選項是選取個別 VM 或資料存放區，並建立僅包含該資源的資源群組。
+
+. 在「資源」頁面上、選擇範圍（ VM 或資料存放區）和資料中心。
+. 在「跨磁碟」頁面上、選擇「跨多個資料儲存區的具有多個 VMDK 的虛擬機器」選項。
+. 接下來、建立備份原則的關聯。選取現有原則或建立新的備份原則。
+. 在「排程」頁面上，為每個選定的原則設定備份排程。
+. 完成相應選擇後，選擇「完成」。這將建立一個新的資源群組並將其新增至資源群組清單。
+
+
+image:evs-protect-fsxn-005.png["該圖表示上述步驟的對話框"]
+
+
+
+== 備份資源群組
+
+備份作業會在資源群組內定義的所有資源上執行。如果資源群組已附加原則並設定了排程，則備份會根據排程自動進行。
+
+. 在 vCenter Web 用戶端頁面的左側導覽列中，選擇「SnapCenter Plug-in for VMware」，然後選擇「資源群組」。
+. 在「資源群組」頁面中，找到指定的資源群組，然後選取「立即執行」以啟動手動備份。
++
+image:evs-protect-fsxn-006.png["該圖表示上述步驟的對話框"]
+
+. 如果資源群組配置了多個原則，請在「立即備份」對話方塊中選擇備份作業的原則。
+. 選擇「OK」以啟動備份。
+
+
+image:evs-protect-fsxn-007.png["該圖表示上述步驟的對話框"]
+
+您可以透過選擇視窗底部的「最近任務」來監控操作進度，或者，要了解更多詳細資訊，請在儀表板上選擇「作業監控」。
+
+
+NOTE: 建立備份原則、設定資源群組和執行備份作業的程序在不同的儲存傳輸協定（包括 NFS 和 iSCSI）之間是一致的。
+
+
+NOTE: 備份會根據原則中定義的排程執行。
+
+備份完成後，可以透過從下拉清單中選擇「SnapCenter Plug-in for VMware vSphere」，然後選擇「還原」，在資料儲存層級或單一虛擬機器層級查看備份。
+
+image:evs-protect-fsxn-008.png["該圖表示上述步驟的對話框"]
