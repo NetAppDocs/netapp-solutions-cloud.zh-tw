@@ -1050,7 +1050,6 @@
   <block id="56c34c6410dd45c5cec44149ad0ce037" category="section-title">隱私權政策</block>
   <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
-  <block id="dc328cbf5d3b670c24ad1f352944a8a3" category="summary">Red Hat OpenShift 容器應用程式資料保護使用Trident和NetApp ONTAP進行保護</block>
   <block id="827c397eb9e39fb213ec280407a48dec" category="doc">使用Trident Protect 為 OpenShift 容器平台中的容器應用程式提供資料保護</block>
   <block id="edcbdc40f2075d0e5e1b6f988ee3f107" category="paragraph">參考文件的此部分提供了使用Trident保護建立容器應用程式的快照和備份的詳細資訊。  NetApp Trident Protect 提供進階應用程式資料管理功能，可增強由NetApp ONTAP儲存系統和NetApp Trident CSI 儲存設定器支援的有狀態 Kubernetes 應用程式的功能和可用性。  Trident Protect 會建立應用程式快照和備份，這意味著不僅建立持久磁碟區中的應用程式資料的快照和備份，還可以建立應用程式元資料的快照和備份。  Trident Protect 建立的快照和備份可以儲存在以下任何物件儲存中，並在稍後從中還原。</block>
   <block id="128edc3ff8c2d69c9c76b866643314ec" category="list-text">AWS S3</block>
@@ -1344,56 +1343,7 @@
   <block id="109770c2c1397dfc771c00e133c261d7" category="list-text">ONTAP 9.12</block>
   <block id="cbb196f192ae4249989f2ccc43af86e2" category="list-text">使用 helm 安裝 postgresql。</block>
   <block id="0d2e4b58feb9806fe45271160030d1b1" category="paragraph"><block ref="d66058559be29002c97cec8314567a26" category="inline-link-macro-rx"></block> <block ref="aae2b983a17c22c7bfaf66419d8e0186" category="inline-link-macro-rx"></block> <block ref="baf3dad02604469cf9b36dfd048d949d" category="inline-link-macro-rx"></block></block>
-  <block id="b6197fead11dd8417137a1c529c668e0" category="doc">使用Trident Protect 進行資料遷移</block>
-  <block id="665584b88ca9e8625180520aec0166aa" category="paragraph">此頁面顯示了具有Trident Protect 的 Red Hat OpenShift 叢集上的容器工作負載的資料遷移選項。</block>
-  <block id="ee319804db70c00e2dbc7de00cda0026" category="paragraph">Kubernetes 應用程式經常需要從一個環境移動到另一個環境。要遷移應用程式及其持久性數據，可以使用NetApp Trident Protect。</block>
-  <block id="b94dad5a79b4605eb1c357e1088d3d57" category="section-title">不同 Kubernetes 環境之間的資料遷移</block>
-  <block id="86c59e7ba36ae51135e600ddf9fb2bad" category="paragraph">ACC 支援各種 Kubernetes 版本，包括 Google Anthos、Red Hat OpenShift、Tanzu Kubernetes Grid、Rancher Kubernetes Engine、Upstream Kubernetes 等。有關更多詳細信息，請參閱<block ref="0ceb66317efc123a6d617c493c18fdeb" category="inline-link-macro-rx"></block>。</block>
-  <block id="a54acb3fa05f851f3ce9e93ed8a6fcee" category="paragraph">要將應用程式從一個叢集遷移到另一個叢集，可以使用 ACC 的以下功能之一：</block>
-  <block id="d046134dbee59ceee559caaee740734e" category="list-text">**複製**</block>
-  <block id="7502d56aa1646347152e86a4fc41e691" category="list-text">** 備份與還原 **</block>
-  <block id="92e06daec8f56328236212e3cc1589f2" category="list-text">** 複製 **</block>
-  <block id="434bfe3fa874ac271fe4a58864eed525" category="inline-link-macro">資料保護部分</block>
-  <block id="ebd9f7619b4ae21e1029cb7b2e4ef473" category="paragraph">請參閱<block ref="4633f49d9db014abd0813329d20b9a74" category="inline-link-macro-rx"></block>用於**複製和備份和還原**選項。</block>
-  <block id="e8a4b8e8901d2f683b07625de269d152" category="paragraph">參考<block ref="b17026f8b157d793dc85ba49db8a185d" category="inline-link-macro-rx"></block>有關**克隆**的更多詳細資訊。</block>
-  <block id="decf4ba07de4c0c590f687d6f4ae20c0" category="section-title">使用 ACC 執行資料複製</block>
-  <block id="a122b225e759964662663c71c8777b70" category="inline-image-macro">Trident Protect 複製</block>
-  <block id="56427c38c1a2365e42f7caf87e19c24e" category="paragraph"><block ref="56427c38c1a2365e42f7caf87e19c24e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="9645795f561430b8c7c8af462727e1c7" category="doc">使用Astra進行資料保護</block>
-  <block id="c01e9f9b67cad6ffc7689209449fd957" category="paragraph">此頁面顯示了使用Trident Protect (ACC) 在 VMware vSphere 上運行的基於 Red Hat OpenShift Container 的應用程式的資料保護選項。</block>
-  <block id="77e741d4de2fa0a2ebeda0f3879c7e2c" category="paragraph">當使用者使用 Red Hat OpenShift 對其應用程式進行現代化改造時，應該制定資料保護策略來保護它們免受意外刪除或任何其他人為錯誤的影響。通常，出於監管或合規目的，還需要製定保護策略來保護其資料免受災難。</block>
   <block id="2b4ffa904eb16d68fecf846cc9767cb0" category="paragraph">資料保護的要求多種多樣，從恢復到某個時間點的副本到無需任何人工幹預即可自動故障轉移到不同的故障域。許多客戶選擇ONTAP作為其 Kubernetes 應用程式的首選儲存平台，因為它具有豐富的功能，例如多租戶、多協定、高效能和容量產品、多站點位置的複製和快取、安全性和靈活性。</block>
-  <block id="dfea6c0fea6ed37acf9e75b6a4549abb" category="paragraph">ONTAP中的資料保護可以透過臨時或政策控制來實現 - **快照** - **備份和還原**</block>
-  <block id="32645e18d7f4247905ad6890e438a838" category="paragraph">Snapshot 副本和備份均可保護以下類型的資料： - **代表應用程式狀態的應用程式元資料** - **與應用程式關聯的任何持久性資料磁碟區** - **屬於應用程式的任何資源工件**</block>
-  <block id="60e419ba4534554b327dcc9d08a88051" category="section-title">使用 ACC 拍攝快照</block>
-  <block id="b0be27a64b0f61f58d3aec742f01fbad" category="paragraph">可以使用帶有 ACC 的快照捕獲資料的時間點副本。保護策略定義要保留的 Snapshot 副本的數量。可用的最小計劃選項是每小時。可以隨時手動、按需進行 Snapshot 副本，間隔比計劃的 Snapshot 副本更短。快照副本與應用程式儲存在相同的配置磁碟區上。</block>
-  <block id="f70c55e82154bf66a6f83cb62a68c5d4" category="section-title">使用 ACC 設定快照</block>
-  <block id="1576208bebe7987d4e064a43119c5934" category="inline-image-macro">Trident Protect 快照視圖</block>
-  <block id="39deea631658b0ce758f7cac985c3a08" category="paragraph"><block ref="39deea631658b0ce758f7cac985c3a08" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="07a40de4830379d3ca7cc7f192a93312" category="section-title">使用 ACC 備份和恢復</block>
-  <block id="f9e83253f0a860da3800c492f8d54ce9" category="paragraph">備份基於快照。 Trident Protect 可使用 CSI 取得 Snapshot 副本，並使用時間點 Snapshot 副本執行備份。備份儲存在外部物件儲存中（任何與 S3 相容的存儲，包括位於不同位置的ONTAP S3）。可以為排程備份和要保留的備份版本數量配置保護策略。最小 RPO 為一小時。</block>
-  <block id="3df2258e47bca7a3ee653a9c77641629" category="section-title">使用 ACC 從備份還原應用程式</block>
-  <block id="eec7737a80f326b19b44d829e47c31f7" category="paragraph">ACC 從儲存備份的 S3 儲存桶恢復應用程式。</block>
-  <block id="e4132fc212ae200187b18df8ed9be8f6" category="inline-image-macro">Trident Protect 復原選項</block>
-  <block id="c966df7829877f6f92f401682bc77790" category="paragraph"><block ref="c966df7829877f6f92f401682bc77790" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="27ec99b325314a79ea3e5d3ca1942278" category="section-title">應用程式特定的執行鉤子</block>
-  <block id="92dab9911cf33fb36633339932ea1aa4" category="paragraph">此外，可以配置執行掛鉤以與託管應用程式的資料保護操作一起運行。即使儲存陣列級資料保護功能可用，通常仍需要採取額外步驟來確保備份和復原以及應用程式的一致性。特定於應用程式的附加步驟可以是： - 在建立 Snapshot 副本之前或之後。  - 在建立備份之前或之後。  - 從 Snapshot 副本或備份還原後。</block>
-  <block id="ebbdb911301d0ec7cb4da5dc83c333d4" category="paragraph">Astra Control 可以執行這些特定於應用程式的步驟，這些步驟被編碼為稱為執行掛鉤的自訂腳本。</block>
-  <block id="0370124d48bfc5af2def19c48f433283" category="inline-link">NetApp Verda GitHub 項目</block>
-  <block id="039a30c0463c68f7f8e1c222726b8bdd" category="paragraph"><block ref="9ad3989601b59e755170866a5329554c" category="inline-link-rx"></block>為流行的雲端原生應用程式提供執行掛鉤，使保護應用程式變得簡單、強大且易於協調。如果您擁有存儲庫中沒有的應用程式的足夠信息，請隨意為該專案做出貢獻。</block>
-  <block id="58d3e072cfa16653345a754a5a6d1448" category="section-title">Redis 應用程式預快照的範例執行掛鉤。</block>
-  <block id="67b5391256c003ae6f7ca8171ae4d5f1" category="inline-image-macro">Trident Protect 執行鉤子</block>
-  <block id="7691a3e9b4c5d39dd5f8edbbfb3f947c" category="paragraph"><block ref="7691a3e9b4c5d39dd5f8edbbfb3f947c" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="d41736970e54ce96afd763ad67dc252f" category="section-title">使用 ACC 進行複製</block>
-  <block id="caeac99711c3111eb55ed1ca93f8eafc" category="paragraph">對於區域保護或低 RPO 和 RTO 解決方案，可以將應用程式複製到在不同網站（最好是在另一個區域）運行的另一個 Kubernetes 實例。 Trident Protect 採用ONTAP非同步SnapMirror ，RPO 低至 5 分鐘。複製是透過複製到ONTAP來完成的，然後故障轉移會在目標叢集中建立 Kubernetes 資源。</block>
-  <block id="74713319c86022082cfafb127b906d08" category="admonition">請注意，複製不同於備份和恢復，備份和恢復是將備份轉移到 S3，然後從 S3 執行恢復。請參閱連結： https://docs.netapp.com/us-en/astra-control-center/concepts/data-protection.html#replication-to-a-remote-cluster ://docs.netapp.com/us-en/astra-control-center/concepts/data-protection.html#replication-to-a-remote-cluster [此處] 以取得有關兩種資料保護類型的差異的更多詳細資訊。</block>
-  <block id="12e6f760044e842eeeed770fe1f045e0" category="paragraph">參考<block ref="c38cfe7448528c0b52ee969f596aee97" category="inline-link-macro-rx"></block>有關SnapMirror設定說明。</block>
-  <block id="009a4d257485880614dc216576d57125" category="section-title">帶有 ACC 的SnapMirror</block>
-  <block id="e9ff139910647d633d54b0fb5f970c3b" category="admonition">san-economy 和 nas-economy 儲存驅動程式不支援複製功能。參考<block ref="96b7ca19fdc8212e6e1a7f647be86fd3" category="inline-link-macro-rx"></block>了解更多詳細資訊。</block>
-  <block id="5bed57ec15ba93e341876bf95c852684" category="section-title">示範影片：</block>
-  <block id="9ac4d0e117135a1ecb65027a34cf854a" category="inline-link-macro">Trident Protect 災難復原示範影片</block>
-  <block id="8ffb17b7c70063709d6d3969bf727420" category="paragraph"><block ref="8ffb17b7c70063709d6d3969bf727420" category="inline-link-macro-rx"></block></block>
-  <block id="92301d8d40b653a72a170ea647987475" category="video-title">使用Trident Protect 進行資料保護</block>
   <block id="3e27528a048bdb90c1e5af896157ebcf" category="section-title">利用MetroCluster實現業務連續性</block>
   <block id="75173a4bfbc4b9d0487876943898d53a" category="paragraph">我們的大多數ONTAP硬體平台都具有高可用性功能，可防止設備故障，避免執行災難復原。但為了防止火災或任何其他災難，並以零 RPO 和低 RTO 繼續開展業務，通常會使用MetroCluster解決方案。</block>
   <block id="98534176f0a5037ea60214bafb551045" category="paragraph">目前擁有ONTAP系統的客戶可以透過在距離限制內添加支援的ONTAP系統來擴展到MetroCluster ，以提供區域級災難復原。 Trident，CSI（容器儲存介面）支援NetApp ONTAP，ONTAPMetroCluster配置以及其他選項，如Cloud Volumes ONTAP、 Azure NetApp Files、AWS FSx ONTAP等。 Trident 為Trident提供了五種儲存驅動程式選項，並且所有選項都支援MetroCluster配置。參考<block ref="e128541cde7fad4b75ad1c7ebfcc5826" category="inline-link-macro-rx"></block>有關Trident支援的ONTAP儲存驅動程式的更多詳細資訊。</block>
@@ -1401,7 +1351,6 @@
   <block id="56142cf6bea785ab85e06c15d7593392" category="inline-image-macro">採用MetroCluster 的業務連續性解決方案</block>
   <block id="e7a2e49de12de237d96c8edc922e5ad9" category="paragraph"><block ref="e7a2e49de12de237d96c8edc922e5ad9" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e4fcddfe6dfd1a15c842a3b7017dffec" category="admonition">對於Trident後端設定 (TBC)，使用MetroCluster設定時請勿指定 dataLIF 和 SVM。為 managementLIF 指定 SVM 管理 IP 並使用 vsadmin 角色憑證。</block>
-  <block id="4a924cbff8d6fc384d52625b1af039ca" category="paragraph">有關Trident Protect 資料保護功能的詳細信息<block ref="5701e901fa686ac904f6ef8d7c56219a" category="inline-link-macro-rx"></block></block>
   <block id="cb217a1a44f4d5fc78bf80f3442587fb" category="doc">在 VMware 上部署並設定 Red Hat OpenShift Container 平台</block>
   <block id="60a6d6d90d90cd0318b1a2a174e82b30" category="paragraph">本節介紹如何設定和管理 OpenShift 叢集以及管理其上的有狀態應用程式的高階工作流程。它展示瞭如何使用NetApp ONTAP儲存陣列借助Trident來提供持久性磁碟區。</block>
   <block id="538b589a3f0d2786d874e26e9b3b3bee" category="inline-link-macro">資源部分</block>
@@ -1440,131 +1389,9 @@
   <block id="3ed5c822c6fa02635ad307261b100ddd" category="paragraph">NetApp ONTAP儲存為容器部署提供資料保護、可靠性和靈活性。  Trident作為動態儲存配置器，為客戶的有狀態應用程式使用持久性ONTAP儲存。  NetApp Trident Protect 可用於滿足有狀態應用程式的多種資料管理需求，例如資料保護、遷移和業務連續性。</block>
   <block id="908657a98fea35209f3c29956a9b2bed" category="paragraph">透過 VMware vSphere， NetApp ONTAP工具提供了可用於設定資料儲存區的 vCenter 外掛程式。應用標籤並將其與 OpenShift 一起使用來儲存節點配置和資料。基於 NVMe 的儲存提供更低的延遲和高效能。</block>
   <block id="8bd182bd2579087ba78267a1f9e45207" category="section-title">使用Trident Protect 為 OpenShift Container 工作負載提供資料保護和遷移解決方案</block>
-  <block id="5866b98c049a53ea6dc7f50f9349f434" category="doc">資料遷移</block>
-  <block id="c063100e7a1628441eb085edaad06b0f" category="paragraph">此頁面顯示使用 FSx ONTAP進行持久性儲存的託管 Red Hat OpenShift 叢集上的容器工作負載的資料遷移選項。</block>
-  <block id="9b699c59be5ba510cd9c430a31843b23" category="section-title">資料遷移</block>
-  <block id="a77e9c67eaee0c4911ea39cc7f8ebec4" category="paragraph">AWS 上的 Red Hat OpenShift 服務以及Amazon FSx for NetApp ONTAP （FSx ONTAP）都是 AWS 服務組合的一部分。  FSx ONTAP可在單一可用區或多可用區選項上使用。  Multi-Az 選項提供可用區域故障時的資料保護。  FSx ONTAP可以與Trident集成，為 ROSA 叢集上的應用程式提供持久性儲存。</block>
-  <block id="2e1fa7f447641f705e0ae4eebae95e05" category="section-title">使用 Helm chart 將 FSx ONTAP與Trident集成</block>
-  <block id="986a5f71bcf29bfbc03a0d9410079124" category="video-title">ROSA 叢集與Amazon FSx ONTAP集成</block>
-  <block id="529a6fab29dd793a36ea8d9e3d36c756" category="paragraph">容器應用的遷移主要包括：</block>
-  <block id="684de53b7b92804089a79fddee9ca62e" category="list-text">持久性卷：這可以使用BlueXP來實現。另一個選擇是使用Trident Protect 來處理從本地到雲端環境的容器應用程式遷移。自動化可以用於相同的目的。</block>
-  <block id="04a50198afad51829cb74fca31795282" category="list-text">應用程式元資料：這可以使用 OpenShift GitOps（Argo CD）來完成。</block>
-  <block id="ba1244efc3af65ffc74b6a843d2c00a8" category="section-title">使用 FSx ONTAP進行 ROSA 叢集上應用程式的故障轉移和故障恢復，以實現持久存儲</block>
-  <block id="bc7b3bff8f442739862cfc5d624d340d" category="paragraph">以下影片示範了使用BlueXP和 Argo CD 的應用程式故障轉移和故障復原場景。</block>
-  <block id="7a2d74417c06cd7e4b6b37ea4a50f19c" category="video-title">ROSA 叢集上應用程式的故障轉移和故障復原</block>
-  <block id="804119dcd90c16f9cbe72822ed4932e7" category="section-title">OpenShift Container 工作負載的資料保護與遷移解決方案</block>
   <block id="402e58c64601aebfef51bdfe1d8b2154" category="paragraph"><block ref="402e58c64601aebfef51bdfe1d8b2154" category="inline-image-macro-rx" type="image"></block></block>
   <block id="7e7397a7b79323762c61941fc0e6b5f9" category="doc">資料保護</block>
-  <block id="c07d7e29650467546955633b246fda6a" category="paragraph">此頁面顯示使用Astra Control Service 的託管 Red Hat OpenShift on AWS (ROSA) 叢集的資料保護選項。 Astra Control Service (ACS) 提供了一個易於使用的圖形使用者介面，您可以使用它來新增叢集、定義在其上運行的應用程式以及執行應用程式感知資料管理活動。還可以使用允許工作流程自動化的 API 存取 ACS 功能。</block>
-  <block id="91fb4d0c880fb171269c3c7ea8beb70f" category="paragraph">為Astra Control（ACS 或 ACC）提供支援的是NetApp Trident。  Trident整合了多種類型的 Kubernetes 集群，例如 Red Hat OpenShift、EKS、AKS、SUSE Rancher、Anthos 等，以及各種類型的NetApp ONTAP存儲，例如FAS/ AFF、 ONTAP Select、CVO、Google Google Cloud NetApp Volumes、 Azure NetApp Files和Amazon FSx ONTAP。</block>
-  <block id="6f1cfebfde061a4cdaf77705ab7a4009" category="paragraph">本節詳細介紹了使用 ACS 的以下資料保護選項：</block>
-  <block id="33da028b104a9f96f7020cd949c12c79" category="list-text">展示在一個區域運行的 ROSA 應用程式的備份和還原以及還原到另一個區域的影片。</block>
-  <block id="733a18c6cf3c64494d2dfa21ca393537" category="list-text">展示 ROSA 應用程式的快照和復原的影片。</block>
-  <block id="b98cbe3e2c8ddee7d2e59fdcff3c25be" category="list-text">安裝 ROSA 叢集、 Amazon FSx ONTAP、使用NetApp Trident與儲存後端整合、在 ROSA 叢集上安裝 postgresql 應用程式、使用 ACS 建立應用程式的快照以及從中恢復應用程式的分步詳細資訊。</block>
-  <block id="43bff9f3cf32ecf19c0ac4a62a39b51c" category="list-text">這篇部落格逐步展示了使用 ACS 在具有 FSx ONTAP的 ROSA 叢集上為 mysql 應用程式建立和復原快照的過程。</block>
-  <block id="f1496ac3e4a3245d65c86de1ff527370" category="section-title">備份/從備份中恢復</block>
-  <block id="a7d7ab71d74f0c10d8bcfe243ebe5243" category="paragraph">以下影片展示了在一個區域運行的 ROSA 應用程式的備份以及還原到另一個區域的過程。</block>
-  <block id="50a2af1b36504de3cf8dc288f0697fc4" category="video-title">AWS 上的 FSx NetApp ONTAP for Red Hat OpenShift 服務</block>
-  <block id="5eba799acfc56e5d19da8c3797685e2d" category="section-title">快照/從快照恢復</block>
-  <block id="70fe15f76a66619d2b49bdda5d02a6aa" category="paragraph">以下影片展示如何拍攝 ROSA 應用程式的快照以及如何從快照中復原。</block>
-  <block id="6cc020441c89c51e459033d493a6d786" category="video-title">使用Amazon FSx ONTAP儲存為 AWS (ROSA) 叢集上的 Red Hat OpenShift Service 應用程式進行快照/還原</block>
-  <block id="be8df1f28c0abc85a0ed0c6860e5d832" category="section-title">部落格</block>
-  <block id="3a4a68edff076c6484ed03c598313cb8" category="inline-link-macro">使用Astra Control Service 和Amazon FSx儲存對 ROSA 叢集上的應用程式進行資料管理</block>
-  <block id="df1f7fc111c2ed4d19bb019806a32882" category="list-text"><block ref="df1f7fc111c2ed4d19bb019806a32882" category="inline-link-macro-rx"></block></block>
-  <block id="1ea55c3f63a034c9b2511a975c2ff928" category="section-title">建立快照並從中復原的詳細步驟</block>
-  <block id="017b198d0c8d4d362a1107345764d6a2" category="section-title">先決條件設定</block>
-  <block id="c6368ae044df0f7bb26ed60afda5c591" category="inline-link-macro">AWS 帳號</block>
-  <block id="3a2b88b991502efccf922110610f9582" category="list-text"><block ref="27fc574b8ea5cd6312c40c8aa826b8e2" category="inline-link-macro-rx"></block></block>
-  <block id="a157286734897fea2ae78eb8d5a07083" category="inline-link-macro">Red Hat OpenShift 帳戶</block>
-  <block id="d4cc8b87ccca1a93d32d10a54f2f3096" category="list-text"><block ref="d4cc8b87ccca1a93d32d10a54f2f3096" category="inline-link-macro-rx"></block></block>
-  <block id="638cbffb6101ef7301c367160b8afbea" category="inline-link-macro">適當的權限</block>
-  <block id="3eb7df5974139b5c06b1b98ace64875f" category="list-text">IAM 用戶<block ref="e6e1437575a8e52c43b6bea47e894f06" category="inline-link-macro-rx"></block>建立並存取ROSA集群</block>
-  <block id="7820fdb5d8b3ebe0c69c86cf8bd2d0cf" category="inline-link-macro">AWS CLI</block>
-  <block id="98301d59c6cad91a32be2e4205f6bb39" category="list-text"><block ref="98301d59c6cad91a32be2e4205f6bb39" category="inline-link-macro-rx"></block></block>
-  <block id="a419a367cad390ff246057d1781b2530" category="inline-link-macro">ROSA CLI</block>
-  <block id="e08f074ff23721e4a104f551d21fa4c3" category="list-text"><block ref="e08f074ff23721e4a104f551d21fa4c3" category="inline-link-macro-rx"></block></block>
-  <block id="4fca4e9eaad689a27ecb08ff8f3f807c" category="inline-link-macro">OpenShift CLI</block>
-  <block id="00d080f5fe32e84dd619feb7cb7bd2b9" category="list-text"><block ref="44b8b3934efa2fc5ae9867d0131fa46a" category="inline-link-macro-rx"></block>（oc）</block>
-  <block id="4b8e58f2991ec92ce05bbb428c7e785f" category="list-text">具有子網路及適當閘道及路由的 VPC</block>
-  <block id="8432e6115f09c44c98ef0d5466e1443f" category="inline-link-macro">ROSA集群安裝</block>
-  <block id="9fb986e8b23a43f32df441a71e17d9a4" category="list-text"><block ref="105d5b5c7505cc3d67068ef270819c2c" category="inline-link-macro-rx"></block>進入 VPC</block>
   <block id="35f7c29efc923e8a7920a0b331095d71" category="inline-link-macro">Amazon FSx ONTAP</block>
-  <block id="e218074bf9f9101d48fa21faf682a61d" category="list-text"><block ref="e81a777cbcc0ec4114966c58a8da7a38" category="inline-link-macro-rx"></block>在同一個 VPC 中創建</block>
-  <block id="e53a614538d8dd04ae01b6f7c8fad43c" category="inline-link-macro">OpenShift 混合雲控制台</block>
-  <block id="e701544c0a6a10d3e9fd724eb673bd08" category="list-text">從以下位置存取 ROSA 集群<block ref="0adb5adbf9501e5dfbc7213724e52837" category="inline-link-macro-rx"></block></block>
-  <block id="1b920337ea7c0ca3dadb73c0a64b69a7" category="section-title">後續步驟</block>
-  <block id="5152194ac48cdb110daca5acc638a081" category="list-text">建立管理員使用者並登入叢集。</block>
-  <block id="7616094045f96860c9ac357dc99c056e" category="list-text">為叢集建立一個 kubeconfig 檔案。</block>
-  <block id="3fbc86214d0958402067644ae92f46cc" category="list-text">在叢集上安裝Trident 。</block>
-  <block id="06c9354d40a28d74b82f80702f813d97" category="list-text">使用Trident CSI 設定器建立後端、儲存類別和快照類別配置。</block>
-  <block id="7e68821a0b00ad66c94a5fa7b047fc36" category="list-text">在叢集上部署postgresql應用程式。</block>
-  <block id="373318637d0909025d357ebb9cf844c0" category="list-text">建立資料庫並新增記錄。</block>
-  <block id="6923c850b179787ae20741ac2da32a53" category="list-text">將集群新增至 ACS。</block>
-  <block id="76827e03d5e6d5ac048a5177e18ad144" category="list-text">在 ACS 中定義應用程式。</block>
-  <block id="bf3e8a582d777e7e4a4d17be1def01a0" category="list-text">使用 ACS 建立快照。</block>
-  <block id="99b7da0ca39d7f2a015829c2ae6e1b15" category="list-text">刪除 postgresql 應用程式中的資料庫。</block>
-  <block id="ff472a20f1aad06904e323a536e2eb80" category="list-text">使用 ACS 從快照恢復。</block>
-  <block id="a795bae8ecd08ce83200e5ec3177acee" category="list-text">驗證您的應用程式已從快照還原。</block>
-  <block id="0a3f91bec2fbb2d145638ee7f14c108b" category="section-title">**1.建立管理員使用者並登入叢集**</block>
-  <block id="4e3a8a5d5f66fd9fc9a976f4241338af" category="paragraph">使用以下命令建立管理員使用者來存取 ROSA 叢集：（僅當您在安裝時未建立管理員使用者時才需要建立管理員使用者）</block>
-  <block id="25ee9c81495a3a98ecf40dff27da6c1d" category="paragraph"><block ref="aefcb05bda304d0dd039ce44ec039e5e" prefix="" category="inline-code"></block></block>
-  <block id="f60a1c409fe0a27f22ddfa9c96fb2466" category="paragraph">該命令將提供如下所示的輸出。使用<block ref="a9902f312ee813dfa0df20ecdd92cbfa" prefix=" " category="inline-code"></block>輸出中提供的命令。</block>
-  <block id="d5c7c4d3d6b099b493e38f0f1cca6b48" category="paragraph"><block ref="d5c7c4d3d6b099b493e38f0f1cca6b48" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="03c52bbd6e1432956772bd1b77ca8540" category="admonition">您也可以使用令牌登入叢集。如果您在建立叢集時已經建立了管理員用戶，則可以使用管理員使用者憑證從 Red Hat OpenShift Hybrid Cloud 控制台登入叢集。然後點擊右上角顯示登入使用者的名稱，您可以取得<block ref="a9902f312ee813dfa0df20ecdd92cbfa" prefix=" " category="inline-code"></block>命令列的命令（令牌登入）。</block>
-  <block id="da82003ccd337703657b4d5043f7b127" category="section-title">**2.為叢集建立 kubeconfig 檔案**</block>
-  <block id="dd97d9a0156710665d9a4b0ed3dbf2be" category="paragraph">遵循程序<block ref="442330295b75a08b4add8fd36a48c8ea" category="inline-link-macro-rx"></block>為 ROSA 叢集建立 kubeconfig 檔案。當您將叢集新增至 ACS 時，稍後將使用此 kubeconfig 檔案。</block>
-  <block id="2881aaf6bf1a739c26e08a8243263c8a" category="section-title">**3.在叢集上安裝Trident **</block>
-  <block id="b28c7494d9133f9a0362e001875813ef" category="paragraph">在 ROSA 叢集上安裝Trident （最新版本）。為此，您可以按照以下任一程序進行操作<block ref="4a2b27d6d4bc3dd7ae85bfd131d50753" category="inline-link-macro-rx"></block>。若要從叢集控制台使用 helm 安裝Trident ，先建立一個名為Trident的專案。</block>
-  <block id="2c6ab478b53bf38fc6c50b76188d04e6" category="paragraph"><block ref="2c6ab478b53bf38fc6c50b76188d04e6" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="52d6229020f19bf2c0f6c87406d8ce99" category="paragraph">然後從開發人員視圖建立一個 Helm 圖表儲存庫。對於 URL 欄位使用<block ref="20183aea3d2da33700b394e01c04c185" prefix=" " category="inline-code"></block>。然後為Trident操作員創建一個掌舵版本。</block>
-  <block id="bbe48b908af072e74c5698f7e837194b" category="paragraph"><block ref="8062bc72e49b131354e6d9020f502f03" category="inline-image-macro-rx" type="image"></block> <block ref="184734d333887a9785c0969c7e37180d" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="fbaa2d031fe22ec90eeb4eab3182e2ac" category="paragraph">透過返回控制台上的管理員視圖並選擇 trident 專案中的 pod，驗證所有 trident pod 是否正在運行。</block>
-  <block id="e0dc6205452fc925c7beee93d4eacfb3" category="paragraph"><block ref="e0dc6205452fc925c7beee93d4eacfb3" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="13f2afc5c2dcacd63d06c728337c30af" category="section-title">**4.使用Trident CSI 設定器建立後端、儲存類別和快照類別配置**</block>
-  <block id="0ae5ad9333ec9d244bfd70723bf4920b" category="paragraph">使用下面顯示的 yaml 檔案建立 trident 後端物件、儲存類別物件和 Volumesnapshot 物件。確保在後端的設定 yaml 中提供您建立的Amazon FSx ONTAP檔案系統、管理 LIF 和檔案系統的 vserver 名稱的憑證。要獲取這些詳細信息，請轉到Amazon FSx的 AWS 控制台並選擇檔案系統，導航至「管理」標籤。另外，點擊更新以設定<block ref="679500f227997b45be97e3ca8115c678" prefix=" " category="inline-code"></block>用戶。</block>
-  <block id="8535923874d0b7a58a93ff4527cb2572" category="admonition">您可以使用命令列建立對象，也可以使用混合雲控制台中的 yaml 檔案建立對象。</block>
-  <block id="53e0873c2ed03dc3eb64708f25a9bee2" category="paragraph"><block ref="53e0873c2ed03dc3eb64708f25a9bee2" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="59122b849c35681f88e25b2cd4c16e23" category="paragraph">** Trident後端設定**</block>
-  <block id="cb6d16d1a0ec12524c8a26a623080f31" category="paragraph">**存儲類別**</block>
-  <block id="3c2ea64a4125f56cee84a1db41ffd2f7" category="paragraph">**快照類別**</block>
-  <block id="096893ffbe489ff9365c6d0f50668e7c" category="paragraph">透過發出下方顯示的命令來驗證後端、儲存類別和 trident-snapshotclass 物件是否已建立。</block>
-  <block id="a057ed25c39d66358c969539d1d3b11b" category="paragraph"><block ref="a057ed25c39d66358c969539d1d3b11b" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="9430cd2c476ef4b987a050e26d03000f" category="paragraph">這時候你需要做的一個重要的修改就是將 ontap-nas 設定為預設儲存類，而不是 gp3，這樣你後面部署的 postgresql app 就可以使用預設儲存類別。在叢集的 Openshift 控制台中，在「儲存」下選擇「StorageClasses」。將目前預設類別的註解編輯為 false，並為 ontap-nas 儲存類別新增註解 storageclass.kubernetes.io/is-default-class 設定為 true。</block>
-  <block id="39d36134643afd30d9f8cd8644bb558c" category="paragraph"><block ref="39d36134643afd30d9f8cd8644bb558c" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="791bc0cea8ecbd77b4ef84111fd5d460" category="paragraph"><block ref="791bc0cea8ecbd77b4ef84111fd5d460" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="d37c1822f1602c399a626ae694dbf8ee" category="section-title">**5.在叢集上部署 postgresql 應用程式**</block>
-  <block id="9849f155acac1c5d527130295c617745" category="paragraph">您可以從命令列部署應用程序，如下所示：</block>
-  <block id="14153a7fe9b305b3d6594136d6cbd76e" category="paragraph"><block ref="5cda9633b40969705c2d463d9fac411d" prefix="" category="inline-code"></block></block>
-  <block id="905260ff4fec3a5c9f46b0cd874ac192" category="paragraph"><block ref="905260ff4fec3a5c9f46b0cd874ac192" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="5e586f134a81377eea619605f9ece2a5" category="admonition">如果您沒有看到應用程式 pod 正在運行，那麼可能是由於安全上下文約束導致的錯誤。<block ref="f9e1aa28d599117ee36900375f7ab986" category="inline-image-macro-rx" type="image"></block>透過編輯<block ref="e70b97e1fe755b3b63eee3148167d06a" prefix=" " category="inline-code"></block>和<block ref="c7a6c0ee60c6f68dfe700feaacf15703" prefix=" " category="inline-code"></block>中的字段<block ref="bb2413f7c1896a1256ce050cb9d3c35c" prefix=" " category="inline-code"></block>具有輸出中的 uid 的對象<block ref="9254bbe15d1b0e04ead746e78900f19e" prefix=" " category="inline-code"></block>命令如下圖所示。<block ref="3ead85ab38d936884b86fbc809e16aff" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b9fdb042d340257be4c971bc8faec825" category="paragraph">postgresql 應用程式應該正在運行並使用Amazon FSx ONTAP儲存支援的持久性磁碟區。</block>
-  <block id="881122434d46b76ed11cbf0f0d48f1f2" category="paragraph"><block ref="881122434d46b76ed11cbf0f0d48f1f2" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="655634108a7f83f631da913f46b679b6" category="paragraph"><block ref="655634108a7f83f631da913f46b679b6" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="4c69f86a70efe7305c65ff1d6340bcbd" category="section-title">**6.建立資料庫並新增記錄**</block>
-  <block id="3bde981a9802b37117992ad70dace220" category="paragraph"><block ref="3bde981a9802b37117992ad70dace220" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="7d6dddc1bca3e6d90fdb148e26c32c4b" category="section-title">**7.將集群新增至 ACS**</block>
-  <block id="4a6182a7ba7174ab2779d387dff86a36" category="paragraph">登入 ACS。選擇集群並點擊新增。選擇其他並上傳或貼上 kubeconfig 檔案。</block>
-  <block id="69438969d8283ad3e8f494a67aa78542" category="paragraph"><block ref="69438969d8283ad3e8f494a67aa78542" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b905de46f0f090636c93c358d1bf512d" category="paragraph">按一下“*下一步*”並選擇 ontap-nas 作為 ACS 的預設儲存類別。按一下“*下一步*”，查看詳細資料並“*新增*”叢集。</block>
-  <block id="5e10b5bb2512209f891f42867af34993" category="paragraph"><block ref="5e10b5bb2512209f891f42867af34993" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0c22a664581f98929897ef8da6e94435" category="section-title">**8.在 ACS** 中定義應用程式</block>
-  <block id="b2926c8eedc2da993a395c1f95032e0a" category="paragraph">在 ACS 中定義 postgresql 應用程式。從登陸頁面，選擇*應用程式*、*定義*並填寫適當的詳細資訊。按一下“下一步”幾次，查看詳細信息，然後按一下“定義”。應用程式被加入到 ACS。</block>
-  <block id="99eaeeaa339c117cf0b288606e4ec627" category="section-title">**9.使用 ACS** 建立快照</block>
-  <block id="4a0e0784bcd96d89e8f11679f9ed73dd" category="paragraph">在 ACS 中建立快照的方法有很多種。您可以從顯示應用程式詳細資訊的頁面中選擇應用程式並建立快照。您可以點擊建立快照來建立按需快照或配置保護策略。</block>
-  <block id="d5acd48af1c6d310e4cb02f8f565c19f" category="paragraph">只需按一下“*建立快照*”，提供名稱，查看詳細信息，然後按一下“*快照*”即可建立按需快照。操作完成後，快照狀態變成「健康」。</block>
-  <block id="deec84792181a13255d83c25c1a0948a" category="paragraph"><block ref="deec84792181a13255d83c25c1a0948a" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f0d15b088a352412aff3883a161e38ef" category="paragraph"><block ref="f0d15b088a352412aff3883a161e38ef" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="ffd9fa793ba4244940afbe9b5de8959a" category="section-title">**10.刪除 postgresql 應用程式中的資料庫**</block>
-  <block id="dca0d4c6836bb6f907d9bcc880ce7b73" category="paragraph">重新登入 postgresql，列出可用的資料庫，刪除先前建立的資料庫，然後再次列出以確保資料庫已被刪除。</block>
-  <block id="7ee33c21424bc18619976345562a7f2f" category="paragraph"><block ref="7ee33c21424bc18619976345562a7f2f" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="21e4e8e2ffcd028f468c54e319969a1a" category="section-title">**11.使用 ACS** 從快照還原</block>
-  <block id="637869fd9fa9d9d4a9353f836480096c" category="paragraph">若要從快照還原應用程序，請前往 ACS UI 登入頁面，選擇應用程式並選擇復原。您需要選擇一個快照或備份來從中還原。 （通常，您會根據已配置的策略建立多個）。在接下來的幾個畫面中做出適當的選擇，然後按一下「*恢復*」。從快照恢復後，應用程式狀態從「正在恢復」變為「可用」。</block>
-  <block id="36bf0faeb8ebc91565aead1fea19c76e" category="paragraph"><block ref="36bf0faeb8ebc91565aead1fea19c76e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="6382207ab058d8dc7e962ea4cf19ef90" category="paragraph"><block ref="6382207ab058d8dc7e962ea4cf19ef90" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="a4d163d7dade5e2bdf148dee2a0446a9" category="paragraph"><block ref="a4d163d7dade5e2bdf148dee2a0446a9" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="ca420b4563e97c29e3b846aa3bc4d627" category="section-title">**12.驗證您的應用程式已從快照還原**</block>
-  <block id="bc40e506a3b59ea7b202cfa252e76200" category="paragraph">登入 postgresql 客戶端，您現在應該看到您之前擁有的表和表中的記錄。就是這樣。只需單擊一個按鈕，您的應用程式就會恢復到以前的狀態。這就是我們利用Astra Control 為客戶提供的便利。</block>
-  <block id="d1ccf17a5f09c7c68ba32e37c5c5f3fc" category="paragraph"><block ref="d1ccf17a5f09c7c68ba32e37c5c5f3fc" category="inline-image-macro-rx" type="image"></block></block>
   <block id="20de8310b84db5d94adb7900fa05bbec" category="doc">使用Google Cloud NetApp Volumes在 Google Cloud 上部署和設定 OpenShift Dedicated</block>
   <block id="b9108583a4fa90bc78bfe007472e2a54" category="paragraph">本節介紹在 Google Cloud 平台上設定 OpenShift Dedicated (OSD) 叢集的高階工作流程。它顯示NetApp Trident使用Google Cloud NetApp Volumes作為儲存後端，為使用 Kubernetes 運行的有狀態應用程式提供持久性磁碟區。</block>
   <block id="53836d095657ed1791139fb1c630f4b7" category="paragraph">下圖描述了部署在 Google Cloud 上並使用NetApp Volumes 作為後端儲存的 OSD 叢集。</block>
@@ -1576,7 +1403,6 @@
   <block id="347ac462ff0ef3401f24a865324be249" category="list-text">參考<block ref="751cb98e775d2747cfe530b0942b6a92" category="inline-link-macro-rx"></block>有關設定對Google Cloud NetApp Volumes 的存取權限的資訊。遵循所有步驟，包括</block>
   <block id="4e7d1ad4abc6456f5fe1caa1c1235bfa" category="list-text">建立儲存池。參考<block ref="fad22d5c3b7ea17dd99ffedacb6a8c86" category="inline-link-macro-rx"></block>有關如何在Google Cloud NetApp Volumes上設定儲存池的資訊。將在儲存池內建立在 OSD 上執行的有狀態 Kubernetes 應用程式的磁碟區。</block>
   <block id="ddb6fc2fcdb2411bf79cee99f322c2c9" category="list-title">在 OSD 叢集上安裝Trident （使用 Helm 圖表）</block>
-  <block id="987717981ce932d0be7dc7f598ad32da" category="list-text">使用 Helm 圖表在 OSD 叢集上安裝Trident 。參考<block ref="921841e2751430128634fb941cb97383" category="inline-link-macro-rx"></block>有關如何安裝 Helm Chart 的說明。舵圖可能位於<block ref="2a789cdf2851b93f1c4e64ec1fcf0032" category="inline-link-macro-rx"></block>。</block>
   <block id="c0de2a28750fd020b4c0df9872c37e16" category="paragraph-title">將NetApp Volumes 與NetApp Trident整合用於 OSD 集群</block>
   <block id="d337c074f9c56051352dc0767e0a7c43" category="paragraph">使用Trident建立後端和儲存類別（適用於Google Cloud NetApp Volumes）</block>
   <block id="f9e18e1aea83e513851c4167c94f8e94" category="list-text">有關創建後端的詳細信息，請參閱此處。</block>
@@ -1638,21 +1464,7 @@
   <block id="bb476886963857408a744eea2885622d" category="paragraph-title">使用Trident的 CSI 拓樸功能實現多區域架構</block>
   <block id="141b5087714c5e978f06d51e4e7934b6" category="paragraph">如今，雲端提供者使 Kubernetes/OpenShift 叢集管理員能夠產生基於區域的叢集節點。節點可以位於一個區域內的不同可用區，也可以跨越多個區域。為了方便在多區域架構中為工作負載配置卷， Trident使用了 CSI 拓撲。使用 CSI 拓撲功能，可以根據區域和可用區域將對磁碟區的存取限製到節點子集。參考<block ref="d4105e96f5d39fa667250cc3420bb2fe" category="inline-link-macro-rx"></block>了解更多詳細資訊。</block>
   <block id="8b1ed9415a825516b39edfc57b85c211" category="admonition">Kubernetes 支援兩種磁碟區綁定模式： - 當 **_VolumeBindingMode_ 設定為 _Immediate_**（預設）時， Trident會在沒有任何拓樸感知的情況下建立磁碟區。持久性卷的建立不依賴請求 pod 的調度要求。 - 當 **_VolumeBindingMode_ 設定為 _WaitForFirstConsumer_** 時，PVC 的持久卷的建立和綁定將被延遲，直到使用該 PVC 的 pod 被調度和建立。這樣，就可以建立磁碟區來滿足拓樸要求所強制執行的調度約束。 Trident儲存後端可設計為根據可用區域（拓撲感知後端）選擇性地配置磁碟區。對於使用此類後端的 StorageClasses，只有在受支援的區域/區域中調度的應用程式請求時才會建立磁碟區。  （拓樸感知 StorageClass）參考<block ref="d4105e96f5d39fa667250cc3420bb2fe" category="inline-link-macro-rx"></block>了解更多詳細資訊。</block>
-  <block id="9bc9a1f6e45228b0bf34142f335b3636" category="paragraph">此頁面顯示了具有Trident Protect (ACC) 的 Red Hat OpenShift 叢集上的容器工作負載的資料遷移選項。具體來說，客戶可以使用Trident Protect 將部分選定的工作負載或所有工作負載從其本地資料中心遷移到雲端，將其應用程式複製到雲端以進行測試，或將其從資料中心遷移到雲端</block>
-  <block id="2a529d0b05bbacac50f8502fe2e670bc" category="paragraph">要將應用程式從一個環境遷移到另一個環境，可以使用 ACC 的以下功能之一：</block>
-  <block id="30605e913f9bdfe9edcbf3c7c76f5d9f" category="paragraph">請參閱<block ref="9d08afb3ba14872b9466461acabc5689" category="inline-link-macro-rx"></block>用於**複製和備份和還原**選項。</block>
-  <block id="ff34f2d1d3b4a8e19535d52fa3161174" category="admonition">Astra複製功能僅支援Trident容器儲存介面 (CSI)。但是，nas-economy 和 san-economy 驅動程式不支援複製。</block>
   <block id="ddb215f758bdd80460164fabb25da416" category="doc">使用Trident Protect 進行資料保護</block>
-  <block id="98a48c896e0b03d49006045f8ef5559c" category="paragraph">此頁面顯示了使用Trident Protect (ACC) 在 VMware vSphere 或雲端中運行的基於 Red Hat OpenShift Container 的應用程式的資料保護選項。</block>
-  <block id="5cef3ebd5669ef6dbcf6372fe453664b" category="paragraph">客戶可以將雲端環境設定為其資料中心的擴展，以便他們可以利用雲端的優勢，並為將來轉移其工作負載做好準備。對於這樣的客戶，將他們的OpenShift應用程式和資料備份到雲端環境成為不可避免的選擇。然後，他們可以將應用程式和相關資料還原到雲端或資料中心的 OpenShift 叢集。</block>
-  <block id="560ad722f0baaa5f774080e596668377" category="paragraph">應用程式擁有者可以審查和更新 ACC 發現的應用程式。 Trident Protect 可使用 CSI 取得 Snapshot 副本，並使用時間點 Snapshot 副本執行備份。備份目標可以是雲端環境中的物件儲存。可以為排程備份和要保留的備份版本數量配置保護策略。最小 RPO 為一小時。</block>
-  <block id="1518330029824f5bd72354308fa2c21e" category="paragraph">儘管儲存陣列級資料保護功能可用，但通常需要採取額外的步驟來使備份和復原應用程式保持一致。特定於應用程式的附加步驟可以是： - 在建立 Snapshot 副本之前或之後。  - 在建立備份之前或之後。  - 從 Snapshot 副本或備份還原後。</block>
-  <block id="ae29338c7cb287db855a751598cb642e" category="paragraph">Trident Protect 可以執行這些特定於應用程式的步驟，這些步驟被編碼為稱為執行鉤子的自訂腳本。</block>
-  <block id="6fc65b336c93cbda7e7e6a16b1cbb001" category="inline-link-macro">開源專案 Verda</block>
-  <block id="0108cbf1d785343393582518165b2acc" category="paragraph">NetApp 的<block ref="e8ef64368a60db519469fe3915b513cd" category="inline-link-macro-rx"></block>為流行的雲端原生應用程式提供執行掛鉤，使保護應用程式變得簡單、強大且易於協調。如果您擁有存儲庫中沒有的應用程式的足夠信息，請隨意為該專案做出貢獻。</block>
-  <block id="9fcd8cc470d881158d99eb73a5492d66" category="paragraph">對於區域保護或低 RPO 和 RTO 解決方案，可以將應用程式複製到在不同網站（最好是在另一個區域）運行的另一個 Kubernetes 實例。 Trident Protect 利用ONTAP非同步SnapMirror ，RPO 低至 5 分鐘。參考<block ref="c38cfe7448528c0b52ee969f596aee97" category="inline-link-macro-rx"></block>有關SnapMirror設定說明。</block>
-  <block id="9425d614f064104bce0a104a933f137f" category="section-title">使用 ACC 進行災難復原（使用複製進行故障轉移和故障復原）</block>
-  <block id="a09bb554da4ec8e5fc0324d3572de9b9" category="video-title">使用Astra Control 進行應用程式故障轉移和故障恢復</block>
   <block id="109d0b04b0e99296f9cd1d21e7e728df" category="doc">在 Google Cloud 上部署和設定 Red Hat OpenShift 容器平台</block>
   <block id="a0e2729bf765b307bf999ddd317779ec" category="paragraph">本節介紹如何在 GCP 中設定和管理 OpenShift 叢集以及在其上部署有狀態應用程式的進階工作流程。它展示瞭如何使用Google Cloud NetApp Volumes和NetApp Cloud Volumes ONTAP儲存在Trident的幫助下提供持久卷。</block>
   <block id="b5d27248c0493ed39bffd33fdc70a68b" category="paragraph">下圖顯示了在 GCP 上部署並使用 VPN 連接到資料中心的叢集。</block>
@@ -1761,7 +1573,6 @@
   <block id="7ffdbddadae2331a4b6fe9848564fe3e" category="doc">支援NetApp Storage 與 Red Hat OpenShift Containers 的集成</block>
   <block id="fe8eee79d056bcfea51f3c41c47daada" category="paragraph">無論 Red Hat OpenShift 容器是在 VMware 上運行還是在超大規模環境中運行， NetApp Trident都可以用作其支援的各種類型的後端NetApp儲存的 CSI 配置器。</block>
   <block id="20ff55cda5b4afe35761476a6ae379e0" category="paragraph">下圖描述了可使用NetApp Trident與 OpenShift 叢集整合的各種後端NetApp儲存。</block>
-  <block id="cacc5da01514f9fa700d86e18966b3ef" category="paragraph"><block ref="cacc5da01514f9fa700d86e18966b3ef" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c57009523536c8cf1126736d023db8fd" category="paragraph">ONTAP儲存虛擬機器 (SVM) 提供安全的多租戶。單一 OpenShift 叢集可以連接到單一 SVM 或多個 SVM，甚至多個ONTAP叢集。儲存類別根據參數或標籤過濾後端儲存。儲存管理員使用 trident 後端設定定義連接到儲存系統的參數。成功建立連線後，它會建立 trident 後端並填入儲存類別可以過濾的資訊。</block>
   <block id="f7a2c532baf0284a5077caf9cad8791a" category="paragraph">storageclass和backend的關係如下圖所示。</block>
   <block id="efe36ae733078bbe9a7d4971388b61df" category="inline-image-macro">儲存類別與ONTAP 的關係</block>
@@ -1791,7 +1602,6 @@
   <block id="935ca08bdd64725cdd1088c0fb91776b" category="inline-link-macro">管理 FSx ONTAP儲存虛擬機</block>
   <block id="0aa0b6b72c2288a10c437f6fd4b333b9" category="paragraph">有關 FSx ONTAP支援的 SVM 數量，請參閱<block ref="0a6e802412081ec42f8b1e7e94aea7a2" category="inline-link-macro-rx"></block></block>
   <block id="6f83ad56268110343d9aef0022b7f493" category="doc">NetApp混合多雲支援 Red Hat OpenShift 容器工作負載的解決方案</block>
-  <block id="1d5ffd4b0f60da736787f87d12e7c698" category="paragraph">此解決方案使用 OpenShift 容器平台 (OCP)、OpenShift 高階叢集管理器 (ACM)、 NetApp ONTAP、 NetApp BlueXP和NetApp Trident Protect (ACC) 測試並驗證遷移和集中資料保護。</block>
   <block id="0196288da3234f0b3a984fb859dbbe2e" category="paragraph">對於此解決方案， NetApp已測試並驗證了以下場景。此解決方案根據以下特點分為多個場景：</block>
   <block id="97a114682aee9996b96ccab927de04d7" category="list-text">本地</block>
   <block id="a1234b3161b4fbfdfb96dd576b65bbea" category="list-text">雲</block>
@@ -1800,12 +1610,9 @@
   <block id="346cce4487319e1b8f55333f07a7bfe6" category="paragraph">**我們將在未來建立更多解決方案和用例。 **</block>
   <block id="c0b25b49a5e3c8650496b0189b2f2616" category="section-title">情境 1：使用Trident Protect 在本機環境中進行資料保護和遷移</block>
   <block id="e750828e5900c9e9e0080da69c59deee" category="paragraph">**本地：自我管理的 OpenShift 叢集和自我管理的NetApp儲存**</block>
-  <block id="c0eaf6c42fe00cd346ed6b6e3840a87b" category="list-text">使用 ACC 建立 Snapshot 副本、備份和復原以保護資料。</block>
-  <block id="5bbe9f387a62f7e6da1a3479bae84aaf" category="list-text">使用 ACC 執行容器應用程式的SnapMirror複製。</block>
   <block id="d42e8fbcf79f7de1303918aafa7d9fa7" category="section-title">場景 1</block>
   <block id="8a7ad2a34f2ada6c6ab656aa639f8580" category="section-title">情境 2：使用Trident Protect 進行資料保護以及從本機環境到 AWS 環境的遷移</block>
   <block id="011c4a5ba5680b65be39323642e0c6e5" category="paragraph">**本機：自管理 OpenShift 叢集和自管理儲存** **AWS 雲端：自管理 OpenShift 叢集和自管理儲存**</block>
-  <block id="6c440a8e8c4732064f0a2fe22d438916" category="list-text">使用 ACC 執行備份和復原以保護資料。</block>
   <block id="3d2b891e87f58587dcf56e520915afef" category="section-title">場景 2</block>
   <block id="a528051afdc7f56e98729098e73932f0" category="section-title">情境 3：資料保護以及從本機環境到 AWS 環境的遷移</block>
   <block id="383d49dd575140b5c69f53d189712f18" category="paragraph">**本機：自管理 OpenShift 叢集和自管理儲存** **AWS 雲端：供應商管理的 OpenShift 叢集 (ROSA) 和供應商管理的儲存 (FSx ONTAP)**</block>
@@ -1851,7 +1658,6 @@
   <block id="db45e12150cbd94d6d40ba4bbb0ca975" category="cell">單可用區，單節點，9.14.0</block>
   <block id="2f50a2bd9a618d76d31ee4053b7786ae" category="paragraph">解決方案的場景 5 使用下表所示的版本進行了驗證：</block>
   <block id="cba8b033a05e59ab8229f6c91cf17c9a" category="cell">OpenShift 4.13.25 本機和 Azure</block>
-  <block id="34784cc0fea6d2267df747c34d7e8553" category="cell">Trident伺服器和客戶端以及Astra Control Provisioner 23.10.0</block>
   <block id="d1d18b481bde9c866759ee41f30dbafe" category="cell">Trident Protect 23.10</block>
   <block id="eeaf1836a10a1c281451e90f85037328" category="summary">Red Hat OpenShift 虛擬化資料保護與NetApp ONTAP</block>
   <block id="1821a63ecd868360f33ee8c307c19f29" category="doc">使用Trident Protect 保護 Red Hat OpenShift 虛擬化中的虛擬機</block>
@@ -6117,14 +5923,10 @@
   <block id="24e7c7f037ed8ba58b1852cc51efffd0" category="sidebar">本地工作負載</block>
   <block id="c3c45593ca9a2005a02a5a8c2d656bac" category="sidebar">本地解決方案</block>
   <block id="46cb30f667e62d142a7c8301d252c272" category="sidebar">配置環境</block>
-  <block id="63504b08dec3ed28001dbee8df9a2bf5" category="sidebar">使用 ACC 保護數據</block>
-  <block id="89b3827429c9fafba4f9fd64b198fb8a" category="sidebar">使用 ACC 遷移數據</block>
   <block id="87efd418d5ba709a1292855e752aae9a" category="sidebar">自我管理的混合雲工作負載</block>
   <block id="c0c4b60d27032c028c91440e9d3be949" category="sidebar">解決方案概述</block>
   <block id="087b9ae1b8726911d3540707af0c04ec" category="sidebar">提供者管理的混合雲工作負載</block>
   <block id="0914da24a67ecaacb3c8f749ddc0d6d9" category="sidebar">具有提供者管理元件的混合雲解決方案</block>
-  <block id="117ae4bd7c1bac765d63c22304ff753f" category="sidebar">使用 ACS 保護數據</block>
-  <block id="927ebd0aae5d834696b83f905430b005" category="sidebar">使用BlueXP遷移數據</block>
   <block id="8d46e75942fb3336ae4ab1ede8ed39ab" category="sidebar">使用第三方工具保護容器應用</block>
   <block id="2ee7e50bbc54af4b61f2537ef313bece" category="sidebar">安裝 OADP</block>
   <block id="3d1d95b58336481351446e1b27a3ae7b" category="sidebar">使用 Velero 備份容器應用程式</block>
@@ -6224,17 +6026,14 @@
   <block id="20b084952bce45516ffbc85c0e1deea3" category="sidebar">適用於本地的 Red Hat Openshift</block>
   <block id="66a3c6139a5a4a2c69578cd77fc697f6" category="sidebar">在 VMware 上設定 OpenShift 容器工作負載</block>
   <block id="fa8ec19a16b69b2fe697ccf59cda9e2d" category="sidebar">保護 VMware 上的容器工作負載</block>
-  <block id="c3179a65da496332f066b7a6e4873d49" category="sidebar">在 VMware 上遷移容器工作負載</block>
   <block id="1b97548f3eef59fd8253b3cd56a9203d" category="sidebar">採用 Red Hat OpenShift 自管理元件的混合雲（本地/AWS/GCP/Azure）</block>
   <block id="99a53736b2aa3610636651dacf423c1d" category="sidebar">在 AWS 上設定 OpenShift 容器工作負載</block>
   <block id="1f67788256f6e3712bf72587aaf11d94" category="sidebar">在 GCP 上設定 OpenShift 容器工作負載</block>
   <block id="68d3a3b24c0443d80a89967b7d7934e5" category="sidebar">在 Azure 上設定 OpenShift 容器工作負載</block>
   <block id="777e5cfa6b22a8fbcca1cef42514ce66" category="sidebar">保護 AWS/GCP/Azure 上的容器工作負載</block>
-  <block id="4e0dc2ebf7ba3b67f50b6c89e14a8c02" category="sidebar">將容器工作負載遷移到 AWS/GCP/Azure</block>
   <block id="2a02ee1458062e1fd97db824f7b8792a" category="sidebar">採用 Red Hat OpenShift 供應商管理元件的混合雲</block>
   <block id="5528163c293208c7a1f21407cc5b3248" category="sidebar">在 Google Cloud 上設定 OpenShift Dedicated</block>
   <block id="ac25636ff6f4e2dc3658a7341a1b1ff5" category="sidebar">保護 AWS 上的容器工作負載</block>
-  <block id="cd9f7c8a71b8d9dba3e3f1927cb3b6ec" category="sidebar">在 AWS 上遷移容器工作負載</block>
   <block id="64d4239f5ba82ed9df4b74f20f8a8978" category="sidebar">適用於容器和虛擬化的其他 ROSA 解決方案</block>
   <block id="630af9ee6574ff74fd576053d22a4758" category="sidebar">使用Trident Protect 保護容器應用程式</block>
   <block id="a638bb61e9909c59017790f8b29c643f" category="sidebar">使用Trident Protect 保護虛擬機</block>
@@ -6485,4 +6284,18 @@
   <block id="9cda0c7b074ab9336e54e5c799f32f1d" category="sidebar">從 VMDK 還原客體檔案和資料夾</block>
   <block id="801c7fa476257c3eb5aa2c101b78642c" category="sidebar">保護 VMDK 上的資料庫</block>
   <block id="cc79f1d011dd390eb495c4430f17ce2e" category="sidebar">NetApp for Google Cloud 概覽</block>
+  <block id="aaa5862b3a9cf1f5553e63f437d3150a" category="summary">Red Hat OpenShift Container Application Data Protection 使用 Trident Protect 與 NetApp ONTAP</block>
+  <block id="cb0dd0fd17acae5213f43e3147497c66" category="paragraph">本頁顯示使用 Trident Protect 在 VMware vSphere 上執行的 Red Hat OpenShift Container 應用程式的資料保護選項。</block>
+  <block id="4d4da7ac9ca42560c5adde3cfcf0a381" category="paragraph">使用者在使用 Red Hat OpenShift 進行應用程式現代化改造的過程中，應制定資料保護策略，以防止意外刪除或其他人為錯誤導致的資料遺失。此外，出於監管或合規性要求，還需要製定資料保護策略，以防資料在災難中遺失。</block>
+  <block id="a6ea0f83e096fd36f6e1b528691f7fac" category="inline-link-macro">使用 Trident Protect 保護和遷移容器應用程式</block>
+  <block id="503a6eea13f2000ade7b8f73b47f6126" category="paragraph">有關使用 Trident Protect 保護和遷移容器工作負載的詳細資訊，請參閱以下章節：- <block ref="f825d2a6feac66171ea153caddf5efc4" category="inline-link-macro-rx"></block></block>
+  <block id="23a222c2ec8017930655b74b88cf5d9a" category="paragraph">有關 Trident Protect 資料保護功能的詳細資訊，請參閱<block ref="8a7b93525889199f21bea5877c33c6b6" category="inline-link-macro-rx"></block>。</block>
+  <block id="d8120e353c8e4658602b826c12e8cbeb" category="list-text">使用 Helm Chart 在 OSD 叢集上安裝 Trident。請參閱<block ref="2b02799a23e3b4104fc737b9e328001b" category="inline-link-macro-rx"></block>以取得如何安裝 Helm Chart 的說明。</block>
+  <block id="c1a7cd61e139ae5874159d51ca345518" category="paragraph"><block ref="c1a7cd61e139ae5874159d51ca345518" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f02cfb11445a691de846b7334e503c85" category="paragraph">此解決方案測試並驗證了使用 OpenShift Container Platform (OCP)、OpenShift Advanced Cluster Manager (ACM)、NetApp ONTAP、NetApp BlueXP 和 NetApp Trident Protect 進行遷移和集中式資料保護。</block>
+  <block id="4b45368310338985e587391cd7cdfd12" category="list-text">使用 Trident Protect 保護應用程式並支援內部部署叢集之間的遷移。</block>
+  <block id="23c2190eef5d639fe9074700a8ca0b67" category="list-text">使用 Trident Protect 保護應用程式，並支援在本機叢集和 AWS 中的自管理 OpenShift 叢集之間進行遷移。</block>
+  <block id="7c98717ab04ebf34dcbe0fefff52872d" category="list-text">使用 Trident Protect 保護應用程式，並支援在本地叢集和 Google Cloud OpenShift 叢集之間進行遷移。</block>
+  <block id="736aad8fe23e80679fa1d298df3389ce" category="list-text">使用 Trident Protect 保護應用程式，並支援在內部部署與 Azure 中的 OpenShift 叢集之間進行移轉。</block>
+  <block id="46e27a6c0657da974b589beef2923e6a" category="cell">Trident 伺服器和用戶端 23.10.0</block>
 </blocks>

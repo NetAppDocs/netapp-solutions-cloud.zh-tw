@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: openshift/os-solutions-validated.html 
-keywords: NetApp Solutions, hybrid cloud, container workloads, containers, Red Hat OpenShift, RedHat OpenShift, VMware, ROSA, ACC, Trident Protect, Advanced Cluster Management, ACM, Hub Cluster 
+keywords: NetApp Solutions, hybrid cloud, container workloads, containers, Red Hat OpenShift, RedHat OpenShift, VMware, ROSA, Trident Protect, Advanced Cluster Management, ACM, Hub Cluster 
 summary:  
 ---
 = NetApp混合多雲支援 Red Hat OpenShift 容器工作負載的解決方案
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-此解決方案使用 OpenShift 容器平台 (OCP)、OpenShift 高階叢集管理器 (ACM)、 NetApp ONTAP、 NetApp BlueXP和NetApp Trident Protect (ACC) 測試並驗證遷移和集中資料保護。
+此解決方案測試並驗證了使用 OpenShift Container Platform (OCP)、OpenShift Advanced Cluster Manager (ACM)、NetApp ONTAP、NetApp BlueXP 和 NetApp Trident Protect 進行遷移和集中式資料保護。
 
 對於此解決方案， NetApp已測試並驗證了以下場景。此解決方案根據以下特點分為多個場景：
 
@@ -35,8 +35,7 @@ summary:
 
 **本地：自我管理的 OpenShift 叢集和自我管理的NetApp儲存**
 
-* 使用 ACC 建立 Snapshot 副本、備份和復原以保護資料。
-* 使用 ACC 執行容器應用程式的SnapMirror複製。
+* 使用 Trident Protect 保護應用程式並支援內部部署叢集之間的遷移。
 
 
 
@@ -51,8 +50,7 @@ image:rhhc-on-premises.png["此圖顯示輸入/輸出對話框或表示書面內
 
 **本機：自管理 OpenShift 叢集和自管理儲存** **AWS 雲端：自管理 OpenShift 叢集和自管理儲存**
 
-* 使用 ACC 執行備份和復原以保護資料。
-* 使用 ACC 執行容器應用程式的SnapMirror複製。
+* 使用 Trident Protect 保護應用程式，並支援在本機叢集和 AWS 中的自管理 OpenShift 叢集之間進行遷移。
 
 
 
@@ -83,8 +81,7 @@ image:rhhc-rosa-with-fsxn.png["此圖顯示輸入/輸出對話框或表示書面
 
 **本地：自管理 OpenShift 叢集和自管理儲存** **Google Cloud：自管理 OpenShift 叢集和自管理儲存**
 
-* 使用 ACC 執行備份和復原以保護資料。
-* 使用 ACC 執行容器應用程式的SnapMirror複製。
+* 使用 Trident Protect 保護應用程式，並支援在本地叢集和 Google Cloud OpenShift 叢集之間進行遷移。
 
 
 image:rhhc-self-managed-gcp.png["此圖顯示輸入/輸出對話框或表示書面內容"]
@@ -97,8 +94,7 @@ image:rhhc-self-managed-gcp.png["此圖顯示輸入/輸出對話框或表示書�
 
 **本機：自管理 OpenShift 叢集和自管理儲存** **Azure 雲端：自管理 OpenShift 叢集和自管理儲存**
 
-* 使用 ACC 執行備份和復原以保護資料。
-* 使用 ACC 執行容器應用程式的SnapMirror複製。
+* 使用 Trident Protect 保護應用程式，並支援在內部部署與 Azure 中的 OpenShift 叢集之間進行移轉。
 
 
 image:rhhc-self-managed-azure.png["此圖顯示輸入/輸出對話框或表示書面內容"]

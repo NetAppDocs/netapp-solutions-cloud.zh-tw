@@ -27,8 +27,6 @@ entries:
     url: "/openshift/os-op-setup.html"
   - title: 保護 VMware 上的容器工作負載
     url: "/openshift/os-op-data-protection.html"
-  - title: 在 VMware 上遷移容器工作負載
-    url: "/openshift/os-op-data-migration.html"
 - title: 具有自管理元件的混合雲
   pdf-filename: 採用 Red Hat OpenShift 自管理元件的混合雲（本地/AWS/GCP/Azure）
   entries:
@@ -42,8 +40,6 @@ entries:
     url: "/openshift/os-sm-azure-setup.html"
   - title: 保護 AWS/GCP/Azure 上的容器工作負載
     url: "/openshift/os-sm-data-protection.html"
-  - title: 將容器工作負載遷移到 AWS/GCP/Azure
-    url: "/openshift/os-sm-data-migration.html"
 - title: 具有提供者管理元件的混合雲
   pdf-filename: 採用 Red Hat OpenShift 供應商管理元件的混合雲
   entries:
@@ -55,8 +51,6 @@ entries:
     url: "/openshift/os-pm-gcnv-setup.html"
   - title: 保護 AWS 上的容器工作負載
     url: "/openshift/os-pm-aws-dp.html"
-  - title: 在 AWS 上遷移容器工作負載
-    url: "/openshift/os-pm-aws-data-migration.html"
   - title: 適用於容器和虛擬化的其他 ROSA 解決方案
     url: "/openshift/os-pm-rosa-additional.html"
 - title: 使用Trident Protect 保護數據

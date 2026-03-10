@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: openshift/os-solutions-versions.html 
-keywords: NetApp Solutions, hybrid cloud, container workloads, containers, Red Hat OpenShift, RedHat OpenShift, vmware, ROSA, ACC, Trident Protect, Advanced Cluster Management, ACM, Hub Cluster 
+keywords: NetApp Solutions, hybrid cloud, container workloads, containers, Red Hat OpenShift, RedHat OpenShift, VMware, ROSA, Trident Protect, Advanced Cluster Management, ACM, Hub Cluster 
 summary:  
 ---
 = 解決方案驗證中使用的各種組件的版本
@@ -86,7 +86,7 @@ summary:
 | 來源集群和目標集群 | OpenShift 4.13.25 本機和 Azure 
 
 
-| NetApp Trident | Trident伺服器和客戶端以及Astra Control Provisioner 23.10.0 
+| NetApp Trident | Trident 伺服器和用戶端 23.10.0 
 
 
 | * NetApp Trident保護* | Trident Protect 23.10 

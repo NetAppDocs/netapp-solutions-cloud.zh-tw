@@ -22,30 +22,24 @@ indexpage:
       url: "../openshift/os-op-solution.html"
     - title: 配置環境
       url: "../openshift/os-op-setup.html"
-    - title: 使用 ACC 保護數據
+    - title: 使用Trident Protect 保護數據
       url: "../openshift/os-op-data-protection.html"
-    - title: 使用 ACC 遷移數據
-      url: "../openshift/os-op-data-migration.html"
   - title: 自我管理的混合雲工作負載
     links:
     - title: 解決方案概述
       url: "../openshift/os-sm-solution.html"
     - title: 配置環境
       url: "../openshift/os-sm-setup.html"
-    - title: 使用 ACC 保護數據
+    - title: 使用Trident Protect 保護數據
       url: "../openshift/os-sm-data-protection.html"
-    - title: 使用 ACC 遷移數據
-      url: "../openshift/os-sm-data-migration.html"
   - title: 提供者管理的混合雲工作負載
     links:
     - title: 具有提供者管理元件的混合雲解決方案
       url: "../openshift/os-pm-solution.html"
     - title: 配置環境
       url: "../openshift/os-pm-setup.html"
-    - title: 使用 ACS 保護數據
+    - title: 使用Trident Protect 保護數據
       url: "../openshift/os-pm-aws-dp.html"
-    - title: 使用BlueXP遷移數據
-      url: "../openshift/os-pm-aws-data-migration.html"
     - title: 其他解決方案
       url: "../openshift/os-pm-rosa-additional.html"
   - title: 使用第三方工具保護容器應用

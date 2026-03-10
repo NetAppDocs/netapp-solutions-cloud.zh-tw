@@ -33,7 +33,7 @@ image:rhhc-osd-with-gcnv.png["此圖顯示輸入/輸出對話框或表示書面�
 
 
 .在 OSD 叢集上安裝Trident （使用 Helm 圖表）
-* 使用 Helm 圖表在 OSD 叢集上安裝Trident 。參考link:https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-helm.html#critical-information-about-astra-trident-24-06["這裡"]有關如何安裝 Helm Chart 的說明。舵圖可能位於link:https://github.com/NetApp/trident/tree/master/helm/trident-operator["這裡"]。
+* 使用 Helm Chart 在 OSD 叢集上安裝 Trident。請參閱link:https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-helm.html["這裡"]以取得如何安裝 Helm Chart 的說明。
 
 
 .將NetApp Volumes 與NetApp Trident整合用於 OSD 集群
