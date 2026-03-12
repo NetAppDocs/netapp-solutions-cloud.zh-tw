@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: openshift/os-dp-tp-solution.html 
-keywords: OpenShift, OCP, Trident, Trident-protect, NetApp ONTAP, Red Hat OpenShift, app data protection, Containers 
+keywords: OpenShift, OCP, Trident, Trident Protect, NetApp ONTAP, Red Hat OpenShift, app data protection, Containers 
 summary: Red Hat OpenShift Container Application Data Protection 使用 Trident Protect 與 NetApp ONTAP 
 ---
-= 使用Trident Protect 為 OpenShift 容器平台中的容器應用程式提供資料保護
+= 使用 Trident Protect 為 OpenShift Container Platform 中的 Container Apps 提供資料保護
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,35 +14,35 @@ summary: Red Hat OpenShift Container Application Data Protection 使用 Trident 
 
 
 [role="lead"]
-參考文件的此部分提供了使用Trident保護建立容器應用程式的快照和備份的詳細資訊。  NetApp Trident Protect 提供進階應用程式資料管理功能，可增強由NetApp ONTAP儲存系統和NetApp Trident CSI 儲存設定器支援的有狀態 Kubernetes 應用程式的功能和可用性。  Trident Protect 會建立應用程式快照和備份，這意味著不僅建立持久磁碟區中的應用程式資料的快照和備份，還可以建立應用程式元資料的快照和備份。  Trident Protect 建立的快照和備份可以儲存在以下任何物件儲存中，並在稍後從中還原。
+本參考文件的這一部分詳細介紹如何使用 Trident Protect 建立 Container Apps 的快照和備份。NetApp Trident Protect 提供進階應用程式資料管理功能，可增強由 NetApp ONTAP 儲存系統和 NetApp Trident CSI 儲存設定器支援的有狀態 Kubernetes 應用程式的功能和可用性。Trident Protect 會建立應用程式快照和備份。這意味著，它不僅會為持久性磁碟區中的應用程式資料建立快照和備份，還會為應用程式元資料建立快照和備份。Trident Protect 建立的快照和備份可以儲存在以下任何物件儲存中，並可在以後從中還原。
 
 * AWS S3
 * Azure Blob 儲存
 * Google 雲端儲存
-* Ontap S3
+* ONTAP S3
 * 儲存網格
-* 任何其他 S3 相容存儲
+* 任何其他與 S3 相容的儲存設備
 
 
-Trident Protect 使用基於角色的存取控制 (RBAC) 的 Kubernetes 模型。預設情況下， Trident Protect 提供一個名為 trident-protect 的單一系統命名空間及其關聯的預設服務帳戶。如果您的組織擁有許多使用者或特定的安全需求，您可以使用Trident Protect 的 RBAC 功能來更精細地控制對資源和命名空間的存取。
+Trident Protect 使用 Kubernetes 的角色型存取控制（RBAC）模型。預設情況下，Trident Protect 提供一個名為 trident-protect 的系統命名空間及其關聯的預設服務帳戶。如果您的組織擁有眾多使用者或有特定的安全需求，則可以使用 Trident Protect 的 RBAC 功能來更精細地控制對資源和命名空間的存取。
 
-有關Trident Protect 中的 RBAC 的更多信息，請參閱link:https://docs.netapp.com/us-en/trident/trident-protect/manage-authorization-access-control.html["Trident保護文檔"]
+有關 Trident Protect 中 RBAC 的其他資訊、請參閱link:https://docs.netapp.com/us-en/trident/trident-protect/manage-authorization-access-control.html["Trident Protect 說明文件"]
 
 
 NOTE: 叢集管理員可以存取預設的 trident-protect 命名空間中的資源，也可以存取所有其他命名空間中的資源。使用者無法在 trident-protect 命名空間中建立應用程式資料管理自訂資源 (CR)，如快照和備份 CR。作為最佳實踐，使用者需要在應用程式命名空間中建立這些 CR。
 
-可依照文件中提供的說明安裝Trident Protectlink:https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-installation.html["這裡"]本節將展示使用Trident Protect 對容器應用程式進行資料保護和復原應用程式的工作流程。1.快照建立（按需、按計畫）2.從快照恢復（恢復到相同和不同的命名空間）3.備份創建4.從備份還原
+Trident Protect 可使用文件中提供的說明安裝link:https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-installation.html["這裡"]。本節將介紹使用 Trident Protect 對容器應用程式進行資料保護和復原的工作流程。1.建立快照（按需或排程）2.從快照還原（還原到相同或不同的命名空間）3.建立備份 4.從備份還原
 
 .先決條件
 [%collapsible%open]
 ====
-在為應用程式建立快照和備份之前，必須在Trident Protect 中配置物件儲存來儲存快照和備份。這是使用儲存桶 CR 完成的。只有管理員可以建立儲存桶 CR 並對其進行配置。在Trident Protect 中，儲存桶 CR 稱為 AppVault。  AppVault 物件是儲存桶的聲明性 Kubernetes 工作流程表示。  AppVault CR 包含儲存桶在保護作業（例如備份、快照、復原作業和SnapMirror複製）中所使用的必要配置。
+在為應用程式建立快照和備份之前，必須在 Trident Protect 中配置物件儲存以儲存快照和備份。此配置透過儲存桶 CR 完成。只有管理員才能建立和配置儲存桶 CR。在 Trident Protect 中，儲存桶 CR 稱為 AppVault。AppVault 物件是儲存桶的聲明式 Kubernetes 工作流程表示。AppVault CR 包含儲存桶在保護作業（例如備份、快照、復原作業和 SnapMirror 複製）中所需的設定。
 
-在此範例中，我們將展示如何使用ONTAP S3 作為物件儲存。以下是為ONTAP S3 建立 AppVault CR 的工作流程： 1.在ONTAP叢集中的 SVM 中建立 S3 物件儲存伺服器。2.在物件儲存伺服器中建立一個儲存桶。3.在 SVM 中建立 S3 使用者。將存取密鑰和密鑰保存在安全的地方。4.在 OpenShift 中，建立一個金鑰來儲存ONTAP S3 憑證。5.為ONTAP S3 建立 AppVault 對象
+在本範例中，我們將展示如何使用 ONTAP S3 作為物件儲存。以下是為 ONTAP S3 建立 AppVault CR 的工作流程：1.在 ONTAP 叢集的 SVM 中建立 S3 物件儲存伺服器。2.在物件儲存伺服器中建立儲存桶。3.在 SVM 中建立 S3 使用者。將存取金鑰和私密金鑰保存在安全的位置。4.在 OpenShift 中，建立密鑰來儲存 ONTAP S3 憑證。5.為 ONTAP S3 建立 AppVault 物件
 
-**為ONTAP S3 設定Trident保護 AppVault**
+**為 ONTAP S3 設定 Trident Protect AppVault**
 
-***使用ONTAP S3 作為 AppVault 設定Trident Protect 的範例 yaml 檔案***
+***用於設定 Trident Protect 與 ONTAP S3 作為 AppVault 的範例 YAML 檔案***
 
 [source, yaml]
 ----
@@ -168,7 +168,7 @@ spec:
     targetPort: 5432
   type: ClusterIP
 
-Now create the Trident protect application CR for the postgres app. Include the objects in the namespace postgres and create it in the postgres namespace.
+Now create the Trident Protect application CR for the postgres app. Include the objects in the namespace postgres and create it in the postgres namespace.
 # tp create app postgres-app --namespaces postgres -n postgres
 
 ----
@@ -327,7 +327,7 @@ image:rhhc-dp-tp-solution-container-017.png["恢復到不同的命名空間"]
 .遷移應用程式
 [%collapsible%open]
 ====
-若要將應用程式複製或遷移到不同的叢集（執行跨叢集克隆），請在來源叢集上建立備份，然後將備份還原到不同的叢集。確保目標叢集上安裝了Trident保護。
+若要將應用程式複製或遷移到不同的叢集（執行跨叢集克隆），請在來源叢集上建立備份，然後將備份還原到不同的叢集。請確保目標叢集上已安裝 Trident Protect。
 
 在來源叢集上，執行下圖所示的步驟：
 

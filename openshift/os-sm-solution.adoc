@@ -16,7 +16,7 @@ summary:
 [role="lead"]
 當客戶準備將部分選定的工作負載或所有工作負載從資料中心遷移到雲端時，他們可能正處於現代化轉型的某個階段。他們可能會出於各種原因選擇在雲端中使用自管理的 OpenShift 容器和自管理的NetApp儲存。他們應該在雲端中規劃和部署 Red Hat OpenShift 容器平台 (OCP)，以便成功建構一個可用於生產的環境，以便從資料中心遷移容器工作負載。他們的 OCP 叢集可以在其資料中心部署在 VMware 或 Bare Metal 上，也可以在雲端環境中部署在 AWS、Azure 或 Google Cloud 上。
 
-NetApp Cloud Volumes ONTAP儲存為 AWS、Azure 和 Google Cloud 中的容器部署提供資料保護、可靠性和靈活性。  Trident作為動態儲存供應器，為客戶的有狀態應用程式使用持久性Cloud Volumes ONTAP儲存。  Trident Protect 可用於有狀態應用程式的資料管理需求，例如資料保護、遷移和業務連續性。
+NetApp Cloud Volumes ONTAP 儲存為 AWS、Azure 和 Google Cloud 中的容器部署提供資料保護、可靠性和靈活性。Trident 作為動態儲存配置器，為客戶的有狀態應用程式使用持久的 Cloud Volumes ONTAP 儲存。Trident Protect 可用於滿足有狀態應用程式的資料管理需求，例如資料保護、遷移和業務連續性。
 
 
 
