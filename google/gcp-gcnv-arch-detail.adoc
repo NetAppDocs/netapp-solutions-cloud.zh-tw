@@ -24,12 +24,14 @@ image:ncvs-gc-001.png["此圖顯示輸入/輸出對話框或表示書面內容"]
 
 
 
+[[tenancy-model]]
 == 租賃模型
 
 在Google Cloud NetApp Volumes中，單一專案被視為唯一的租用戶。這意味著對磁碟區、Snapshot 副本等的操作都是基於每個專案執行的。換句話說，所有磁碟區都歸創建它們的專案所有，並且預設只有該專案可以管理和存取其中的資料。這被認為是服務的控制平面視圖。
 
 
 
+[[shared-vpcs]]
 === 共享 VPC
 
 在資料平面視圖上， Google Cloud NetApp Volumes可以連接到共用 VPC。您可以在託管專案或連接到共用 VPC 的某個服務專案中建立磁碟區。連接到該共用 VPC 的所有項目（主機或服務）都能夠存取網路層（TCP/IP）的磁碟區。由於共用 VPC 上具有網路連線的所有用戶端都可以透過 NAS 協定存取數據，因此必須使用單一磁碟區上的存取控制（例如使用者/群組存取控制清單 (ACL) 和 NFS 匯出的主機名稱/IP 位址）來控制誰可以存取資料。
@@ -42,6 +44,7 @@ image:ncvs-gc-001.png["此圖顯示輸入/輸出對話框或表示書面內容"]
 
 
 
+[[vpc-service-controls]]
 === VPC 服務控制
 
 VPC 服務控制在連接到網際網路且可在全球範圍內存取的 Google Cloud 服務周圍建立存取控制邊界。這些服務透過使用者身分提供存取控制，但無法限制請求來自哪個網路位置。  VPC 服務控制透過引入限制對定義網路的存取的功能來彌補這一差距。
@@ -52,6 +55,8 @@ Google Cloud NetApp Volumes資料平面並未連接到外部互聯網，而是�
 
 
 
+[[packet-sniffingtrace-considerations]]
+[[packet-sniffing]]
 === 資料包嗅探/追蹤注意事項
 
 封包擷取可用於解決網路問題或其他問題（例如 NAS 權限、LDAP 連線等），但也可能被惡意用於取得有關網路 IP 位址、MAC 位址、使用者和群組名稱以及端點上使用的安全等級的資訊。由於 Google Cloud 網路、VPC 和防火牆規則的配置方式，如果沒有使用者登入憑證或link:gcp-gcnv-control-plane-arch.html#jwt-tokens["JWT 令牌"]進入雲端實例。封包擷取僅可在端點（例如虛擬機器 (VM)）上進行，並且僅可在 VPC 內部的端點上進行，除非使用共用 VPC 和/或外部網路隧道/IP 轉送明確允許外部流量到端點。沒有辦法嗅探客戶端以外的流量。
@@ -71,6 +76,7 @@ image:ncvs-gc-004.png["此圖顯示輸入/輸出對話框或表示書面內容"]
 
 
 
+[[vm-network-interfaces]]
 === 虛擬機器網路介面
 
 攻擊者可能會嘗試的一個技巧是向虛擬機器新增新的網路介面卡 (NIC) https://en.wikipedia.org/wiki/Promiscuous_mode["混雜模式"^] （連接埠鏡像）或在現有 NIC 上啟用混雜模式以嗅探所有流量。在 Google Cloud 中，新增新的 NIC 需要完全關閉 VM，這會建立警報，因此攻擊者無法不被注意地執行此操作。

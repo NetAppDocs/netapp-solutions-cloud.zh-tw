@@ -18,6 +18,7 @@ summary: 本節介紹如何設定 SnapCenter Plug-in for VMware 的步驟。
 
 
 
+[[adding-the-storage-system]]
 == 新增儲存系統
 
 使用 SVC 保護工作負載的下一步是新增 link:https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_add_storage_01.html["儲存系統"]。新增儲存後，SCV 可以偵測和管理 vCenter 內的備份和還原作業。將 FSx for NetApp ONTAP 管理端點或儲存虛擬機器（SVM）管理端點 IP 作為儲存系統，以啟用 VM 備份和還原。
@@ -37,6 +38,7 @@ NOTE: 新增檔案系統時，所有 SVM 都會自動新增。
 
 
 
+[[create-a-backup-policy]]
 == 建立備份原則
 
 一個完善的備份策略應明確備份排程、待備份資料以及備份保留期限等關鍵因素。可以按小時或按天安排 Snapshot 複本，以保護整個資料存放區。這種備份排程方式不僅可以保護資料存放區，還支援對這些資料存放區中包含的 VM 和 VMDK 進行備份和還原作業。
@@ -69,6 +71,7 @@ image:evs-protect-fsxn-004.png["該圖表示上述步驟的對話框"]
 
 
 
+[[create-a-resource-group]]
 == 建立資源群組
 
 資源群組用作需要保護的 VM 和資料存放區的容器。可以隨時在資源群組中新增或移除資源，從而靈活地管理備份組態。
@@ -92,6 +95,7 @@ image:evs-protect-fsxn-005.png["該圖表示上述步驟的對話框"]
 
 
 
+[[backing-up-resource-groups]]
 == 備份資源群組
 
 備份作業會在資源群組內定義的所有資源上執行。如果資源群組已附加原則並設定了排程，則備份會根據排程自動進行。

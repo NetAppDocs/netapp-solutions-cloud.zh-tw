@@ -18,6 +18,8 @@ Azure 支援透過本機Azure NetApp Files(ANF) 服務或Cloud Volumes ONTAP (CV
 
 
 
+[[azure-netapp-files-anf]]
+[[anf]]
 == Azure NetApp Files(ANF)
 
 Azure netApp Files 為 Azure 帶來企業級資料管理和存儲，以便您可以輕鬆管理工作負載和應用程式。將您的工作負載遷移到雲端並運行它們，而不會犧牲效能。
@@ -28,6 +30,7 @@ Azure netApp Files 消除了障礙，因此您可以將所有基於檔案的應�
 
 
 
+[[azure-netapp-files-anf-as-guest-connected-storage]]
 === Azure NetApp Files(ANF) 作為來賓連接儲存
 
 .使用 Azure VMware 解決方案 (AVS) 設定Azure NetApp Files
@@ -100,6 +103,8 @@ image:azure-anf-guest-009.png["此圖顯示輸入/輸出對話框或表示書面
 ====
 
 
+[[cloud-volumes-ontap-cvo]]
+[[azure-cvo]]
 == Cloud Volumes ONTAP (CVO)
 
 Cloud Volumes ONTAP（或稱 CVO）是基於 NetApp 的ONTAP儲存軟體所建置的業界領先的雲端資料管理解決方案，可在 Amazon Web Services (AWS)、Microsoft Azure 和 Google Cloud Platform (GCP) 上原生使用。
@@ -112,6 +117,7 @@ CVO 的設計旨在提供極致的效能和先進的資料管理功能，以滿�
 
 
 
+[[cloud-volumes-ontap-cvo-as-guest-connected-storage]]
 === Cloud Volumes ONTAP (CVO) 作為來賓連接存儲
 
 .在 Azure 中部署新的Cloud Volumes ONTAP

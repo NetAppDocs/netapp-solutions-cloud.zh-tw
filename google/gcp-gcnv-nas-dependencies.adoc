@@ -47,6 +47,7 @@ summary: 當使用Google Cloud NetApp Volumes進行 NAS 共用時，可能需要
 |===
 
 
+[[kerberos-keytab-rotationpassword-resets-for-machine-account-objects]]
 == 機器帳戶物件的 Kerberos 金鑰表輪換/密碼重置
 
 使用 SMB 機器帳戶， Google Cloud NetApp Volumes會為 SMB 機器帳戶安排定期重設密碼。這些密碼重設使用 Kerberos 加密進行，並按照每月第四個星期日晚上 11 點到凌晨 1 點之間的隨機時間進行。這些密碼重設會變更 Kerberos 金鑰版本，輪換儲存在Google Cloud NetApp Volumes系統上的金鑰表，並協助為在Google Cloud NetApp Volumes中執行的 SMB 伺服器維持更高層級的安全性。機器帳戶密碼是隨機的，管理員不知道。
@@ -55,12 +56,14 @@ summary: 當使用Google Cloud NetApp Volumes進行 NAS 共用時，可能需要
 
 
 
+[[network-ports-for-use-with-ldap-and-kerberos]]
 == 用於 LDAP 和 Kerberos 的網路連接埠
 
 當使用 LDAP 和 Kerberos 時，您應該確定這些服務正在使用的網路連接埠。您可以在以下位置找到Google Cloud NetApp Volumes所使用的連接埠的完整清單： https://cloud.google.com/architecture/partners/netapp-cloud-volumes/security-considerations?hl=en_US["Google Cloud NetApp Volumes有關安全注意事項的文檔"^] 。
 
 
 
+[[ldap]]
 == LDAP
 
 Google Cloud NetApp Volumes可作為 LDAP 用戶端，並使用標準 LDAP 搜尋查詢來尋找 UNIX 身分的使用者和群組。如果您打算使用Google Cloud NetApp Volumes提供的標準預設使用者以外的使用者和群組，則 LDAP 是必要的。如果您打算將 NFS Kerberos 與使用者主體（例如 user1@domain.com）一起使用，則 LDAP 也是必要的。目前僅支援使用 Microsoft Active Directory 的 LDAP。
@@ -120,6 +123,7 @@ Google Cloud NetApp Volumes可作為 LDAP 用戶端，並使用標準 LDAP 搜�
 
 
 
+[[ldap-bind-information]]
 === LDAP 綁定資訊
 
 若要查詢 LDAP 中的用戶， Google Cloud NetApp Volumes必須綁定（登入）到 LDAP 服務。此登入具有唯讀權限，用於查詢 LDAP UNIX 屬性以進行目錄查找。目前，只有使用 SMB 機器帳戶才可以進行 LDAP 綁定。
@@ -136,6 +140,7 @@ Google Cloud NetApp Volumes可作為 LDAP 用戶端，並使用標準 LDAP 搜�
 
 
 
+[[ldap-queries]]
 === LDAP 查詢
 
 儘管 LDAP 綁定是加密的，但 LDAP 查詢是透過使用通用 LDAP 連接埠 389 以純文字形式透過網路傳遞的。目前無法在Google Cloud NetApp Volumes中變更此知名連接埠。因此，有權在網路中嗅探資料包的人可以看到使用者和群組名稱、數字 ID 和群組成員身分。
@@ -144,6 +149,7 @@ Google Cloud NetApp Volumes可作為 LDAP 用戶端，並使用標準 LDAP 搜�
 
 
 
+[[ldap-client-configuration-defaults]]
 === LDAP 用戶端配置預設設定
 
 在Google Cloud NetApp Volumes實例中啟用 LDAP 時，預設會使用特定的設定詳細資訊建立 LDAP 用戶端設定。在某些情況下，選項不適用於Google Cloud NetApp Volumes （不受支援）或不可設定。
@@ -228,6 +234,7 @@ Google Cloud NetApp Volumes可作為 LDAP 用戶端，並使用標準 LDAP 搜�
 |===
 
 
+[[using-ldap-for-asymmetric-name-mapping]]
 === 使用 LDAP 進行非對稱名稱映射
 
 預設情況下， Google Cloud NetApp Volumes會雙向對應具有相同使用者名稱的 Windows 用戶和 UNIX 用戶，無需特殊配置。只要Google Cloud NetApp Volumes可以找到有效的 UNIX 使用者（使用 LDAP），就會發生 1:1 名稱對映。例如，如果 Windows 用戶 `johnsmith`然後，如果Google Cloud NetApp Volumes可以找到名為 `johnsmith`在 LDAP 中，該使用者的名稱對應成功，由該使用者建立的所有檔案/資料夾 `johnsmith`顯示正確的使用者所有權，以及所有影響的 ACL `johnsmith`無論使用何種 NAS 協議，都將受到尊重。這被稱為對稱名稱映射。
@@ -301,6 +308,7 @@ TEXT
 ....
 
 
+[[ldap-channel-binding]]
 === LDAP 通道綁定
 
 由於 Windows Active Directory 網域控制站存在漏洞， https://msrc.microsoft.com/update-guide/vulnerability/ADV190023["Microsoft 安全公告 ADV190023"^]改變 DC 允許 LDAP 綁定的方式。
@@ -309,6 +317,7 @@ TEXT
 
 
 
+[[dns]]
 == DNS
 
 Active Directory 和 Kerberos 都依賴 DNS 來實作主機名稱到 IP/IP 到主機名稱的解析。  DNS 要求連接埠 53 處於開啟狀態。  Google Cloud NetApp Volumes不會對 DNS 記錄進行任何修改，目前也不支援使用 https://support.google.com/domains/answer/6147083?hl=en["動態 DNS"^]在網路介面上。
@@ -324,12 +333,14 @@ NOTE: Google Cloud NetApp Volumes目前不支援 DNSSEC，DNS 查詢以純文字
 
 
 
+[[file-access-auditing]]
 == 文件存取審計
 
 目前不支援Google Cloud NetApp Volumes。
 
 
 
+[[antivirus-protection]]
 == 防毒保護
 
 您必須在 NAS 共用用戶端的Google Cloud NetApp Volumes中執行防毒掃描。目前， Google Cloud NetApp Volumes尚未實現本機防毒整合。

@@ -18,6 +18,7 @@ NetApp Cloud Volumes 與主要超大規模企業的 VMware 解決方案為希望
 
 
 
+[[use-case-1-optimizing-storage]]
 == 用例 #1：優化存儲
 
 當使用 RVtools 輸出執行大小調整練習時，馬力（vCPU/vMem）比例與儲存平行是顯而易見的。很多時候，組織會發現他們所處的境地是，所需的儲存空間使叢集的規模遠遠超出了馬力所需的範圍。
@@ -26,6 +27,7 @@ NetApp Cloud Volumes 與主要超大規模企業的 VMware 解決方案為希望
 
 
 
+[[use-case-2-cloud-migration]]
 == 用例2：雲端遷移
 
 由於多種原因，組織面臨著將應用程式從本地資料中心遷移到公有雲的壓力：租約即將到期；財務指令要求從資本支出 (capex) 轉向營運支出 (opex)；或者僅僅是自上而下的命令要求將所有內容遷移到雲端。
@@ -34,12 +36,14 @@ NetApp Cloud Volumes 與主要超大規模企業的 VMware 解決方案為希望
 
 
 
+[[use-case-3-data-center-expansion]]
 == 用例3：資料中心擴展
 
 當資料中心因季節性需求高峰或僅僅是穩定的有機成長而達到容量限制時，遷移到雲端託管的 VMware 以及NetApp Cloud Volumes 是一個簡單的解決方案。利用NetApp Cloud Volumes，可以透過提供跨可用區域的高可用性和動態擴充功能，非常輕鬆地建立、複製和擴充儲存。利用NetApp Cloud Volumes 有助於克服對延伸叢集的需求，從而最大限度地減少主機叢集容量。
 
 
 
+[[use-case-4-disaster-recovery-to-the-cloud]]
 == 用例 #4：災難復原至雲端
 
 在傳統方法中，如果發生災難，複製到雲端的虛擬機器需要轉換到雲端自己的虛擬機器管理程式平台才能恢復 - 這不是危機期間要處理的任務。
@@ -48,12 +52,14 @@ NetApp Cloud Volumes 與主要超大規模企業的 VMware 解決方案為希望
 
 
 
+[[use-case-5-application-modernization]]
 == 用例 #5：應用程式現代化
 
 應用程式進入公有雲後，組織將希望利用數百種強大的雲端服務來實現其現代化和擴展。透過使用NetApp Cloud Volumes，現代化是一個簡單的過程，因為應用程式資料不會被鎖定在 vSAN 中，並且允許在包括 Kubernetes 在內的廣泛用例中實現資料移動。
 
 
 
+[[conclusion]]
 == 結論
 
 無論您的目標是全雲還是混合雲， NetApp Cloud Volumes 都提供了出色的選項來部署和管理應用程式工作負載以及檔案服務和區塊協議，同時透過使資料需求無縫連接到應用程式層來降低 TCO。

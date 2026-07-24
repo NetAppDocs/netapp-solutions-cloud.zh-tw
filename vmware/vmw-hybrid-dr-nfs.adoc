@@ -26,6 +26,7 @@ image:dr-draas-nfs-001.png["此圖顯示輸入/輸出對話框或表示書面內
 
 
 
+[[getting-started]]
 == 入門
 
 若要開始使用BlueXP disaster recovery，請使用BlueXP控制台，然後存取服務。
@@ -58,6 +59,7 @@ image:dr-draas-nfs-003.png["此圖顯示輸入/輸出對話框或表示書面內
 
 
 
+[[bluexp-disaster-recovery-configuration]]
 == BlueXP disaster recovery配置
 
 準備災難復原的第一步是發現並將內部部署 vCenter 和儲存資源新增至BlueXP disaster recovery。
@@ -82,6 +84,7 @@ image:dr-draas-nfs-006.png["此圖顯示輸入/輸出對話框或表示書面內
 
 
 
+[[configuring-storage-replication-between-source-site-array-and-destination-site-array]]
 == 配置來源站點陣列和目標站點陣列之間的儲存複製
 
 SnapMirror在NetApp環境中提供資料複製。 SnapMirror複製是基於NetApp Snapshot 技術構建，非常高效，因為它僅複製自上次更新以來已更改或添加的區塊。可以使用NetApp OnCommand System Manager或ONTAP CLI 輕鬆設定SnapMirror 。如果預先配置了叢集和 SVM 對等連接， BlueXP DRaaS 也會建立SnapMirror關係。
@@ -93,6 +96,7 @@ NOTE: 如果已經透過 CLI 或系統管理員為磁碟區配置了SnapMirror�
 
 
 
+[[how-to-set-it-up-for-vmware-disaster-recovery]]
 == 如何設定 VMware 災難復原
 
 對於任何給定的應用程序，創建SnapMirror複製的過程都是相同的。過程可以是手動的，也可以是自動的。最簡單的方法是利用BlueXP配置SnapMirror複製，只需將環境中的來源ONTAP系統拖曳到目標上即可觸發指導其餘流程的精靈。
@@ -113,6 +117,7 @@ NOTE: 如果已經透過 CLI 為磁碟區配置了SnapMirror關係， BlueXP DRa
 
 
 
+[[what-can-bluexp-disaster-recovery-do-for-you]]
 == BlueXP disaster recovery能為您做什麼？
 
 在新增來源站點和目標站點後， BlueXP disaster recovery將執行自動深度發現並顯示虛擬機器及其相關元資料。  BlueXP disaster recovery也會自動偵測虛擬機器使用的網路和連接埠群組並填入它們。
@@ -194,6 +199,7 @@ BlueXP DRaaS 包含以下工作流程：
 
 
 
+[[test-failover]]
 == 測試故障轉移
 
 BlueXP DRaaS 中的測試故障轉移是一種操作程序，可讓 VMware 管理員在不中斷生產環境的情況下全面驗證其復原計畫。
@@ -220,6 +226,7 @@ image:dr-draas-nfs-026.png["此圖顯示輸入/輸出對話框或表示書面內
 
 
 
+[[cleanup-failover-test-operation]]
 == 清理故障轉移測試操作
 
 清理故障轉移測試操作在複製計劃測試完成並且 VMware 管理員回應清理提示後發生。
@@ -236,6 +243,7 @@ image:dr-draas-nfs-027.png["此圖顯示輸入/輸出對話框或表示書面內
 
 
 
+[[planned-migration-and-fail-over]]
 == 計劃遷移和故障轉移
 
 BlueXP DRaaS 有兩種執行實際故障轉移的方法：規劃遷移和故障轉移。第一種方法，計劃遷移，將虛擬機器關閉和儲存複製同步納入到恢復或有效地將虛擬機器移動到目標站點的過程中。計劃遷移需要存取來源站點。第二種方法，故障轉移，是計劃內/非計劃內故障轉移，其中虛擬機器從上次能夠完成的儲存複製間隔在目標站點恢復。根據解決方案中設計的 RPO，在 DR 場景中可能會出現一定程度的資料遺失。
@@ -256,6 +264,7 @@ image:dr-draas-nfs-029.png["此圖顯示輸入/輸出對話框或表示書面內
 
 
 
+[[failback]]
 == 故障回覆
 
 故障回復是一種選用過程，可在復原後還原來源站台和目標站台的原始設定。
@@ -276,6 +285,7 @@ image:dr-draas-nfs-030.png["此圖顯示輸入/輸出對話框或表示書面內
 
 
 
+[[monitoring-and-dashboard]]
 == 監控和儀表板
 
 從BlueXP或ONTAP CLI，您可以監控對應資料儲存磁碟區的複製健康狀態，並且可以透過作業監控追蹤故障轉移或測試故障轉移的狀態。

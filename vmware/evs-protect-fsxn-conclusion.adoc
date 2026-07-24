@@ -18,6 +18,7 @@ summary: 本文件提供了在使用 FSx for ONTAP 作為 Amazon EVS 叢集的�
 
 
 
+[[conclusion]]
 == 結論
 
 總而言之，當使用 FSx for ONTAP 來最佳化 Amazon EVS 部署的 TCO 時，SCV 提供了一種簡單且有效率的虛擬機器備份方法。由於它依賴 Snapshot 複本，因此可以無縫快速地備份和還原虛擬機器，而 Snapshot 複本的建立只需幾秒鐘即可完成。

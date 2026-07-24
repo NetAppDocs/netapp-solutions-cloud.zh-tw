@@ -18,12 +18,14 @@ Veeam Backup & Replication 是保護 VMware Cloud 中資料的有效且可靠的
 
 
 
+[[overview]]
 == 概況
 
 VMware Cloud（在 AWS 中）支援使用 NFS 資料儲存作為補充存儲，而 FSx ONTAP對於需要為其雲端應用程式儲存大量資料的客戶來說是一種安全的解決方案，並且可以獨立於 SDDC 叢集中的 ESXi 主機數量進行擴展。此整合的 AWS 儲存服務提供高效率儲存以及所有傳統的NetApp ONTAP功能。
 
 
 
+[[use-cases]]
 === 用例
 
 此解決方案適用於以下用例：
@@ -35,6 +37,7 @@ VMware Cloud（在 AWS 中）支援使用 NFS 資料儲存作為補充存儲，�
 
 
 
+[[nfs-datastores-using-amazon-fsx-ontap]]
 === 使用Amazon FSx ONTAP 的NFS 資料存儲
 
 此解決方案中的所有虛擬機器都駐留在 FSx ONTAP補充 NFS 資料儲存上。使用 FSx ONTAP作為補充 NFS 資料儲存有幾個好處。例如，它允許您：
@@ -82,6 +85,7 @@ VMware Cloud（在 AWS 中）支援使用 NFS 資料儲存作為補充存儲，�
 ====
 
 
+[[high-level-architecture]]
 == 進階架構
 
 該解決方案的測試/驗證是在實驗室中進行的，該實驗室可能與最終部署環境相匹配，也可能不匹配。欲了解更多信息，請參閱以下章節。
@@ -106,6 +110,7 @@ image:aws-vmc-veeam-037.png["解決方案架構圖"]
 ====
 
 
+[[solution-deployment]]
 == 解決方案部署
 
 在此解決方案中，我們提供了有關部署和驗證解決方案的詳細說明，該解決方案利用 Veeam Backup 和 Replication 軟體在 AWS 上的 VMware Cloud SDDC 中執行 SQL Server、Oracle 以及 Windows 和 Linux 檔案伺服器虛擬機器的備份和復原。此解決方案中的虛擬機器駐留在由 FSx ONTAP託管的補充 NFS 資料儲存上。此外，單獨的 FSx ONTAP檔案系統用於託管將用於 Veeam 備份儲存庫的 iSCSI 磁碟區。
@@ -120,6 +125,7 @@ image:aws-vmc-veeam-037.png["解決方案架構圖"]
 
 
 
+[[deploy-veeam-proxy-server]]
 === 部署 Veeam 代理伺服器
 
 Veeam 代理伺服器是 Veeam Backup & Replication 軟體的一個元件，可作為來源和備份或複製目標之間的中介。代理伺服器透過在本機處理資料來協助最佳化和加速備份作業期間的資料傳輸，並且可以使用不同的傳輸模式透過 VMware vStorage API 進行資料保護或透過直接儲存存取來存取資料。
@@ -178,6 +184,7 @@ image:aws-vmc-veeam-010.png["設定網路流量規則"]
 ====
 
 
+[[configure-storage-and-backup-repositories]]
 === 配置儲存和備份儲存庫
 
 主 Veeam Backup 伺服器和 Veeam Proxy 伺服器可以以直接連接儲存空間的形式存取備份儲存庫。在本節中，我們介紹如何建立 FSx ONTAP檔案系統、將 iSCSI LUN 安裝到 Veeam 伺服器以及建立備份儲存庫。
@@ -278,6 +285,7 @@ image:aws-vmc-veeam-016.png["選擇掛載伺服器"]
 ====
 
 
+[[configure-veeam-backup-jobs]]
 === 設定 Veeam 備份作業
 
 應利用上一節中的備份儲存庫建立備份作業。建立備份作業是任何儲存管理員的正常工作的一部分，我們不會在這裡介紹所有步驟。有關在 Veeam 中建立備份作業的更多完整信息，請參閱 https://www.veeam.com/documentation-guides-datasheets.html?productId=8&version=product%3A8%2F221["Veeam 幫助中心技術文檔"^]。
@@ -307,6 +315,7 @@ image:aws-vmc-veeam-018.png["長期保留政策"]
 ====
 
 
+[[restore-application-vms-with-veeam-full-restore]]
 === 使用 Veeam 完整恢復功能恢復應用程式虛擬機
 
 使用 Veeam 執行完整復原是執行應用程式復原的第一步。我們驗證了虛擬機器的完全恢復已啟動並且所有服務均正常運作。
@@ -315,6 +324,7 @@ image:aws-vmc-veeam-018.png["長期保留政策"]
 
 
 
+[[restore-sql-server-databases]]
 === 還原 SQL Server 資料庫
 
 Veeam Backup & Replication 提供了多種還原 SQL Server 資料庫的選項。為了進行此驗證，我們使用具有即時復原功能的 Veeam Explorer for SQL Server 來執行 SQL Server 資料庫的復原。 SQL Server 即時復原功能可讓您快速還原 SQL Server 資料庫，而無需等待完整的資料庫還原。這種快速恢復過程可最大限度地減少停機時間並確保業務連續性。工作原理如下：
@@ -360,6 +370,7 @@ image:aws-vmc-veeam-024.png["監控 SQL Server 復原過程"]
 
 
 
+[[restore-oracle-databases-with-veeam-explorer]]
 === 使用 Veeam Explorer 還原 Oracle 資料庫
 
 Veeam Explorer for Oracle 資料庫提供了執行標準 Oracle 資料庫還原或使用即時復原進行不間斷還原的能力。它還支援發布資料庫以實現快速存取、還原 Data Guard 資料庫以及從 RMAN 備份中復原。
@@ -443,6 +454,7 @@ image:aws-vmc-veeam-036.png["從清單中選擇一個還原點"]
 ====
 
 
+[[conclusion]]
 == 結論
 
 VMware Cloud 是一個強大的平台，用於運行關鍵業務應用程式和儲存敏感資料。對於依賴 VMware Cloud 來確保業務連續性並幫助防止網路威脅和資料遺失的企業來說，安全的資料保護解決方案至關重要。透過選擇可靠且強大的資料保護解決方案，企業可以確信無論如何其關鍵資料都是安全的。
@@ -451,6 +463,7 @@ VMware Cloud 是一個強大的平台，用於運行關鍵業務應用程式和�
 
 
 
+[[additional-information]]
 == 附加資訊
 
 要了解有關此解決方案中提出的技術的更多信息，請參閱以下附加資訊。

@@ -22,6 +22,7 @@ NetApp ONTAP儲存為容器部署提供資料保護、可靠性和靈活性。  
 
 
 
+[[data-protection-and-migration-solution-for-openshift-container-workloads-using-trident-protect]]
 == 使用Trident Protect 為 OpenShift Container 工作負載提供資料保護和遷移解決方案
 
 image:rhhc-on-premises.png["此圖顯示輸入/輸出對話框或表示書面內容"]

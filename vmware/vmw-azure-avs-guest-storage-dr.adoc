@@ -18,6 +18,7 @@ summary: 雲端災難復原是一種具有彈性且經濟高效的方法，可�
 
 
 
+[[overview]]
 == 概況
 
  This covers application data; however, what about the actual VMs themselves. Disaster recovery should cover all dependent components, including virtual machines, VMDKs, application data, and more. To accomplish this, SnapMirror along with Jetstream can be used to seamlessly recover workloads replicated from on-premises to Cloud Volumes ONTAP while using vSAN storage for VM VMDKs.
@@ -27,6 +28,7 @@ image:dr-cvo-avs-001.png["此圖顯示輸入/輸出對話框或表示書面內�
 
 
 
+[[assumptions]]
 == 假設
 
 本文檔重點介紹應用程式資料的客戶機內儲存（也稱為客戶機連線），我們假設本機環境使用SnapCenter進行應用程式一致性備份。
@@ -41,10 +43,12 @@ NOTE: 將本機資料中心連接到 Azure 有多種選擇，因此我們無法�
 
 
 
+[[deploying-the-dr-solution]]
 == 部署災難復原解決方案
 
 
 
+[[solution-deployment-overview]]
 === 解決方案部署概述
 
 . 確保使用SnapCenter備份應用程式資料並滿足必要的 RPO 要求。
@@ -66,6 +70,7 @@ NOTE: 將本機資料中心連接到 Azure 有多種選擇，因此我們無法�
 
 
 
+[[deployment-details]]
 === 部署詳情
 
 .在 Azure 上設定 CVO 並將磁碟區複製到 CVO
@@ -424,6 +429,7 @@ NOTE: 為了在反向重新同步操作後保留主儲存和輔助儲存的角�
 ====
 
 
+[[benefits-of-this-solution]]
 == 此解決方案的優勢
 
 * 使用SnapMirror的高效且有彈性的複製。

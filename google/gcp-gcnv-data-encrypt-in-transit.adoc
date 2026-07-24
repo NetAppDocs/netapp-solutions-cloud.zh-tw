@@ -18,6 +18,7 @@ summary: 傳輸中的資料可以在 NAS 協定層加密，而 Google Cloud 網�
 
 
 
+[[google-cloud-network]]
 == Google Cloud 網路
 
 Google Cloud 在網路層級加密流量，具體說明如下 https://cloud.google.com/security/encryption-in-transit["傳輸中加密"^]在 Google 文件中。正如「Google Cloud NetApp Volumes架構」部分所述， Google Cloud NetApp Volumes是由NetApp控制的 PSA 生產商專案提供的。
@@ -28,12 +29,14 @@ Google Cloud 在網路層級加密流量，具體說明如下 https://cloud.goog
 
 
 
+[[nas-protocols]]
 == NAS 協定
 
 NFS 和 SMB NAS 協定在協定層提供可選的傳輸加密。
 
 
 
+[[smb-encryption]]
 === SMB 加密
 
 https://docs.microsoft.com/en-us/windows-server/storage/file-server/smb-security["SMB 加密"^]提供 SMB 資料的端對端加密，並保護資料免受不受信任網路上的竊聽。您可以為用戶端/伺服器資料連線（僅適用於支援 SMB3.x 的用戶端）和伺服器/網域控制站驗證啟用加密。
@@ -44,6 +47,7 @@ Google Cloud NetApp Volumes支援 SMB 加密的 RC4-HMAC、AES-128-CTS-HMAC-SHA1
 
 
 
+[[nfsv4-1-kerberos]]
 === NFSv4.1 Kerberos
 
 對於 NFSv4.1， NetApp Volumes-Performance 提供 Kerberos 驗證，如 https://datatracker.ietf.org/doc/html/rfc7530["RFC7530"^]。您可以按磁碟區啟用 Kerberos。

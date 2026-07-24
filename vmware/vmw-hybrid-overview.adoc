@@ -20,24 +20,28 @@ summary:
 
 
 
+[[vmware-cloud-options-in-public-cloud]]
 == 公有雲中的 VMware Cloud 選項
 
 本節介紹每個雲端供應商如何在各自的公有雲產品中支援 VMware 軟體定義資料中心 (SDDC) 和/或 VMware Cloud Foundation (VCF) 堆疊。
 
 
 
+[[azure-vmware-solution]]
 === Azure VMware 解決方案
 
 Azure VMware 解決方案是一種混合雲端服務，可在 Microsoft Azure 公有雲中完全執行 VMware SDDC。 Azure VMware 解決方案是完全由 Microsoft 管理和支援的第一方解決方案，並由 VMware 利用 Azure 基礎架構進行了驗證。這意味著，當部署 Azure VMware 解決方案時，客戶可以獲得 VMware 的 ESXi 用於計算虛擬化、vSAN 用於超融合儲存以及 NSX 用於網路和安全，同時利用 Microsoft Azure 的全球影響力、一流的資料中心設施以及靠近豐富的原生 Azure 服務和解決方案生態系統的優勢。
 
 
 
+[[vmware-cloud-on-aws]]
 === AWS 上的 VMware Cloud
 
 VMware Cloud on AWS 將 VMware 的企業級 SDDC 軟體引入 AWS 雲，並優化了對原生 AWS 服務的存取。  VMware Cloud on AWS 由 VMware Cloud Foundation 提供支持，整合了 VMware 的運算、儲存和網路虛擬化產品（VMware vSphere、VMware vSAN 和 VMware NSX）以及 VMware vCenter Server 管理，並針對專用、彈性、裸機 AWS 基礎架構上運行進行了最佳化。
 
 
 
+[[google-cloud-vmware-engine]]
 === Google Cloud VMware 引擎
 
 Google Cloud VMware Engine 是一款基礎架構即服務 (IaaS) 產品，它是基於 Google Cloud 高效能可擴充基礎架構和 VMware Cloud Foundation 堆疊（VMware vSphere、vCenter、vSAN 和 NSX-T）建構。此服務可快速遷移至雲端，將現有 VMware 工作負載從本地環境無縫遷移或擴展到 Google Cloud Platform，無需承擔重構應用程式或重新調整運維的成本、精力或風險。這是一項由 Google 銷售和支援的服務，並與 VMware 密切合作。
@@ -47,6 +51,7 @@ NOTE: SDDC 私有雲和NetApp Cloud Volumes 主機託管以最小的網路延遲
 
 
 
+[[did-you-know]]
 == 你可知道？
 
 無論使用哪種雲，部署 VMware SDDC 時，初始叢集都包含以下產品：
@@ -58,6 +63,7 @@ NOTE: SDDC 私有雲和NetApp Cloud Volumes 主機託管以最小的網路延遲
 
 
 
+[[storage-configuration]]
 == 儲存配置
 
 對於規劃託管儲存密集型工作負載並在任何雲端託管 VMware 解決方案上進行擴充的客戶，預設的超融合基礎架構要求擴充應同時在運算和儲存資源上進行。
@@ -66,6 +72,7 @@ NOTE: SDDC 私有雲和NetApp Cloud Volumes 主機託管以最小的網路延遲
 
 
 
+[[notes]]
 === 筆記：
 
 * VMware 不建議不平衡的叢集配置，因此擴充儲存意味著新增更多主機，這意味著更多的 TCO。
@@ -100,6 +107,7 @@ NOTE: 在撰寫本文檔時，客艙內儲存是唯一可用的選項。
 
 
 
+[[points-to-remember]]
 === 需要記住的要點
 
 * 在混合儲存模型中，將第 1 層或高優先級工作負載放置在 vSAN 資料儲存上，以滿足任何特定的延遲要求，因為它們是主機本身的一部分並且在附近。對於任何可以接受交易延遲的工作負載虛擬機，請使用客戶機內機制。
@@ -114,6 +122,7 @@ NOTE: 這僅適用於來賓連接的儲存。
 
 
 
+[[benefits-of-netapp-cloud-storage]]
 == NetApp雲端儲存的優勢
 
 NetApp雲端儲存有以下優勢：
@@ -131,6 +140,7 @@ NetApp雲端儲存有以下優勢：
 
 
 
+[[assumptions]]
 == 假設
 
 * 啟用SnapMirror技術或其他相關資料遷移機制。有許多連接選項，從本地到任何超大規模雲端。使用適當的路徑並與相關的網路團隊合作。
@@ -142,6 +152,7 @@ NOTE: 與NetApp解決方案架構師和相應的超大規模雲端架構師合�
 
 
 
+[[detailed-architecture]]
 == 詳細架構
 
 從高層次的角度來看，該架構（如下圖所示）涵蓋如何使用NetApp Cloud Volumes ONTAP、 Google Cloud NetApp Volumes for Google Cloud 和Azure NetApp Files作為額外的客戶機儲存選項，實現跨多個雲端供應商的混合多雲連接和應用程式可移植性。

@@ -24,6 +24,7 @@ image:dr-draas-vmfs-030.png["此圖顯示輸入/輸出對話框或表示書面�
 
 
 
+[[getting-started]]
 == 入門
 
 若要開始使用BlueXP disaster recovery，請使用BlueXP控制台，然後存取服務。
@@ -56,6 +57,7 @@ NOTE: 在撰寫本文檔時，對本地到本機 VMFS 資料儲存的支援處�
 
 
 
+[[bluexp-disaster-recovery-configuration]]
 == BlueXP disaster recovery配置
 
 準備災難復原的第一步是發現並將內部部署 vCenter 和儲存資源新增至BlueXP disaster recovery。
@@ -81,6 +83,7 @@ image:dr-draas-vmfs-005.png["此圖顯示輸入/輸出對話框或表示書面�
 
 
 
+[[configuring-storage-replication-between-source-and-destination-site]]
 == 配置來源站點和目標站點之間的儲存複製
 
 SnapMirror利用ONTAP快照來管理從一個位置到另一個位置的資料傳輸。首先，基於來源磁碟區快照的完整副本被複製到目標位置以執行基線同步。當來源處發生資料變更時，會建立一個新的快照並將其與基準快照進行比較。然後將發現已更改的區塊複製到目標位置，其中較新的快照成為當前基線或最新的公共快照。這使得該過程可以重複，並且可以將增量更新發送到目的地。
@@ -91,6 +94,7 @@ SnapMirror利用ONTAP快照來管理從一個位置到另一個位置的資料�
 
 
 
+[[how-to-set-it-up-for-vmware-disaster-recovery]]
 == 如何設定 VMware 災難復原
 
 對於任何給定的應用程序，創建SnapMirror複製的過程都是相同的。過程可以是手動的，也可以是自動的。最簡單的方法是利用BlueXP配置SnapMirror複製，只需將環境中的來源ONTAP系統拖曳到目標上即可觸發指導其餘流程的精靈。
@@ -113,6 +117,7 @@ NOTE: 除了上述方法之外，還可以透過ONTAP CLI 或系統管理器建�
 
 
 
+[[what-can-bluexp-disaster-recovery-do-for-you]]
 == BlueXP disaster recovery能為您做什麼？
 
 在新增來源站點和目標站點後， BlueXP disaster recovery將執行自動深度發現並顯示虛擬機器及其相關元資料。  BlueXP disaster recovery也會自動偵測虛擬機器使用的網路和連接埠群組並填入它們。
@@ -189,6 +194,7 @@ image:dr-draas-vmfs-023.png["此圖顯示輸入/輸出對話框或表示書面�
 
 
 
+[[what-happens-during-a-failover-or-test-failover-operation]]
 == 故障轉移或測試故障轉移操作期間會發生什麼？
 
 在測試故障轉移作業期間， BlueXP disaster recovery使用最新的 Snapshot 副本或目標磁碟區的選取快照在目標ONTAP儲存系統上建立FlexClone區。

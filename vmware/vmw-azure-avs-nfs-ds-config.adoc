@@ -37,6 +37,7 @@ NOTE: 聯絡 Azure 和NetApp解決方案架構師來規劃和調整儲存大小�
 
 
 
+[[detailed-architecture]]
 == 詳細架構
 
 從高層次的角度來看，該架構描述如何實現跨本地環境和 Azure 的混合雲連接和應用程式可移植性。它還描述如何使用Azure NetApp Files作為補充 NFS 資料儲存以及作為 Azure VMware 解決方案上託管的客戶虛擬機器的客戶端儲存選項。
@@ -45,6 +46,7 @@ image:vmware-dr-001.png["此圖顯示輸入/輸出對話框或表示書面內容
 
 
 
+[[sizing]]
 == 漿紗
 
 遷移或災難復原中最重要的方面是確定目標環境的正確規模。了解需要多少個節點才能完成從本機到 Azure VMware 解決方案的直接遷移練習非常重要。
@@ -64,6 +66,7 @@ NOTE: 與來賓內儲存空間一起使用的來賓虛擬機器必須單獨計�
 
 
 
+[[deploying-and-configuring-azure-vmware-solution]]
 == 部署和配置 Azure VMware 解決方案
 
 與本地一樣，規劃 Azure VMware 解決方案對於成功建立虛擬機器和遷移的生產就緒環境至關重要。
@@ -79,6 +82,7 @@ NOTE: 與來賓內儲存空間一起使用的來賓虛擬機器必須單獨計�
 
 
 
+[[configure-azure-netapp-files-with-azure-vmware-solution]]
 == 使用 Azure VMware 解決方案設定Azure NetApp Files
 
 Azure NetApp Files之間的新整合使您能夠透過 Azure VMware 解決方案資源提供者 API/CLI 使用Azure NetApp Files磁碟區建立 NFS 資料存儲，並將資料儲存安裝在私有雲中您選擇的叢集上。除了容納 VM 和應用程式 VMDK 之外，Azure NetApp檔案磁碟區還可以從 Azure VMware 解決方案 SDDC 環境中建立的 VM 中裝載。由於Azure NetApp Files支援伺服器訊息區塊 (SMB) 和網路檔案系統 (NFS) 協議，因此磁碟區可以安裝在 Linux 用戶端上並對應到 Windows 用戶端上。
@@ -217,6 +221,7 @@ image:vmware-dr-005.png["此圖顯示輸入/輸出對話框或表示書面內容
 ====
 
 
+[[sizing-and-performance-optimization]]
 == 尺寸和性能優化
 
 Azure NetApp Files支援三種服務等級：標準等級（每 TB 16MBps）、進階（每 TB 64MBps）和超級等級（每 TB 128MBps）。配置正確的磁碟區大小對於資料庫工作負載的最佳效能非常重要。使用Azure NetApp Files，磁碟區效能和吞吐量限制根據以下因素決定：
@@ -244,6 +249,7 @@ image:vmware-dr-006.png["此圖顯示輸入/輸出對話框或表示書面內容
 |===
 
 
+[[performance-considerations]]
 == 性能考慮
 
 重要的是要理解，使用 NFS 版本 3 時，ESXi 主機和單一儲存目標之間的連接只有一個活動管道。這意味著儘管可能存在可用於故障轉移的備用連接，但單一資料儲存和底層儲存的頻寬僅限於單一連接所能提供的頻寬。
@@ -268,6 +274,7 @@ image:vmware-dr-006.png["此圖顯示輸入/輸出對話框或表示書面內容
 |===
 
 
+[[increasing-the-size-of-the-datastore]]
 == 增加資料儲存的大小
 
 磁碟區重塑和動態服務等級變化對於 SDDC 來說是完全透明的。在Azure NetApp Files中，這些功能可提供持續的效能、容量和成本最佳化。透過從 Azure 入口網站調整磁碟區大小或使用 CLI 來增加 NFS 資料儲存體的大小。完成後，存取 vCenter，轉到資料儲存選項卡，右鍵單擊相應的資料存儲，然後選擇刷新容量資訊。這種方法可用於增加資料儲存容量，並以動態方式提高資料儲存的效能，且無需停機。這個過程對於應用程式來說也是完全透明的。
@@ -284,6 +291,7 @@ image:vmware-dr-006.png["此圖顯示輸入/輸出對話框或表示書面內容
 |===
 
 
+[[workloads]]
 == 工作負載
 
 .遷移

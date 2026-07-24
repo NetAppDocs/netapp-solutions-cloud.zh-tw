@@ -18,6 +18,7 @@ summary: '本文檔將介紹建立 FSx for ONTAP檔案系統並將其附加為�
 
 
 
+[[introduction]]
 == 介紹
 
 擁有現有本地 VMware 投資的組織正在尋求高效且經濟高效的方式，透過在 AWS 上遷移、爆發、擴展或保護（備份、災難復原）副本來實現其部署的現代化，但他們面臨著多項挑戰。隨著 Amazon Elastic VMware Service (Amazon EVS) 的發布，現在有了原生的 AWS 服務，可以直接在 Amazon Virtual Private Cloud (VPC) 中執行 VMware Cloud Foundation (VCF)。
@@ -30,24 +31,28 @@ Amazon EVS 可以將現有的 VCF 部署擴展到 AWS，在高峰使用期間爆
 
 
 
+[[overview]]
 == 概況
 
 本文檔將介紹建立 FSx for ONTAP檔案系統並將其附加為互聯網小型電腦系統介面 (iSCSI) 或網路檔案系統 (NFS) 資料儲存以供 Amazon EVS 使用的具體步驟。
 
 
 
+[[purpose-of-this-guide]]
 == 本指南的目的
 
 本指南提供了有關如何為 Amazon EVS 設定 FSx for ONTAP資料儲存的說明，以及最佳實踐、可支援性要求、大小考慮因素和其他信息，以幫助您規劃、設計和實施整合。
 
 
 
+[[audience]]
 == 對象
 
 本教學適用於熟悉 VMware vSphere、Amazon EVS、AWS 控制台和 FSx for ONTAP 的雲端架構師和雲端管理員。
 
 
 
+[[high-level-architecture]]
 == 進階架構
 
 在本節中，我們將概述使用 FSx for ONTAP作為 Amazon EVS 資料儲存的解決方案架構。

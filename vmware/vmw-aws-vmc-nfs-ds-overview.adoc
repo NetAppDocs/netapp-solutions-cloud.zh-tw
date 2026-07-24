@@ -18,6 +18,7 @@ summary:
 
 
 
+[[introduction]]
 == 介紹
 
 每個成功的組織都走在轉型和現代化的道路上。作為此過程的一部分，公司通常使用其現有的 VMware 投資來利用雲端優勢並探索如何盡可能無縫地遷移、爆發、擴展和為流程提供災難復原。遷移到雲端的客戶必須評估彈性和爆發、資料中心退出、資料中心整合、生命週期終止場景、合併、收購等用例。
@@ -33,6 +34,7 @@ NOTE: VMware 也提供此解決方案。請訪問link:https://docs.vmware.com/en
 
 
 
+[[connectivity-options]]
 == 連線選項
 
 
@@ -58,6 +60,7 @@ NOTE: FSx ONTAP目前不支援延伸叢集。
 
 
 
+[[conclusion]]
 == 結論
 
 本文檔介紹了使用 AWS 上的 VMware 雲端配置Amazon FSx ONTAP所需的步驟。 Amazon FSx ONTAP提供了部署和管理應用程式工作負載以及檔案服務的絕佳選項，同時透過將資料需求無縫連接到應用程式層來降低 TCO。無論使用情況如何，選擇 VMware Cloud on AWS 以及Amazon FSx ONTAP都可以快速實現雲端優勢、一致的基礎架構和從本地到 AWS 的操作、工作負載的雙向可移植性以及企業級容量和效能。它與連接儲存所使用的過程和程序相同。請記住，只是資料的位置隨著新名稱而改變了；工具和流程都保持不變， Amazon FSx ONTAP有助於優化整體部署。

@@ -18,6 +18,7 @@ summary:
 
 
 
+[[overview]]
 == 概況
 
 使用 Azure NetApp檔案 (ANF) 跨區域磁碟區複製，在 Azure VMware 解決方案 (AVS) SDDC 網站上執行的 VMware 工作負載（使用 Azure NetApp檔案磁碟區作為主 AVS 網站上的 NFS 資料儲存）可以複製到目標復原區域中的指定輔助 AVS 網站。
@@ -28,6 +29,7 @@ image:azure-dro-001.png["此圖顯示輸入/輸出對話框或表示書面內容
 
 
 
+[[prerequisites-and-general-recommendations]]
 === 先決條件和一般建議
 
 * 透過建立複製對等連線來驗證您是否已啟用跨區域複製。看 https://learn.microsoft.com/en-us/azure/azure-netapp-files/cross-region-replication-create-peering["為Azure NetApp Files建立磁碟區複製"^]。
@@ -42,10 +44,12 @@ NOTE: 不支援級聯和扇入扇出拓撲。
 
 
 
+[[getting-started]]
 == 入門
 
 
 
+[[deploy-azure-vmware-solution]]
 === 部署 Azure VMware 解決方案
 
 這 https://learn.microsoft.com/en-us/azure/azure-vmware/introduction["Azure VMware 解決方案"^](AVS) 是一種混合雲服務，可在 Microsoft Azure 公有雲中提供功能齊全的 VMware SDDC。 AVS 是使用 Azure 基礎架構、完全由 Microsoft 管理和支援並經過 VMware 驗證的第一方解決方案。因此，客戶可以獲得用於計算虛擬化的 VMware ESXi、用於超融合儲存的 vSAN 以及用於網路和安全的 NSX，同時利用 Microsoft Azure 的全球影響力、一流的資料中心設施以及與豐富的原生 Azure 服務和解決方案生態系統的接近性。  Azure VMware 解決方案 SDDC 和Azure NetApp Files的組合以最小的網路延遲提供了最佳效能。
@@ -57,6 +61,7 @@ NOTE: 在初始版本中，DRO 支援現有的 AVS SDDC 叢集。按需 SDDC 創
 
 
 
+[[provision-and-configure-azure-netapp-files]]
 === 預配並設定Azure NetApp Files
 
 https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction["Azure NetApp Files"^]是一種高效能、企業級、計量文件儲存服務。請依照以下步驟操作 https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal["關聯"^]將Azure NetApp Files配置為 NFS 資料存儲，以最佳化 AVS 私有雲部署。
@@ -76,6 +81,7 @@ NOTE: 跨區域複製關係是先決條件，必須事先建立。
 
 
 
+[[dro-installation]]
 == DRO安裝
 
 若要開始使用 DRO，請在指定的 Azure 虛擬機器上使用 Ubuntu 作業系統並確保滿足先決條件。然後安裝該套件。
@@ -129,6 +135,7 @@ image:azure-dro-003.png["此圖顯示輸入/輸出對話框或表示書面內容
 
 
 
+[[dro-configuration]]
 == DRO 配置
 
 正確配置Azure NetApp Files和 AVS 後，您可以開始設定 DRO 以自動將工作負載從主 AVS 站點還原到輔助 AVS 站點。  NetApp建議在輔助 AVS 站點部署 DRO 代理程式並配置 ExpressRoute 閘道連接，以便 DRO 代理程式可以透過網路與適當的 AVS 和Azure NetApp Files元件進行通訊。
@@ -202,6 +209,7 @@ image:azure-dro-008.png["此圖顯示輸入/輸出對話框或表示書面內容
 
 
 
+[[resource-groupings]]
 === 資源分組
 
 新增平台後，將要復原的虛擬機器分組到資源組。  DRO 資源群組可讓您將一組從屬虛擬機器分組為邏輯群組，這些邏輯群組包含它們的啟動順序、啟動延遲以及可在復原時執行的選用應用程式驗證。
@@ -233,6 +241,7 @@ image:azure-dro-011.png["此圖顯示輸入/輸出對話框或表示書面內容
 
 
 
+[[replication-plans]]
 === 複製計劃
 
 您必須制定一個在災難發生時恢復應用程式的計劃。從下拉式選單中選擇來源和目標 vCenter 平台，選擇要包含在此計畫中的資源群組，還包括應用程式應如何復原和啟動的分組（例如，網域控制站、第 1 層、第 2 層等）。計劃通常也被稱為藍圖。若要定義復原計劃，請導覽至「複製計劃」選項卡，然後按一下「*新複製計劃*」。
@@ -298,6 +307,7 @@ image:azure-dro-023.png["此圖顯示輸入/輸出對話框或表示書面內容
 
 
 
+[[ransomware-recovery]]
 === 勒索軟體恢復
 
 從勒索軟體中恢復可能是一項艱鉅的任務。具體來說，IT 組織很難確定安全的返回點，而且，一旦確定，如何確保恢復的工作負載免受再次發生的攻擊（例如，來自休眠惡意軟體或透過易受攻擊的應用程式）。
@@ -306,6 +316,7 @@ DRO 透過允許組織從任何可用的時間點恢復來解決這些問題。�
 
 
 
+[[conclusion]]
 == 結論
 
 Azure NetApp Files和 Azure VMware 災難復原解決方案為您提供以下優勢：
@@ -322,6 +333,7 @@ Azure NetApp Files和 Azure VMware 災難復原解決方案為您提供以下優
 
 
 
+[[where-to-find-additional-information]]
 === 在哪裡可以找到更多信息
 
 要了解有關本文檔中描述的信息的更多信息，請查看以下文檔和/或網站：

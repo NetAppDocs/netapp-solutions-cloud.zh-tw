@@ -22,6 +22,7 @@ NetApp NFS 實施被認為是該協議的黃金標準，並應用於無數企業
 
 
 
+[[default-local-unix-users-and-groups]]
 == 預設本機 UNIX 使用者和群組
 
 Google Cloud NetApp Volumes包含幾個用於各種基本功能的預設 UNIX 使用者和群組。目前無法修改或刪除這些使用者和群組。目前無法將新的本機使用者和群組新增至Google Cloud NetApp Volumes。預設使用者和群組以外的 UNIX 使用者和群組需要由外部 LDAP 名稱服務提供。
@@ -50,6 +51,7 @@ NOTE: 使用 NFSv4.1 時，root 使用者在 NFS 用戶端上執行目錄清單�
 
 
 
+[[the-root-user]]
 == 根用戶
 
 在 Linux 中，root 帳號可以存取基於 Linux 的檔案系統中所有指令、檔案和資料夾。由於此帳戶的強大功能，安全最佳實踐通常要求以某種方式停用或限制根用戶。在 NFS 匯出中，可以透過匯出策略和規則以及稱為 root squash 的概念在Google Cloud NetApp Volumes中控制 root 使用者對檔案和資料夾的權限。
@@ -58,6 +60,7 @@ Root 壓縮確保存取 NFS 掛載的 root 使用者被壓縮為匿名數位使�
 
 
 
+[[the-anonymous-user]]
 == 匿名用戶
 
 匿名 (anon) 使用者 ID 指定對應到沒有有效 NFS 憑證的用戶端請求的 UNIX 使用者 ID 或使用者名稱。當使用 root 壓縮時，這可以包括 root 使用者。  Google Cloud NetApp Volumes的匿名使用者是 65534。
@@ -68,6 +71,7 @@ Root 壓縮確保存取 NFS 掛載的 root 使用者被壓縮為匿名數位使�
 
 
 
+[[access-controlexports]]
 == 存取控制/導出
 
 NFS 掛載的初始導出/共享存取透過導出策略中包含的基於主機的導出策略規則進行控制。定義主機 IP、主機名稱、子網路、網路群組或網域以允許存取掛載 NFS 共用以及允許對主機的存取等級。匯出策略規則設定選項取決於Google Cloud NetApp Volumes等級。
@@ -85,12 +89,14 @@ NFS 掛載的初始導出/共享存取透過導出策略中包含的基於主機
 
 
 
+[[change-ownership-chown-and-change-group-chgrp]]
 == 更改所有權（chown）和更改組（chgrp）
 
 Google Cloud NetApp Volumes上的 NFS 僅允許 root 使用者對檔案和資料夾執行 chown/chgrp。其他用戶看到 `Operation not permitted`錯誤——即使是他們自己的文件。如果你使用根南瓜（如“<<根用戶>> ")，root 被壓縮為非 root 用戶，不允許存取 chown 和 chgrp。目前， Google Cloud NetApp Volumes中沒有允許非 root 使用者使用 chown 和 chgrp 的解決方法。如果需要變更所有權，請考慮使用雙協定磁碟區並將安全樣式設定為 NTFS 以從 Windows 端控制權限。
 
 
 
+[[permission-management]]
 == 權限管理
 
 Google Cloud NetApp Volumes支援模式位元（例如 rwx 的 644、777 等）和 NFSv4.1 ACL，以控制使用 UNIX 安全樣式的磁碟區的 NFS 用戶端權限。這些使用標準權限管理（例如 chmod、chown 或 nfs4_setfacl）並可與任何支援它們的 Linux 用戶端一起使用。
@@ -99,6 +105,7 @@ Google Cloud NetApp Volumes支援模式位元（例如 rwx 的 644、777 等）�
 
 
 
+[[providing-granular-acls-for-nfsv3]]
 === 為 NFSv3 提供細粒度的 ACL
 
 模式位元權限在語義上僅涵蓋擁有者、群組和其他所有人 - 這意味著基本 NFSv3 沒有細粒度的使用者存取控制。  Google Cloud NetApp Volumes不支援 POSIX ACL 和擴充屬性（例如 chattr），因此細粒度 ACL 僅在以下使用 NFSv3 的場景中可用：
@@ -141,12 +148,14 @@ ACL * 讀取資料（檔案）/列出目錄（目錄） * 寫入資料（檔案�
 
 
 
+[[nfsv3-user-and-group-ids]]
 == NFSv3 使用者和群組 ID
 
 NFSv3 使用者和群組 ID 以數字 ID 而非名稱的形式透過網路傳輸。 Google Cloud NetApp Volumes不會透過 NFSv3 對這些數位 ID 進行使用者名稱解析，而 UNIX 安全樣式磁碟區僅使用模式位元。當存在 NFSv4.1 ACL 時，需要進行數字 ID 查找和/或名稱字串查找才能正確解析 ACL - 即使使用 NFSv3。對於 NTFS 安全樣式捲， Google Cloud NetApp Volumes必須將數位 ID 解析為有效的 UNIX 用戶，然後對應到有效的 Windows 用戶以協商存取權限。
 
 
 
+[[security-limitations-of-nfsv3-user-and-group-ids]]
 === NFSv3 使用者和群組 ID 的安全限制
 
 使用 NFSv3，客戶端和伺服器永遠不必確認嘗試使用數位 ID 進行讀取或寫入的使用者是否是有效使用者；它只是隱式地受到信任。只需偽造任何數字 ID，檔案系統就有可能受到破壞。為了防止此類安全漏洞， Google Cloud NetApp Volumes提供了一些選項。
@@ -161,6 +170,7 @@ NFSv3 使用者和群組 ID 以數字 ID 而非名稱的形式透過網路傳輸
 
 
 
+[[nfsv4-1]]
 == NFSv4.1
 
 與 NFSv3 相比，NFSv4.1 提供了更高的安全性和可靠性，原因如下：
@@ -175,12 +185,14 @@ NFSv3 使用者和群組 ID 以數字 ID 而非名稱的形式透過網路傳輸
 
 
 
+[[nfsv4-1-dependencies]]
 === NFSv4.1 依賴項
 
 由於 NFSv4.1 中增加了安全功能，因此涉及一些使用 NFSv3 時不需要的外部相依性（類似於 SMB 需要 Active Directory 等相依性）。
 
 
 
+[[nfsv4-1-acls]]
 === NFSv4.1 ACL
 
 Google Cloud NetApp Volumes提供對 NFSv4.x ACL 的支持，與普通 POSIX 樣式權限相比，它具有明顯的優勢，例如：
@@ -194,12 +206,14 @@ Google Cloud NetApp Volumes提供對 NFSv4.x ACL 的支持，與普通 POSIX 樣
 
 
 
+[[compatibility-between-nfsv4-1-acls-and-smb-clients]]
 === NFSv4.1 ACL 與 SMB 用戶端之間的相容性
 
 NFSv4 ACL 與 Windows 檔案級 ACL（NTFS ACL）不同，但具有類似的功能。但是，在多協定 NAS 環境中，如果存在 NFSv4.1 ACL 並且您使用雙協定存取（同一資料集上的 NFS 和 SMB），則使用 SMB2.0 及更高版本的用戶端將無法從 Windows 安全性標籤檢視或管理 ACL。
 
 
 
+[[how-nfsv4-1-acls-work]]
 === NFSv4.1 ACL 的工作原理
 
 為供參考，定義以下名詞：
@@ -234,12 +248,14 @@ NFSv4 ACL 與 Windows 檔案級 ACL（NTFS ACL）不同，但具有類似的功�
 
 
 
+[[ace-permissions]]
 === ACE 權限
 
 NFSv4.1 ACL 權限使用一系列大寫和小寫字母值（例如 `rxtncy`) 來控制存取。有關這些字母值的更多信息，請參閱 https://www.osc.edu/book/export/html/4523["如何使用 NFSv4 ACL"^]。
 
 
 
+[[nfsv4-1-acl-behavior-with-umask-and-acl-inheritance]]
 === 具有 umask 和 ACL 繼承的 NFSv4.1 ACL 行為
 
 http://linux.die.net/man/5/nfs4_acl["NFSv4 ACL 提供 ACL 繼承功能"^] 。ACL 繼承意味著在設定了 NFSv4.1 ACL 的物件下建立的檔案或資料夾可以根據 http://linux.die.net/man/5/nfs4_acl["ACL 繼承標誌"^]。
@@ -248,6 +264,7 @@ https://man7.org/linux/man-pages/man2/umask.2.html["烏馬斯克"^]用於控制�
 
 
 
+[[acl-formatting]]
 === ACL 格式
 
 NFSv4.1 ACL 具有特定的格式。以下範例是文件上的 ACE 設定：
@@ -272,6 +289,7 @@ Scanning ACE string 'A:: user@rwaDxtTnNcCy' failed.
 ....
 
 
+[[explicit-deny]]
 === 明確拒絕
 
 NFSv4.1 權限可以包括 OWNER、GROUP 和 EVERYONE 的明確 DENY 屬性。這是因為 NFSv4.1 ACL 是預設拒絕的，這表示如果 ACE 未明確授予 ACL，則會被拒絕。明確的 DENY 屬性將覆蓋任何 ACCESS ACE，無論是否明確。
@@ -303,6 +321,7 @@ D::EVERYONE@:waDTC
 
 
 
+[[nfsv4-1-id-domain-mapping-dependencies]]
 === NFSv4.1 ID 域對映依賴關係
 
 NFSv4.1 利用 ID 網域對映邏輯作為安全層，幫助驗證嘗試存取 NFSv4.1 掛載的使用者確實是他們所聲稱的使用者。在這些情況下，來自 NFSv4.1 用戶端的使用者名稱和群組名稱會附加一個名稱字串並將其傳送到Google Cloud NetApp Volumes實例。如果使用者名稱/群組名稱和 ID 字串組合不匹配，則該使用者和/或群組將被壓縮為 `/etc/idmapd.conf`客戶端上的文件。
@@ -348,6 +367,7 @@ drwxrwxrwx 7 root   root         4096 Feb  3 12:06 ..
 
 
 
+[[kerberos-dependencies]]
 === Kerberos 依賴項
 
 如果您打算將 Kerberos 與 NFS 結合使用，則必須具備以下Google Cloud NetApp Volumes：
@@ -360,6 +380,7 @@ drwxrwxrwx 7 root   root         4096 Feb  3 12:06 ..
 
 
 
+[[nfsv4-1-and-the-nobody-usergroup]]
 === NFSv4.1 和 nobody 使用者/群組
 
 NFSv4.1 配置中最常見的問題之一是當檔案或資料夾顯示在清單中時使用 `ls`歸 `user:group`組合 `nobody:nobody`。
@@ -422,6 +443,7 @@ May 19 13:15:05 centos7 nfsidmap[17534]: nss_getpwnam: name 'nobody' does not ma
 
 
 
+[[viewing-name-id-strings-for-nfsv4-1-on-clients]]
 === 在客戶端上查看 NFSv4.1 的名稱 ID 字串
 
 如果您使用的是 NFSv4.1，則在 NFS 操作期間會發生名稱字串映射，如前所述。

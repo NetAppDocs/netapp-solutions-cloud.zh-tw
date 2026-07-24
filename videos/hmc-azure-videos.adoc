@@ -18,18 +18,21 @@ keywords: hybrid cloud, rosa, fsx ontap, azure vmware, netapp hci, videos, demos
 
 
 
+[[supplemental-datastores]]
 == 補充資料存儲
 
 .Azure VMware 解決方案補充資料儲存概述（包含Azure NetApp Files）
 video::8c5ddb30-6c31-4cde-86e2-b01200effbd6[panopto,width=360]
 
 
+[[disaster-recovery]]
 == 災難復原
 
 .帶有Cloud Volumes ONTAP、 SnapCenter和 JetStream 的 Azure VMware 解決方案 DR
 video::5cd19888-8314-4cfc-ba30-b01200efff4f[panopto,width=360]
 
 
+[[migration-workflows-hcx]]
 == 遷移工作流程 (HCX)
 
 .使用 VMware HCX 進行 AVS 和 ANF 冷遷移演示

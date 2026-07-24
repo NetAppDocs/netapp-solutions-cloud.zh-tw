@@ -64,6 +64,7 @@ NOTE: 規定的域的數量和內容取決於各種 VM 特性，例如平均 IOP
 
 
 
+[[install-jetstream-dr-in-on-premises-datacenter]]
 == 在本地資料中心安裝 JetStream DR
 
 JetStream DR 軟體由三個主要元件組成：JetStream DR 管理伺服器虛擬裝置 (MSA)、DR 虛擬裝置 (DRVA) 和主機元件（I/O 篩選器套件）。 MSA 用於在運算叢集上安裝和設定主機元件，然後管理 JetStream DR 軟體。以下列表提供了安裝過程的高級描述：
@@ -125,6 +126,7 @@ NOTE: 可以設定故障轉移運作手冊來對虛擬機器進行分組（稱�
 ====
 
 
+[[install-jetstream-dr-for-avs-in-an-azure-vmware-solution-private-cloud-using-the-run-command]]
 == 使用運行命令在 Azure VMware 解決方案私有雲中安裝 JetStream DR for AVS
 
 恢復站點 (AVS) 的最佳實踐是提前創建一個三節點的試點燈叢集。這允許預先配置恢復站點基礎設施，包括以下項目：
@@ -186,6 +188,7 @@ image:vmware-dr-018.png["此圖顯示輸入/輸出對話框或表示書面內容
 ====
 
 
+[[performing-failover-failback]]
 == 執行故障轉移/故障回复
 
 .如何執行故障轉移/故障復原
@@ -238,6 +241,7 @@ NOTE: 指定在復原站點中暫停虛擬機器並在受保護站點中重新�
 ====
 
 
+[[ransomeware-recovery]]
 == 勒索軟體恢復
 
 從勒索軟體中恢復可能是一項艱鉅的任務。具體來說，IT 組織很難確定安全的返回點，而且一旦確定，如何確保恢復的工作負載免受再次發生的攻擊（來自休眠惡意軟體或透過易受攻擊的應用程式）。

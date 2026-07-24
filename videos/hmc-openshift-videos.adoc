@@ -18,24 +18,28 @@ keywords: hybrid cloud, rosa, fsx ontap, azure vmware, netapp hci, videos, demos
 
 
 
+[[snapshots-and-restore]]
 == 快照和恢復
 
 .使用Amazon FSx ONTAP儲存為 AWS (ROSA) 叢集上的 Red Hat OpenShift Service 應用程式進行快照/還原
 video::36ecf505-5d1d-4e99-a6f8-b11c00341793[panopto,width=360]
 
 
+[[storage-integration]]
 == 儲存集成
 
 .FSx ONTAP與Trident的集成
 video::621ae20d-7567-4bbf-809d-b01200fa7a68[panopto,width=360]
 
 
+[[failover-and-fail-back]]
 == 故障轉移和故障恢復
 
 .使用 FSx ONTAP在 ROSA 上實現應用程式的故障轉移和故障復原
 video::e9a07d79-42a1-4480-86be-b01200fa62f5[panopto,width=360]
 
 
+[[solution-automation]]
 == 解決方案自動化
 
 .使用 Ansible 在FlexPod上自動部署 Oracle 19c RAC

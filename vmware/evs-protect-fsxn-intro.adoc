@@ -18,6 +18,7 @@ summary: '本指南將示範一種簡單的部署方法，用於使用 NetApp Sn
 
 
 
+[[introduction]]
 == 介紹
 
 基於 Amazon FSx for NetApp ONTAP（FSx for ONTAP）的 Amazon Elastic VMware Service（Amazon EVS）補充資料儲存區為執行對效能要求高的工作負載（例如運用 nConnect、Amazon Virtual Private Cloud（Amazon VPC）對等互連，以及每個資料儲存區掛載使用多個網路連線）和儲存密集型工作負載提供了絕佳的解決方案。
@@ -26,24 +27,28 @@ summary: '本指南將示範一種簡單的部署方法，用於使用 NetApp Sn
 
 
 
+[[overview]]
 == 概況
 
 隨著企業規模的擴大和環境的整合，保護工作負載及其底層儲存的需求變得日益重要。SCV 可用於直接從 Amazon EVS vSphere 客戶端備份資料儲存和虛擬機器。
 
 
 
+[[purpose-of-this-guide]]
 == 本指南的目的
 
 本指南提供如何使用 SCV 保護 Amazon EVS 的 FSx for ONTAP 資料存放區的說明。指南中也提供了保護 VM 和資料庫的範例場景以及還原方法。
 
 
 
+[[audience]]
 == 對象
 
 本教學適用於熟悉 VMware vSphere、Amazon EVS、AWS 控制台和 FSx for ONTAP 的雲端架構師和雲端管理員。
 
 
 
+[[high-level-steps-for-deployment-and-configuration]]
 == 部署和配置的高階步驟
 
 以下是部署和配置 SCV 以保護 Amazon FSx for NetApp ONTAP 上的虛擬機器和資料儲存區的高階步驟：

@@ -18,6 +18,7 @@ summary: 本節介紹從備份還原 VM 的步驟。
 
 
 
+[[steps-to-perform-restore-operation]]
 == 執行還原作業的步驟
 
 若要執行還原作業，請依照下列步驟操作：
@@ -54,6 +55,7 @@ NOTE: 也可以從個別 VM 層級觸發還原作業。
 
 
 
+[[steps-to-restore-a-deleted-vm]]
 == 還原已刪除 VM 的步驟
 
 使用 SCV 還原已刪除的 VM 是一個簡單的程序。

@@ -18,12 +18,14 @@ summary: 對Google Cloud NetApp Volumes 的所有管理作業均透過 API 完�
 
 
 
+[[identity-and-access-management]]
 == 身分和存取管理
 
 身分和存取管理(https://cloud.google.com/iam/docs/overview["我是"^]) 是一項標準服務，可讓您控制對 Google Cloud 專案執行個體的驗證（登入）和授權（權限）。 Google IAM 提供權限授權和刪除的完整稽核追蹤。目前， Google Cloud NetApp Volumes不提供控制平面稽核。
 
 
 
+[[authorizationpermission-overview]]
 === 授權/許可概述
 
 IAM 為Google Cloud NetApp Volumes提供內建的細粒度權限。您可以找到 https://cloud.google.com/architecture/partners/netapp-cloud-volumes/security-considerations?hl=en_US["此處有詳細的權限完整列表"^]。
@@ -41,6 +43,7 @@ IAM 還提供了兩個預定義角色，稱為 `netappcloudvolumes.admin`和 `ne
 
 
 
+[[service-accounts]]
 === 服務帳戶
 
 透過腳本Google Cloud NetApp Volumes https://registry.terraform.io/providers/NetApp/netapp-gcp/latest/docs["地形"^]，您必須建立一個服務帳戶 `roles/netappcloudvolumes.admin`角色。您可以使用此服務帳戶以兩種不同的方式產生驗證Google Cloud NetApp Volumes API 請求所需的 JWT 令牌：
@@ -53,6 +56,7 @@ IAM 還提供了兩個預定義角色，稱為 `netappcloudvolumes.admin`和 `ne
 
 
 
+[[google-cloud-netapp-volumes-api]]
 == Google Cloud NetApp VolumesAPI
 
 Google Cloud NetApp Volumes API 使用基於 REST 的 API，並使用 HTTPS（TLSv1.2）作為底層網路傳輸。您可以找到最新的 API 定義 https://cloudvolumesgcp-api.netapp.com/swagger.json["這裡"^]以及如何使用 API 的訊息 https://cloud.google.com/architecture/partners/netapp-cloud-volumes/api?hl=en_US["Google 雲端文件中的 Cloud Volumes API"^]。
@@ -61,12 +65,14 @@ NetApp使用標準 HTTPS（TLSv1.2）功能來操作和保護 API 端點。
 
 
 
+[[jwt-tokens]]
 === JWT 令牌
 
 使用 JWT 承載令牌執行 API 驗證(https://datatracker.ietf.org/doc/html/rfc7519["RFC-7519"^]）。必須使用 Google Cloud IAM 驗證來取得有效的 JWT 令牌。這必須透過提供服務帳戶 JSON 金鑰從 IAM 取得令牌來完成。
 
 
 
+[[audit-logging]]
 == 審計日誌
 
 目前，沒有可供使用者存取的控制平面稽核日誌。

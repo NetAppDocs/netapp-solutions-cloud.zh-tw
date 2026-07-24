@@ -18,6 +18,7 @@ summary: '經過驗證的災難復原 (DR) 環境和計劃對於組織至關重�
 
 
 
+[[overview]]
 == 概況
 
 NetApp與 VMware 的整合歷史悠久，數以萬計的客戶選擇NetApp作為其虛擬化環境的儲存合作夥伴，就證明了這一點。這種整合延續了雲端中的客戶連接選項以及最近與 NFS 資料儲存的整合。該解決方案專注於通常稱為客戶連接儲存的用例。
@@ -28,6 +29,7 @@ image:dr-vmc-aws-001.png["此圖顯示輸入/輸出對話框或表示書面內�
 
 
 
+[[assumptions-pre-requisites-and-component-overview]]
 == 假設、先決條件和組件概述
 
 在部署此解決方案之前，請查看元件概述、部署此解決方案所需的先決條件以及記錄此解決方案時所做的假設。
@@ -36,6 +38,7 @@ link:vmw-aws-vmc-dr-prereqs.html["DR 解決方案需求、先決條件與規劃"
 
 
 
+[[performing-dr-with-snapcenter]]
 == 使用SnapCenter執行災難復原
 
 在此解決方案中， SnapCenter為 SQL Server 和 Oracle 應用程式資料提供應用程式一致的快照。此配置與SnapMirror技術結合，可在我們的內部AFF和 FSx ONTAP叢集之間提供高速資料複製。此外，Veeam Backup & Replication 為我們的虛擬機器提供備份和復原功能。
@@ -46,6 +49,8 @@ link:vmw-aws-vmc-dr-prereqs.html["DR 解決方案需求、先決條件與規劃"
 
 
 
+[[configure-snapmirror-relationships-and-retention-schedules]]
+[[config-snapmirror]]
 === 配置SnapMirror關係和保留計劃
 
 SnapCenter可以更新主儲存系統 (主 > 鏡像) 和二級儲存系統 (主 > 保險庫) 內的SnapMirror關係，以實現長期存檔和保留。為此，您必須使用SnapMirror在目標磁碟區和來源磁碟區之間建立並初始化資料複製關係。
@@ -215,6 +220,7 @@ FSx-Dest::> snapmirror initialize -destination-path DestSVM:DestVol
 ====
 
 
+[[deploy-and-configure-windows-snapcenter-server-on-premises]]
 === 在本機部署和設定 Windows SnapCenter伺服器。
 
 .在本機上部署 Windows SnapCenter伺服器
@@ -315,6 +321,7 @@ SnapCenter文件涵蓋了為 SQL Server 和 Oracle 資料庫建立資源群組�
 ====
 
 
+[[deploy-and-configure-veeam-backup-server]]
 === 部署並設定 Veeam 備份伺服器
 
 該解決方案使用 Veeam Backup & Replication 軟體來備份我們的應用程式虛擬機，並使用 Veeam 橫向擴展備份儲存庫 (SOBR) 將備份副本存檔到 Amazon S3 儲存桶。在本解決方案中，Veeam 部署在 Windows 伺服器上。部署 Veeam 的具體指導，請參閱 https://www.veeam.com/documentation-guides-datasheets.html["Veeam 幫助中心 技術文檔"^]。
@@ -421,6 +428,7 @@ image:dr-vmc-aws-039.png["此圖顯示輸入/輸出對話框或表示書面內�
 ====
 
 
+[[bluexp-backup-and-recovery-tools-and-configuration]]
 === BlueXP backup and recovery工具及配置
 
 若要將應用程式虛擬機器和資料庫磁碟區故障轉移到在 AWS 中執行的 VMware Cloud Volume 服務，您必須安裝並設定SnapCenter Server 和 Veeam Backup and Replication Server 的執行執行個體。故障轉移完成後，您還必須設定這些工具以還原正常的備份作業，直到規劃並執行故障還原到內部資料中心。
@@ -474,6 +482,7 @@ SnapCenter software可從NetApp支援網站取得，並可安裝在網域或工�
 ====
 
 
+[[snapcenter-database-backup-for-disaster-recovery]]
 === SnapCenter資料庫備份用於災難復原
 
 SnapCenter允許備份和恢復其底層 MySQL 資料庫和配置數據，以便在發生災難時恢復SnapCenter伺服器。對於我們的解決方案，我們恢復了位於我們的 VPC 中的 AWS EC2 執行個體上的SnapCenter資料庫和配置。有關SnapCenter災難復原的更多信息，請參閱 https://docs.netapp.com/us-en/snapcenter/index.html["此連結"^]。
@@ -582,6 +591,7 @@ xcopy c:\SC_Backups\SnapCenter_DR \\10.61.181.185\snapcenter_dr /O /X /E /H /K
 ====
 
 
+[[failover]]
 === 故障轉移
 
 .主站點發生災難
@@ -651,6 +661,8 @@ NOTE: 請參閱有關附加程序的評論。
 ====
 
 
+[[restore-application-vms-with-veeam-full-restore]]
+[[restore-veeam-full]]
 === 使用 Veeam 完整恢復功能恢復應用程式虛擬機
 
 .建立備份儲存庫並從 S3 匯入備份
@@ -742,6 +754,7 @@ image:dr-vmc-aws-067.png["此圖顯示輸入/輸出對話框或表示書面內�
 ====
 
 
+[[restore-sql-server-application-data]]
 === 還原 SQL Server 應用程式數據
 
 以下程序提供了有關在發生導致本機網站無法執行的災難時如何在 AWS 中的 VMware Cloud Services 中還原 SQL Server 的說明。
@@ -857,6 +870,7 @@ image:dr-vmc-aws-076.png["此圖顯示輸入/輸出對話框或表示書面內�
 ====
 
 
+[[restore-oracle-application-data]]
 === 恢復 Oracle 應用程式數據
 
 以下流程提供了有關在發生導致本地站點無法運行的災難時如何在 AWS 中的 VMware Cloud Services 中還原 Oracle 應用程式資料的說明。
@@ -934,6 +948,7 @@ NOTE: 若要讓 NFS 掛載在重新啟動後持久化，請編輯 `/etc/fstab`�
 ====
 
 
+[[failback]]
 === 故障回覆
 
 成功完成此解決方案中概述的故障轉移過程後， SnapCenter和 Veeam 將恢復在 AWS 中運行的備份功能，並且 FSx ONTAP現在被指定為主存儲，與原始內部部署資料中心不存在現有的SnapMirror關係。在本機恢復正常功能後，您可以使用與本文檔中概述的流程相同的流程將資料鏡像回本機ONTAP儲存系統。
@@ -944,6 +959,7 @@ NOTE: 若要讓 NFS 掛載在重新啟動後持久化，請編輯 `/etc/fstab`�
 
 
 
+[[conclusion]]
 == 結論
 
 本文檔中介紹的用例重點關注經過驗證的災難復原技術，突顯了NetApp和 VMware 之間的整合。  NetApp ONTAP儲存系統提供成熟的資料鏡像技術，使組織能夠設計涵蓋本地和領先雲端供應商所採用的ONTAP技術的災難復原解決方案。

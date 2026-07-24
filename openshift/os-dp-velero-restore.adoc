@@ -18,6 +18,7 @@ summary: Red Hat OpenShift 容器應用程式資料保護與NetApp ONTAP
 
 
 
+[[prerequisites]]
 == 先決條件
 
 為了從備份中恢復，我們假設應用程式所在的命名空間被意外刪除了。

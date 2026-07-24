@@ -29,6 +29,7 @@ summary: 了解如何保護資料的第一步是識別風險和潛在的攻擊�
 
 
 
+[[ensuring-secure-logins]]
 == 確保安全登入
 
 在保護關鍵基礎設施元件時，必須確保只有經過批准的使用者才能登入和管理您的環境。如果不法分子破壞了您的管理憑證，那麼他們就擁有了城堡的鑰匙，可以做任何他們想做的事情 - 更改配置、刪除捲和備份、創建後門或禁用快照計劃。
@@ -39,12 +40,14 @@ Google Cloud NetApp Volumes for Google Cloud 透過混淆儲存即服務 (StaaS)
 
 
 
+[[cluster-administration-and-upgrades]]
 == 叢集管理和升級
 
 存在潛在安全風險的兩個領域包括叢集管理（如果不良行為者擁有管理員存取權限會發生什麼情況）和升級（如果軟體映像外洩會發生什麼情況）。
 
 
 
+[[storage-administration-protection]]
 === 儲存管理保護
 
 作為服務提供的儲存空間透過刪除雲端資料中心以外的最終使用者的存取權限，消除了管理員面臨的額外風險。相反，唯一完成的配置是針對客戶的資料存取平面。每個租用戶管理自己的捲，並且沒有租戶可以存取其他Google Cloud NetApp Volumes實例。該服務由自動化管理，只有極少數受信任的管理員可以透過本節介紹的流程存取系統link:gcp-gcnv-service-operation.html["服務運作。"]
@@ -53,6 +56,7 @@ NetApp Volumes-Performance 服務類型提供跨區域複製選項，以便在�
 
 
 
+[[service-upgrades]]
 === 服務升級
 
 更新有助於保護易受攻擊的系統。每次更新都提供安全性增強和錯誤修復，以最大限度地減少攻擊面。軟體更新從集中式儲存庫下載，並在允許更新之前進行驗證，以驗證是否使用了官方映像以及升級是否未被不良行為者破壞。
@@ -63,6 +67,7 @@ NetApp Volumes-Performance 服務類型提供跨區域複製選項，以便在�
 
 
 
+[[securing-data-at-rest]]
 == 保護靜態數據
 
 當磁碟被盜、被退回或被重新利用時，靜態資料加密對於保護敏感資料非常重要。  Google Cloud NetApp Volumes中的資料透過使用基於軟體的加密進行靜態保護。
@@ -79,6 +84,7 @@ NetApp Volumes-Performance 服務類型提供跨區域複製選項，以便在�
 
 
 
+[[securing-data-in-flight]]
 === 確保傳輸中的資料安全
 
 除了保護靜態資料之外，您還必須能夠保護在Google Cloud NetApp Volumes實例和用戶端或複製目標之間傳輸的資料。  Google Cloud NetApp Volumes使用加密方法（例如使用 Kerberos 的 SMB 加密、封包的簽署/密封以及用於資料傳輸端對端加密的 NFS Kerberos 5p）為透過 NAS 協定傳輸的資料提供加密。
@@ -91,6 +97,7 @@ Google Cloud NetApp Volumes磁碟區的複製使用 TLS 1.2，它利用了 AES-G
 
 
 
+[[users-and-groups-for-nas-permissions]]
 == NAS 權限的使用者和群組
 
 保護雲端中資料安全的一部分涉及正確的用戶和群組身份驗證，其中存取資料的用戶被驗證為環境中的真實用戶，且群組包含有效用戶。這些使用者和群組提供初始共用和匯出存取權限，以及儲存系統中檔案和資料夾的權限驗證。
@@ -102,6 +109,7 @@ NOTE: 目前， Google Cloud NetApp Volumes僅支援 Active Directory LDAP 的 L
 
 
 
+[[detection-prevention-and-mitigation-of-ransomware-malware-and-viruses]]
 == 偵測、預防和緩解勒索軟體、惡意軟體和病毒
 
 勒索軟體、惡意軟體和病毒對管理員來說是一個持續的威脅，偵測、預防和緩解這些威脅始終是企業組織的首要任務。針對關鍵資料集的一次勒索軟體事件就可能造成數百萬美元的損失，因此盡最大努力將風險降至最低是有益的。
@@ -126,6 +134,7 @@ Google Cloud NetApp Volumes提供免費的快照支援（除了 Snapshot 副本�
 
 
 
+[[immutable-snapshot-copies]]
 === 不可變的 Snapshot 副本
 
 Google Cloud NetApp Volumes本身提供不可變的唯讀 Snapshot 副本，這些副本按照可自訂的時間表進行，以便在資料刪除或整個磁碟區受到勒索軟體攻擊時快速進行時間點恢復。 Snapshot 恢復到以前的良好 Snapshot 副本速度很快，並且可以根據 Snapshot 計劃和 RTO/RPO 的保留期最大限度地減少資料遺失。採用Snapshot技術對效能的影響微乎其微。
@@ -134,6 +143,7 @@ Google Cloud NetApp Volumes本身提供不可變的唯讀 Snapshot 副本，這�
 
 
 
+[[backups-and-restores]]
 === 備份和復原
 
 Google Cloud NetApp Volumes提供標準 NAS 用戶端備份功能（例如透過 NFS 或 SMB 進行備份）。
@@ -146,6 +156,7 @@ Google Cloud NetApp Volumes提供標準 NAS 用戶端備份功能（例如透過
 
 
 
+[[cross-region-replication]]
 === 跨區域複製
 
 NetApp Volumes-Performance 可讓您在NetApp控制的後端服務網路上使用 TLS1.2 AES 256 GCM 加密，使用在 Google 網路上執行的用於複製的特定接口，安全地跨 Google Cloud 區域複製磁碟區以進行資料保護和存檔用例。主（來源）磁碟區包含活動生產數據，並複製到輔助（目標）磁碟區以提供主資料集的精確副本。
@@ -160,6 +171,8 @@ NetApp Volumes-Performance 可讓您在NetApp控制的後端服務網路上使�
 
 
 
+[[google-cloud-netapp-volumes-backup]]
+[[cloud-volumes-service-backup]]
 === Google Cloud NetApp Volumes備份
 
 儘管Google Cloud NetApp Volumes提供了高資料持久性，但外部事件可能會導致資料遺失。如果發生病毒或勒索軟體等安全事件，備份和復原對於及時恢復資料存取至關重要。管理員可能會意外刪除Google Cloud NetApp Volumes磁碟區。或者用戶只是想將其資料的備份版本保留數月，而保留卷內的額外 Snapshot 副本空間則成為一項成本挑戰。儘管 Snapshot 副本應該是保留過去幾週的備份版本以從中恢復遺失資料的首選方式，但它們位於磁碟區內，如果磁碟區消失，它們也會遺失。

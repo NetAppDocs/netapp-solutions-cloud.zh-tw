@@ -18,6 +18,7 @@ keywords: netapp, solutions, blogs
 
 
 
+[[vmware-integration-with-aws-and-amazon-fsx-for-ontap]]
 == VMware 與 AWS 和Amazon FSx for ONTAP 的集成
 
 * link:https://bluexp.netapp.com/blog/aws-fsxn-blg-migrate-vmware-to-amazon-ec2-iscsi-based-fsx-for-ontap["使用 Amazon EC2 和Amazon FSx ONTAP iSCSI 協定將 VMware VM 移轉到 AWS"]
@@ -28,6 +29,7 @@ keywords: netapp, solutions, blogs
 
 
 
+[[azure-vmware-solution]]
 == Azure VMware 解決方案
 
 * link:https://www.netapp.com/blog/vmware-optimize-storage-workloads/["在任何雲端環境中最佳化儲存和資料密集型 VMware 工作負載"]
@@ -36,6 +38,7 @@ keywords: netapp, solutions, blogs
 
 
 
+[[google-cloud-vmware-engine]]
 == Google Cloud VMware 引擎
 
 * link:https://www.netapp.com/blog/cloud-volumes-service-google-cloud-vmware-engine/["Google Cloud NetApp Volumes資料儲存區支援 Google Cloud VMware Engine (NetApp)"]
@@ -45,6 +48,7 @@ keywords: netapp, solutions, blogs
 
 
 
+[[data-protection-and-management]]
 == 資料保護和管理
 
 * link:https://community.netapp.com/t5/Tech-ONTAP-Blogs/3-2-1-Data-Protection-for-VMware-with-SnapCenter-Plug-in-and-BlueXP-backup-and/ba-p/446180["透過SnapCenter插件和BlueXP虛擬機器備份與恢復，為 VMware 提供 3-2-1 資料保護"]
@@ -53,6 +57,7 @@ keywords: netapp, solutions, blogs
 
 
 
+[[netapp-for-openshift-container-workloads]]
 == NetApp適用於 OpenShift 容器工作負載
 
 * link:https://community.netapp.com/t5/Tech-ONTAP-Blogs/NetApp-ONTAP-doubles-up-as-storage-for-logs-in-Red-Hat-OpenShift-Container/ba-p/449280["NetApp ONTAP兼作 Red Hat OpenShift 容器平台中的日誌存儲"]
@@ -60,6 +65,7 @@ keywords: netapp, solutions, blogs
 
 
 
+[[vmware-sovereign-cloud]]
 == VMware 主權雲
 
 * link:https://blogs.vmware.com/cloud/2021/10/06/vmware-sovereign-cloud/["推出全新主權雲端計劃"]

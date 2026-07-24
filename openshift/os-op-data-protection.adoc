@@ -24,6 +24,7 @@ summary:
 
 
 
+[[business-continuity-with-metrocluster]]
 == 利用MetroCluster實現業務連續性
 
 我們的大多數ONTAP硬體平台都具有高可用性功能，可防止設備故障，避免執行災難復原。但為了防止火災或任何其他災難，並以零 RPO 和低 RTO 繼續開展業務，通常會使用MetroCluster解決方案。

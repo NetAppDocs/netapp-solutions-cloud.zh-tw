@@ -18,6 +18,7 @@ Azure VMware 解決方案和Azure NetApp Files儲存最常見的用例之一是�
 
 
 
+[[overview-migrating-virtual-machines-with-vmware-hcx-azure-netapp-files-datastores-and-azure-vmware-solution]]
 == 概述：使用 VMware HCX、 Azure NetApp Files資料儲存和 Azure VMware 解決方案遷移虛擬機
 
 VMware HCX 主要是一個遷移平台，旨在簡化應用程式遷移、工作負載重新平衡甚至跨雲端的業務連續性。它是 Azure VMware 解決方案私有雲的一部分，提供了多種遷移工作負載的方法，可用於災難復原 (DR) 作業。
@@ -69,6 +70,7 @@ image:anfd-hcx-001.png["該圖描述了該解決方案中使用的高階架構�
 ====
 
 
+[[solution-deployment]]
 == 解決方案部署
 
 請按照一系列步驟完成此解決方案的部署：
@@ -315,12 +317,14 @@ NOTE: 目標 ANF 資料儲存應具有足夠的空間來處理遷移。
 ====
 
 
+[[conclusion]]
 == 結論
 
 無論您的目標是全雲還是混合雲，以及駐留在本地任何類型/供應商儲存上的數據， Azure NetApp Files和 HCX 都提供了部署和遷移應用程式工作負載的絕佳選擇，同時透過使資料需求無縫連接到應用程式層來降低 TCO。無論用例如何，選擇 Azure VMware 解決方案以及Azure NetApp Files都可以快速實現雲端優勢、跨本地和多個雲端的一致基礎架構和操作、工作負載的雙向可移植性以及企業級容量和效能。使用 VMware vSphere Replication、VMware vMotion 甚至網路檔案複製 (NFC) 連接儲存和遷移虛擬機器所使用的流程和程式相同。
 
 
 
+[[takeaways]]
 == 總結
 
 該文件的要點包括：
@@ -332,6 +336,7 @@ NOTE: 目標 ANF 資料儲存應具有足夠的空間來處理遷移。
 
 
 
+[[where-to-find-additional-information]]
 == 在哪裡可以找到更多信息
 
 要了解有關本文檔中描述的信息的更多信息，請參閱以下網站連結：

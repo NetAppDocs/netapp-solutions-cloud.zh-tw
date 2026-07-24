@@ -32,6 +32,8 @@ NOTE: 若要查看特定超大規模器的功能，請按一下該超大規模�
 
 
 
+[[vmware-in-the-hyperscalers-configuration]]
+[[config]]
 == 超大規模配置中的 VMware
 
 與本地一樣，規劃基於雲端的虛擬化環境對於成功創建虛擬機器和遷移的生產就緒環境至關重要。
@@ -90,6 +92,8 @@ NOTE: 客戶機內儲存是將Cloud Volumes ONTAP和Google Cloud NetApp Volumes�
 ====
 
 
+[[netapp-storage-options]]
+[[datastore]]
 == NetApp儲存選項
 
 NetApp儲存可以在 3 個主要超大規模伺服器中以多種方式使用 - 既可以作為客戶機連接，也可以作為補充 NFS 資料儲存。
@@ -139,6 +143,8 @@ Google Cloud 支援以下配置的NetApp儲存：
 ====
 
 
+[[netapp-vmware-cloud-solutions]]
+[[solutions]]
 == NetApp /VMware 雲端解決方案
 
 透過NetApp和 VMware 雲端解決方案，許多用例都可以輕鬆部署在您選擇的超大規模中。  VMware 將主要的雲端工作負載用例定義為：

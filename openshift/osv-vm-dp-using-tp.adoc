@@ -35,6 +35,7 @@ Trident Protect 支援對 OpenShift 叢集上的應用程式和虛擬機器進�
 
 
 
+[[create-appvault-for-object-storage]]
 == 建立物件儲存的 AppVault
 
 .建立 AppVault
@@ -105,6 +106,7 @@ image:rh-os-n-use-case-ocpv-tp-dp-008.png["ONTAP S3 Appvault 已建立"]
 ====
 
 
+[[create-a-vm-in-openshift-virtualization]]
 == 在 OpenShift Virtualization 中建立 VM
 
 .在 OpenShift Virtualization 中建立 VM
@@ -132,6 +134,7 @@ image:rh-os-n-use-case-ocpv-tp-dp-007.png["已建立 vm、pod 和 pvc"]
 ====
 
 
+[[create-an-app]]
 == 創建應用程式
 
 .創建應用程式
@@ -163,6 +166,7 @@ image:rh-os-n-use-case-ocpv-tp-dp-009.png["應用程式已創建"]
 ====
 
 
+[[protect-the-app-by-creating-a-backup]]
 == 透過建立備份來保護應用程式
 
 .建立備份
@@ -217,6 +221,7 @@ image:rh-os-n-use-case-ocpv-tp-dp-017.png["按需和按計劃建立備份"]
 ====
 
 
+[[restore-from-backup]]
 == 從備份還原
 
 .從備份還原
@@ -301,6 +306,7 @@ image:rh-os-n-use-case-ocpv-tp-dp-023.png["新命名空間中的虛擬機"]
 ====
 
 
+[[protect-the-app-using-snapshots]]
 == 使用快照保護應用程式
 
 .建立快照
@@ -373,6 +379,7 @@ image:rh-os-n-use-case-ocpv-tp-dp-026.png["計劃快照"]
 ====
 
 
+[[restore-from-snapshot]]
 == 從快照還原
 
 .從快照還原
@@ -455,6 +462,7 @@ image:rh-os-n-use-case-ocpv-tp-dp-032.png["虛擬機器在新的命名空間中�
 ====
 
 
+[[restore-a-specific-vm]]
 == 恢復特定虛擬機
 
 .選擇命名空間中的特定虛擬機器來建立快照/備份和還原
@@ -548,6 +556,7 @@ image:rh-os-n-use-case-ocpv-tp-dp-038.png["centos 虛擬機器已建立"]
 ====
 
 
+[[video-demonstration]]
 == 影片示範
 
 以下影片示範如何使用快照保護虛擬機
