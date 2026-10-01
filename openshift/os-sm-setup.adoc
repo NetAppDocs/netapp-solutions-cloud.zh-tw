@@ -57,7 +57,7 @@ NOTE: 此連接器也可以安裝在雲端環境中。參考link:https://docs.ne
 .在 OCP 叢集中安裝Trident
 [%collapsible%open]
 ====
-* 使用 Helm 部署Trident Operator。參考說明link:https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-helm.html["這裡"]
+* 使用 Helm 部署 Trident Operator。請參閱指示 link:https://docs.netapp.com/us-en/trident/trident-install/kubernetes-deploy-helm.html["這裡"]
 * 建立後端和儲存類別。參考說明link:https://docs.netapp.com/us-en/trident/trident-use/backends.html["這裡"]。
 
 

@@ -682,7 +682,7 @@ SnapCenter伺服器和 Veeam Backup & Replication 伺服器可以安裝在 VMwar
 .SnapCenter伺服器
 [%collapsible%open]
 =====
-SnapCenter software可從NetApp支援網站取得，並可安裝在網域或工作群組中的 Microsoft Windows 系統上。詳細的規劃指南和安裝說明可以在link:https://docs.netapp.com/us-en/snapcenter/install/install_workflow.html["NetApp文件中心"^]。
+SnapCenter software 可從 NetApp 支援網站取得，並可安裝在位於網域或工作群組的 Microsoft Windows 系統上。詳細的規劃指南和安裝說明可在 link:https://docs.netapp.com/["NetApp文件中心"^] 找到。
 
 SnapCenter software可在以下位置找到 https://mysupport.netapp.com["此連結"^]。
 

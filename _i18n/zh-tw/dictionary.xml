@@ -763,7 +763,6 @@
   <block id="7c47e0b7c3aa389a1b437364885d5562" category="section-title">偵測、預防和緩解勒索軟體、惡意軟體和病毒</block>
   <block id="b647cba0e4b0ad0f479019e47713c5a2" category="paragraph">勒索軟體、惡意軟體和病毒對管理員來說是一個持續的威脅，偵測、預防和緩解這些威脅始終是企業組織的首要任務。針對關鍵資料集的一次勒索軟體事件就可能造成數百萬美元的損失，因此盡最大努力將風險降至最低是有益的。</block>
   <block id="ba1e21a6e8310b88e0349770718e717c" category="inline-link">自動勒索軟體偵測</block>
-  <block id="8e7e5d01647fe0a67d0797b935b9f119" category="paragraph">儘管Google Cloud NetApp Volumes目前不包含原生偵測或預防措施，例如防毒保護或<block ref="2ed126fbf9f5caf3d13a90f230e3475a" category="inline-link-rx"></block>，可以透過啟用定期快照計劃來快速從勒索軟體事件中復原。快照副本是不可變的，並且只讀取檔案系統中更改區塊的指針，接近即時的，對效能的影響極小，並且僅在資料變更或刪除時才會佔用空間。您可以設定 Snapshot 副本的計劃以符合所需的可接受恢復點目標 (RPO)/恢復時間目標 (RTO)，並且每個磁碟區最多可保留 1,024 個 Snapshot 副本。</block>
   <block id="e9c1c7d4ca860adb553d87c2c1d9ef35" category="inline-link">NetApp勒索軟體解決方案</block>
   <block id="da0aff4a3a0e415528322dcd0e029033" category="paragraph">Google Cloud NetApp Volumes提供免費的快照支援（除了 Snapshot 副本保留的更改區塊/資料的資料儲存費用之外），並且在發生勒索軟體攻擊時，可用於回滾到攻擊發生之前的 Snapshot 副本。快照恢復只需幾秒鐘即可完成，然後您就可以恢復正常提供資料。有關更多信息，請參閱<block ref="e347ba4858ee244fead32d2fe59a64dd" category="inline-link-rx"></block> 。</block>
   <block id="7994d1312e8f4fe2cdf2f7e13347d8bf" category="paragraph">防止勒索軟體影響您的業務需要採取多層次的方法，包括以下一項或多項措施：</block>
@@ -1363,7 +1362,6 @@
   <block id="5c9914884527913b8fccd217cc6c8b11" category="list-text">配置 NAS 資料生命週期以存取 SVM 中的儲存。</block>
   <block id="7becc4cb9c4df5e8d5cb90ed1d181394" category="example-title">在 OCP 叢集上安裝NetApp Trident</block>
   <block id="f086eaa0b9f8b360a31c94f637c0d0b4" category="list-text">在所有三個叢集上安裝NetApp Trident ：中心叢集、來源叢集和目標集群</block>
-  <block id="388489f610963550b7669f0a1294b958" category="list-text">參考說明<block ref="36ef4218bf5578859a7215d49db6401a" category="inline-link-macro-rx"></block>。</block>
   <block id="c80ffbf15474d7b48c471b4be5c7eea6" category="list-text">為 ontap-nas 建立儲存後端。</block>
   <block id="29dfff8b62823a687037af3caba8bde0" category="list-text">為 ontap-nas 建立儲存類別。</block>
   <block id="fe08b5c40bfe5b7863acf09f47c11ead" category="list-text">參考說明<block ref="47bb97b6990d3b753197dd96a1c60fd2" category="inline-link-macro-rx"></block>。</block>
@@ -1397,12 +1395,8 @@
   <block id="bb2978b82e7eef8973a778154ed9d1d8" category="list-title">使用 OpenShift GitOps（Argo CD）部署應用程式</block>
   <block id="391500fa73fe756b6e5639d4be254f9b" category="list-text">在叢集上安裝 OpenShift GitOps 操作員。參考說明<block ref="0f28c06b874e8771e180b718b2d11a08" category="inline-link-macro-rx"></block>。</block>
   <block id="2f32c13166e5bf78897d9948ab7ba878" category="list-text">為叢集設定一個新的 Argo CD 實例。參考說明<block ref="92e97978dfa95fc31fba8b02ddee3516" category="inline-link-macro-rx"></block>。</block>
-  <block id="b7781fedfdcd02533b20ec30008e8c95" category="paragraph">打開Argo CD的控制台並部署一個應用程式。例如，您可以使用帶有 Helm Chart 的 Argo CD 部署 Jenkins 應用程式。建立應用程式時，提供了以下詳細資訊：專案：預設叢集：<block ref="0e402c247a3de942bf87e4c3280917d7" category="inline-link-rx"></block> （不含引號）命名空間：Jenkins Helm Chart 的 URL：<block ref="3892714f2795b82116173cd1047a3c6f" category="inline-link-rx"></block> （不含引號）</block>
   <block id="7d6d4165ad5f6730731dde0ccade66be" category="doc">適用於 Red Hat OpenShift 工作負載的其他NetApp混合多雲解決方案</block>
   <block id="8f1d3df73fb3b1a1a98cb44ce73c8c9a" category="section-title">其他解決方案</block>
-  <block id="8ac7a0ac8f2870d764a9efcc443bf3ee" category="paragraph">其他部分提供了其他解決方案，如下所示：</block>
-  <block id="8b0bbd26aff0a512cebd343d29e00e63" category="paragraph">有關 Red Hat OpenShift Container 解決方案，請參閱<block ref="07a16d44ecae0bf68d6e3c6abdf05911" category="inline-link-macro-rx"></block>。</block>
-  <block id="50b2cc60cb96007f44cb841746d28595" category="paragraph">有關 Red Hat OpenShift 虛擬化解決方案，請參閱<block ref="57414b3e62f60b97baf7d0cbd278b947" category="inline-link-macro-rx"></block>。</block>
   <block id="9b2f9698f9a33314b6eb0d86eb8929c9" category="doc">在 AWS 上部署和設定託管 Red Hat OpenShift 容器平台</block>
   <block id="3565891e510e1bc556749261f658f387" category="paragraph">本節介紹在 AWS（ROSA）上設定託管 Red Hat OpenShift 叢集的進階工作流程。它展示了Trident使用託管的Amazon FSx for NetApp ONTAP (FSx ONTAP ) 作為儲存後端來提供持久性磁碟區。提供了有關使用BlueXP在 AWS 上部署 FSx ONTAP的詳細資訊。此外，還提供了有關使用BlueXP和 OpenShift GitOps（Argo CD）為 ROSA 叢集上的有狀態應用程式執行資料保護和遷移活動的詳細資訊。</block>
   <block id="05001e23d20cbe914608cbcc87fde0dd" category="paragraph">下圖描述了部署在 AWS 上並使用 FSx ONTAP作為後端儲存的 ROSA 叢集。</block>
@@ -1414,7 +1408,6 @@
   <block id="c772e08c8d32e90026f0270b4ddc07bd" category="list-text">從BlueXP在 VPC 上安裝 FSx ONTAP 。參考<block ref="34abba7bef53102fd63639b9b9679762" category="inline-link-macro-rx"></block>用於建立BlueXP帳戶並開始使用。參考<block ref="2295d3162905f9dd45d3ca6c8a209ad1" category="inline-link-macro-rx"></block>用於安裝 FSx ONTAP。參考<block ref="34abba7bef53102fd63639b9b9679762" category="inline-link-macro-rx"></block>用於在 AWS 中建立連接器來管理 FSx ONTAP。</block>
   <block id="e80e4c833595d16693cb89be6ffa0411" category="list-text">使用 AWS 部署 FSx ONTAP 。參考<block ref="96729d098c0f6096edb6c44f431ce934" category="inline-link-macro-rx"></block>使用 AWS 控制台進行部署。</block>
   <block id="f8f96d37b9a3120cb1bb4a037d8195bd" category="list-title">在 ROSA 叢集上安裝Trident （使用 Helm 圖表）</block>
-  <block id="ff3710c8bf724ede6526287dfac6f8d1" category="list-text">使用 Helm chart 在 ROSA 叢集上安裝Trident 。請參閱文件連結： https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-helm.html [此處]。</block>
   <block id="394171ccfa7f71c4d145fcb031f5e0f0" category="video-title">FSx ONTAP與Trident整合用於 ROSA 集群</block>
   <block id="d2242c1d3590ac352f814cc4b918d194" category="admonition">OpenShift GitOps 可用於將Trident CSI 部署到所有託管集群，因為它們使用 ApplicationSet 註冊到 ArgoCD。</block>
   <block id="446519470075d42f3e6a84ab289a0c4c" category="paragraph"><block ref="446519470075d42f3e6a84ab289a0c4c" category="inline-image-macro-rx" type="image"></block></block>
@@ -1473,8 +1466,6 @@
   <block id="b4678d952e7b7f5b0d0e37cb5eb2a551" category="list-text">在 Google Cloud 中安裝連接器。參考說明<block ref="95c699608f5df2c39b69d68c4999b1f7" category="inline-link-rx"></block>。</block>
   <block id="b5c0dfafe4740b9adef3023b57371d1f" category="list-text">使用連接器在 Google Cloud 中部署 CVO 執行個體。請參閱此處的說明。<block ref="5dcb8b1a71fb2a60478c95bc49e22d2b" category="inline-link-rx"></block></block>
   <block id="54b406cf5b62748c3b1ce04f8b7986a0" category="list-title">在 GCP 中的 OCP 叢集中安裝Trident</block>
-  <block id="4a6c241c8b53a8cf70cd2a3797f918d5" category="list-text">部署Trident 的方法有很多，如下圖所示<block ref="df28848dc0c60e349970187bfd75a0df" category="inline-link-rx"></block>。</block>
-  <block id="e02f24b76d5608c9d8a2a84930ffaf18" category="list-text">對於這個項目， Trident是透過依照指示手動部署Trident Operator 來安裝的<block ref="759d5b54b27f85c8d55e8e3510853fad" category="inline-link-rx"></block>。</block>
   <block id="1391b6e8cd7f7081b132c1fadddbb7ff" category="list-text">建立後端和儲存類別。參考說明<block ref="e128541cde7fad4b75ad1c7ebfcc5826" category="inline-link-macro-rx"></block>。</block>
   <block id="3a2a264571e0b55c89cc93a5273f71f0" category="paragraph">[底線]#*示範影片*#</block>
   <block id="111ca5ccfeeed94213d6de50c5fd43cd" category="video-title">在 Google Cloud Platform 上安裝 OpenShift 集群</block>
@@ -1497,7 +1488,6 @@
   <block id="75cbb3865e297e8d229f20aefa0bc024" category="list-text">使用連接器在 AWS 中部署 CVO 執行個體。參考說明<block ref="789a1549fecc83ae6bfb4929c9c8d23c" category="inline-link-macro-rx"></block>。</block>
   <block id="2b71954d9c6d4c94a1ae68bbecd1cce4" category="admonition">此連接器也可以安裝在雲端環境中。參考<block ref="0631eaff036ce3419223357fb2a90da7" category="inline-link-macro-rx"></block>了解更多。</block>
   <block id="5cd43ece896d33db0e600df05998994b" category="example-title">在 OCP 叢集中安裝Trident</block>
-  <block id="201de1e883240abf227c15e36805365c" category="list-text">使用 Helm 部署Trident Operator。參考說明<block ref="2b02799a23e3b4104fc737b9e328001b" category="inline-link-macro-rx"></block></block>
   <block id="abdf2aa21aa2b6f5d115b03c182a0b0b" category="list-text">建立後端和儲存類別。參考說明<block ref="e128541cde7fad4b75ad1c7ebfcc5826" category="inline-link-macro-rx"></block>。</block>
   <block id="0733a4864ff0a27098003f35528fda51" category="doc">NetApp解決方案與混合雲中的 Red Hat OpenShift 容器平台工作負載</block>
   <block id="7f224be1115f0425cbeb3e707e64be2a" category="paragraph">當客戶準備將部分選定的工作負載或所有工作負載從資料中心遷移到雲端時，他們可能正處於現代化轉型的某個階段。他們可能會出於各種原因選擇在雲端中使用自管理的 OpenShift 容器和自管理的NetApp儲存。他們應該在雲端中規劃和部署 Red Hat OpenShift 容器平台 (OCP)，以便成功建構一個可用於生產的環境，以便從資料中心遷移容器工作負載。他們的 OCP 叢集可以在其資料中心部署在 VMware 或 Bare Metal 上，也可以在雲端環境中部署在 AWS、Azure 或 Google Cloud 上。</block>
@@ -1546,7 +1536,6 @@
   <block id="8c9552895e8b32d168c001c8cb0d41ac" category="inline-link-macro">NetApp Verda</block>
   <block id="c9201dcf5ef4e81010385777c2b0eefd" category="list-text"><block ref="c2f5b2c54b56c4b456371849b6825da6" category="inline-link-macro-rx"></block>- Verda（開源）擁有一系列適用於流行的雲端原生資料密集型應用程式的參考執行鉤子</block>
   <block id="1273c8a63109161e6fd1f18d6998523f" category="inline-link-macro">NetApp BlueXP</block>
-  <block id="b0fea8555edb70fb5a01c464b6a09cbb" category="list-text"><block ref="b0fea8555edb70fb5a01c464b6a09cbb" category="inline-link-macro-rx"></block></block>
   <block id="d2154db2b88b25388e0f4a7a9080bfc9" category="inline-link-macro">AWS 上的 Red Hat OpenShift 服務</block>
   <block id="ca0553647614febb5dfa86b86874cf2f" category="list-text"><block ref="ca0553647614febb5dfa86b86874cf2f" category="inline-link-macro-rx"></block></block>
   <block id="f51b423dfa48d00e66fde30840ade1ae" category="list-text"><block ref="f51b423dfa48d00e66fde30840ade1ae" category="inline-link-macro-rx"></block></block>
@@ -1651,7 +1640,6 @@
   <block id="91ca05f7383e5c31b9bdd1a91c8e3618" category="inline-link-macro">透過 Red Hat 提供的 OpenShift Virtualization Operator 安裝 OpenShift Virtualization</block>
   <block id="287f7b64542d2f7312b8d3de9b3f8b26" category="list-text"><block ref="287f7b64542d2f7312b8d3de9b3f8b26" category="inline-link-macro-rx"></block></block>
   <block id="a1862e00d8111386cdf238bd23bb97db" category="inline-link-macro">Trident25.02</block>
-  <block id="ff6395262d82836eedf127f3a80c2ce7" category="list-text"><block ref="ff6395262d82836eedf127f3a80c2ce7" category="inline-link-macro-rx"></block></block>
   <block id="8c1ba5eb61420c0029961110f20d7829" category="inline-link-macro">ONTAP 9.16</block>
   <block id="a13c7db7d74afd839261d6b5eef45b76" category="list-text"><block ref="a13c7db7d74afd839261d6b5eef45b76" category="inline-link-macro-rx"></block></block>
   <block id="e17a719a6366dd11d450cd1e2c5967de" category="example-title">建立 AppVault</block>
@@ -2652,7 +2640,6 @@
   <block id="4dad49c9583060929c06d355e24a683a" category="paragraph">SnapCenter伺服器和 Veeam Backup &amp; Replication 伺服器可以安裝在 VMware Cloud SDDC 中，也可以安裝在與 VMware Cloud 環境具有網路連線的 VPC 中的 EC2 執行個體上。</block>
   <block id="f709ed2f05802131924f53cb483d0216" category="example-title">SnapCenter伺服器</block>
   <block id="257b2c5a413bf4e187ebd89c8a363827" category="inline-link-macro">NetApp文件中心</block>
-  <block id="2bd8e8f9848a7635d56bcd86b9ad4c8f" category="paragraph">SnapCenter software可從NetApp支援網站取得，並可安裝在網域或工作群組中的 Microsoft Windows 系統上。詳細的規劃指南和安裝說明可以在<block ref="a00f6e57d5c269a935cd1b0491cebb83" category="inline-link-macro-rx"></block>。</block>
   <block id="d099bc9c6d34500d99c2caac0e6df36c" category="paragraph">SnapCenter software可在以下位置找到<block ref="6c76039d71cd5c9473efac721f24ac89" category="inline-link-rx"></block>。</block>
   <block id="42c8c901c8d4c00c90f9f66d69df3cdb" category="example-title">Veeam備份和複製伺服器</block>
   <block id="5a8e524620f781b94c018014370aad68" category="paragraph">您可以在 AWS 上的 VMware Cloud 中的 Windows 伺服器或 EC2 執行個體上安裝 Veeam Backup &amp; Replication 伺服器。有關詳細的實施指南，請參閱<block ref="1e2565ba3e6473b62b1909934037e810" category="inline-link-rx"></block>。</block>
@@ -5152,7 +5139,6 @@
   <block id="65bdc0673006b33d0c876e18a9a98787" category="paragraph">注意：私有雲建立可能需要 30 分鐘到 2 小時。</block>
   <block id="d77d7a022616e70a9987aa0974241779" category="paragraph">一旦配置了私有雲，就配置對私有雲的私有訪問，以實現高吞吐量和低延遲的資料路徑連接。</block>
   <block id="256431e41a96deb49bcd86b1ca56393e" category="inline-link-macro">GCP 文件</block>
-  <block id="25c43a619d8b9de4b1318cc0ef868e1e" category="paragraph">這將確保執行Cloud Volumes ONTAP實例的 VPC 網路能夠與 GCVE 私有雲通訊。為此，請按照<block ref="9cd64b8fb1b43e7f674c1b78b2a86f74" category="inline-link-macro-rx"></block>。對於 Cloud Volume 服務，透過在租用戶主機專案之間執行一次性對等連線來建立 VMware Engine 和Google Cloud NetApp Volumes之間的連線。有關詳細步驟，請依照<block ref="04a9f04edfdd7b0a53da57f015378c5a" category="inline-link-macro-rx"></block>。</block>
   <block id="dbb7052e552a198a0de3cccc0edf23c8" category="paragraph"><block ref="dbb7052e552a198a0de3cccc0edf23c8" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5c3eb3a1c6330fe124fc0706cbdd91df" category="paragraph">使用 CloudOwner@gve.local 使用者Sign invcenter。若要存取憑證，請前往 VMware Engine 門戶，前往資源，然後選擇適當的私有雲。在「基本資訊」部分中，按一下 vCenter 登入資訊（vCenter Server、HCX 管理員）或 NSX-T 登入資訊（NSX 管理員）的「檢視」連結。</block>
   <block id="59979b9402f6e7e20880098f4f30a2ea" category="paragraph"><block ref="59979b9402f6e7e20880098f4f30a2ea" category="inline-image-macro-rx" type="image"></block></block>
@@ -6263,7 +6249,6 @@
   <block id="a6ea0f83e096fd36f6e1b528691f7fac" category="inline-link-macro">使用 Trident Protect 保護和遷移容器應用程式</block>
   <block id="503a6eea13f2000ade7b8f73b47f6126" category="paragraph">有關使用 Trident Protect 保護和遷移容器工作負載的詳細資訊，請參閱以下章節：- <block ref="f825d2a6feac66171ea153caddf5efc4" category="inline-link-macro-rx"></block></block>
   <block id="23a222c2ec8017930655b74b88cf5d9a" category="paragraph">有關 Trident Protect 資料保護功能的詳細資訊，請參閱<block ref="8a7b93525889199f21bea5877c33c6b6" category="inline-link-macro-rx"></block>。</block>
-  <block id="d8120e353c8e4658602b826c12e8cbeb" category="list-text">使用 Helm Chart 在 OSD 叢集上安裝 Trident。請參閱<block ref="2b02799a23e3b4104fc737b9e328001b" category="inline-link-macro-rx"></block>以取得如何安裝 Helm Chart 的說明。</block>
   <block id="c1a7cd61e139ae5874159d51ca345518" category="paragraph"><block ref="c1a7cd61e139ae5874159d51ca345518" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f02cfb11445a691de846b7334e503c85" category="paragraph">此解決方案測試並驗證了使用 OpenShift Container Platform (OCP)、OpenShift Advanced Cluster Manager (ACM)、NetApp ONTAP、NetApp BlueXP 和 NetApp Trident Protect 進行遷移和集中式資料保護。</block>
   <block id="4b45368310338985e587391cd7cdfd12" category="list-text">使用 Trident Protect 保護應用程式並支援內部部署叢集之間的遷移。</block>
@@ -6299,4 +6284,25 @@
   <block id="fd38eb32a683cd3c6fbbddac9bc45566" category="paragraph">在本範例中、我們將展示如何使用 ONTAP S3 作為物件儲存設備。以下是為 ONTAP S3 建立 AppVault CR 的工作流程：1.在 ONTAP 叢集的 SVM 中建立 S3 物件存放區伺服器。2.在物件存放區伺服器中建立儲存區。3.在 SVM 中建立 S3 使用者。將存取金鑰和秘密金鑰保存在安全的位置。4.在 OpenShift 中、建立密碼以儲存 ONTAP S3 認證資料。5.為 ONTAP S3 建立 AppVault 物件</block>
   <block id="744a96e9ce909d310b032af09b7da629" category="paragraph">**為虛擬機器建立 Trident Protect 應用程式**</block>
   <block id="21dae0abbe9dd81128eefb291ac19e82" category="paragraph">在此範例中、demo 命名空間有一個 VM、建立應用程式時會包含該命名空間的所有資源。</block>
+  <block id="66e29676cc17f1b237cb12b7c20e16a5" category="paragraph">儘管 Google Cloud NetApp Volumes 目前不包含原生偵測或預防措施（例如防毒保護或<block ref="bddcb578ed294fa8025db7b407da8f3a" category="inline-link-rx"></block>），但您可以透過啟用定期 Snapshot 快照技術排程來快速從勒索軟體事件中恢復。Snapshot 快照技術副本是不可變的，並且是指向檔案系統中變更的區塊的唯讀指標，幾乎是瞬時的，對效能的影響極小，並且僅在資料變更或刪除時才佔用空間。您可以設定 Snapshot 快照技術副本的排程，以符合您所需的可接受恢復點目標（RPO）/ 恢復時間目標（RTO），每個 Volume 最多可保留 1,024 個 Snapshot 快照技術副本。</block>
+  <block id="c0958db78ab7cfc45f60cd6816dcc758" category="list-text">請參閱說明<block ref="e8daab74ee066621c67289d4e9f38ac4" category="inline-link-macro-rx"></block>。</block>
+  <block id="f443fc5ae6007854fc841199d43d2837" category="list-text">使用 Helm Chart 在 OSD 叢集上安裝 Trident。請參閱<block ref="848b2b8257ca6819c05e0f382c2d6d55" category="inline-link-macro-rx"></block>以取得如何安裝 Helm Chart 的說明。</block>
+  <block id="a1eb350126c0a41cd549961292e7292c" category="paragraph">開啟 Argo CD 控制台並部署應用程式。例如，您可以使用 Argo CD 和 Helm Chart 部署 Jenkins 應用程式。建立應用程式時，提供了以下詳細資訊：專案：default；叢集：+<block ref="deba6a806b792d600cb2f2a2e2b742e2" category="inline-link-rx"></block>（不含引號）；命名空間：Jenkins；Helm Chart 的 URL：+<block ref="815a905839f03d7c02e2bca544825ced" category="inline-link-rx"></block>（不含引號）</block>
+  <block id="498027a99a638c649854afd400901256" category="paragraph">請參閱以下其他解決方案：</block>
+  <block id="35ffb469adc60261a8ea13c0281e1cc4" category="inline-link-macro">Red Hat OpenShift 容器解決方案（本地部署）</block>
+  <block id="b35552dab737c9605914f9bb675804b5" category="list-text"><block ref="b35552dab737c9605914f9bb675804b5" category="inline-link-macro-rx"></block></block>
+  <block id="6d1708b280dc650dc72995f314390278" category="inline-link-macro">Red Hat OpenShift Service on AWS Container 解決方案</block>
+  <block id="cb7142f258bbf6eb70946fffffae7d0e" category="list-text"><block ref="cb7142f258bbf6eb70946fffffae7d0e" category="inline-link-macro-rx"></block></block>
+  <block id="68009b4b91a37788ca9e18ba5f55c1b0" category="inline-link-macro">本地部署的 Red Hat OpenShift 虛擬化解決方案</block>
+  <block id="6a5d9b5d4f54921161de7ab83930c5d3" category="list-text"><block ref="6a5d9b5d4f54921161de7ab83930c5d3" category="inline-link-macro-rx"></block></block>
+  <block id="ca9189c00f60df72fe6986def5bf9c65" category="inline-link-macro">Red Hat OpenShift Service on AWS 虛擬化解決方案</block>
+  <block id="68d207e6440748013b2a1cf4e83200e3" category="list-text"><block ref="68d207e6440748013b2a1cf4e83200e3" category="inline-link-macro-rx"></block></block>
+  <block id="36c7900f13682ac80c67eeb196548ff4" category="list-text">使用 Helm chart 在 ROSA 叢集上安裝 Trident。請參閱文件連結：https://docs.netapp.com/us-en/trident/trident-install/kubernetes-deploy-helm.html[此處^]。</block>
+  <block id="282025b5b19344c8e277116127efe10a" category="list-text">部署 Trident 的方法有很多種，如圖所示<block ref="a513e33196701a0875db01e145416086" category="inline-link-rx"></block>。</block>
+  <block id="8b92be9389cce6edfc4c001f1db14964" category="list-text">在本專案中，Trident 是透過依照指示手動部署 Trident Operator 來安裝的<block ref="0984860e46f3ed8718676caeb88662f6" category="inline-link-rx"></block>。</block>
+  <block id="38d6382e9e736693ef209aef9d7c37ca" category="list-text">使用 Helm 部署 Trident Operator。請參閱指示 <block ref="2ff93a5b15d1fa89110d690cb53d85fd" category="inline-link-macro-rx"></block></block>
+  <block id="79ba8743942daea465ff28416e07cbd7" category="list-text"><block ref="79ba8743942daea465ff28416e07cbd7" category="inline-link-macro-rx"></block></block>
+  <block id="f553be2d93d2e2e12265c808c5b01c02" category="list-text"><block ref="f553be2d93d2e2e12265c808c5b01c02" category="inline-link-macro-rx"></block></block>
+  <block id="af84bbf7cdb0d0e716f2513d0d3f363f" category="paragraph">SnapCenter software 可從 NetApp 支援網站取得，並可安裝在位於網域或工作群組的 Microsoft Windows 系統上。詳細的規劃指南和安裝說明可在 <block ref="85cbe5bd6e949acc06321919c4679a05" category="inline-link-macro-rx"></block> 找到。</block>
+  <block id="660febd0d05e3ca3fc12d156de67c555" category="paragraph">這將確保執行 Cloud Volumes ONTAP 實例的 VPC 網路能夠與 GCVE 私有雲通訊。為此，請按照<block ref="12bbd3d08aba9fc22ed45e2726d3faff" category="inline-link-macro-rx"></block>操作。對於 Cloud Volume Service，透過在租戶主機專案之間執行一次性對等關係，建立 VMware Engine 與 Google Cloud NetApp Volumes 之間的連線。如需詳細步驟，請參閱此<block ref="04a9f04edfdd7b0a53da57f015378c5a" category="inline-link-macro-rx"></block>。</block>
 </blocks>

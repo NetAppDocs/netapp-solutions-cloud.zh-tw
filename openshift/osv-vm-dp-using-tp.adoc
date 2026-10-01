@@ -28,7 +28,7 @@ Trident Protect 支援對 OpenShift 叢集上的應用程式和虛擬機器進�
 
 * link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/installing_on_bare_metal/index["OpenShift 叢集 4.17"]
 * link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/virtualization/getting-started#tours-quick-starts_virt-getting-started["透過 Red Hat 提供的 OpenShift Virtualization Operator 安裝 OpenShift Virtualization"]
-* link:https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Trident25.02"]
+* link:https://docs.netapp.com/us-en/trident/trident-install/kubernetes-deploy.html["Trident25.02"]
 * link:https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-installation.html["Trident Protect 25.02"]
 * link:https://docs.netapp.com/us-en/ontap/["ONTAP 9.16"]
 

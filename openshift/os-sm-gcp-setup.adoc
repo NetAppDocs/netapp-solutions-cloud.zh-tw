@@ -58,8 +58,8 @@ NOTE: 在 GCP 中部署 Red Hat OpenShift Container 平台叢集有多種方法�
 
 
 .在 GCP 中的 OCP 叢集中安裝Trident
-* 部署Trident 的方法有很多，如下圖所示 https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["這裡"]。
-* 對於這個項目， Trident是透過依照指示手動部署Trident Operator 來安裝的 https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html["這裡"]。
+* 部署 Trident 的方法有很多種，如圖所示 https://docs.netapp.com/us-en/trident/trident-install/kubernetes-deploy.html["這裡"^]。
+* 在本專案中，Trident 是透過依照指示手動部署 Trident Operator 來安裝的 https://docs.netapp.com/us-en/trident/trident-install/kubernetes-deploy-operator.html["這裡"^]。
 * 建立後端和儲存類別。參考說明link:https://docs.netapp.com/us-en/trident/trident-use/backends.html["這裡"]。
 
 

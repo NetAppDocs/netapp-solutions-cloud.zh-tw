@@ -70,7 +70,7 @@ TIP: 請記住以下內容： - 建立 ssh 公鑰和私鑰以提供給安裝程�
 [%collapsible%open]
 ====
 * 在所有三個叢集上安裝NetApp Trident ：中心叢集、來源叢集和目標集群
-* 參考說明link:https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html["這裡"]。
+* 請參閱說明link:https://docs.netapp.com/us-en/trident/trident-install/kubernetes-deploy-operator.html["這裡"]。
 * 為 ontap-nas 建立儲存後端。
 * 為 ontap-nas 建立儲存類別。
 * 參考說明link:https://docs.netapp.com/us-en/trident/trident-use/create-stor-class.html["這裡"]。

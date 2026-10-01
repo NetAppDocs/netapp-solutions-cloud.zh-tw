@@ -36,7 +36,7 @@ NOTE: 該解決方案透過在AWS的兩個VPC中使用兩個ROSA集群進行了�
 
 
 .在 ROSA 叢集上安裝Trident （使用 Helm 圖表）
-* 使用 Helm chart 在 ROSA 叢集上安裝Trident 。請參閱文件連結： https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-helm.html [此處]。
+* 使用 Helm chart 在 ROSA 叢集上安裝 Trident。請參閱文件連結：https://docs.netapp.com/us-en/trident/trident-install/kubernetes-deploy-helm.html[此處^]。
 
 
 .FSx ONTAP與Trident整合用於 ROSA 集群
@@ -58,6 +58,6 @@ image:rhhc-default-storage-class.png["此圖顯示輸入/輸出對話框或表�
 * 為叢集設定一個新的 Argo CD 實例。參考說明link:https://docs.openshift.com/container-platform/4.10/cicd/gitops/setting-up-argocd-instance.html["這裡"]。
 
 
-打開Argo CD的控制台並部署一個應用程式。例如，您可以使用帶有 Helm Chart 的 Argo CD 部署 Jenkins 應用程式。建立應用程式時，提供了以下詳細資訊：專案：預設叢集：'https://kubernetes.default.svc'[] （不含引號）命名空間：Jenkins Helm Chart 的 URL：'https://charts.bitnami.com/bitnami'[] （不含引號）
+開啟 Argo CD 控制台並部署應用程式。例如，您可以使用 Argo CD 和 Helm Chart 部署 Jenkins 應用程式。建立應用程式時，提供了以下詳細資訊：專案：default；叢集：+'https://kubernetes.default.svc'+[]（不含引號）；命名空間：Jenkins；Helm Chart 的 URL：+'https://charts.bitnami.com/bitnami'+[]（不含引號）
 
 Helm 參數：global.storageClass: fsxn-nas
