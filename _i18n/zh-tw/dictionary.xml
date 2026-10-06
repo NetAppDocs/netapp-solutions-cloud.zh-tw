@@ -6305,4 +6305,5 @@
   <block id="f553be2d93d2e2e12265c808c5b01c02" category="list-text"><block ref="f553be2d93d2e2e12265c808c5b01c02" category="inline-link-macro-rx"></block></block>
   <block id="af84bbf7cdb0d0e716f2513d0d3f363f" category="paragraph">SnapCenter software 可從 NetApp 支援網站取得，並可安裝在位於網域或工作群組的 Microsoft Windows 系統上。詳細的規劃指南和安裝說明可在 <block ref="85cbe5bd6e949acc06321919c4679a05" category="inline-link-macro-rx"></block> 找到。</block>
   <block id="660febd0d05e3ca3fc12d156de67c555" category="paragraph">這將確保執行 Cloud Volumes ONTAP 實例的 VPC 網路能夠與 GCVE 私有雲通訊。為此，請按照<block ref="12bbd3d08aba9fc22ed45e2726d3faff" category="inline-link-macro-rx"></block>操作。對於 Cloud Volume Service，透過在租戶主機專案之間執行一次性對等關係，建立 VMware Engine 與 Google Cloud NetApp Volumes 之間的連線。如需詳細步驟，請參閱此<block ref="04a9f04edfdd7b0a53da57f015378c5a" category="inline-link-macro-rx"></block>。</block>
+  <block id="7c8e515cd2bd78ee1fbac514c4d45244" category="summary">審查使用 SnapCenter 應用程式一致性快照、SnapMirror 複寫到 FSx ONTAP 以及 Veeam Backup and Replication for VMs 的災難復原解決方案的需求和規劃。</block>
 </blocks>
