@@ -14,7 +14,7 @@ summary: SMB 是 Microsoft 開發的網路檔案共用協議，它透過乙太�
 
 
 [role="lead"]
-https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831795(v=ws.11)["中小企業"^]是 Microsoft 開發的網路檔案共用協議，可透過乙太網路為多個 SMB 用戶端提供集中式使用者/群組身份驗證、權限、鎖定和檔案共用。文件和資料夾透過共享的方式呈現給客戶端，可以配置各種共享屬性，並透過共享級權限提供存取控制。  SMB 可以呈現給任何支援該協定的用戶端，包括 Windows、Apple 和 Linux 用戶端。
+https://learn.microsoft.com/en-us/windows-server/storage/file-server/file-server-smb-overview["中小企業"^] 是由 Microsoft 開發的網路檔案共享協定，可透過乙太網路為多個 SMB 用戶端提供集中式的使用者/群組驗證、權限、鎖定及檔案共享。檔案與資料夾透過共享的方式呈現給用戶端，這些共享可設定各種共享屬性，並透過共享層級的權限提供存取控制。SMB 可呈現給任何提供該協定支援的用戶端，包括 Windows 、 Apple 及 Linux 用戶端。
 
 Google Cloud NetApp Volumes為此協定的 SMB 2.1 和 3.x 版本提供支援。
 

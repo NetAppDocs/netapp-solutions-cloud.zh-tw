@@ -78,7 +78,7 @@ NetApp Volumes-Performance 服務類型提供跨區域複製選項，以便在�
 
 從 2021 年 11 月開始，預覽版客戶管理加密 (CMEK) 功能已為NetApp Volumes-Performance 提供。此功能可讓您使用託管在 Google 金鑰管理服務 (KMS) 中的每個項目、每個區域的主金鑰加密每個磁碟區的金鑰。  KMS 可讓您附加外部金鑰管理員。
 
-有關如何為NetApp Volumes-Performance 配置 KMS 的詳細信息， https://cloud.google.com/architecture/partners/netapp-cloud-volumes/customer-managed-keys?hl=en_US["請參閱Google Cloud NetApp Volumes文檔"^] 。
+如需如何為 NetApp Volumes-Performance 設定 KMS 的詳細資訊， https://docs.cloud.google.com/netapp/volumes/docs/configure-and-use/cmek/cmek-overview["請參閱Google Cloud NetApp Volumes文檔"^]。
 
 有關架構的更多信息，請參閱link:gcp-gcnv-arch-detail.html["Google Cloud NetApp Volumes架構。"]
 
@@ -148,8 +148,8 @@ Google Cloud NetApp Volumes本身提供不可變的唯讀 Snapshot 副本，這�
 
 Google Cloud NetApp Volumes提供標準 NAS 用戶端備份功能（例如透過 NFS 或 SMB 進行備份）。
 
-* NetApp Volumes-Performance 提供跨區域磁碟區複製到其他NetApp Volumes-Performance 磁碟區的功能。有關詳細信息，請參閱 https://cloud.google.com/architecture/partners/netapp-cloud-volumes/volume-replication?hl=en_US["卷複製"^]在Google Cloud NetApp Volumes文件中。
-* NetApp Volumes-SW 提供服務原生磁碟區備份/復原功能。有關詳細信息，請參閱 https://cloud.google.com/architecture/partners/netapp-cloud-volumes/back-up?hl=en_US["雲端備份"^]在Google Cloud NetApp Volumes文件中。
+* NetApp Volumes-Performance 提供跨區域 Volume 複寫至其他 NetApp Volumes-Performance Volume。如需詳細資訊，請參閱 Google Cloud NetApp Volumes 文件中的 https://docs.cloud.google.com/netapp/volumes/docs/protect-data/about-volume-replication["卷複製"^]。
+* NetApp Volumes-SW 提供服務原生的 Volume 備份/還原功能。如需詳細資訊，請參閱 Google Cloud NetApp Volumes 文件中的 https://docs.cloud.google.com/netapp/volumes/docs/protect-data/about-backups["雲端備份"^]。
 
 
 卷複製提供了來源磁碟區的精確副本，以便在發生災難（包括勒索軟體事件）時實現快速故障轉移。
@@ -167,7 +167,7 @@ NetApp Volumes-Performance 可讓您在NetApp控制的後端服務網路上使�
 
 卷副本是唯讀的，它提供了異地資料的不可變副本，以便在病毒感染資料或勒索軟體加密主資料集的情況下快速恢復資料。只讀資料不會被加密，但是，如果主磁碟區受到影響並發生複製，則受感染的區塊也會複製。您可以使用較舊的、未受影響的 Snapshot 副本進行恢復，但根據偵測到攻擊的速度，SLA 可能會超出承諾的 RTO/RPO 範圍。
 
-此外，您還可以利用 Google Cloud 中的跨區域複製 (CRR) 管理來防止惡意管理操作，例如磁碟區刪除、快照刪除或快照計畫變更。這是透過建立自訂角色來實現的，這些角色將磁碟區管理員（可以刪除來源磁碟區但不能破壞鏡像，因此不能刪除目標磁碟區）與 CRR 管理員（不能執行任何磁碟區操作）分開。看 https://cloud.google.com/architecture/partners/netapp-cloud-volumes/security-considerations?hl=en_US["安全注意事項"^]在Google Cloud NetApp Volumes文件中了解每個管理員群組允許的權限。
+此外，借助 Google Cloud 中的跨區域複寫（CRR）管理，您可以防止惡意管理操作，例如刪除 Volume、刪除 Snapshot 快照技術或變更 Snapshot 排程。這可以透過建立自訂角色來實現，將 Volume 系統管理員（可以刪除來源 Volume 但不能破壞鏡像，因此無法刪除目的地 Volume）與 CRR 系統管理員（不能執行任何 Volume 操作）分隔開來。有關每個系統管理員群組允許的權限，請參閱 Google Cloud NetApp Volumes 文件中的 https://docs.cloud.google.com/netapp/volumes/docs/plan-and-prepare/iam["安全注意事項"^]。
 
 
 
@@ -177,16 +177,16 @@ NetApp Volumes-Performance 可讓您在NetApp控制的後端服務網路上使�
 
 儘管Google Cloud NetApp Volumes提供了高資料持久性，但外部事件可能會導致資料遺失。如果發生病毒或勒索軟體等安全事件，備份和復原對於及時恢復資料存取至關重要。管理員可能會意外刪除Google Cloud NetApp Volumes磁碟區。或者用戶只是想將其資料的備份版本保留數月，而保留卷內的額外 Snapshot 副本空間則成為一項成本挑戰。儘管 Snapshot 副本應該是保留過去幾週的備份版本以從中恢復遺失資料的首選方式，但它們位於磁碟區內，如果磁碟區消失，它們也會遺失。
 
-基於所有這些原因， Google Cloud NetApp Volumes透過以下方式提供備份服務 https://cloud.google.com/architecture/partners/netapp-cloud-volumes/back-up?hl=en_US["Google Cloud NetApp Volumes備份"^]。
+基於上述所有原因，Google Cloud NetApp Volumes 透過 https://docs.cloud.google.com/netapp/volumes/docs/protect-data/about-backups["Google Cloud NetApp Volumes備份"^]提供備份服務。
 
 Google Cloud NetApp Volumes備份會在 Google Cloud Storage (GCS) 上產生該磁碟區的副本。它僅備份卷內儲存的實際數據，而不是可用空間。它永遠以增量方式工作，這意味著它傳輸一次卷內容，然後從那時起繼續僅備份更改的資料。與具有多次完整備份的傳統備份概念相比，它節省了大量的備份存儲，從而降低了成本。由於備份空間的月費與磁碟區相比較低，因此它是長期保存備份版本的理想場所。
 
 使用者可以使用Google Cloud NetApp Volumes備份將任何備份版本還原到同一區域內的相同或不同磁碟區。如果刪除來源卷，備份資料將保留，並且需要單獨管理（例如，刪除）。
 
-Google Cloud NetApp Volumes備份作為選項內建於Google Cloud NetApp Volumes 。使用者可以透過按卷啟動Google Cloud NetApp Volumes備份來決定要保護哪些磁碟區。查看 https://cloud.google.com/architecture/partners/netapp-cloud-volumes/back-up?hl=en_US["Google Cloud NetApp Volumes備份文檔"^]有關備份的信息， https://cloud.google.com/architecture/partners/netapp-cloud-volumes/resource-limits-quotas?hl=en_US["支援的最大備份版本數量"^] 、調度和 https://cloud.google.com/architecture/partners/netapp-cloud-volumes/costs?hl=en_US["定價"^]。
+Google Cloud NetApp Volumes 備份是以選項形式內建於 Google Cloud NetApp Volumes 中。使用者可透過以每個 Volume 為單位啟用 Google Cloud NetApp Volumes 備份，來決定要保護哪些 Volume。請參閱 https://docs.cloud.google.com/netapp/volumes/docs/protect-data/about-backups["Google Cloud NetApp Volumes備份文檔"^]以取得有關備份、 https://docs.cloud.google.com/netapp/volumes/docs/quotas["支援的最大備份版本數量"^]、排程及 https://cloud.google.com/netapp/volumes/pricing["定價"^]的相關資訊。
 
 專案的所有備份資料都儲存在 GCS 儲存桶中，該儲存桶由服務管理，使用者不可見。每個項目使用不同的儲存桶。目前，這些儲存桶與Google Cloud NetApp Volumes磁碟區位於同一區域，但正在討論更多選項。查閱文件以了解最新狀態。
 
 從Google Cloud NetApp Volumes儲存桶到 GCS 的資料傳輸使用具有 HTTPS 和 TLS1.2 的服務內部 Google 網路。資料使用 Google 管理的金鑰進行靜態加密。
 
-要管理Google Cloud NetApp Volumes備份（建立、刪除和還原備份），使用者必須擁有 https://cloud.google.com/architecture/partners/netapp-cloud-volumes/security-considerations?hl=en_US["角色/netappcloudvolumes.admin"^]角色。
+若要管理 Google Cloud NetApp Volumes 備份（建立、刪除和還原備份），使用者必須具有  https://docs.cloud.google.com/netapp/volumes/docs/plan-and-prepare/iam["roles/netapp.admin"^] 角色。

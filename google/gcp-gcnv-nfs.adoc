@@ -144,7 +144,7 @@ ACL * 讀取資料（檔案）/列出目錄（目錄） * 寫入資料（檔案�
 |===
 最後，根據 RPC 封包限制，NFS 群組成員資格（在 NFSv3 和 NFSV4.x 中）對於 AUTH_SYS 的預設最大值限制為 16。  NFS Kerberos 提供最多 32 個群組，NFSv4 ACL 透過細粒度的使用者和群組 ACL（每個 ACE 最多 1024 個條目）消除了限制。
 
-此外， Google Cloud NetApp Volumes也提供擴充組支持，將最大支援組數擴展至 32 個。這需要與包含有效 UNIX 使用者和群組身分的 LDAP 伺服器建立 LDAP 連線。有關配置此功能的更多信息，請參閱 https://cloud.google.com/architecture/partners/netapp-cloud-volumes/creating-nfs-volumes?hl=en_US["建立和管理 NFS 卷"^]在 Google 文件中。
+此外，Google Cloud NetApp Volumes 提供擴充群組支援，可將支援的最大群組數擴充至 32 個。這需要與包含有效 UNIX 使用者和群組身分的 LDAP 伺服器建立 LDAP 連線。如需設定此功能的詳細資訊，請參閱 Google 文件中的 https://docs.cloud.google.com/netapp/volumes/docs/configure-and-use/active-directory/ad-ldap-access["建立和管理 NFS 卷"^]。
 
 
 

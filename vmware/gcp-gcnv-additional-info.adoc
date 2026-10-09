@@ -18,7 +18,7 @@ summary:
 
 * Google Google Cloud NetApp Volumes Cloud 文件
 +
-https://cloud.google.com/architecture/partners/netapp-cloud-volumes/["https://cloud.google.com/architecture/partners/netapp-cloud-volumes/"^]
+https://docs.cloud.google.com/netapp/volumes/docs/discover/overview["https://docs.cloud.google.com/netapp/volumes/docs/discover/overview"^]
 
 * Google 私人服務訪問
 +

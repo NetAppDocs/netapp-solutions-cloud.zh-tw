@@ -199,7 +199,6 @@
   <block id="81740fc5dc59e6749304f806bc2a6457" category="paragraph">身分和存取管理<block ref="3e7f3b73b3f103986fbe162302b5e57e" category="inline-link-rx"></block>) 是一項標準服務，可讓您控制對 Google Cloud 專案執行個體的驗證（登入）和授權（權限）。 Google IAM 提供權限授權和刪除的完整稽核追蹤。目前， Google Cloud NetApp Volumes不提供控制平面稽核。</block>
   <block id="697308a09680ed006fe009f5a90fd74c" category="section-title">授權/許可概述</block>
   <block id="cb5b383a5c27210bdf8f2fd443c68ebb" category="inline-link">此處有詳細的權限完整列表</block>
-  <block id="6017ae2fccf12b1024e37a6c128d8606" category="paragraph">IAM 為Google Cloud NetApp Volumes提供內建的細粒度權限。您可以找到<block ref="fefbe49b0be12af5b957eff3a3dc2826" category="inline-link-rx"></block>。</block>
   <block id="f6c6a3fb346fa0197c1eeba05a4736c6" category="paragraph">IAM 還提供了兩個預定義角色，稱為<block ref="4a5395c87dd91b3242056f83b7cedb9b" prefix=" " category="inline-code"></block>和<block ref="d8cd72eb52281636a72e12ef877b62f8" prefix=" " category="inline-code"></block>。這些角色可以指派給特定使用者或服務帳戶。</block>
   <block id="701f37b0f984021bc8766709abd2e243" category="paragraph">指派適當的角色和權限以允許 IAM 使用者管理Google Cloud NetApp Volumes。</block>
   <block id="010558e705f1d93db66b5a129431b39d" category="paragraph">使用細粒度權限的範例包括：</block>
@@ -214,11 +213,9 @@
   <block id="9d8270b5a4616fc246d5f96cccc9f61e" category="inline-link">應用程式預設憑證</block>
   <block id="c1f48ac217f6b993bda4f82835777177" category="list-text">使用<block ref="09540132e155f93461287a2e21a4e25d" category="inline-link-rx"></block>和<block ref="4d4344aa5ad9d43d63ab2f068115cadb" prefix=" " category="inline-code"></block>。程式碼（腳本、Terraform 等）運行<block ref="ffba44c35d88772fc8c63157b8dc0cf7" category="inline-link-rx"></block>並模擬服務帳戶以取得其權限。這種方法體現了 Google 安全最佳實踐。</block>
   <block id="01aa2fa55c64df5a4122b637c9ababc7" category="inline-link">建立您的服務帳戶和私鑰</block>
-  <block id="00aa2e143f3d3b00e94456b23d239a8d" category="paragraph">看<block ref="5d862676de2107050ea35e71368d2326" category="inline-link-rx"></block>請參閱 Google 雲端文件以取得更多資訊。</block>
   <block id="5a050c17599c5930f4bd371509e3de0b" category="section-title">Google Cloud NetApp VolumesAPI</block>
   <block id="6c92285fa6d3e827b198d120ea3ac674" category="inline-link">這裡</block>
   <block id="d06e940dcf329e87ca49cb2a665f5fd8" category="inline-link">Google 雲端文件中的 Cloud Volumes API</block>
-  <block id="1878d6e8683fe4315da88b36b3355885" category="paragraph">Google Cloud NetApp Volumes API 使用基於 REST 的 API，並使用 HTTPS（TLSv1.2）作為底層網路傳輸。您可以找到最新的 API 定義<block ref="d30245d84ac801bb5beeb0b65de1621d" category="inline-link-rx"></block>以及如何使用 API 的訊息<block ref="00c944b7c7739b905457d5d21be6a7ef" category="inline-link-rx"></block>。</block>
   <block id="de13c3e3b25af602f2652dd51a503a8a" category="paragraph">NetApp使用標準 HTTPS（TLSv1.2）功能來操作和保護 API 端點。</block>
   <block id="56ebd33e81a27d6c3c78f2f67f2d3c1a" category="inline-link">RFC-7519</block>
   <block id="f2c16a4802323f9b9c1ac55acf92645f" category="paragraph">使用 JWT 承載令牌執行 API 驗證<block ref="89a64c0d993ae56a4af8e7ccde6ee59e" category="inline-link-rx"></block>）。必須使用 Google Cloud IAM 驗證來取得有效的 JWT 令牌。這必須透過提供服務帳戶 JSON 金鑰從 IAM 取得令牌來完成。</block>
@@ -231,7 +228,6 @@
   <block id="e23c4fadd8e7d70663bc3393bca7d576" category="inline-link">Google 金鑰管理服務 (KMS)。</block>
   <block id="387ccb6d293c8d2f51b2730c375c3f3a" category="paragraph">從 2021 年 11 月開始，預覽客戶管理加密金鑰 (CMEK) 功能已推出。這使得您可以使用託管在以下位置的每個項目、每個區域的主密鑰來加密每個卷密鑰：<block ref="145d140dc09dde7f8aacc53f1269c2de" category="inline-link-rx"></block> KMS 可讓您附加外部金鑰管理員。</block>
   <block id="1988a6b2308f38718c8100c2e344eb5c" category="inline-link">設定客戶管理的加密金鑰</block>
-  <block id="80919fe0003689b6f2053a832e698bed" category="paragraph">有關為NetApp Volumes-Performance 配置 KMS 的信息，請參閱<block ref="a0d8b07d63b271255da3bba6f51651a4" category="inline-link-rx"></block>。</block>
   <block id="13a2c7416db43025d8318ec9db325859" category="summary">傳輸中的資料可以在 NAS 協定層加密，而 Google Cloud 網路本身也經過加密，如以下部分所述。</block>
   <block id="f7ccd4455f141bba37dd989458bfd1f3" category="doc">傳輸中的資料加密</block>
   <block id="8de1715de3864b137091fa8f6d71053f" category="section-title">Google Cloud 網路</block>
@@ -290,7 +286,6 @@
   <block id="33186704f78f73f32736a9ba7f8ddc85" category="inline-link">私人服務訪問</block>
   <block id="d769b3949691460e5b25c0d385c61927" category="paragraph">Google Cloud NetApp Volumes for Google Cloud 利用 Google Cloud<block ref="466f20229cc0e1fa2efa2b4b45528417" category="inline-link-rx"></block>框架。在這個框架中，使用者可以連接到Google Cloud NetApp Volumes。該框架像其他 Google Cloud 服務一樣使用服務網路和 VPC 對等結構，確保租戶之間的完全隔離。</block>
   <block id="f45215d23f419191c6b4331e425757a7" category="inline-link">Google Cloud NetApp Volumes的架構</block>
-  <block id="0a65eb81a65b359aa2905e35e6b00afa" category="paragraph">有關Google Cloud NetApp Volumes for Google Cloud 的架構概述，請參閱<block ref="cba55a50539be72da0573fd9697d0496" category="inline-link-rx"></block>。</block>
   <block id="c962313b808aa3db69b0976b1f2196e0" category="paragraph">使用者 VPC（獨立或共用）與託管磁碟區的Google Cloud NetApp Volumes管理租用戶專案內的 VPC 對等。</block>
   <block id="c356112c0b6176522ae6ddd610e26f46" category="paragraph"><block ref="c356112c0b6176522ae6ddd610e26f46" category="inline-image-macro-rx" type="image"></block></block>
   <block id="bb3e8b148cb277fcb0da06055d968b33" category="paragraph">上圖展示了一個專案（中間的NetApp Volumes 消費者專案），其中有三個 VPC 網路連接到Google Cloud NetApp Volumes ，並且多個 Compute Engine VM（GCE1-7）共用磁碟區：</block>
@@ -303,20 +298,14 @@
   <block id="c5381dc540506dbb210e2d300554e4cd" category="doc">防火牆</block>
   <block id="1ca8ae2f3c716798a4609b8149e15819" category="paragraph">Google Cloud NetApp Volumes公開多個 TCP 連接埠來為 NFS 和 SMB 共用提供服務：</block>
   <block id="8ace993e6a8c37342617dbf22185890a" category="inline-link">NFS 存取所需的連接埠</block>
-  <block id="c56328227fc3affbe6ed0ef4ba04f494" category="list-text"><block ref="c56328227fc3affbe6ed0ef4ba04f494" category="inline-link-rx"></block></block>
   <block id="259c7a7ef42d8165caa2c0238cb6f9fe" category="inline-link">SMB 存取所需的連接埠</block>
-  <block id="c6563340810489dd712f25c2644eaed8" category="list-text"><block ref="c6563340810489dd712f25c2644eaed8" category="inline-link-rx"></block></block>
   <block id="48e54afcf03ca45bfe38f6b7ff58764a" category="inline-link">配置</block>
   <block id="2957bc03d53f1be7c11d427906ed1479" category="inline-link">基於 DNS 的 DC 發現</block>
-  <block id="150a343c955aa3114dca2e9c39571ad8" category="paragraph">此外，SMB、具有 LDAP（包括 Kerberos）的 NFS 以及雙協定設定需要存取 Windows Active Directory 網域。  Active Directory 連線必須<block ref="10ec0b3d8ec2c3b73be0dd7483e61c9e" category="inline-link-rx"></block>按地區劃分。 Active Directory 網域控制站 (DC) 透過使用<block ref="821541d595f9fee8c67d91aa5da861b4" category="inline-link-rx"></block>使用指定的 DNS 伺服器。任何返回的 DC 都會被使用。可以透過指定 Active Directory 網站來限制符合條件的 DC 清單。</block>
   <block id="ca1d4de011b09139ac8c8ef3d189d7c1" category="inline-link">加入Google Cloud NetApp Volumes</block>
-  <block id="95a8374f4bcd742d499aad34cafe1002" category="paragraph">Google Cloud NetApp Volumes使用分配給<block ref="3102e8199e828cb030b6f0ade5fc2cec" prefix=" " category="inline-code"></block>命令同時<block ref="4d60cbd91c94dc622fba57d0c44f1434" category="inline-link-rx"></block>。您可以使用此 CIDR 作為來源位址來設定至 Active Directory 網域控制站的入站防火牆。</block>
   <block id="790e80bea359c6183bfa1accf7191266" category="inline-link">如這裡所述，將連接埠暴露給Google Cloud NetApp Volumes CIDR</block>
-  <block id="7f41939d847e8d805d7a804af23b2a27" category="paragraph">Active Directory 網域控制站必須<block ref="2cccb2782a2832ca8bbe47638498a0df" category="inline-link-rx"></block>。</block>
   <block id="45180739160b415b1990f5cb7991510e" category="summary">Google Cloud NetApp Volumes能夠與 SMB 和 NFS 用戶端共享相同的資料集，同時保持適當的雙協定存取權限。這是透過協調協定之間的身份映射並使用集中式後端 LDAP 伺服器向Google Cloud NetApp Volumes提供 UNIX 身分來實現的。您可以使用 Windows Active Directory 為 Windows 和 UNIX 使用者提供易用性。</block>
   <block id="d27d01220b09abd6dc8be87dd2b7f8d4" category="doc">雙協議/多協議</block>
   <block id="9a5ba82ef925964774fad34d380585ce" category="inline-link">雙協議</block>
-  <block id="b50318d3a304c26da00ae1027be58139" category="paragraph">Google Cloud NetApp Volumes能夠與 SMB 和 NFS 用戶端共享相同的資料集，同時保持適當的存取權限<block ref="090248040bf8d7cbf59e0f5bcb2aeb23" category="inline-link-rx"></block>）。這是透過協調協定之間的身份映射並使用集中式後端 LDAP 伺服器向Google Cloud NetApp Volumes提供 UNIX 身分來實現的。您可以使用 Windows Active Directory 為 Windows 和 UNIX 使用者提供易用性。</block>
   <block id="65bd83537129be15c8027ec94bec5bd3" category="section-title">存取控制</block>
   <block id="95fddd88222c03f51f45d2771f2d4c3e" category="list-text">*共享存取控制。 *確定哪些客戶端和/或使用者和群組可以存取 NAS 共用。對於 NFS，導出策略和規則控制用戶端對導出的存取。  NFS 匯出由Google Cloud NetApp Volumes實例管理。 SMB 利用 CIFS/SMB 共用和共用 ACL 在使用者和群組層級提供更精細的控制。您只能透過使用https://library.netapp.com/ecmdocs/ECMP1401220/html/GUID-C1772CDF-8AEE-422B-AB87-CFCB7E50FF94.html [MMC/Computer Management^] 和在Google Cloud NetApp Volumes實例上具有共享管理員的帳戶權限ACL（請參閱部分連結：gcp-gcnv-smb.html#Accounts with local/BUILTIN administrator/backup rights["Accounts with local/BUILTIN administrator/backup rights."]）。</block>
   <block id="1020ac8238c0e64a401514745b8a3c6a" category="list-text">*檔案存取控制。 *控製檔案或資料夾層級的權限，並始終從 NAS 用戶端進行管理。  NFS 用戶端可以使用傳統模式位元 (rwx) 或 NFSv4 ACL。  SMB 用戶端利用 NTFS 權限。</block>
@@ -326,7 +315,6 @@
   <block id="611d073e39b052e50653f2fa6af258a4" category="paragraph">例如，如果 Windows 使用者名稱為<block ref="8ff32489f92f33416694be8fdc2d4c22" prefix=" " category="inline-code"></block>嘗試透過 SMB 存取具有 UNIX 權限的捲，然後Google Cloud NetApp Volumes執行搜尋以尋找名為<block ref="8ff32489f92f33416694be8fdc2d4c22" prefix=" " category="inline-code"></block>。如果存在，則以 Windows 使用者身分寫入 SMB 共用的文件<block ref="8ff32489f92f33416694be8fdc2d4c22" prefix=" " category="inline-code"></block>顯示為 UNIX 用戶<block ref="8ff32489f92f33416694be8fdc2d4c22" prefix=" " category="inline-code"></block>來自 NFS 客戶端。</block>
   <block id="393d975e81d9b4843c9b49ccd2ca2260" category="paragraph">或者，如果 UNIX 使用者名稱為<block ref="8ff32489f92f33416694be8fdc2d4c22" prefix=" " category="inline-code"></block>嘗試使用 Windows 權限存取Google Cloud NetApp Volumes卷，則 UNIX 使用者必須能夠對應到有效的 Windows 使用者。否則，將拒絕存取該磁碟區。</block>
   <block id="98b9b81e4ad07f5198dd8381a0c5d43c" category="inline-link">建立 AD 連接</block>
-  <block id="d6210f83492bb730b32d0e719a1d5100" category="paragraph">目前，僅支援使用 LDAP 進行外部 UNIX 身分識別管理的 Active Directory。有關配置此服務的存取權限的更多信息，請參閱<block ref="cfe0f81fca904ab10d3dcbbfceb0f3de" category="inline-link-rx"></block>。</block>
   <block id="7fc7c5bf3cd7f453807f2e17dc846957" category="section-title">權限模型</block>
   <block id="13482a0eb1323b96c6546041137979ae" category="paragraph">使用雙協定設定時， Google Cloud NetApp Volumes會利用磁碟區的安全樣式來決定 ACL 的類型。這些安全樣式是根據指定的 NAS 協定設定的，或者在雙協定的情況下，是在建立Google Cloud NetApp Volumes區時所做的選擇。</block>
   <block id="0b9faf8bcb94c68c4ee8f98d45f29950" category="list-text">如果您僅使用 NFS， Google Cloud NetApp Volumes磁碟區將使用 UNIX 權限。</block>
@@ -362,7 +350,6 @@
   <block id="2ba9bd625eb476e5c1994e5789fad447" category="paragraph">對於 NFS Kerberos 機器帳戶，僅當建立/與 KDC 交換新的金鑰表時才會重設密碼。目前，在Google Cloud NetApp Volumes中無法執行此操作。</block>
   <block id="7631991924ea0015e269781ad88bd8d3" category="section-title">用於 LDAP 和 Kerberos 的網路連接埠</block>
   <block id="21397599322549c299d83a1cbb38a0f7" category="inline-link">Google Cloud NetApp Volumes有關安全注意事項的文檔</block>
-  <block id="fe96b11ce81de7035bdeb96d278a21e8" category="paragraph">當使用 LDAP 和 Kerberos 時，您應該確定這些服務正在使用的網路連接埠。您可以在以下位置找到Google Cloud NetApp Volumes所使用的連接埠的完整清單：<block ref="a1a947bbdab8a5e81052f39c5cde8450" category="inline-link-rx"></block> 。</block>
   <block id="2363dee608bcd9f6ce7f980bfdad5789" category="section-title">LDAP</block>
   <block id="5c0101644255b467391ef8f462285e79" category="paragraph">Google Cloud NetApp Volumes可作為 LDAP 用戶端，並使用標準 LDAP 搜尋查詢來尋找 UNIX 身分的使用者和群組。如果您打算使用Google Cloud NetApp Volumes提供的標準預設使用者以外的使用者和群組，則 LDAP 是必要的。如果您打算將 NFS Kerberos 與使用者主體（例如 user1@domain.com）一起使用，則 LDAP 也是必要的。目前僅支援使用 Microsoft Active Directory 的 LDAP。</block>
   <block id="2eaa173e56517db74fb0eb92806a0877" category="inline-link">RFC-2307-bis</block>
@@ -510,7 +497,6 @@
   <block id="e3aa134886f9dad39f14489844fe7763" category="paragraph">您可以設定 Active Directory DNS 來限制哪些伺服器可以更新 DNS 記錄。有關更多信息，請參閱<block ref="1abda701cc77717e0b1a0b391ec2fed8" category="inline-link-rx"></block> 。</block>
   <block id="77a367610488d0d5f598baef5fe08af2" category="paragraph">請注意，Google 專案內的資源預設使用 Google Cloud DNS，它與 Active Directory DNS 無關。使用 Cloud DNS 的用戶端無法解析Google Cloud NetApp Volumes傳回的 UNC 路徑。加入 Active Directory 網域的 Windows 用戶端配置為使用 Active Directory DNS，並且可以解析此類 UNC 路徑。</block>
   <block id="71870bac7a9267067ab69566f75d36c3" category="inline-link">為什麼我的客戶端無法解析 SMB NetBIOS 名稱？</block>
-  <block id="b0ffc266c9e05cd7ae80810305b932bf" category="paragraph">若要將用戶端加入 Active Directory，您必須設定其 DNS 設定以使用 Active Directory DNS。或者，您可以設定 Cloud DNS 將請求轉送至 Active Directory DNS。看<block ref="d568657413aac86de4b237a9edcddc2d" category="inline-link-rx"></block>了解更多。</block>
   <block id="390be5e7c4211504834e8d91d6a6061d" category="admonition">Google Cloud NetApp Volumes目前不支援 DNSSEC，DNS 查詢以純文字形式執行。</block>
   <block id="c3a18bc4fd14cf11bc551540f29f6375" category="section-title">文件存取審計</block>
   <block id="5269393c158aac157a76a2be03b26beb" category="paragraph">目前不支援Google Cloud NetApp Volumes。</block>
@@ -581,7 +567,6 @@
   <block id="13640bb94453faf76256f49439337e2e" category="paragraph">ACL * 讀取資料（檔案）/列出目錄（目錄） * 寫入資料（檔案）/建立檔案（目錄） * 附加資料（檔案）/建立子目錄（目錄） * 執行（檔案）/變更目錄（目錄） * 刪除 * 刪除子項目 * 讀取屬性權限 *寫入屬性 * 讀取命名屬性 * 寫入屬性 * 刪除 * 刪除子項目 * 讀取屬性權限 *寫入屬性 * 讀取命名屬性 * 寫入屬性 * 命名屬性 *</block>
   <block id="0bfe97b6a2010bf8a46c30c256d9bc67" category="paragraph">最後，根據 RPC 封包限制，NFS 群組成員資格（在 NFSv3 和 NFSV4.x 中）對於 AUTH_SYS 的預設最大值限制為 16。  NFS Kerberos 提供最多 32 個群組，NFSv4 ACL 透過細粒度的使用者和群組 ACL（每個 ACE 最多 1024 個條目）消除了限制。</block>
   <block id="27aabeb671232f388e6288cf9395fda9" category="inline-link">建立和管理 NFS 卷</block>
-  <block id="cd51481df622ddeb05665086c2992c8a" category="paragraph">此外， Google Cloud NetApp Volumes也提供擴充組支持，將最大支援組數擴展至 32 個。這需要與包含有效 UNIX 使用者和群組身分的 LDAP 伺服器建立 LDAP 連線。有關配置此功能的更多信息，請參閱<block ref="744e76592290230cb7381c9b8a5414da" category="inline-link-rx"></block>在 Google 文件中。</block>
   <block id="75812520c9040a205064d0d2cb2263e9" category="section-title">NFSv3 使用者和群組 ID</block>
   <block id="e23ce9bfde06ded9ca5f1ec420e3e4a2" category="paragraph">NFSv3 使用者和群組 ID 以數字 ID 而非名稱的形式透過網路傳輸。 Google Cloud NetApp Volumes不會透過 NFSv3 對這些數位 ID 進行使用者名稱解析，而 UNIX 安全樣式磁碟區僅使用模式位元。當存在 NFSv4.1 ACL 時，需要進行數字 ID 查找和/或名稱字串查找才能正確解析 ACL - 即使使用 NFSv3。對於 NTFS 安全樣式捲， Google Cloud NetApp Volumes必須將數位 ID 解析為有效的 UNIX 用戶，然後對應到有效的 Windows 用戶以協商存取權限。</block>
   <block id="c88acee1e86a1d4e088392362c04bb3b" category="section-title">NFSv3 使用者和群組 ID 的安全限制</block>
@@ -701,7 +686,6 @@
   <block id="4d2ef14e4102cfdaf3dcdc699f690e5e" category="doc">TR-4918：安全概覽 - Google Cloud 中的Google Cloud NetApp Volumes</block>
   <block id="09f7873d6f07efaef82aef2b95f42e0a" category="paragraph">Oliver Krause、Justin Parisi、 NetApp</block>
   <block id="bdb90f0be8f1c9cf725354745457ab5b" category="inline-link">Google Cloud NetApp Volumes在 Google Cloud 提供</block>
-  <block id="f3ac9013dce64aa8e9e6ee1926fe27e9" category="paragraph">安全性，特別是在雲端中，因為基礎設施不受儲存管理員的控制，對於將您的資料信任給雲端提供者提供的服務產品至關重要。本文檔概述了<block ref="e634ef9ab7edcd838f9cb9f940d37abd" category="inline-link-rx"></block>。</block>
   <block id="f2b84afd0523a6df7547c404aa3647d8" category="section-title">目標受眾</block>
   <block id="07cb2152cb24dc6225ff2216fddf688c" category="paragraph">本文檔的目標受眾包括但不限於以下角色：</block>
   <block id="3487d2ed085064f5b68318d25038bcd6" category="list-text">雲端提供者</block>
@@ -748,7 +732,6 @@
   <block id="b114edcfa107ab9d459e2e75aea2cfdb" category="inline-link">FIPS 140-2 憑證 #4144</block>
   <block id="3374b040a85dfd8ddec01a0ef96dd634" category="list-text">對於NetApp Volumes-Performance，每個磁碟區的金鑰都儲存在Google Cloud NetApp Volumes內建的金鑰管理器中，該管理員使用NetApp ONTAP CryptoMod 產生 AES-256 加密金鑰。 CryptoMod 列在 CMVP FIPS 140-2 驗證模組清單中。看<block ref="c8bf3ef21e8efdca1f27a1e57e809607" category="inline-link-rx"></block>。</block>
   <block id="154ec0034e65441130b13084062c4df1" category="paragraph">從 2021 年 11 月開始，預覽版客戶管理加密 (CMEK) 功能已為NetApp Volumes-Performance 提供。此功能可讓您使用託管在 Google 金鑰管理服務 (KMS) 中的每個項目、每個區域的主金鑰加密每個磁碟區的金鑰。  KMS 可讓您附加外部金鑰管理員。</block>
-  <block id="098b1d6b3a2c912e9418d9bd7bd0ace5" category="paragraph">有關如何為NetApp Volumes-Performance 配置 KMS 的詳細信息，<block ref="d6b1d417b1e49e8b2597ce034a78102f" category="inline-link-rx"></block> 。</block>
   <block id="3c3e0a595a0e42acadb044bf92289ca4" category="paragraph">有關架構的更多信息，請參閱<block ref="ffbdea7f3a518bcd82cd5723e9c330c2" category="inline-link-macro-rx"></block></block>
   <block id="fb787119808b111e9df5553be31361c8" category="section-title">確保傳輸中的資料安全</block>
   <block id="af400683e6fc984e8c8d9860ca78901a" category="paragraph">除了保護靜態資料之外，您還必須能夠保護在Google Cloud NetApp Volumes實例和用戶端或複製目標之間傳輸的資料。  Google Cloud NetApp Volumes使用加密方法（例如使用 Kerberos 的 SMB 加密、封包的簽署/密封以及用於資料傳輸端對端加密的 NFS Kerberos 5p）為透過 NAS 協定傳輸的資料提供加密。</block>
@@ -781,9 +764,7 @@
   <block id="9b641219ac63451505f5a25a887038d4" category="section-title">備份和復原</block>
   <block id="2dedc2f1d87bec49faa2129203dbfb16" category="paragraph">Google Cloud NetApp Volumes提供標準 NAS 用戶端備份功能（例如透過 NFS 或 SMB 進行備份）。</block>
   <block id="0d69441d7fc21e56d3cf2eb944fbf6c1" category="inline-link">卷複製</block>
-  <block id="c14840d0169ee3753ed197a89a30000f" category="list-text">NetApp Volumes-Performance 提供跨區域磁碟區複製到其他NetApp Volumes-Performance 磁碟區的功能。有關詳細信息，請參閱<block ref="ec408a29560fd662bec08bf50f9ff3d6" category="inline-link-rx"></block>在Google Cloud NetApp Volumes文件中。</block>
   <block id="161b127f579db2727ace94e4fb6f9e5b" category="inline-link">雲端備份</block>
-  <block id="a482be934e169c3d841f1d76c324c0b4" category="list-text">NetApp Volumes-SW 提供服務原生磁碟區備份/復原功能。有關詳細信息，請參閱<block ref="2377dc7e4548195ed704b70f3ce6250c" category="inline-link-rx"></block>在Google Cloud NetApp Volumes文件中。</block>
   <block id="56a32ac982c7663e59f24c58cfb673d6" category="paragraph">卷複製提供了來源磁碟區的精確副本，以便在發生災難（包括勒索軟體事件）時實現快速故障轉移。</block>
   <block id="ae2679a66d07f8c7efd50d972a34a112" category="section-title">跨區域複製</block>
   <block id="304acb700a2a141ad239279043fc11c8" category="paragraph">NetApp Volumes-Performance 可讓您在NetApp控制的後端服務網路上使用 TLS1.2 AES 256 GCM 加密，使用在 Google 網路上執行的用於複製的特定接口，安全地跨 Google Cloud 區域複製磁碟區以進行資料保護和存檔用例。主（來源）磁碟區包含活動生產數據，並複製到輔助（目標）磁碟區以提供主資料集的精確副本。</block>
@@ -791,20 +772,15 @@
   <block id="fd25283b48ea77209e43fe9173df1354" category="paragraph">檔案和資料夾的所有權限都會複製到輔助磁碟區，但共用存取權限（例如匯出原則和規則或 SMB 共用和共用 ACL）必須單獨處理。在發生網站故障轉移的情況下，目標網站應利用相同的名稱服務和 Active Directory 網域連線來提供對使用者和群組身分和權限的一致處理。您可以透過中斷複製關係（將輔助磁碟區轉換為讀寫關係）在災難發生時將輔助磁碟區用作故障轉移目標。</block>
   <block id="61643d6093acad9955cb0fcad9f822ff" category="paragraph">卷副本是唯讀的，它提供了異地資料的不可變副本，以便在病毒感染資料或勒索軟體加密主資料集的情況下快速恢復資料。只讀資料不會被加密，但是，如果主磁碟區受到影響並發生複製，則受感染的區塊也會複製。您可以使用較舊的、未受影響的 Snapshot 副本進行恢復，但根據偵測到攻擊的速度，SLA 可能會超出承諾的 RTO/RPO 範圍。</block>
   <block id="fe62647cc35dde214e0df1ae1fe9d0ab" category="inline-link">安全注意事項</block>
-  <block id="8300934434804a35f73de998d81b2f86" category="paragraph">此外，您還可以利用 Google Cloud 中的跨區域複製 (CRR) 管理來防止惡意管理操作，例如磁碟區刪除、快照刪除或快照計畫變更。這是透過建立自訂角色來實現的，這些角色將磁碟區管理員（可以刪除來源磁碟區但不能破壞鏡像，因此不能刪除目標磁碟區）與 CRR 管理員（不能執行任何磁碟區操作）分開。看<block ref="bf2a9ccb864ad3a1fa1ddc1fec02a961" category="inline-link-rx"></block>在Google Cloud NetApp Volumes文件中了解每個管理員群組允許的權限。</block>
   <block id="a3939482489144f13163a459115dbbcd" category="section-title">Google Cloud NetApp Volumes備份</block>
   <block id="2dc7fc04753aaa49b4bf772c0c1f695d" category="paragraph">儘管Google Cloud NetApp Volumes提供了高資料持久性，但外部事件可能會導致資料遺失。如果發生病毒或勒索軟體等安全事件，備份和復原對於及時恢復資料存取至關重要。管理員可能會意外刪除Google Cloud NetApp Volumes磁碟區。或者用戶只是想將其資料的備份版本保留數月，而保留卷內的額外 Snapshot 副本空間則成為一項成本挑戰。儘管 Snapshot 副本應該是保留過去幾週的備份版本以從中恢復遺失資料的首選方式，但它們位於磁碟區內，如果磁碟區消失，它們也會遺失。</block>
-  <block id="8cd0c838a8016f1037d9493b4a1847ad" category="paragraph">基於所有這些原因， Google Cloud NetApp Volumes透過以下方式提供備份服務<block ref="2d0b2078e1ba78afa4bfe46e351b1c55" category="inline-link-rx"></block>。</block>
   <block id="8389c9ad906100251ea59ef1e8774e79" category="paragraph">Google Cloud NetApp Volumes備份會在 Google Cloud Storage (GCS) 上產生該磁碟區的副本。它僅備份卷內儲存的實際數據，而不是可用空間。它永遠以增量方式工作，這意味著它傳輸一次卷內容，然後從那時起繼續僅備份更改的資料。與具有多次完整備份的傳統備份概念相比，它節省了大量的備份存儲，從而降低了成本。由於備份空間的月費與磁碟區相比較低，因此它是長期保存備份版本的理想場所。</block>
   <block id="143c3951f491257c9fa5310ecca4e048" category="paragraph">使用者可以使用Google Cloud NetApp Volumes備份將任何備份版本還原到同一區域內的相同或不同磁碟區。如果刪除來源卷，備份資料將保留，並且需要單獨管理（例如，刪除）。</block>
   <block id="5d491dac182b8c113a01484a72490d52" category="inline-link">Google Cloud NetApp Volumes備份文檔</block>
   <block id="be7923d42a302a1a86fdaa9f096fde63" category="inline-link">支援的最大備份版本數量</block>
   <block id="59aab28b54594c59dab8d19afd9478e4" category="inline-link">定價</block>
-  <block id="cdbc43a8138c14783a6723f01c5e87ae" category="paragraph">Google Cloud NetApp Volumes備份作為選項內建於Google Cloud NetApp Volumes 。使用者可以透過按卷啟動Google Cloud NetApp Volumes備份來決定要保護哪些磁碟區。查看<block ref="4812e70da090be5e24e330690c5ac1c8" category="inline-link-rx"></block>有關備份的信息，<block ref="d724a11e2928bd8489b8ad8fe1eac94b" category="inline-link-rx"></block> 、調度和<block ref="31e05107512c82ef17df4f5c4b3fe0bd" category="inline-link-rx"></block>。</block>
   <block id="571c10683f858f3573f00adbc7eb5629" category="paragraph">專案的所有備份資料都儲存在 GCS 儲存桶中，該儲存桶由服務管理，使用者不可見。每個項目使用不同的儲存桶。目前，這些儲存桶與Google Cloud NetApp Volumes磁碟區位於同一區域，但正在討論更多選項。查閱文件以了解最新狀態。</block>
   <block id="cb32e4c0d75252d9857fe4c2e3c75b52" category="paragraph">從Google Cloud NetApp Volumes儲存桶到 GCS 的資料傳輸使用具有 HTTPS 和 TLS1.2 的服務內部 Google 網路。資料使用 Google 管理的金鑰進行靜態加密。</block>
-  <block id="5e467dce18f46b1803b06097fae60b82" category="inline-link">角色/netappcloudvolumes.admin</block>
-  <block id="2817c2e3af860825100653bdcc2056b2" category="paragraph">要管理Google Cloud NetApp Volumes備份（建立、刪除和還原備份），使用者必須擁有<block ref="595f329bf934dbc7996bb735e9664896" category="inline-link-rx"></block>角色。</block>
   <block id="36a54db2e7b0de784b30ce8c6c865249" category="summary">Google Cloud 中的Google Cloud NetApp Volumes提供了多種方式來原生保護您的資料。</block>
   <block id="d79d43bad8a042f8063f7942dc0fd710" category="doc">Google Cloud 中的Google Cloud NetApp Volumes如何保護您的數據</block>
   <block id="9967209a1408f78f781d93dd0cdf88c4" category="section-title">安全架構和租賃模型</block>
@@ -858,10 +834,8 @@
   <block id="ee69241049506ca93a3a1cd627e44851" category="inline-link">客戶合約</block>
   <block id="15655a5f67808f893102ffa3cbde3b01" category="inline-link">客戶Data Processing附錄</block>
   <block id="cd0ae90a69c7d21d42b18252b9e1707d" category="inline-link">標準合約條款</block>
-  <block id="de315e46a9bdf4936de71254f87d2fe0" category="paragraph">我們對隱私和 GDPR 合規性的承諾體現在我們的許多<block ref="c2118342007d8714fcb1b4f6106c575c" category="inline-link-rx"></block>，例如我們的<block ref="7f657124cd056ea8e74c57dcafd4df75" category="inline-link-rx"></block>，其中包括<block ref="85bd1a4ed188bfd53fcaef2fb6e1962a" category="inline-link-rx"></block>由歐盟委員會提供。我們也在我們的隱私權政策中做出了這些承諾，並以我們公司行為準則中規定的核心價值為後盾。</block>
   <block id="599e7197321e9ab772426d7187714f67" category="summary">SMB 是 Microsoft 開發的網路檔案共用協議，它透過乙太網路為多個 SMB 用戶端提供集中式使用者/群組身份驗證、權限、鎖定和檔案共用。</block>
   <block id="b4fdd997b1f33e0d4c6964444c2bf399" category="doc">中小企業</block>
-  <block id="e0a515b0910f55d3d1d5adda978e8e4f" category="paragraph"><block ref="395dbbdb78e4ae6be8daf8ab2b7828a7" category="inline-link-rx"></block>是 Microsoft 開發的網路檔案共用協議，可透過乙太網路為多個 SMB 用戶端提供集中式使用者/群組身份驗證、權限、鎖定和檔案共用。文件和資料夾透過共享的方式呈現給客戶端，可以配置各種共享屬性，並透過共享級權限提供存取控制。  SMB 可以呈現給任何支援該協定的用戶端，包括 Windows、Apple 和 Linux 用戶端。</block>
   <block id="e1a78df8b16354acdfe7518c1e26ef4b" category="paragraph">Google Cloud NetApp Volumes為此協定的 SMB 2.1 和 3.x 版本提供支援。</block>
   <block id="cc4a835dfb2ac9e7ba402c068a4ef9a0" category="section-title">存取控制/SMB 共享</block>
   <block id="dbb8fb6d5296551c85f5d41e0f6e9c86" category="list-text">當 Windows 使用者名稱要求存取Google Cloud NetApp Volumes磁碟區時， Google Cloud NetApp Volumes會使用Google Cloud NetApp Volumes管理員設定的方法來尋找 UNIX 使用者名稱。</block>
@@ -2004,8 +1978,6 @@
   <block id="ae4e918956cc077491dbbd3abc0d2578" category="doc">附加資訊和聯絡資訊</block>
   <block id="7d5b957cd473f6eaf5ad335a9c63c4ff" category="paragraph">要了解有關本文檔中描述的信息的更多信息，請查看以下文檔和/或網站：</block>
   <block id="b139dc75096fdff040ba553bbafe1914" category="list-text">Google Google Cloud NetApp Volumes Cloud 文件</block>
-  <block id="6e0173c8a46418c9ee6c916c7c275ef8" category="inline-link"><block ref="6e0173c8a46418c9ee6c916c7c275ef8" category="inline-link-rx"></block></block>
-  <block id="8e65fc49f8ebbf3d9cc9651ce7940654" category="paragraph"><block ref="8e65fc49f8ebbf3d9cc9651ce7940654" category="inline-link-rx"></block></block>
   <block id="0e8aec42089c0c73812fa42d1888b3c8" category="list-text">Google 私人服務訪問</block>
   <block id="75956b9ee748b806549eeec3c9a81192" category="inline-link"><block ref="75956b9ee748b806549eeec3c9a81192" category="inline-link-rx"></block></block>
   <block id="6c84917a571a2282fd9fb2a6f058a11e" category="paragraph"><block ref="6c84917a571a2282fd9fb2a6f058a11e" category="inline-link-rx"></block></block>
@@ -3260,7 +3232,6 @@
   <block id="3b020916a45973167bc70cb4517bd8c8" category="inline-link-macro">設定係統之間的資料複製</block>
   <block id="091112e3dbffea1fef77b4b6bbcec4d3" category="paragraph">若要將磁碟區從本機環境複製到雲端以實現災難復原或遷移，請使用網站到網站 VPN 或 DirectConnect 建立與 AWS 的網路連線。將資料從本地複製到Cloud Volumes ONTAP超出了本文檔的範圍。若要在本機和Cloud Volumes ONTAP系統之間複製數據，請參閱<block ref="79828109910805ccc09752d766afaae3" category="inline-link-macro-rx"></block>。</block>
   <block id="9eb931a836eecf8e743b47b449c70bc5" category="inline-link-macro">Cloud Volumes ONTAP大小調整器</block>
-  <block id="c4fab68ae07564acd6ecd9b911dfff79" category="admonition">使用<block ref="c41f5eb5365f7790c86bbe0d764bfcac" category="inline-link-macro-rx"></block>準確地確定Cloud Volumes ONTAP實例的大小。此外，監控本機效能以用作Cloud Volumes ONTAP大小調整器的輸入。</block>
   <block id="44ca838e7d04a1071dc78602ef005cb3" category="list-text">登入NetApp Cloud Central；顯示 Fabric View 畫面。找到Cloud Volumes ONTAP標籤並選擇前往雲端管理員。登入後，將顯示 Canvas 畫面。</block>
   <block id="1e2def99ab1b59e5aee88b27c7dd5935" category="paragraph"><block ref="1e2def99ab1b59e5aee88b27c7dd5935" category="inline-image-macro-rx" type="image"></block></block>
   <block id="613b8a42b8ee051cdae0288a52604a55" category="list-text">在雲端管理器主頁上，按一下新增工作環境，然後選擇 AWS 作為雲端和系統配置類型。</block>
@@ -4237,7 +4208,6 @@
   <block id="1d583a1a8ff1ca8ae3360c7e33ecd984" category="example-title">在 Azure 中部署新的Cloud Volumes ONTAP</block>
   <block id="ed1019c297fadb83e87437230788320c" category="paragraph">可以從 Azure VMware 解決方案 SDDC 環境中建立的 VM 掛載Cloud Volumes ONTAP共用和 LUN。由於Cloud Volumes ONTAP支援 iSCSI、SMB 和 NFS 協議，因此磁碟區也可以安裝在 Linux 用戶端和 Windows 用戶端上。只需幾個簡單的步驟即可設定Cloud Volumes ONTAP磁碟區。</block>
   <block id="e9cac40069a313b824541cda06c18a06" category="paragraph">若要將磁碟區從本機環境複製到雲端以用於災難復原或遷移目的，請使用站台對站台 VPN 或 ExpressRoute 建立與 Azure 的網路連線。將資料從本地複製到Cloud Volumes ONTAP超出了本文檔的範圍。若要在本機和Cloud Volumes ONTAP系統之間複製數據，請參閱<block ref="79828109910805ccc09752d766afaae3" category="inline-link-macro-rx"></block>。</block>
-  <block id="165fc07e6910d8748be18ecaaab5392d" category="admonition">使用<block ref="c41f5eb5365f7790c86bbe0d764bfcac" category="inline-link-macro-rx"></block>準確地確定Cloud Volumes ONTAP實例的大小。也可以監控本機效能以用作Cloud Volumes ONTAP大小調整器的輸入。</block>
   <block id="a1d02afc571062ee1235156b645846f8" category="list-text">登入NetApp Cloud Central — 顯示 Fabric View 畫面。找到Cloud Volumes ONTAP標籤並選擇前往雲端管理員。登入後，將顯示 Canvas 畫面。</block>
   <block id="a49badfbc2c50cb8abf0648164a81886" category="paragraph"><block ref="a49badfbc2c50cb8abf0648164a81886" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5f067fbf4a3196796318f7e878eaa2a3" category="list-text">在雲端管理器首頁上，按一下新增工作環境，然後選擇 Microsoft Azure 作為雲端和系統設定類型。</block>
@@ -4674,7 +4644,6 @@
   <block id="7894c4e3b60b17efdad1b2066f1ee6f3" category="list-text">確保 Veeam Backup &amp; Replication 備份 VM 連線到來源和目標 GCVE 叢集上的 Veeam 代理伺服器 VM。</block>
   <block id="4410cc25d34f7193e5fc1ae1b1486db6" category="paragraph">使用者需要使用 VMware Engine Cloud 控制台 UI 中的 VPC 網路對等或私有連線頁面在其 GCVE 私有雲和NetApp Volumes 專案之間建立對等連線。</block>
   <block id="a79a1455e0624744a0bc225884f308a8" category="inline-link">提升 VMware Engine 權限</block>
-  <block id="2ad7c328d4b680b40c716e7b6f6169fd" category="admonition">將 GCVE vCenter 伺服器新增至 Veeam Backup and Replication 清單時，Veeam 需要具有提升權限的 GCVE 解決方案使用者帳戶。有關更多信息，請參閱 Google Cloud Platform (GCP) 文檔，<block ref="c1de17de872adba851dbf9d076e5ec43" category="inline-link-rx"></block> 。</block>
   <block id="9d77b7b7188100af6b67ee9f69a27e2b" category="inline-link">注意事項和限制</block>
   <block id="70afa39a98378028fc4fe18eb066d8a2" category="paragraph">有關更多信息，請參閱<block ref="b523b283e70ab01aa034b19addeb76af" category="inline-link-rx"></block>在 Veeam Backup &amp; Replication 文件中。</block>
   <block id="8388066510b59c8d3387373b6969a7af" category="section-title">部署步驟</block>
@@ -4942,7 +4911,6 @@
   <block id="3d1a06f98a1c133a8a0c74cc4222e23b" category="list-text">指定磁碟區的大小和協定類型。本次測試中使用了 SMB。</block>
   <block id="d59b182c892310aea09811264c017dee" category="paragraph"><block ref="d59b182c892310aea09811264c017dee" category="inline-image-macro-rx" type="image"></block></block>
   <block id="cbde2df6a7c89370edc449dc5705d30c" category="inline-link-macro">指示</block>
-  <block id="c6c41df7e1a1198643bd276cb63ef4b5" category="paragraph">提示：如果尚未完成 VPC 對等連接，則會顯示一個彈出按鈕來引導您完成對等連接命令。開啟 Cloud Shell 會話並執行適當的命令以將您的 VPC 與Google Cloud NetApp Volumes生產者對等連接。如果您決定提前準備 VPC 對等連接，請參閱這些<block ref="3b4469537a7b14dcfd28e3d301600ff6" category="inline-link-macro-rx"></block>。</block>
   <block id="73f95524a17725d96bf42bf8198a28c7" category="paragraph"><block ref="73f95524a17725d96bf42bf8198a28c7" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5f26f1ead5eb52f9dd141c71f2e621ec" category="paragraph"><block ref="5f26f1ead5eb52f9dd141c71f2e621ec" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4990031dcfbd871d95ce4ae0321e7156" category="paragraph">若要安裝 SMB 卷，請執行以下操作：</block>
@@ -5049,8 +5017,6 @@
   <block id="cc7538adb5f65b8e12ceeea77a9fe2b4" category="inline-link"><block ref="cc7538adb5f65b8e12ceeea77a9fe2b4" category="inline-link-rx"></block></block>
   <block id="c403f0f0cd3710f7ff6a40c31193feef" category="paragraph"><block ref="c403f0f0cd3710f7ff6a40c31193feef" category="inline-link-rx"></block></block>
   <block id="19e28367f565bf74c0b929f09ffdeb90" category="list-text">Cloud Volume Service 文檔</block>
-  <block id="87a450a8cc5c8bc3aa98266544b13aeb" category="inline-link"><block ref="87a450a8cc5c8bc3aa98266544b13aeb" category="inline-link-rx"></block></block>
-  <block id="bc99ee2635f4933c3a1ae1a2d397722f" category="paragraph"><block ref="bc99ee2635f4933c3a1ae1a2d397722f" category="inline-link-rx"></block></block>
   <block id="92cbc7969081067fa7972b77f8b4c803" category="inline-link"><block ref="92cbc7969081067fa7972b77f8b4c803" category="inline-link-rx"></block></block>
   <block id="dccf3c5043aaab19b4c6eed2cd51be7e" category="paragraph"><block ref="dccf3c5043aaab19b4c6eed2cd51be7e" category="inline-link-rx"></block></block>
   <block id="8e646994c77aca8ec3e51297698897ab" category="summary">目前使用 Veeam 滿足資料保護需求的客戶可以繼續使用該解決方案將工作負載遷移到 GCVE，並享受Google Cloud NetApp Volumes NFS 資料儲存區帶來的好處。</block>
@@ -5097,12 +5063,9 @@
   <block id="4b709fe90ad1f22d6597222ba5bf211e" category="section-title">在 GCVE 上從Google Cloud NetApp Volumes (NetApp Volumes) 掛載 NFS 資料儲存區的部署步驟</block>
   <block id="b2b2500e5ac4be0aa0eebd11e1e2213f" category="example-title">配置NetApp卷 - 性能卷</block>
   <block id="aa4c7c45a6f8058db33abfdb3c13122c" category="inline-link-macro">使用 Google Cloud Console</block>
-  <block id="06cc57ef2fb1f7cc541876ed541bdfa3" category="inline-link-macro">使用NetApp BlueXP入口網站或 API</block>
-  <block id="b5da8f8b590d8d00ff48b523979a1840" category="paragraph">Google Cloud NetApp Volumes磁碟區可以透過以下方式配置<block ref="0beb29edbd200a8e1a7829716a36a1c5" category="inline-link-macro-rx"></block> <block ref="deefdf7aceb221b5aa34627c3ed5425f" category="inline-link-macro-rx"></block></block>
   <block id="4e411d5ed2592bc4ca242e64cb7f9186" category="example-title">將NetApp Volumes 磁碟區標記為不可刪除</block>
   <block id="a1192d97e3edb993b1143a5c6e63b950" category="inline-image-macro">NetApp磁碟區無法刪除選項</block>
   <block id="2f4970f700f71764030682ac3fccec7b" category="inline-link-macro">建立 NFS 卷</block>
-  <block id="e6827f6cccfd222d670853aee39482bd" category="paragraph">為避免在虛擬機器運行時意外刪除卷，請確保該卷標記為不可刪除，如下面的螢幕截圖所示。<block ref="3985850308d7a5a20bb1435c0d6cb728" category="inline-image-macro-rx" type="image"></block>欲了解更多信息，請參閱<block ref="3c3943aac8a82fc401a825d72b8ce909" category="inline-link-macro-rx"></block>文件.</block>
   <block id="4fdb8eccdfd8efe5a225b4fb77b59808" category="example-title">確保NetApp Volumes Tenant VPC 的 GCVE 上有專用連線。</block>
   <block id="5869986e7860a605ef636fe89f5ec914" category="inline-link-macro">如何設定私人服務訪問</block>
   <block id="9bbcebf9b19a6f5afe766e077bb460bc" category="paragraph">要掛載 NFS 資料儲存區，GCVE 和NetApp Volumes 專案之間應該會有私有連線。欲了解更多信息，請參閱<block ref="80db979a388944e99548c1ab943bf1c9" category="inline-link-macro-rx"></block></block>
@@ -5113,7 +5076,6 @@
   <block id="65cc8127fe1b919327fba84ecb3a56f3" category="admonition">由於 vSphere 主機由 Google 管理，因此您無權安裝 NFS vSphere API for Array Integration (VAAI) vSphere Installation Bundle (VIB)。如果您需要虛擬磁碟區 (vVol) 支持，請告知我們。如果您想使用巨型幀，請參閱<block ref="1aed01f13efb6ca82e14bdeed2aecafd" category="inline-link-macro-rx"></block></block>
   <block id="513300fdc0bb213ac4ed46843ff3a05e" category="section-title">使用Google Cloud NetApp Volumes節省成本</block>
   <block id="f294342aa71551905185899001dac18d" category="inline-link-macro">NetApp投資報酬率計算器</block>
-  <block id="3777ea272458516a2513fad67dd48d2e" category="paragraph">若要詳細了解使用Google Cloud NetApp Volumes滿足 GCVE 儲存需求的潛在節省空間，請查看<block ref="4b034931b1f465c160674bfcd2413eb6" category="inline-link-macro-rx"></block></block>
   <block id="8a65075e73c1f173820f496a08f45d2e" category="section-title">參考連結</block>
   <block id="b30ed1ba49503a66ab67998cbd0c158e" category="inline-link-macro">Google 部落格 - 如何使用NetApp Volumes 作為 Google Cloud VMware Engine 的資料儲存區</block>
   <block id="7580e7e1cff336c204a57fa973548649" category="list-text"><block ref="7580e7e1cff336c204a57fa973548649" category="inline-link-macro-rx"></block></block>
@@ -5381,8 +5343,6 @@
   <block id="6c302d6f69fc91f2572712f003676d83" category="list-text">按一下「*建立*」完成策略建立。</block>
   <block id="b376eb1d1a81946ce7cc5b483b394614" category="example-title">將資料儲存備份到 Amazon Web Services</block>
   <block id="0683dcf442cdbe8d60b5c07d40f32d46" category="paragraph">最後一步是啟動各個資料儲存區和虛擬機器的資料保護。以下步驟概述如何啟動 AWS 備份。</block>
-  <block id="1d5ad62b9217b4a3f085f517534f40bb" category="inline-link">將資料儲存備份到 Amazon Web Services</block>
-  <block id="aaa6437baaeb74798cea1dbc99d2449d" category="paragraph">更多資訊請參閱<block ref="1515dd2e0ceefc55442eaf374717c8c0" category="inline-link-rx"></block>。</block>
   <block id="ea304a58f425305bd76d96e195240e41" category="list-text">從BlueXP backup and recovery主頁，存取要備份的資料儲存區的設定下拉式選單並選擇*啟動備份*。</block>
   <block id="addf19ca5aa2245b4311a5fda42a2a57" category="inline-image-macro">啟動備份</block>
   <block id="499f0b0f60bcd76722da4a70b9aaf3e0" category="paragraph"><block ref="499f0b0f60bcd76722da4a70b9aaf3e0" category="inline-image-macro-rx" type="image"></block></block>
@@ -5428,7 +5388,6 @@
   <block id="d8d9151889f2e5c47ace43970e545363" category="section-title">從BlueXP backup and recovery中還原虛擬機</block>
   <block id="c6c605b662ef94c68391b5451e95455d" category="paragraph">BlueXP backup and recovery允許將虛擬機器還原到原始位置。可透過BlueXP Web 控制台存取恢復功能。</block>
   <block id="ffa1e37a2c6478ff157a0a7d25a607e9" category="inline-link">從雲端恢復虛擬機器數據</block>
-  <block id="94b974f7ab5ca99392d1041601e87897" category="paragraph">更多資訊請參閱<block ref="238147c8f6c3fb89d6b3eb28f713b9cf" category="inline-link-rx"></block>。</block>
   <block id="51dac82a8b88ae2579c7783d71b88447" category="example-title">從BlueXP backup and recovery中還原虛擬機</block>
   <block id="d2b7af1fe2cbeff098166770c3666278" category="paragraph">若要從BlueXP backup and recovery和還原還原虛擬機，請完成下列步驟。</block>
   <block id="37f8e514cc85f6be4997337d7410cb05" category="list-text">導航至*保護&gt;備份和還原&gt;虛擬機器*，然後按一下虛擬機器以查看可還原的虛擬機器清單。</block>
@@ -6306,4 +6265,43 @@
   <block id="af84bbf7cdb0d0e716f2513d0d3f363f" category="paragraph">SnapCenter software 可從 NetApp 支援網站取得，並可安裝在位於網域或工作群組的 Microsoft Windows 系統上。詳細的規劃指南和安裝說明可在 <block ref="85cbe5bd6e949acc06321919c4679a05" category="inline-link-macro-rx"></block> 找到。</block>
   <block id="660febd0d05e3ca3fc12d156de67c555" category="paragraph">這將確保執行 Cloud Volumes ONTAP 實例的 VPC 網路能夠與 GCVE 私有雲通訊。為此，請按照<block ref="12bbd3d08aba9fc22ed45e2726d3faff" category="inline-link-macro-rx"></block>操作。對於 Cloud Volume Service，透過在租戶主機專案之間執行一次性對等關係，建立 VMware Engine 與 Google Cloud NetApp Volumes 之間的連線。如需詳細步驟，請參閱此<block ref="04a9f04edfdd7b0a53da57f015378c5a" category="inline-link-macro-rx"></block>。</block>
   <block id="7c8e515cd2bd78ee1fbac514c4d45244" category="summary">審查使用 SnapCenter 應用程式一致性快照、SnapMirror 複寫到 FSx ONTAP 以及 Veeam Backup and Replication for VMs 的災難復原解決方案的需求和規劃。</block>
+  <block id="b36747eb0bfcbc622631bdfc2cd45c34" category="paragraph">IAM 為 Google Cloud NetApp Volumes 提供內建的精細權限。您可以找到<block ref="c921bf901dddf111d51f3ca11ebb3758" category="inline-link-rx"></block>。</block>
+  <block id="f6e881812da5bcc4bc56f17e0a9efefe" category="paragraph">如需詳細資訊，請參閱 Google Cloud 文件中的<block ref="425630f1395332bc899e13b5d33f2dfc" category="inline-link-rx"></block>。</block>
+  <block id="5e150fd1be685088404e3913c3b5fc99" category="paragraph">Google Cloud NetApp Volumes API 使用基於 REST 的 API，並以 HTTPS（TLSv1.2）作為底層網路傳輸。您可以在<block ref="71065174542273e86ee0a3bd68707913" category="inline-link-rx"></block>找到最新的 API 定義與如何使用 API 的資訊。</block>
+  <block id="d2091fd6da268e315fd0274dff01e894" category="paragraph">有關設定 NetApp Volumes-Performance 的 KMS 資訊，請參閱<block ref="52de797e3ab557bd79aafd630810a4f6" category="inline-link-rx"></block>。</block>
+  <block id="09da72f3d03852ba02b0235f67a13074" category="paragraph">如需 Google Cloud NetApp Volumes for Google Cloud 的架構總覽，請參閱<block ref="06d0a114a020b0eac37c779d88a8f538" category="inline-link-rx"></block>。</block>
+  <block id="be992a12452544053b7ed07d393d9ef6" category="list-text"><block ref="be992a12452544053b7ed07d393d9ef6" category="inline-link-rx"></block></block>
+  <block id="b255fa1d5813191b06e4065d03875844" category="list-text"><block ref="b255fa1d5813191b06e4065d03875844" category="inline-link-rx"></block></block>
+  <block id="fdb7c080be516e6b5b443a9283b85c77" category="paragraph">此外，SMB、包含 Kerberos 的 LDAP 的 NFS 以及雙協定組態需要存取 Windows Active Directory 網域。Active Directory 連線必須<block ref="896179457f645f0e3f6cb1c95e5794c6" category="inline-link-rx"></block>以每個區域為基礎。Active Directory 網域控制站（DC）是使用<block ref="821541d595f9fee8c67d91aa5da861b4" category="inline-link-rx"></block>透過指定的 DNS 伺服器來識別。系統會使用傳回的任何 DC。可以透過指定 Active Directory 站台來限制符合條件的 DC 清單。</block>
+  <block id="105a24761a880116931655fd55b0edfe" category="paragraph">Google Cloud NetApp Volumes 使用透過<block ref="3102e8199e828cb030b6f0ade5fc2cec" prefix=" " category="inline-code"></block>命令指派的 CIDR 範圍內的 IP 位址進行通訊<block ref="d3356eff130c7e2105a2d6272585b462" category="inline-link-rx"></block>。您可以將此 CIDR 用作來源位址，為 Active Directory 網域控制站設定傳入防火牆。</block>
+  <block id="0211b37faec477e8d239e11447ea62a7" category="paragraph">Active Directory 網域控制站必須<block ref="575896959423e325a6823b57b0e39074" category="inline-link-rx"></block>。</block>
+  <block id="e83ff0b15bcbc08e4801bdf54d20a918" category="paragraph">Google Cloud NetApp Volumes 提供將相同資料集共享給 SMB 和 NFS 用戶端的能力，同時維持適當的存取權限 <block ref="d74de619a70142fe66893ac7951e2cef" category="inline-link-rx"></block>）。這是透過協調通訊協定之間的身分對應，並使用集中式後端 LDAP 伺服器向 Google Cloud NetApp Volumes 提供 UNIX 身分來完成。為了方便使用，您可以使用 Windows Active Directory 同時提供 Windows 和 UNIX 使用者。</block>
+  <block id="417619245e97a4c559f6aa114ac4c6a7" category="paragraph">目前，使用 LDAP 的外部 UNIX 身分識別管理僅支援 Active Directory。有關設定此服務存取的更多資訊，請參閱<block ref="dfe9370affc5d95d2754a9770468a3af" category="inline-link-rx"></block>。</block>
+  <block id="34c73887c8ca5af568f919282b064806" category="paragraph">使用 LDAP 和 Kerberos 時，您應該確定這些服務所使用的網路連接埠。您可以在<block ref="be3bbfed6882e06dc634324fa507b18c" category="inline-link-rx"></block>中找到 Google Cloud NetApp Volumes 所使用的完整連接埠清單。</block>
+  <block id="103f838c96ca5931f973da211c98f6b1" category="paragraph">若要將用戶端參加 Active Directory，您必須設定其 DNS 組態為使用 Active Directory DNS。您也可以選擇設定 Cloud DNS 將要求轉送至 Active Directory DNS。如需詳細資訊，請參閱<block ref="587991784cb355a0eb29ce58bfef68aa" category="inline-link-rx"></block>。</block>
+  <block id="a444650f1f4057bc1dafe76bf83d7abb" category="paragraph">此外，Google Cloud NetApp Volumes 提供擴充群組支援，可將支援的最大群組數擴充至 32 個。這需要與包含有效 UNIX 使用者和群組身分的 LDAP 伺服器建立 LDAP 連線。如需設定此功能的詳細資訊，請參閱 Google 文件中的<block ref="b2378ec9cb26e127a2b574fd875ee25b" category="inline-link-rx"></block>。</block>
+  <block id="c62a7145f91f791822ccc0464bfb45f5" category="paragraph">安全性，尤其是在基礎架構不受儲存設備系統管理員控制的雲端環境中，對於將您的資料託付給雲端供應商所提供的服務而言，至關重要。本文件是安全性服務的總覽，這些服務<block ref="acedeed8ca3fbd66dd473f52263137d9" category="inline-link-rx"></block>。</block>
+  <block id="0ae4fc49051e7c96aa476556b3229843" category="paragraph">如需如何為 NetApp Volumes-Performance 設定 KMS 的詳細資訊，<block ref="67ccef626c6bc6d77b983529dd380b9c" category="inline-link-rx"></block>。</block>
+  <block id="10e5d92c39895bde312534c4a833e932" category="list-text">NetApp Volumes-Performance 提供跨區域 Volume 複寫至其他 NetApp Volumes-Performance Volume。如需詳細資訊，請參閱 Google Cloud NetApp Volumes 文件中的<block ref="fd29f1b0b840743dbcc9493b4ea1c90b" category="inline-link-rx"></block>。</block>
+  <block id="66cb341ac2ce8b8df10a1ed5c02e0a1b" category="list-text">NetApp Volumes-SW 提供服務原生的 Volume 備份/還原功能。如需詳細資訊，請參閱 Google Cloud NetApp Volumes 文件中的<block ref="37ed30ceace44d6396bf9f3adb3449cd" category="inline-link-rx"></block>。</block>
+  <block id="91cdb5cae2c3d129611a37a4baa80165" category="paragraph">此外，借助 Google Cloud 中的跨區域複寫（CRR）管理，您可以防止惡意管理操作，例如刪除 Volume、刪除 Snapshot 快照技術或變更 Snapshot 排程。這可以透過建立自訂角色來實現，將 Volume 系統管理員（可以刪除來源 Volume 但不能破壞鏡像，因此無法刪除目的地 Volume）與 CRR 系統管理員（不能執行任何 Volume 操作）分隔開來。有關每個系統管理員群組允許的權限，請參閱 Google Cloud NetApp Volumes 文件中的<block ref="e0f3f513e9be2ea4501ba158b5ec1cee" category="inline-link-rx"></block>。</block>
+  <block id="c9c4f88ef710bb4ef518e0fa6a039a34" category="paragraph">基於上述所有原因，Google Cloud NetApp Volumes 透過<block ref="03a2fe0b70e7766422442b54071e045c" category="inline-link-rx"></block>提供備份服務。</block>
+  <block id="8de0b3a4bbda97289df81113e65195e1" category="paragraph">Google Cloud NetApp Volumes 備份是以選項形式內建於 Google Cloud NetApp Volumes 中。使用者可透過以每個 Volume 為單位啟用 Google Cloud NetApp Volumes 備份，來決定要保護哪些 Volume。請參閱<block ref="d61a55c866624d0c221b4018798281ce" category="inline-link-rx"></block>以取得有關備份、<block ref="1a817bd0c6ee52f3af84d26f42d1ea0b" category="inline-link-rx"></block>、排程及<block ref="cfd075c3d2672251915e363199a2b3b9" category="inline-link-rx"></block>的相關資訊。</block>
+  <block id="04bf1a6a0250bc9d4cba09ee34106dfc" category="inline-link">roles/netapp.admin</block>
+  <block id="a47907f5da7d5a4f67c4f26014ab39d0" category="paragraph">若要管理 Google Cloud NetApp Volumes 備份（建立、刪除和還原備份），使用者必須具有 <block ref="b0996c918d9534e68ba51c12b3eddbb5" category="inline-link-rx"></block> 角色。</block>
+  <block id="4fdf5f42fa6f4acd085ef17175ce8d67" category="paragraph">我們對隱私權和法規遵循 GDPR 的承諾可見於我們的多項<block ref="ab381948ba7e35be45ee77ce31c2a640" category="inline-link-rx"></block>中，例如我們的<block ref="7f657124cd056ea8e74c57dcafd4df75" category="inline-link-rx"></block>，其中包含歐盟委員會提供的<block ref="85bd1a4ed188bfd53fcaef2fb6e1962a" category="inline-link-rx"></block>。我們也在隱私權政策中做出這些承諾，並以我們公司行為準則中規定的核心價值為後盾。</block>
+  <block id="c8f76ad201b1047d88408eca0ee3b7a0" category="paragraph"><block ref="00d6e38b0a2ab6f711bdb616e77147ec" category="inline-link-rx"></block> 是由 Microsoft 開發的網路檔案共享協定，可透過乙太網路為多個 SMB 用戶端提供集中式的使用者/群組驗證、權限、鎖定及檔案共享。檔案與資料夾透過共享的方式呈現給用戶端，這些共享可設定各種共享屬性，並透過共享層級的權限提供存取控制。SMB 可呈現給任何提供該協定支援的用戶端，包括 Windows 、 Apple 及 Linux 用戶端。</block>
+  <block id="b84bc4b4d68b094803843c3a54706c72" category="inline-link"><block ref="b84bc4b4d68b094803843c3a54706c72" category="inline-link-rx"></block></block>
+  <block id="70fbf9f2e73296319b3e24ea21921ce6" category="paragraph"><block ref="70fbf9f2e73296319b3e24ea21921ce6" category="inline-link-rx"></block></block>
+  <block id="b8b0401801f33bbaedf4a9d58293bfe7" category="admonition">使用 <block ref="e0b4b4cf842a9a667da82f6f60322bd0" category="inline-link-macro-rx"></block> 來精確調整 Cloud Volumes ONTAP 執行個體的大小。此外，監控內部部署效能，以作為 Cloud Volumes ONTAP 大小調整工具的輸入。</block>
+  <block id="a58da883b2fde0b1a8c17050adf73cf8" category="admonition">使用 <block ref="e0b4b4cf842a9a667da82f6f60322bd0" category="inline-link-macro-rx"></block> 來精確調整 Cloud Volumes ONTAP 執行個體的大小。同時監控內部部署效能，以作為 Cloud Volumes ONTAP 大小調整工具的輸入。</block>
+  <block id="49e2960c6d69b0be95c0b505087357c7" category="admonition">將 GCVE vCenter 伺服器新增至 Veeam Backup and Replication 清單時，Veeam 需要具有提升權限的 GCVE 解決方案使用者帳戶。如需詳細資訊，請參閱 Google Cloud Platform （GCP） 文件<block ref="78169957ed18b5e842ec2dc9f84b6305" category="inline-link-rx"></block>。</block>
+  <block id="0e76cc02855fa6f00bdb679c4f4be435" category="paragraph">提示：如果尚未建立 VPC 對等關係，系統會顯示一個彈出按鈕，提供指南以協助您完成對等關係命令。開啟 Cloud Shell 工作階段，並執行相應的命令，將您的 VPC 與 Google Cloud NetApp Volumes 生產者建立對等關係。如果您決定預先準備 VPC 對等關係，請參閱這些 <block ref="70d65797916d0cb2be60942ccfb93833" category="inline-link-macro-rx"></block>。</block>
+  <block id="0ce2335e480afcc1b0c3f69cd381f107" category="inline-link-macro">使用 Google Cloud CLI 或 API</block>
+  <block id="fef8888837fd88caec8327443527f069" category="paragraph">Google Cloud NetApp Volumes Volume 可以透過 <block ref="0a83464c769af198bc5319f8da255d41" category="inline-link-macro-rx"></block> <block ref="7bbbcf3979cc5f4f1cf29ecd1a0df5f0" category="inline-link-macro-rx"></block> 進行配置</block>
+  <block id="fbcaa95291782f50a92452bac6415122" category="paragraph">為避免虛擬機器在執行時意外刪除 Volume，請確保將 Volume 標記為不可刪除，如下快照所示。<block ref="3985850308d7a5a20bb1435c0d6cb728" category="inline-image-macro-rx" type="image"></block> 如需詳細資訊，請參閱 <block ref="9bdb43588110582535ff26d180d03d46" category="inline-link-macro-rx"></block> 文件。</block>
+  <block id="fa03c56942c8a9669a263a23fe0e5623" category="paragraph">若要了解使用 Google Cloud NetApp Volumes 滿足您在 GCVE 上的儲存設備需求所帶來的潛力節省，請查看 <block ref="e9c9fa668a264c434551068a3f98dd07" category="inline-link-macro-rx"></block></block>
+  <block id="d20800ec3a640eb8116268213843541a" category="inline-link">備份 VMware 工作負載</block>
+  <block id="55457fd2a146b1a9975a978c0a85420c" category="paragraph">更多資訊請參閱<block ref="25682a6e5e8d6eabcc83860d625c84b6" category="inline-link-rx"></block>。</block>
+  <block id="7268afda6855d1969a1bca2a7f29d4e8" category="paragraph">更多資訊請參閱<block ref="983a2e651837ee711af9347ffcffa05a" category="inline-link-rx"></block>。</block>
 </blocks>

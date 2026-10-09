@@ -581,7 +581,7 @@ NOTE: 此處輸入的SnapMirror標籤用於識別要套用該策略的備份。�
 ====
 最後一步是啟動各個資料儲存區和虛擬機器的資料保護。以下步驟概述如何啟動 AWS 備份。
 
-更多資訊請參閱 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-backup-vm-data-to-aws.html["將資料儲存備份到 Amazon Web Services"]。
+更多資訊請參閱 https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-vmware-backup.html["備份 VMware 工作負載"^]。
 
 . 從BlueXP backup and recovery主頁，存取要備份的資料儲存區的設定下拉式選單並選擇*啟動備份*。
 +
@@ -663,7 +663,7 @@ image:bxp-scv-hybrid-035.png["選擇主要或次要"]
 
 BlueXP backup and recovery允許將虛擬機器還原到原始位置。可透過BlueXP Web 控制台存取恢復功能。
 
-更多資訊請參閱 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-restore-vm-data.html["從雲端恢復虛擬機器數據"]。
+更多資訊請參閱 https://docs.netapp.com/us-en/data-services-backup-recovery/br-use-vmware-restore.html["從雲端恢復虛擬機器數據"^]。
 
 .從BlueXP backup and recovery中還原虛擬機
 [%collapsible%open]

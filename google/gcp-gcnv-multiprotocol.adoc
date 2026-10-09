@@ -14,7 +14,7 @@ summary: Google Cloud NetApp Volumes能夠與 SMB 和 NFS 用戶端共享相同�
 
 
 [role="lead"]
-Google Cloud NetApp Volumes能夠與 SMB 和 NFS 用戶端共享相同的資料集，同時保持適當的存取權限(https://cloud.google.com/architecture/partners/netapp-cloud-volumes/managing-dual-protocol-access["雙協議"^]）。這是透過協調協定之間的身份映射並使用集中式後端 LDAP 伺服器向Google Cloud NetApp Volumes提供 UNIX 身分來實現的。您可以使用 Windows Active Directory 為 Windows 和 UNIX 使用者提供易用性。
+Google Cloud NetApp Volumes 提供將相同資料集共享給 SMB 和 NFS 用戶端的能力，同時維持適當的存取權限 (https://docs.cloud.google.com/netapp/volumes/docs/configure-and-use/active-directory/ad-ldap-access["雙協議"^]）。這是透過協調通訊協定之間的身分對應，並使用集中式後端 LDAP 伺服器向 Google Cloud NetApp Volumes 提供 UNIX 身分來完成。為了方便使用，您可以使用 Windows Active Directory 同時提供 Windows 和 UNIX 使用者。
 
 
 
@@ -38,7 +38,7 @@ Google Cloud NetApp Volumes能夠與 SMB 和 NFS 用戶端共享相同的資料�
 
 或者，如果 UNIX 使用者名稱為 `joe`嘗試使用 Windows 權限存取Google Cloud NetApp Volumes卷，則 UNIX 使用者必須能夠對應到有效的 Windows 使用者。否則，將拒絕存取該磁碟區。
 
-目前，僅支援使用 LDAP 進行外部 UNIX 身分識別管理的 Active Directory。有關配置此服務的存取權限的更多信息，請參閱 https://cloud.google.com/architecture/partners/netapp-cloud-volumes/creating-smb-volumes["建立 AD 連接"^]。
+目前，使用 LDAP 的外部 UNIX 身分識別管理僅支援 Active Directory。有關設定此服務存取的更多資訊，請參閱 https://docs.cloud.google.com/netapp/volumes/docs/configure-and-use/active-directory/create-ad-policy["建立 AD 連接"^]。
 
 
 

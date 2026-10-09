@@ -128,7 +128,7 @@ CVO 的設計旨在提供極致的效能和先進的資料管理功能，以滿�
 若要將磁碟區從本機環境複製到雲端以用於災難復原或遷移目的，請使用站台對站台 VPN 或 ExpressRoute 建立與 Azure 的網路連線。將資料從本地複製到Cloud Volumes ONTAP超出了本文檔的範圍。若要在本機和Cloud Volumes ONTAP系統之間複製數據，請參閱link:https://docs.netapp.com/us-en/occm/task_replicating_data.html#setting-up-data-replication-between-systems["設定係統之間的資料複製"]。
 
 
-NOTE: 使用link:https://cloud.netapp.com/cvo-sizer["Cloud Volumes ONTAP大小調整器"]準確地確定Cloud Volumes ONTAP實例的大小。也可以監控本機效能以用作Cloud Volumes ONTAP大小調整器的輸入。
+NOTE: 使用 link:https://bluexp.netapp.com/cvo-sizer["Cloud Volumes ONTAP大小調整器"^] 來精確調整 Cloud Volumes ONTAP 執行個體的大小。同時監控內部部署效能，以作為 Cloud Volumes ONTAP 大小調整工具的輸入。
 
 . 登入NetApp Cloud Central — 顯示 Fabric View 畫面。找到Cloud Volumes ONTAP標籤並選擇前往雲端管理員。登入後，將顯示 Canvas 畫面。
 +

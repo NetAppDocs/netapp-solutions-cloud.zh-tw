@@ -16,7 +16,7 @@ summary: 安全性，特別是在雲端中，因為基礎設施不受儲存管�
 Oliver Krause、Justin Parisi、 NetApp
 
 [role="lead"]
-安全性，特別是在雲端中，因為基礎設施不受儲存管理員的控制，對於將您的資料信任給雲端提供者提供的服務產品至關重要。本文檔概述了 https://cloud.netapp.com/cloud-volumes-service-for-gcp["Google Cloud NetApp Volumes在 Google Cloud 提供"^]。
+安全性，尤其是在基礎架構不受儲存設備系統管理員控制的雲端環境中，對於將您的資料託付給雲端供應商所提供的服務而言，至關重要。本文件是安全性服務的總覽，這些服務 https://www.netapp.com/google-cloud/netapp-volumes/["Google Cloud NetApp Volumes在 Google Cloud 提供"^]。
 
 
 
