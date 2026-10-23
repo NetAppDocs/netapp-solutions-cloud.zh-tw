@@ -37,7 +37,7 @@ image:rhhc-self-managed-aws.png["此圖顯示輸入/輸出對話框或表示書�
 從進階叢集管理 (ACM) 精靈在 AWS 上建立 OpenShift 叢集。參考說明link:https://docs.openshift.com/dedicated/osd_install_access_delete_cluster/creating-an-aws-cluster.html["這裡"]。
 
 
-NOTE: 您也可以從 OpenShift 混合雲控制台在 AWS 中建立叢集。參考link:https://docs.openshift.com/container-platform/4.10/installing/installing_aws/installing-aws-default.html["這裡"]以取得說明。
+NOTE: 您也可以透過 OpenShift 混合雲主控台在 AWS 中建立叢集。請參閱 link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.10/html/installing/installing-on-aws["這裡"^] 相關說明。
 
 
 TIP: 使用 ACM 建立叢集時，您可以在表單檢視中填寫詳細資料後透過編輯 yaml 檔案來自訂安裝。叢集建立完成後，可以透過ssh登入叢集的節點進行故障排除或額外的手動設定。使用您在安裝過程中提供的 ssh 金鑰和使用者名稱 core 登入。

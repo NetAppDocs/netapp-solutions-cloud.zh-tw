@@ -37,7 +37,7 @@ image:rhhc-on-premises.png["此圖顯示輸入/輸出對話框或表示書面內
 .在 VMware vSphere（Hub Cluster）上部署和設定 OpenShift Container Platform 叢集
 [%collapsible%open]
 ====
-請參閱link:https://docs.openshift.com/container-platform/4.17/installing/installing_vsphere/installing-vsphere-assisted-installer.html["協助部署"]部署 OCP 叢集的方法。
+請參閱 link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/installing_on_vmware_vsphere/installing-vsphere-assisted-installer["協助部署"^] 方法的說明以部署 OCP 叢集。
 
 
 TIP: 請記住以下內容： - 建立 ssh 公鑰和私鑰以提供給安裝程式。如果需要，這些金鑰將用於登入主節點和工作節點。 - 從輔助安裝程式下載安裝程式。此程式用於啟動您在 VMware vSphere 環境中為主節點和工作節點所建立的虛擬機器。  - 虛擬機器應具備最低 CPU、記憶體和硬碟需求。  （請參閱 vm create 命令link:https://docs.redhat.com/en/documentation/assisted_installer_for_openshift_container_platform/2024/html/installing_openshift_container_platform_with_the_assisted_installer/installing-on-vsphere["這"]提供此資訊的主節點和工作節點的頁面） - 應在所有虛擬機器上啟用 diskUUID。  - 為 master 建立至少 3 個節點，為 worker 建立至少 3 個節點。  - 一旦安裝程式發現它們，請開啟 VMware vSphere 整合切換按鈕。

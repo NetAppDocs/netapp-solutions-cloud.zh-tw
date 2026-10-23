@@ -59,7 +59,7 @@ parameters:
 allowVolumeExpansion: true
 ----
 .使用 OpenShift GitOps（Argo CD）部署應用程式
-* 在叢集上安裝 OpenShift GitOps 操作員。參考說明link:https://docs.openshift.com/gitops/1.13/installing_gitops/installing-openshift-gitops.html["這裡"]。
+* 在叢集上安裝 OpenShift GitOps 營運者。請參閱說明 link:https://docs.redhat.com/en/documentation/red_hat_openshift_gitops/1.13/html/installing_gitops/index["這裡"^]。
 * 為叢集設定一個新的 Argo CD 實例。參考說明link:https://docs.openshift.com/gitops/1.13/argocd_instance/setting-up-argocd-instance.html["這裡"]。
 
 
