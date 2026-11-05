@@ -53,7 +53,7 @@ image:dr-veeam-fsx-001.png["使用 Veeam Replication 和 FSx ONTAP for VMC 的 D
 === 進階步驟
 
 . Veeam Backup and Replication 軟體在具有適當網路連線的本機環境中運作。
-. 設定 VMware Cloud on AWS，請參閱 VMware Cloud Tech Zone 文章link:https://vmc.techzone.vmware.com/fsx-guide["VMware Cloud on AWS 與Amazon FSx ONTAP整合部署指南"]若要部署，請將 VMware Cloud on AWS SDDC 和 FSx ONTAP配置為 NFS 資料儲存。 （使用最小配置設定的指示燈環境可用於 DR 目的。一旦發生事故，虛擬機器將故障轉移到該集群，並且可以添加其他節點）。
+. 設定 VMware Cloud on AWS，請參閱 VMware Cloud Tech Zone 文章 link:https://www.vmware.com/docs/vmware-cloud-on-aws-integration-with-amazon-fsx-for-netapp-ontap-deployment-guide["VMware Cloud on AWS 與Amazon FSx ONTAP整合部署指南"^] 以部署、設定 VMware Cloud on AWS SDDC 和 FSx ONTAP 作為 NFS 資料儲存。（可以使用設定為最低組態的試驗環境來進行災難復原。發生事件時，VMs 將容錯移轉至此叢集，並且可以新增額外的節點。）
 . 設定複製作業以使用 Veeam Backup and Replication 建立 VM 副本。
 . 建立故障轉移計劃並執行故障轉移。
 . 災難事件結束且主站點啟動後，切換回生產虛擬機器。

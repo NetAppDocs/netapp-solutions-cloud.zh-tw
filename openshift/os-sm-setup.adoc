@@ -34,7 +34,7 @@ image:rhhc-self-managed-aws.png["此圖顯示輸入/輸出對話框或表示書�
 * 為 VPC 建立 Route 53 私人託管區域和 DNS 解析器。
 
 
-從進階叢集管理 (ACM) 精靈在 AWS 上建立 OpenShift 叢集。參考說明link:https://docs.openshift.com/dedicated/osd_install_access_delete_cluster/creating-an-aws-cluster.html["這裡"]。
+從 Advanced Cluster Management（ACM）精靈在 AWS 上建立 OpenShift 叢集。請參閱指示 link:https://docs.redhat.com/en/documentation/openshift_dedicated/4/html/openshift_dedicated_clusters_on_aws/osd-creating-a-cluster-on-aws["這裡"^]。
 
 
 NOTE: 您也可以透過 OpenShift 混合雲主控台在 AWS 中建立叢集。請參閱 link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.10/html/installing/installing-on-aws["這裡"^] 相關說明。

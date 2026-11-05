@@ -16,7 +16,7 @@ summary: Red Hat OpenShift 容器應用程式資料保護與NetApp ONTAP
 [role="lead"]
 參考文件的此部分提供了在NetApp ONTAP S3 或NetApp StorageGRID S3 上使用 Velero 的 OpenShift API for Data Protection (OADP) 建立容器應用程式備份的詳細資訊。使用 CSI Trident Snapshots 建立應用程式的命名空間範圍資源（包括持久性磁碟區 (PV)）的備份。
 
-容器應用程式的持久性儲存可以透過使用整合到 OpenShift 叢集的ONTAP儲存來支援link:https://docs.netapp.com/us-en/trident/["Trident犯罪現場調查"]。在本節中我們使用link:https://docs.openshift.com/container-platform/4.14/backup_and_restore/application_backup_and_restore/installing/installing-oadp-ocs.html["OpenShift 資料保護 API (OADP)"]執行應用程式（包括其資料卷）的備份
+Container 應用程式的持續儲存可由使用 link:https://docs.netapp.com/us-en/trident/["Trident犯罪現場調查"] 整合至 OpenShift 叢集的 ONTAP 儲存設備提供支援。在本節中，我們使用 link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.14/html/backup_and_restore/oadp-application-backup-and-restore#installing-oadp-ocs["OpenShift 資料保護 API (OADP)"] 將應用程式（包括其資料磁碟區）備份至
 
 * ONTAP物件存儲
 * 儲存網格
@@ -44,4 +44,4 @@ OADP 1.3 可從 OpenShift 叢集 4.12 及更高版本的操作員中心取得。
 * 使用 helm 安裝 postgresql。
 
 
-link:https://docs.netapp.com/us-en/trident/["Trident犯罪現場調查"] link:https://docs.openshift.com/container-platform/4.14/backup_and_restore/application_backup_and_restore/installing/installing-oadp-ocs.html["OpenShift 資料保護 API (OADP)"] link:https://velero.io/["維萊羅"]
+link:https://docs.netapp.com/us-en/trident/["Trident犯罪現場調查"] link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.14/html/backup_and_restore/oadp-application-backup-and-restore#installing-oadp-ocs["OpenShift 資料保護 API (OADP)"] link:https://velero.io/["維萊羅"]

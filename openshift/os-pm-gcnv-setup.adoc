@@ -24,7 +24,7 @@ image:rhhc-osd-with-gcnv.png["此圖顯示輸入/輸出對話框或表示書面�
 
 .在 Google Cloud 中安裝 OSD 集群
 * 如果您希望為叢集使用現有的 VPC，則必須為 OSD 叢集建立 VPC、兩個子網路、一個雲端路由器和兩個 GCP 雲端 NAT。參考link:https://cloud.redhat.com/experts/gcp/osd_preexisting_vpc/["這裡"]以取得說明。
-* 參考link:https://docs.openshift.com/dedicated/osd_install_access_delete_cluster/creating-a-gcp-cluster.html#osd-create-gcp-cluster-ccs_osd-creating-a-cluster-on-gcp["這裡"]有關使用客戶雲端訂閱 (CCS) 計費模型在 GCP 上安裝 OSD 叢集的說明。 OSD 也包含在 Google Cloud Marketplace 中。示範如何使用 Google Cloud Marketplace 解決方案安裝 OSD 的影片位於link:https://www.youtube.com/watch?v=p9KBFvMDQJM["這裡"]。
+* 請參閱 link:https://docs.redhat.com/en/documentation/openshift_dedicated/4/html/openshift_dedicated_clusters_on_google_cloud/index#osd-create-gcp-cluster-ccs_osd-creating-a-cluster-on-gcp["這裡"^] 以取得有關使用客戶雲端訂閱（CCS）計費模式在 GCP 上安裝 OSD 叢集的指示。OSD 也已在 Google Cloud Marketplace 上架。示範如何使用 Google Cloud Marketplace 解決方案安裝 OSD 的影片位於 link:https://www.youtube.com/watch?v=p9KBFvMDQJM["這裡"]。
 
 
 .啟用Google Cloud NetApp Volumes
@@ -60,7 +60,7 @@ allowVolumeExpansion: true
 ----
 .使用 OpenShift GitOps（Argo CD）部署應用程式
 * 在叢集上安裝 OpenShift GitOps 營運者。請參閱說明 link:https://docs.redhat.com/en/documentation/red_hat_openshift_gitops/1.13/html/installing_gitops/index["這裡"^]。
-* 為叢集設定一個新的 Argo CD 實例。參考說明link:https://docs.openshift.com/gitops/1.13/argocd_instance/setting-up-argocd-instance.html["這裡"]。
+* SetUp 為叢集建立一個新的 Argo CD 執行個體。請參閱說明 link:https://docs.redhat.com/en/documentation/red_hat_openshift_gitops/1.13/html/argo_cd_instance/setting-up-argocd-instance["這裡"^]。
 
 
 開啟 Argo CD 控制台並部署應用程式。例如，您可以使用 Argo CD 和 Helm Chart 部署 Jenkins 應用程式。建立應用程式時，提供了以下詳細資訊：專案：default；叢集：+'https://kubernetes.default.svc'+[]（不含引號）；命名空間：Jenkins；Helm Chart 的 URL：+'https://charts.bitnami.com/bitnami'+[]（不含引號）
