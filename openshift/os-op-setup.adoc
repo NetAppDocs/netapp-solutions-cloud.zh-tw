@@ -53,7 +53,7 @@ TIP: 請記住以下內容： - 建立 ssh 公鑰和私鑰以提供給安裝程�
 [%collapsible%open]
 ====
 * 可以使用 Hub 叢集上的 ACM 部署附加叢集。
-* 參考說明link:https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.7/html/clusters/cluster_mce_overview#vsphere_prerequisites["這裡"]。
+* 請參閱說明link:https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for_kubernetes/2.7/html/clusters/cluster_mce_overview#vsphere_prerequisites["這裡"^]。
 
 
 ====
