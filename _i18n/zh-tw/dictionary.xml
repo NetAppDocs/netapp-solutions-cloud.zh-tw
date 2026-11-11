@@ -45,7 +45,6 @@
   <block id="80eb6acb6b080066d3abfeb04bfce456" category="doc">閱讀NetApp專家的雲端解決方案博客</block>
   <block id="c967166adb778a092737a9789c3bedb9" category="section-title">VMware 與 AWS 和Amazon FSx for ONTAP 的集成</block>
   <block id="c069b35ac4a7aee0a4a3d5d757c06779" category="inline-link-macro">使用 Amazon EC2 和Amazon FSx ONTAP iSCSI 協定將 VMware VM 移轉到 AWS</block>
-  <block id="9bbb03cd8f98e3d6d2239a58c4803f4e" category="list-text"><block ref="9bbb03cd8f98e3d6d2239a58c4803f4e" category="inline-link-macro-rx"></block></block>
   <block id="e1e82f4923c05b72547b44296b459e9a" category="inline-link-macro">Amazon EVS 現已與 FSx for ONTAP集成</block>
   <block id="6e102cdfe05e5628b501d15f92f43e61" category="list-text"><block ref="6e102cdfe05e5628b501d15f92f43e61" category="inline-link-macro-rx"></block></block>
   <block id="7786f845adbf4ae5b4b31e55192f5d6c" category="inline-link-macro">Amazon EVS 宣布支援 FSx for ONTAP</block>
@@ -60,7 +59,6 @@
   <block id="479b57eeda0da535fade92e57295e7c9" category="inline-link-macro">NetApp部落格 - 將儲存豐富的應用程式遷移到 Google Cloud 的更好方法</block>
   <block id="4587279425a64cfc00b685b8bfc28bf4" category="list-text"><block ref="4587279425a64cfc00b685b8bfc28bf4" category="inline-link-macro-rx"></block></block>
   <block id="273f11e723794ed27039b86d108dda1c" category="section-title">資料保護和管理</block>
-  <block id="cc090bcb755694ec2b8ab2fa1beb2258" category="inline-link-macro">透過SnapCenter插件和BlueXP虛擬機器備份與恢復，為 VMware 提供 3-2-1 資料保護</block>
   <block id="3c91c8125baee1371b566d079a57a8f3" category="inline-link-macro">利用NetApp Cloud Insights實現現代資料中心的可觀察性</block>
   <block id="71fbb94034ace383d669c7a15d92bc40" category="section-title">NetApp適用於 OpenShift 容器工作負載</block>
   <block id="cbc56988457f1c69580cdc28974caa1d" category="inline-link-macro">NetApp ONTAP兼作 Red Hat OpenShift 容器平台中的日誌存儲</block>
@@ -1362,13 +1360,11 @@
   <block id="7d6d4165ad5f6730731dde0ccade66be" category="doc">適用於 Red Hat OpenShift 工作負載的其他NetApp混合多雲解決方案</block>
   <block id="8f1d3df73fb3b1a1a98cb44ce73c8c9a" category="section-title">其他解決方案</block>
   <block id="9b2f9698f9a33314b6eb0d86eb8929c9" category="doc">在 AWS 上部署和設定託管 Red Hat OpenShift 容器平台</block>
-  <block id="3565891e510e1bc556749261f658f387" category="paragraph">本節介紹在 AWS（ROSA）上設定託管 Red Hat OpenShift 叢集的進階工作流程。它展示了Trident使用託管的Amazon FSx for NetApp ONTAP (FSx ONTAP ) 作為儲存後端來提供持久性磁碟區。提供了有關使用BlueXP在 AWS 上部署 FSx ONTAP的詳細資訊。此外，還提供了有關使用BlueXP和 OpenShift GitOps（Argo CD）為 ROSA 叢集上的有狀態應用程式執行資料保護和遷移活動的詳細資訊。</block>
   <block id="05001e23d20cbe914608cbcc87fde0dd" category="paragraph">下圖描述了部署在 AWS 上並使用 FSx ONTAP作為後端儲存的 ROSA 叢集。</block>
   <block id="073a5b3768d5cfb65b797673701eb957" category="admonition">該解決方案透過在AWS的兩個VPC中使用兩個ROSA集群進行了驗證。每個 ROSA 叢集都使用Trident與 FSx ONTAP整合。在 AWS 中部署 ROSA 叢集和 FSx ONTAP有幾種方法。此設定的高級描述提供了所使用的特定方法的文檔連結。您可以參考<block ref="0dda26563abbac8fd54607a52d591e91" category="inline-link-macro-rx"></block>。</block>
   <block id="776e644936fa311303e288b8df968fc8" category="list-title">安裝ROSA集群</block>
   <block id="b3e83e12e2309b03bb799e34f55ac838" category="list-text">建立兩個 VPC 並在 VPC 之間建立 VPC 對等連線。</block>
   <block id="5b8f991d2394ea231b615e37640d86fe" category="list-title">安裝 FSx ONTAP</block>
-  <block id="c772e08c8d32e90026f0270b4ddc07bd" category="list-text">從BlueXP在 VPC 上安裝 FSx ONTAP 。參考<block ref="34abba7bef53102fd63639b9b9679762" category="inline-link-macro-rx"></block>用於建立BlueXP帳戶並開始使用。參考<block ref="2295d3162905f9dd45d3ca6c8a209ad1" category="inline-link-macro-rx"></block>用於安裝 FSx ONTAP。參考<block ref="34abba7bef53102fd63639b9b9679762" category="inline-link-macro-rx"></block>用於在 AWS 中建立連接器來管理 FSx ONTAP。</block>
   <block id="e80e4c833595d16693cb89be6ffa0411" category="list-text">使用 AWS 部署 FSx ONTAP 。參考<block ref="96729d098c0f6096edb6c44f431ce934" category="inline-link-macro-rx"></block>使用 AWS 控制台進行部署。</block>
   <block id="f8f96d37b9a3120cb1bb4a037d8195bd" category="list-title">在 ROSA 叢集上安裝Trident （使用 Helm 圖表）</block>
   <block id="394171ccfa7f71c4d145fcb031f5e0f0" category="video-title">FSx ONTAP與Trident整合用於 ROSA 集群</block>
@@ -1396,9 +1392,6 @@
   <block id="88300001929e9a793a02e0e2955279cd" category="list-text">為了實現本地和 Azure 之間的 VPN 連接，我們建立並配置了一個 pfSense VM。有關說明，請參閱<block ref="be1f25e1c0fba9929238d326827b9fa7" category="inline-link-macro-rx"></block>。</block>
   <block id="4f27717b74673bf2705ddb857faf61a6" category="list-text">叢集安裝完成，會提供一個kubeconfig檔案以及登入叢集控制台的使用者名稱和密碼。</block>
   <block id="c8a9f594886c5614d298ffe7ce45e839" category="paragraph">下面給了一個範例 install-config.yaml 檔案。</block>
-  <block id="e4e0602228585217e17627fb546a2623" category="example-title">使用BlueXP在 Azure 中部署Cloud Volumes ONTAP 。</block>
-  <block id="b4f094c5d401a3bdde752abf96e221c6" category="list-text">在 Azure 中安裝連接器。參考說明<block ref="4a3c6331bb206b0a168b594babb0a8f6" category="inline-link-rx"></block>。</block>
-  <block id="da66c8a42102d0a32685084b71c01ad2" category="list-text">使用連接器在 Azure 中部署 CVO 執行個體。請參閱說明連結： https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-getting-started-azure.html [此處。 ]</block>
   <block id="bb476886963857408a744eea2885622d" category="paragraph-title">使用Trident的 CSI 拓樸功能實現多區域架構</block>
   <block id="141b5087714c5e978f06d51e4e7934b6" category="paragraph">如今，雲端提供者使 Kubernetes/OpenShift 叢集管理員能夠產生基於區域的叢集節點。節點可以位於一個區域內的不同可用區，也可以跨越多個區域。為了方便在多區域架構中為工作負載配置卷， Trident使用了 CSI 拓撲。使用 CSI 拓撲功能，可以根據區域和可用區域將對磁碟區的存取限製到節點子集。參考<block ref="d4105e96f5d39fa667250cc3420bb2fe" category="inline-link-macro-rx"></block>了解更多詳細資訊。</block>
   <block id="8b1ed9415a825516b39edfc57b85c211" category="admonition">Kubernetes 支援兩種磁碟區綁定模式： - 當 **_VolumeBindingMode_ 設定為 _Immediate_**（預設）時， Trident會在沒有任何拓樸感知的情況下建立磁碟區。持久性卷的建立不依賴請求 pod 的調度要求。 - 當 **_VolumeBindingMode_ 設定為 _WaitForFirstConsumer_** 時，PVC 的持久卷的建立和綁定將被延遲，直到使用該 PVC 的 pod 被調度和建立。這樣，就可以建立磁碟區來滿足拓樸要求所強制執行的調度約束。 Trident儲存後端可設計為根據可用區域（拓撲感知後端）選擇性地配置磁碟區。對於使用此類後端的 StorageClasses，只有在受支援的區域/區域中調度的應用程式請求時才會建立磁碟區。  （拓樸感知 StorageClass）參考<block ref="d4105e96f5d39fa667250cc3420bb2fe" category="inline-link-macro-rx"></block>了解更多詳細資訊。</block>
@@ -1419,9 +1412,6 @@
   <block id="48281ea19019ac903b77a194baca154d" category="list-text">使用 Google Cloud DNS 的 A 記錄中的 IP 位址在本機環境的 DNS 中新增 A 記錄。</block>
   <block id="9e6580240502c5c1028c65a2a7d5f13b" category="list-title">部署Google Cloud NetApp Volumes</block>
   <block id="fc410cdb301bc6802cc152966f63e3e8" category="list-text">可以按照概述將Google Cloud NetApp Volumes新增至您的專案中<block ref="7f9f16ad8935a0000816c370324a7a38" category="inline-link-macro-rx"></block>。</block>
-  <block id="ffcfa9d1909d796799d23dda39cbe44b" category="list-title">使用BlueXP在 GCP 中部署Cloud Volumes ONTAP</block>
-  <block id="b4678d952e7b7f5b0d0e37cb5eb2a551" category="list-text">在 Google Cloud 中安裝連接器。參考說明<block ref="95c699608f5df2c39b69d68c4999b1f7" category="inline-link-rx"></block>。</block>
-  <block id="b5c0dfafe4740b9adef3023b57371d1f" category="list-text">使用連接器在 Google Cloud 中部署 CVO 執行個體。請參閱此處的說明。<block ref="5dcb8b1a71fb2a60478c95bc49e22d2b" category="inline-link-rx"></block></block>
   <block id="54b406cf5b62748c3b1ce04f8b7986a0" category="list-title">在 GCP 中的 OCP 叢集中安裝Trident</block>
   <block id="1391b6e8cd7f7081b132c1fadddbb7ff" category="list-text">建立後端和儲存類別。參考說明<block ref="e128541cde7fad4b75ad1c7ebfcc5826" category="inline-link-macro-rx"></block>。</block>
   <block id="3a2a264571e0b55c89cc93a5273f71f0" category="paragraph">[底線]#*示範影片*#</block>
@@ -1438,7 +1428,6 @@
   <block id="2f9a622f50ad91f20ea33eb464dffed5" category="list-text">在 3 個不同的 AZ 中建立 3 個私有子網路。</block>
   <block id="3bc0575c716ca54e3e3f3c18896d2073" category="list-text">為 VPC 建立 Route 53 私人託管區域和 DNS 解析器。</block>
   <block id="fdb3ae874409cbcef80a6d9bfeb5f048" category="admonition">使用 ACM 建立叢集時，您可以在表單檢視中填寫詳細資料後透過編輯 yaml 檔案來自訂安裝。叢集建立完成後，可以透過ssh登入叢集的節點進行故障排除或額外的手動設定。使用您在安裝過程中提供的 ssh 金鑰和使用者名稱 core 登入。</block>
-  <block id="09896a8f2d501b8991dc697c7cbfa3db" category="example-title">使用BlueXP在 AWS 中部署Cloud Volumes ONTAP 。</block>
   <block id="aac68d095e2a2a598854689d3a9118c3" category="list-text">在本機 VMware 環境中安裝連接器。參考說明<block ref="09bba0e8799e65970cd5db9fc029a18c" category="inline-link-macro-rx"></block>。</block>
   <block id="75cbb3865e297e8d229f20aefa0bc024" category="list-text">使用連接器在 AWS 中部署 CVO 執行個體。參考說明<block ref="789a1549fecc83ae6bfb4929c9c8d23c" category="inline-link-macro-rx"></block>。</block>
   <block id="2b71954d9c6d4c94a1ae68bbecd1cce4" category="admonition">此連接器也可以安裝在雲端環境中。參考<block ref="0631eaff036ce3419223357fb2a90da7" category="inline-link-macro-rx"></block>了解更多。</block>
@@ -1463,8 +1452,6 @@
   <block id="23c3c663b762f1321d6375c1b3ce61f8" category="list-text">雲端中的提供者管理儲存：</block>
   <block id="ba6e007863e7d83f029ac489ee3f98e3" category="list-text">Amazon FSx for NetApp ONTAP、 Azure NetApp Files和Google Cloud NetApp Volumes在雲端提供基於檔案的儲存。</block>
   <block id="0ed5b36b6d736b2d2f1cc2f27cdc3740" category="paragraph"><block ref="0ed5b36b6d736b2d2f1cc2f27cdc3740" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="a3fffb84816afb046037dcf3d52d23a4" category="paragraph">** NetApp BlueXP** 可讓您從單一控制平面/介面管理所有儲存和資料資產。</block>
-  <block id="a28e6578744ceeb545878235d414e497" category="paragraph">您可以使用BlueXP建立和管理雲端儲存（例如， Cloud Volumes ONTAP和Azure NetApp Files），移動、保護和分析數據，以及控制許多本地和邊緣儲存設備。</block>
   <block id="ba39bbe00b4e2c912cf947580ec7e895" category="paragraph">** NetApp Trident** 是符合 CSI 標準的儲存編排器，可快速輕鬆地使用由上述各種NetApp儲存選項支援的持久性儲存。它是由NetApp維護和支援的開源軟體。</block>
   <block id="25e2d7f2959b9dedca2b0da1c32c8325" category="paragraph"><block ref="25e2d7f2959b9dedca2b0da1c32c8325" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e5c4a3945e0cdaa7b705b00128180df4" category="paragraph">業務關鍵型容器工作負載需要的不僅僅是持久卷。他們的資料管理要求也需要保護和遷移應用程式 Kubernetes 物件。</block>
@@ -1482,7 +1469,6 @@
   <block id="10f0fa4079121b371145e16713fdbb44" category="inline-link-macro">Trident</block>
   <block id="203165a49e3a391bdbc44e3a05d54279" category="inline-link-macro">ONTAP 9</block>
   <block id="8c9552895e8b32d168c001c8cb0d41ac" category="inline-link-macro">NetApp Verda</block>
-  <block id="1273c8a63109161e6fd1f18d6998523f" category="inline-link-macro">NetApp BlueXP</block>
   <block id="258dff02bafa822fdd86173cf3a704fd" category="inline-link-macro">在 GCP 上安裝 OpenShift 集群</block>
   <block id="d0b55d3b0b9d8025eb06e76618f6bf8a" category="inline-link-macro">在 Azure 上安裝 OpenShift 集群</block>
   <block id="7ffdbddadae2331a4b6fe9848564fe3e" category="doc">支援NetApp Storage 與 Red Hat OpenShift Containers 的集成</block>
@@ -1531,7 +1517,6 @@
   <block id="3d2b891e87f58587dcf56e520915afef" category="section-title">場景 2</block>
   <block id="a528051afdc7f56e98729098e73932f0" category="section-title">情境 3：資料保護以及從本機環境到 AWS 環境的遷移</block>
   <block id="383d49dd575140b5c69f53d189712f18" category="paragraph">**本機：自管理 OpenShift 叢集和自管理儲存** **AWS 雲端：供應商管理的 OpenShift 叢集 (ROSA) 和供應商管理的儲存 (FSx ONTAP)**</block>
-  <block id="1378294a648c8de3488eeca9372ddcd2" category="list-text">使用BlueXP執行持久性磁碟區的複製（FSx ONTAP）。</block>
   <block id="87536fdb761ec9bd49af92d0cf39f302" category="list-text">使用 OpenShift GitOps 重新建立應用程式元資料。</block>
   <block id="c2447154da8ea0e9f40104cfe84c986a" category="section-title">場景 3</block>
   <block id="6ba110702f5296e561dd804c329e19cb" category="section-title">情境 4：使用Trident Protect 進行資料保護以及從本地環境到 GCP 環境的遷移</block>
@@ -2401,16 +2386,6 @@
   <block id="8a401f5d4b33a44bd1812ff7ead2248d" category="list-text">配置 AWS 安全性群組以允許 VMware Cloud on AWS 子網路與部署 FSx ONTAP服務的 AWS VPC 子網路之間進行通訊。</block>
   <block id="2e31cdf7daad1ca06d6642765fa13252" category="example-title">VMware 雲</block>
   <block id="f7f38aee276941a8501ab3a4788fb838" category="list-text">配置 VMware Cloud on AWS SDDC。</block>
-  <block id="08aa379cc2bcb108397d323bd5732f6c" category="example-title">Cloud Manager 帳戶驗證</block>
-  <block id="17d24c2f3d504e509ec34ba87bfea6a5" category="paragraph">您必須能夠使用NetApp Cloud Manager 部署資源。為了驗證您是否可以，請完成以下任務：</block>
-  <block id="2ee5d6132c6433861745857e6af68778" category="inline-link">註冊 Cloud Central</block>
-  <block id="0b68f52629e80a3780ebf3d8c038a698" category="list-text"><block ref="69deea66c011e050c8fb0a8907dbd377" category="inline-link-rx"></block>如果你還沒有這樣做的話。</block>
-  <block id="e7ef0ccc08f963a97d6ab9c3aabc5081" category="inline-link">登入雲端管理器</block>
-  <block id="5ec677c5c014e60203e82de8cbed20e4" category="list-text"><block ref="77549d8461eff5ea7726f72f7e171b7c" category="inline-link-rx"></block> 。</block>
-  <block id="78e80a35b7d01f404398eea432dd9654" category="inline-link">設定工作區和用戶</block>
-  <block id="6693afd5aef7c87168fb40b34d61e795" category="list-text"><block ref="491866e862424f2a10f9441373484bc0" category="inline-link-rx"></block> 。</block>
-  <block id="e7a9cd1dc4bf0c230d0684e18369d70d" category="inline-link">建立連接器</block>
-  <block id="821d88deb5e031a9587e5a8e00abe556" category="list-text"><block ref="b3797d3b448c35004d47db91b5cf65cf" category="inline-link-rx"></block> 。</block>
   <block id="4c0f2b07e3034da6a2b901197cec7210" category="paragraph">擁有 AWS 帳戶後，您必須能夠執行下列任務：</block>
   <block id="7d8207e3bfa061fd6c5b1389d79e23e4" category="list-text">建立一個能夠為NetApp ONTAP檔案系統設定Amazon FSx 的IAM 管理使用者。</block>
   <block id="7984cdcb84b94f3ec5af3c2aa0bc9f9c" category="example-title">配置前提條件</block>
@@ -2573,7 +2548,6 @@
   <block id="ff1600196b624f9503bddaca0ce10f5d" category="paragraph">我們部署了 10 台執行 SQL Server 2019 且資料庫大小各異的 Windows Server 2019 VM，以及 10 台運行 Oracle 19c 且資料庫大小各異的 Oracle Linux 8.5 VM。</block>
   <block id="20f748e1f003c63ad3c63122e1629424" category="paragraph">我們在 VMware Cloud on AWS 中部署了一個具有兩台主機的 SDDC，以提供足夠的資源來運行從主站台復原的虛擬機器。</block>
   <block id="c6a1804600a7d7ea6b14be32e7c20a5d" category="paragraph"><block ref="c6a1804600a7d7ea6b14be32e7c20a5d" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="a7d116b4f79b851af3f003fb89bb665f" category="section-title">BlueXP backup and recovery工具</block>
   <block id="601c3055944b06a3d06d7da4128af752" category="paragraph">為了將我們的應用程式虛擬機器和資料庫磁碟區故障轉移到在 AWS 中執行的 VMware Cloud Volume 服務，必須安裝和設定SnapCenter Server 和 Veeam Backup and Replication Server 的執行執行個體。故障轉移完成後，也必須設定這些工具以還原正常的備份作業，直到計畫和執行故障還原到內部資料中心。</block>
   <block id="4f31ced8146865d2c2823db3f623bf36" category="example-title">部署備份工具</block>
   <block id="4dad49c9583060929c06d355e24a683a" category="paragraph">SnapCenter伺服器和 Veeam Backup &amp; Replication 伺服器可以安裝在 VMware Cloud SDDC 中，也可以安裝在與 VMware Cloud 環境具有網路連線的 VPC 中的 EC2 執行個體上。</block>
@@ -2606,10 +2580,6 @@
   <block id="c8a83d6c9e2024e3e34cfe6cb9aea452" category="section-title">配置 FSx ONTAP</block>
   <block id="6aef5dab1b2d82797cb96d17b44459a9" category="paragraph">Amazon FSx ONTAP是一項完全託管的服務，它基於流行的NetApp ONTAP檔案系統構建，提供高度可靠、可擴展、高效且功能豐富的文件儲存。請按照此處的步驟操作<block ref="f1139338efad9414ae4ecd9c0d61cc85" category="inline-link-macro-rx"></block>配置和配置 FSx ONTAP。</block>
   <block id="47dff978ee4234ca09f6d09014f330fa" category="section-title">部署並配置SnapMirror到 FSx ONTAP</block>
-  <block id="c8f53b3a4e6c5731d290de4d2ed98b9a" category="paragraph">下一步是使用NetApp BlueXP並發現 AWS 實例上配置的 FSx ONTAP ，並以適當的頻率和NetApp Snapshot 副本保留將所需的資料儲存磁碟區從本機環境複製到 FSx ONTAP ：</block>
-  <block id="6a4903522028d4e4bd24b3880afcf49f" category="inline-image-macro">該圖描繪了BlueXP Canvas 關係圖，顯示了啟用的服務之間的各種互動。</block>
-  <block id="ab11f4cfe2f3a2c8168e236589838439" category="paragraph"><block ref="ab11f4cfe2f3a2c8168e236589838439" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="45568e41c66e2e325c210961987178e7" category="paragraph">請依照此連結中的步驟配置BlueXP。您也可以使用NetApp ONTAP CLI 透過此連結安排複製。</block>
   <block id="07f3fd5642ddcadbf716c250ccf987f0" category="admonition">SnapMirror關係是先決條件，必須事先建立。</block>
   <block id="8513f47f7075dac35da070dbceb25a2e" category="section-title">DRO安裝</block>
   <block id="9f8fa80dd85e2409bd0b4495b821f0f3" category="paragraph">若要開始使用 DRO，請在指定的 EC2 執行個體或虛擬機器上使用 Ubuntu 作業系統，以確保您符合先決條件。然後安裝該套件。</block>
@@ -2699,7 +2669,6 @@
   <block id="0c86039a87483290f146f9170e80b40b" category="inline-image-macro">複製計畫概述的螢幕截圖，下拉式選單包含故障回應選項。</block>
   <block id="503c1e37074b31fdcd74fbffb13e3983" category="inline-image-macro">DRO 摘要頁面的螢幕截圖，其中原始生產網站已啟動並運行。</block>
   <block id="5252b2c61d0d6e81fa754f1a903bf02f" category="paragraph"><block ref="6250ab37fab2d1edc4a98002b91b0b1c" category="inline-image-macro-rx" type="image"></block> <block ref="44f61018b2c1b6b8386db144658996cd" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="17d2287b3fdcb68f9bb0ee6cfbfd2aa9" category="paragraph">從NetApp BlueXP中，我們可以看到對應磁碟區（作為讀寫磁碟區對應到 VMC 的磁碟區）的複製健康狀況已中斷。在測試故障轉移期間，DRO 不會對應目標磁碟區或副本磁碟區。相反，它會建立所需SnapMirror （或 Snapshot）實例的FlexClone副本並公開該FlexClone實例，這樣就不會消耗 FSx ONTAP的額外實體容量。此流程可確保磁碟區不會被修改，並且即使在 DR 測試或分類工作流程期間，複製作業也可以繼續。此外，此過程可確保如果發生錯誤或恢復損壞的數據，則可以清理恢復，而不會有副本被破壞的風險。</block>
   <block id="b43b9eff3f7c51d97e3370116a562105" category="paragraph"><block ref="b43b9eff3f7c51d97e3370116a562105" category="inline-image-macro-rx" type="image"></block></block>
   <block id="648a04436d5621ca9c7c65c66c55cb79" category="section-title">勒索軟體恢復</block>
   <block id="f1d63aa61bd9bd59550523eea84313e8" category="paragraph">從勒索軟體中恢復可能是一項艱鉅的任務。具體來說，IT 組織很難確定安全返回點在哪裡，而且一旦確定，就很難保護恢復的工作負載免受例如休眠惡意軟體或易受攻擊的應用程式的重複攻擊。</block>
@@ -2874,7 +2843,6 @@
   <block id="248e4221544eda567f1dd23b587cec68" category="list-text">最後，選擇「應用」和「完成」以完成 SOBR 的建立。</block>
   <block id="97f8173a9f8ac774dbbb04ad209a46ee" category="example-title">建立橫向擴充備份儲存庫作業</block>
   <block id="a1ca9d57b26812c8a4cc9b41f93cb848" category="paragraph">配置 Veeam 的最後一步是使用新建立的 SOBR 作為備份目標來建立備份作業。建立備份作業是任何儲存管理員的正常工作的一部分，我們在此不介紹詳細步驟。有關在 Veeam 中建立備份作業的更多完整信息，請參閱<block ref="1e2565ba3e6473b62b1909934037e810" category="inline-link-rx"></block>。</block>
-  <block id="0f0ed589c348106f3d56ba98e1ddab80" category="section-title">BlueXP backup and recovery工具及配置</block>
   <block id="f201deaeba7cc565253f52d974008543" category="paragraph">若要將應用程式虛擬機器和資料庫磁碟區故障轉移到在 AWS 中執行的 VMware Cloud Volume 服務，您必須安裝並設定SnapCenter Server 和 Veeam Backup and Replication Server 的執行執行個體。故障轉移完成後，您還必須設定這些工具以還原正常的備份作業，直到規劃並執行故障還原到內部資料中心。</block>
   <block id="a514f4da2fec40b52d89613d7b3854fa" category="example-title">部署輔助 Windows SnapCenter伺服器</block>
   <block id="dba3e8475ef38dcd147447c5730c2f7c" category="paragraph">SnapCenter Server 部署在 VMware Cloud SDDC 中，或安裝在與 VMware Cloud 環境具有網路連線的 VPC 中的 EC2 執行個體上。</block>
@@ -3205,7 +3173,6 @@
   <block id="e9af8af7b86a67ad6474816a4d31c2d6" category="paragraph"><block ref="e9af8af7b86a67ad6474816a4d31c2d6" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d1552a04c8237c4a2d938cca2db53683" category="list-text">提供要建立的環境的詳細信息，包括環境名稱和管理員憑證。按一下「Continue（繼續）」。</block>
   <block id="68489201c2dc538e56244abfb5af0fd5" category="paragraph"><block ref="68489201c2dc538e56244abfb5af0fd5" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3d9d252df1d439ee29952d36a2243ad9" category="list-text">選擇Cloud Volumes ONTAP部署的附加服務，包括BlueXP分類、 BlueXP backup and recovery以及Cloud Insights。按一下「Continue（繼續）」。</block>
   <block id="f254e642707f88f8893deeda178e2efe" category="paragraph"><block ref="f254e642707f88f8893deeda178e2efe" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5908a77615c1d6294f872ff6f0e9ec5c" category="list-text">在 HA 部署模型頁面上，選擇多可用區配置。</block>
   <block id="f76653c94aad8a23774776f0221cadc8" category="paragraph"><block ref="f76653c94aad8a23774776f0221cadc8" category="inline-image-macro-rx" type="image"></block></block>
@@ -4185,7 +4152,6 @@
   <block id="4cb08d1e07e22c67daba5d7f864dbb19" category="paragraph"><block ref="4cb08d1e07e22c67daba5d7f864dbb19" category="inline-image-macro-rx" type="image"></block></block>
   <block id="cf5341803b0061ef190495343f39fa02" category="list-text">提供要建立的環境的詳細信息，包括環境名稱和管理員憑證。新增 Azure 環境的資源組標籤作為可選參數。完成後，按一下“繼續”。</block>
   <block id="48df4aa4a5b6f8921837e88f2912bab4" category="paragraph"><block ref="48df4aa4a5b6f8921837e88f2912bab4" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1b9258f782f1f43eb6c8141e179d6551" category="list-text">選擇Cloud Volumes ONTAP部署的附加服務，包括BlueXP分類、 BlueXP backup and recovery以及Cloud Insights。選擇服務，然後按一下繼續。</block>
   <block id="8d472e36a1768617e78655c6598d1940" category="paragraph"><block ref="8d472e36a1768617e78655c6598d1940" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ee060e03da823e605453fbfa27743d77" category="list-text">配置 Azure 位置和連線。選擇要使用的 Azure 區域、資源群組、VNet 和子網路。</block>
   <block id="913ca74a21031218319e527edd6f20bf" category="paragraph"><block ref="913ca74a21031218319e527edd6f20bf" category="inline-image-macro-rx" type="image"></block></block>
@@ -4461,10 +4427,7 @@
   <block id="36e402ac6b1a4b9a31bd376a7f89c68e" category="paragraph">備份虛擬機器並快速恢復它們是 ANF 資料儲存的一大優勢。使用 Snapshot 副本快速複製您的 VM 或資料儲存而不影響效能，然後將它們傳送到 Azure 儲存體以實現長期資料保護，或使用跨區域複製將其發送到輔助區域以實現災難復原。這種方法僅儲存改變的訊息，從而最大限度地減少了儲存空間和網路頻寬。</block>
   <block id="2bd24edc1157f2ea366bbf67e980b57e" category="paragraph">使用Azure NetApp FilesSnapshot 副本進行常規保護，並使用應用程式工具保護駐留在來賓虛擬機器上的事務資料（例如 SQL Server 或 Oracle）。這些 Snapshot 副本與 VMware（一致性）快照不同，適合長期保護。</block>
   <block id="c69157396b1ac0cb910d839c99a0a9e3" category="admonition">使用 ANF 資料存儲，「恢復到新磁碟區」選項可用於複製整個資料儲存卷，並且復原的磁碟區可以作為另一個資料儲存安裝到 AVS SDDC 內的主機。安裝資料儲存後，可以註冊、重新配置和自訂其中的虛擬機，就像單獨複製的虛擬機一樣。</block>
-  <block id="f77f38d4087d3b85caf7e7a5d2ce7a0f" category="example-title">BlueXP backup and recovery</block>
-  <block id="abf639280c85d22acee1ee5d067cd10e" category="paragraph">BlueXP backup and recovery在 vCenter 上提供了 vSphere Web 用戶端 GUI，以透過備份策略保護 Azure VMware 解決方案虛擬機器和 Azure NetApp檔案資料儲存。這些策略可以定義計劃、保留和其他功能。可以使用運行指令來部署BlueXP backup and recovery功能。</block>
   <block id="ad15ef62ee17e83e2a2c4de5cfc0a7e0" category="paragraph">可以透過完成以下步驟來安裝設定和保護策略：</block>
-  <block id="eedeb9e01d71fc097a45d66a7bd05a5b" category="list-text">使用執行指令為 Azure VMware 解決方案私有雲中的虛擬機器安裝BlueXP backup and recovery。</block>
   <block id="3a1d9263efa0039dd46c2e2d0dfc2dec" category="list-text">新增雲端訂閱憑證（用戶端和金鑰值），然後新增包含您想要保護的資源的雲端訂閱帳戶（NetApp帳戶和相關資源群組）。</block>
   <block id="60d5826756f013d28eadac75aec57698" category="list-text">建立一個或多個備份策略來管理資源組備份的保留、頻率和其他設定。</block>
   <block id="6ad3833cba216d2fe6639be4726ad69e" category="list-text">建立一個容器來新增一個或多個需要使用備份策略保護的資源。</block>
@@ -4728,9 +4691,7 @@
   <block id="9b81137d9fc2e58114557341c1ff1c40" category="paragraph"><block ref="9b81137d9fc2e58114557341c1ff1c40" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c611c3f34a5f506ad20f441b78810981" category="paragraph">對於本地環境和 Google Cloud 網路之間的連接，請使用專用互連或 Cloud VPN 等連接選項。應根據內部部署 VLAN 設計來建立段。</block>
   <block id="b62c675a3e45635be4cc5a65dde4c55c" category="admonition">將本機資料中心連接到 Google Cloud 有多種選擇，因此我們無法在本文檔中概述特定的工作流程。請參閱 Google Cloud 文檔，以了解適當的本地到 Google 連接方法。</block>
-  <block id="d26b5935fc58111f2d8db9c078c08af6" category="list-text">在適當的訂閱和虛擬網路中，使用BlueXP為Cloud Volumes ONTAP配置正確的實例大小。</block>
   <block id="5e345ef39956138694764fce9921e498" category="list-text">安裝 Veeam 軟體並開始將虛擬機器複製到 Google Cloud VMware Engine 執行個體。</block>
-  <block id="534253a0a05c40a27f9df1dfb786d936" category="list-text">在災難事件期間，使用BlueXP中斷SnapMirror關係並使用 Veeam 觸發虛擬機器故障轉移。</block>
   <block id="e36e9213012a15c95ec5048a09f751b0" category="list-text">在網路上啟動應用程式。</block>
   <block id="820f3ffde5403dbc2ca3d17b511f569e" category="example-title">在 Google Cloud 上設定 CVO 並將磁碟區複製到 CVO</block>
   <block id="6765d7341fa9566a047031c62d2040b8" category="inline-link-macro">克沃</block>
@@ -5016,7 +4977,6 @@
   <block id="668e876e9eed2f87a7fbd8e16b87c4c6" category="paragraph">若要將 GCVE 視為新的來源環境，請執行<block ref="0695848a05014de99beaa134ecfe9fc7" category="inline-link-macro-rx"></block></block>
   <block id="7bada670a5d96330b3cc5b4226117845" category="list-text">現有的 Veeam 備份基礎架構可用於遷移。</block>
   <block id="026c786a5713ed32f97b3a1c71a8043d" category="list-text">Veeam Replication 允許變更目標站台上的 VM IP 位址。</block>
-  <block id="27c28d76f86b3a51f9b28bb58d5621ac" category="list-text">能夠重新映射 Veeam 外部複製的現有資料（例如從BlueXP複製的資料）</block>
   <block id="b1b545fa1c1d073a0a99975e8650ed38" category="list-text">能夠在目標站點上指定不同的網路連接埠群組。</block>
   <block id="5cf62b559bb55e287f26ce4e443c36eb" category="list-text">可以指定虛擬機器的啟動順序。</block>
   <block id="7a7fc85fd2a8652e3ffd0810c561d007" category="list-text">利用 VMware 變更塊追蹤來最大限度地減少透過 WAN 發送的資料量。</block>
@@ -5096,15 +5056,12 @@
   <block id="94adfe99939e2fa4d00ae6a6e2a196c1" category="paragraph">欲了解更多信息，請訪問<block ref="1b66d0bdbdb958b68563e629c9b2d8e4" category="inline-link-macro-rx"></block></block>
   <block id="d40a6f4c8e213ab97ad0ec8c6915b316" category="section-title">Google Cloud NetApp Volumes （NetApp Volumes）作為來賓連接存儲</block>
   <block id="4269daf6269f864176a37cc2ae07f7fb" category="paragraph">欲了解更多信息，請訪問<block ref="d4914f1a99b1e0f1f182256eb9708405" category="inline-link-macro-rx"></block></block>
-  <block id="c39fe43977e2c690fe3f545e74b066be" category="doc">使用SnapCenter插件和BlueXP backup and recovery為虛擬機器提供 3-2-1 資料保護</block>
   <block id="73d726d10be1ea38417dcb3b42dbce61" category="paragraph">3-2-1 備份策略是業界認可的資料保護方法，它提供了一種全面的方法來保護寶貴的資料。這種策略是可靠的，並確保即使發生一些意外的災難，仍然可以提供資料的副本。</block>
   <block id="509fafef5caf053ccaadfb4cc21d6d1e" category="paragraph">此策略由三個基本規則組成：</block>
   <block id="c59e6a73bffbd424d174a45535073085" category="list-text">至少保留三份資料副本。這樣可以確保即使一個副本遺失或損壞，您仍然至少有兩個副本可以依靠。</block>
   <block id="3523fd69b600ce77f8d1bca567d238a8" category="list-text">將兩個備份儲存在不同的儲存媒體或裝置上。多樣化的儲存媒體有助於防止特定於設備或特定於媒體的故障。如果一個設備損壞或一種媒體發生故障，另一個備份副本不會受到影響。</block>
   <block id="28293b551463a96414b8b221ea51d2a4" category="list-text">最後，確保至少有一個備份副本位於異地。異地儲存可以作為防止火災或洪水等局部災害的故障保護措施，因為這些災害可能會導致現場副本無法使用。</block>
-  <block id="652bf9c1cb169825b57e6e7e9bce3bfe" category="paragraph">本解決方案文件涵蓋 3-2-1 備份解決方案，使用適用SnapCenter Plug-in for VMware vSphere為我們的本地虛擬機器建立主備份和輔助備份，並使用虛擬機器的BlueXP backup and recovery將我們的資料副本備份到雲端儲存或StorageGRID。</block>
   <block id="d45fada9eb7a8910240cceebfb467b7f" category="list-text">使用適用於SnapCenter Plug-in for VMware vSphere備份和還原本機虛擬機器和資料儲存區。</block>
-  <block id="cdff43c972e7e0887564442e31301617" category="list-text">備份和復原託管在ONTAP叢集上的本機虛擬機器和資料儲存區，並使用BlueXP backup and recovery將其備份到物件儲存。</block>
   <block id="3fa5ba71652fad9133d2c14b46d4643b" category="section-title">NetApp ONTAP資料存儲</block>
   <block id="2db0b6b79f0a352c24e8d9be01a15f22" category="paragraph">ONTAP是 NetApp 業界領先的儲存解決方案，無論您透過 SAN 還是 NAS 協定訪問，它都能提供統一儲存。  3-2-1 備份策略可確保本地資料在多種媒體類型上受到保護，並且NetApp提供從高速快閃記憶體到低成本媒體的平台。</block>
   <block id="2f62861d2a5e5fb79aa4172b030338eb" category="inline-image-macro">ONTAP資料存儲</block>
@@ -5116,57 +5073,37 @@
   <block id="a6b184ab39b134eab2c079a8be61a931" category="paragraph">SCV 使用 OVA 檔案部署為 Linux 虛擬裝置。該插件現在使用遠端插件架構。遠端插件在 vCenter 伺服器之外運行，並託管在 SCV 虛擬設備上。</block>
   <block id="8c3d0c00ea667e3e0723e5cdc6473a09" category="inline-link">SnapCenter Plug-in for VMware vSphere文檔</block>
   <block id="727c896d5f97fa0b914653e81a4004ae" category="paragraph">有關 SCV 的詳細信息，請參閱<block ref="245718e19f61bc6ffd537e61a8d903cc" category="inline-link-rx"></block>。</block>
-  <block id="b6e8ba95aa7220434ae393716a0bf9d6" category="section-title">BlueXP backup and recovery</block>
-  <block id="4f577581972081fe4f346ed9fa5a8ef3" category="paragraph">BlueXP backup and recovery是一種基於雲端的資料管理工具，它為跨本地和雲端環境的各種備份和復原作業提供單一控制平面。 NetApp BlueXP backup and recovery套件的一部分功能是與 VMware vSphere（本地）的SnapCenter插件集成，以將資料副本擴展到雲端中的物件儲存。這將建立來自主儲存或輔助儲存備份的異地資料的第三份副本。  BlueXP backup and recovery可以輕鬆設定儲存策略，從這兩個內部位置中的任何一個傳輸資料副本。</block>
-  <block id="f8f023e5c60168abd6ba94cb0aa6a8e7" category="paragraph">在BlueXP備份和復原中選擇主備份和輔助備份作為來源將導致以下兩種拓撲之一：</block>
-  <block id="167f8e4f22387317bf771adbbf4d57b5" category="paragraph">*扇出拓樸* — 當SnapCenter Plug-in for VMware vSphere啟動備份時，會立即建立本機快照。然後，SCV 啟動SnapMirror操作，將最新的快照複製到輔助ONTAP叢集。在BlueXP備份和復原中，政策指定主ONTAP叢集作為要傳輸到您選擇的雲端提供者中的物件儲存的資料快照副本的來源。</block>
   <block id="2d75f3b6b953cdeb910a49938b08a820" category="inline-image-macro">扇出拓撲，800，418</block>
   <block id="4db4b0bc6dc80f5bb656b449e00f839a" category="paragraph"><block ref="4db4b0bc6dc80f5bb656b449e00f839a" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="81d79c86c069e3ae594d83caf7125000" category="paragraph">*級聯拓撲*——使用 SCV 建立主資料副本和次資料副本與上面提到的扇出拓撲相同。但是，這次在BlueXP備份和復原中建立了一個策略，指定物件儲存的備份將源自輔助ONTAP叢集。</block>
   <block id="33d67182b13ad638b65acf71a1aa76a6" category="inline-image-macro">級聯拓撲</block>
   <block id="97c11d0b9ac25af15b4de76752c6428a" category="paragraph"><block ref="97c11d0b9ac25af15b4de76752c6428a" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0db613f591f5c0374778e6a61b91eaf0" category="paragraph">BlueXP backup and recovery可以將本機ONTAP快照建立到 AWS Glacier、Azure Blob 和 GCP Archive 儲存的備份副本。</block>
   <block id="9a2dffd30570869b95c89e8ebe004f47" category="paragraph"><block ref="9a2dffd30570869b95c89e8ebe004f47" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f2bc28d75682808c368d801d60058bdb" category="inline-link">StorageGRID登入頁面</block>
   <block id="ed5c83fe833f279aa143145882d6ee92" category="paragraph">此外，您可以使用NetApp StorageGRID作為物件儲存備份目標。有關StorageGRID 的更多信息，請參閱<block ref="91b9d2909092a1a1573b8d4ec4f61279" category="inline-link-rx"></block>。</block>
-  <block id="3633716d35b3ea5361a4fa4a42501702" category="paragraph">此清單提供了配置此解決方案以及從 SCV 和BlueXP backup and recovery執行備份和復原作業所需的進階步驟：</block>
   <block id="163a7b0980d4119c657b0e0692a44075" category="list-text">配置ONTAP叢集之間的SnapMirror關係以用於主資料和輔助資料副本。</block>
   <block id="467ff501370e8e59c449bc28908972fa" category="list-text">為 VMware vSphere 配置SnapCenter插件。</block>
   <block id="3c1fdff568fdec856cfa61307b6fb382" category="list-text">新增儲存系統</block>
   <block id="0a4a3719bc7519d1162060e0f0e08f8a" category="list-text">建立備份策略</block>
   <block id="020a36deb114af1bb518c70d5975e940" category="list-text">建立資源組</block>
   <block id="2fff8be5fc844ef3714da61ac825a784" category="list-text">執行備份第一個備份作業</block>
-  <block id="d2e7af1a008f2d266baa6964ec83ec90" category="list-text">為虛擬機器配置BlueXP backup and recovery</block>
   <block id="ddf0d84991cb06158f6eca119f5aa89c" category="list-text">新增工作環境</block>
   <block id="00bb17e4689d02ead6add58fb47a2cb7" category="list-text">發現 SCV 和 vCenter 設備</block>
   <block id="cc1fa2ce00018956ccb6c745af1b7161" category="list-text">啟動備份</block>
   <block id="5f56644222973cb771d4bc0cdb2494f1" category="list-text">使用 SCV 從主儲存和輔助儲存還原虛擬機器。</block>
-  <block id="29eee2e7da81f7b38ac9c51c18b164c0" category="list-text">使用BlueXP備份和還原從物件儲存恢復虛擬機器。</block>
   <block id="10a2ab5ad14a0568e5f24184a3de0c84" category="paragraph">此解決方案的目的是展示在 VMware vSphere 中運行並位於NetApp ONTAP託管的 NFS 資料儲存上的虛擬機器的資料保護。此解決方案假定以下組件已配置並可供使用：</block>
   <block id="eeb794f9274b58305465e4fa7b8ecb19" category="list-text">具有連接到 VMware vSphere 的 NFS 或 VMFS 資料儲存的ONTAP儲存叢集。 NFS 和 VMFS 資料儲存均支援。此解決方案採用了 NFS 資料儲存。</block>
   <block id="cec64789cb22c92bd3e83e152c7462b1" category="list-text">為用於 NFS 資料儲存庫的磁碟區建立了具有SnapMirror關係的輔助ONTAP儲存叢集。</block>
-  <block id="1a192383caece8526c650ea10ec56244" category="list-text">為用於物件儲存備份的雲端供應商所安裝的BlueXP連接器。</block>
   <block id="8b2d5235ad2094129ec911a569dd15b9" category="list-text">要支援的虛擬機器位於主ONTAP儲存叢集上的 NFS 資料儲存庫上。</block>
-  <block id="6ec76887b4a3a1aed8cf56c378426950" category="list-text">BlueXP連接器與本機ONTAP儲存叢集管理介面之間的網路連線。</block>
-  <block id="88a4f5f2a88a34308791c2b2bae6bc53" category="list-text">BlueXP連接器與本機 SCV 設備 VM 之間以及BlueXP連接器與 vCenter 之間的網路連接。</block>
   <block id="14502956de0b18aac2e67512bf39e746" category="list-text">本機ONTAP叢集間 LIF 與物件儲存服務之間的網路連線。</block>
   <block id="f4df2638179ad69f631687a593408fb1" category="inline-link">配置 DNS 以進行主機名稱解析</block>
   <block id="5eead32ad2eb390a7a2be60277c27914" category="list-text">為主ONTAP儲存叢集和輔助 ONTAP 儲存叢集上的管理 SVM 配置的 DNS。更多資訊請參閱<block ref="07c761163331a05d2a34d62a1e39df8f" category="inline-link-rx"></block>。</block>
   <block id="7ed1d0ce67ee86ec3e3522819949c9c6" category="paragraph">該解決方案的測試/驗證是在實驗室中進行的，該實驗室可能與最終部署環境相匹配，也可能不匹配。</block>
   <block id="5179b1042d2b64d1ab46f9718e52b71a" category="paragraph"><block ref="5179b1042d2b64d1ab46f9718e52b71a" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="dff3ea20bab3486b4778fbae4dfd6d20" category="paragraph">在此解決方案中，我們提供了部署和驗證利用適用於SnapCenter Plug-in for VMware vSphere以及BlueXP backup and recovery方案的詳細說明，以便在位於本機資料中心的 VMware vSphere 叢集內執行 Windows 和 Linux 虛擬機器的備份和復原。此設定中的虛擬機器儲存在由ONTAP A300 儲存叢集託管的 NFS 資料儲存庫上。此外，單獨的ONTAP A300 儲存叢集可作為使用SnapMirror複製的磁碟區的輔助目標。此外，託管在 Amazon Web Services 和 Azure Blob 上的物件儲存被用作資料第三份副本的目標。</block>
-  <block id="3598805e9e62ee54d3f84340785c25f3" category="paragraph">我們將討論如何為 SCV 管理的備份的輔助副本建立SnapMirror關係，以及如何在 SCV 和BlueXP backup and recovery中配置備份作業。</block>
   <block id="2046eeb71e1e38497f5d706ddd361ac6" category="paragraph">有關適用SnapCenter Plug-in for VMware vSphere的詳細信息，請參閱<block ref="245718e19f61bc6ffd537e61a8d903cc" category="inline-link-rx"></block>。</block>
-  <block id="c756b6b1ba6b752239a8d49eda5ad2a4" category="inline-link">BlueXP backup and recovery文檔</block>
-  <block id="6f89c1575d847917cac76d8e5703913d" category="paragraph">有關BlueXP backup and recovery的詳細信息，請參閱<block ref="f913b694a1f9d667c4a8fd38d834b075" category="inline-link-rx"></block>。</block>
   <block id="49ff278b23e1b2a48f41c26059993a78" category="section-title">在ONTAP叢集之間建立SnapMirror關係</block>
   <block id="913a4fc9e4dd2b3ae4e143f1654897a6" category="paragraph">SnapCenter Plug-in for VMware vSphere使用ONTAP SnapMirror技術來管理二級SnapMirror和/或SnapVault副本到二級ONTAP叢集的傳輸。</block>
   <block id="a8c8e1c43cc229715b454d8fa5870c7c" category="paragraph">SCV 備份策略可以選擇使用SnapMirror或SnapVault關係式。主要區別在於，當使用SnapMirror選項時，策略中為備份配置的保留計劃在主位置和輔助位置將是相同的。  SnapVault專為歸檔而設計，使用此選項時，可以使用SnapMirror關係為二級ONTAP儲存叢集上的快照副本建立單獨的保留計畫。</block>
-  <block id="4cb7bc8b80ea6dad6b32452e211210f0" category="paragraph">可以在BlueXP中設定SnapMirror關係，其中許多步驟都是自動完成的，也可以使用系統管理器和ONTAP CLI 來完成。下面討論所有這些方法。</block>
-  <block id="ef2376e2d99283ddc3b8c4802978ddbd" category="section-title">與BlueXP建立SnapMirror關係</block>
-  <block id="f8d9e61c93c3e0e3bf563a4116f49d98" category="paragraph">必須從BlueXP Web 控制台完成以下步驟：</block>
   <block id="d24e7c83eb605dbec3784d9614f113b5" category="example-title">主 ONTAP 儲存系統和輔助ONTAP儲存系統的複製設置</block>
-  <block id="49f6d5194173a4f2c65fe97e7137f8f0" category="paragraph">首先登入BlueXP網路控制台並導覽至 Canvas。</block>
   <block id="3c0f6ff9fcfb31caedb1d772b584ba4b" category="list-text">將來源（主） ONTAP儲存系統拖曳到目標（輔助） ONTAP儲存系統上。</block>
   <block id="fb8e05d47d62709ef79a3548c465824b" category="inline-image-macro">拖放儲存系統</block>
   <block id="f75daf91a82d12b031e2462827ae23e3" category="paragraph"><block ref="f75daf91a82d12b031e2462827ae23e3" category="inline-image-macro-rx" type="image"></block></block>
@@ -5229,7 +5166,6 @@
   <block id="663b8460da445a8bdcdacd5586794a5a" category="inline-image-macro">創建策略</block>
   <block id="c0485a94c1f63127123432b0deb889f0" category="paragraph"><block ref="c0485a94c1f63127123432b0deb889f0" category="inline-image-macro-rx" type="image"></block></block>
   <block id="288f9e0d4ace01e5bcd057f2b9aa9cbd" category="admonition">在SnapCenter插件中建立策略時，您將看到SnapMirror和SnapVault的選項。如果您選擇SnapMirror，則政策中指定的保留計畫對於主快照和輔助快照將相同。如果您選擇SnapVault，則輔助快照的保留計畫將基於使用SnapMirror關係實施的單獨計畫。當您希望延長二次備份的保留期時，這很有用。</block>
-  <block id="85ddc39126e35d4b51b71eda88f1079e" category="admonition">快照標籤很有用，因為它們可用於為複製到二級ONTAP叢集的SnapVault副本製定具有特定保留期的策略。當 SCV 與BlueXP備份和還原一起使用時，快照標籤欄位必須為空或與BlueXP備份策略中指定的標籤 [下劃線]#匹配#。</block>
   <block id="9a9dafcee3fdb0dbad8b58495e0676e8" category="list-text">對每個所需的策略重複此過程。例如，針對每日、每周和每月備份制定單獨的策略。</block>
   <block id="b9c3c294e7e2345ef69743b4899f43f0" category="paragraph">資源組包含要包含在備份作業中的資料儲存區和虛擬機，以及相關的策略和備份計畫。</block>
   <block id="91157a1c630ebb8dfa5964bc5c596222" category="paragraph">回顧<block ref="1100db64f963d9605fc8b4bac46beeaa" category="inline-link-rx"></block>請參閱文件部分以取得更多資訊。</block>
@@ -5244,31 +5180,19 @@
   <block id="10e47b32ebff05d654d6c620c43c81d8" category="list-text">選擇跨位於多個資料儲存體上的 VMDK 的虛擬機器的資料儲存選項，然後按一下「下一步」。</block>
   <block id="6b933c0b04e021dd664c8a6c4d7cdee0" category="inline-image-macro">跨資料存儲</block>
   <block id="f3c9ce459fe2643b9aff9d1fbfb9fbce" category="paragraph"><block ref="f3c9ce459fe2643b9aff9d1fbfb9fbce" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b18bd79c84b4f3e6ead32a02f410c9d0" category="admonition">BlueXP backup and recovery目前不支援備份跨多個資料儲存的 VMDK 的虛擬機器。</block>
   <block id="9e70c3d4b1cb5df581462a740d4763a0" category="list-text">在下一頁上，選擇與資源群組關聯的策略，然後按一下「下一步」。</block>
   <block id="cb5934fee2416cd37a43827ca131db09" category="inline-image-macro">資源組策略</block>
   <block id="2f71700437f91ad881de25a5653f3d7b" category="paragraph"><block ref="2f71700437f91ad881de25a5653f3d7b" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="24e08063677b3f167cebf7ff704c5c4e" category="admonition">使用BlueXP backup and recovery將 SCV 管理的快照備份到物件儲存時，每個資源群組只能與單一原則關聯。</block>
   <block id="743bb6ade55395c48403a8fb1fbe308e" category="list-text">選擇一個計劃來確定備份的運行時間。按一下“下一步”。</block>
   <block id="57811d04cd3f450083060e1693a7d148" category="paragraph"><block ref="57811d04cd3f450083060e1693a7d148" category="inline-image-macro-rx" type="image"></block></block>
   <block id="65ac639efbb86b722b74780e19ce0861" category="list-text">最後，查看摘要頁面，然後按一下「*完成*」以完成資源組建立。</block>
   <block id="41e16971a21fc160e688d85314e4a9c2" category="example-title">執行備份作業</block>
-  <block id="220c04f39bef382d5a0b1ed04f0d3cdd" category="paragraph">在此最後一步中，執行備份作業並監控其進度。必須先在 SCV 中成功完成至少一個備份作業，然後才能從BlueXP backup and recovery中發現資源。</block>
   <block id="e35955bf0accfd03e4d43701a216978c" category="list-text">在SnapCenter Plug-in for VMware vSphere中，導覽至左側選單中的「*資源組*」。</block>
   <block id="0f984890023fbeb2a4f8723c1e495f2c" category="list-text">若要啟動備份作業，請選擇所需的資源群組並按一下*立即執行*按鈕。</block>
   <block id="5d14da16083d889fc5af3d8ab6aa48e6" category="paragraph"><block ref="5d14da16083d889fc5af3d8ab6aa48e6" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1375a3914da8c67b1fcc8cf00d7fba6d" category="list-text">若要監控備份作業，請導覽至左側選單上的「儀表板」。在「最近的工作活動」下點選工作 ID 號碼來監控工作進度。</block>
   <block id="d8d2bc1b59b89418a5362bbf6a7d5ab4" category="inline-image-macro">監控工作進度</block>
   <block id="9c5075dca49a99b91da170202aca3c7a" category="paragraph"><block ref="9c5075dca49a99b91da170202aca3c7a" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="094e2089ce7608674cadf42d6de48d97" category="section-title">在BlueXP backup and recovery中配置物件儲存備份</block>
-  <block id="b051972c09e4af66c724bccd4f127c1c" category="paragraph">為了使BlueXP有效地管理資料基礎設施，需要事先安裝連接器。連接器執行涉及發現資源和管理資料操作的操作。</block>
-  <block id="e6e80588e9fe7cf89218fea44300f7ca" category="inline-link">了解連接器</block>
-  <block id="f785cb009d0e900109fd140553b30bea" category="paragraph">有關BlueXP連接器的更多信息，請參閱<block ref="87d489963d63aa007d917db7d08b189d" category="inline-link-rx"></block>在BlueXP文件中。</block>
-  <block id="118ef4c7f068ef80971593a1b0f6c1f7" category="paragraph">一旦為正在使用的雲端提供者安裝了連接器，就可以從 Canvas 中查看物件儲存的圖形表示。</block>
-  <block id="0f28b2dc8792829266318c92e522f520" category="paragraph">要配置BlueXP backup and recovery以備份由 SCV 內部管理的數據，請完成以下步驟：</block>
-  <block id="4471d745c7b622fbd04b1e5c54f7144d" category="example-title">將工作環境加入畫布</block>
-  <block id="13c030d92e30cb905d69a9a387410d73" category="paragraph">第一步是將本機ONTAP儲存系統新增至BlueXP</block>
-  <block id="f55260bbdb99e04d3e13ace23b35a6b5" category="list-text">從畫布中選擇「新增工作環境」開始。</block>
   <block id="3b2fb4ccd985b8215b4c38a55d19fdc8" category="paragraph"><block ref="3b2fb4ccd985b8215b4c38a55d19fdc8" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d3d22c95b6f4d89140142ab07f028c50" category="list-text">從位置選擇中選擇*On-Premises*，然後按一下*Discover*按鈕。</block>
   <block id="f044344db90a471e01add0279640a8d3" category="inline-image-macro">選擇本地</block>
@@ -5278,7 +5202,6 @@
   <block id="9ad78ef3f1c07ea72b452f5429a1c76b" category="paragraph"><block ref="9ad78ef3f1c07ea72b452f5429a1c76b" category="inline-image-macro-rx" type="image"></block></block>
   <block id="10c85a28ec77f1067105a32fcee05b7f" category="example-title">發現本地 SCV 設備和 vCenter</block>
   <block id="d7c03e191da724f2dee3aefd6723b5ac" category="paragraph">若要發現本機資料儲存和虛擬機器資源，請新增 SCV 資料代理程式的資訊和 vCenter 管理設備的憑證。</block>
-  <block id="45d6ffc5f5563975f6953d269cffc5b6" category="list-text">從BlueXP左側選單選擇 *保護 &gt; 備份與還原 &gt; 虛擬機器*</block>
   <block id="929323ed0978848a31f6a8388e01971c" category="inline-image-macro">選擇虛擬機</block>
   <block id="418cbccb627b07c4bc1d19d2af32581f" category="paragraph"><block ref="418cbccb627b07c4bc1d19d2af32581f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b894330fc5c0772b978a804a636d8561" category="list-text">從虛擬機器主畫面存取*設定*下拉選單並選擇*SnapCenter Plug-in for VMware vSphere*。</block>
@@ -5293,11 +5216,6 @@
   <block id="26ab951a10e138e296eea82ff35d45ad" category="list-text">一旦發現完成，您將能夠查看所有已發現的 SCV 裝置上的資料儲存和虛擬機器。</block>
   <block id="43d1c62ee0e1fe63a447747b61afc1ca" category="inline-image-macro">查看可用資源</block>
   <block id="6df6ab1fd515d0e37804351d76f14558" category="paragraph"><block ref="6df6ab1fd515d0e37804351d76f14558" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="6622de5008f90d398faa1e625092402e" category="example-title">建立BlueXP備份策略</block>
-  <block id="465bbc0896511246f9f765c89f55e975" category="paragraph">在BlueXP backup and recovery中，建立策略來指定保留期、備份來源和歸檔原則。</block>
-  <block id="9fe2f95002b4b4815d52173b68bf9862" category="inline-link">建立備份資料儲存區的策略</block>
-  <block id="86bc3e584348c8421ec3567a22142b57" category="paragraph">有關創建策略的更多信息，請參閱<block ref="80982186ff4a093ef0d5c383d66626f1" category="inline-link-rx"></block>。</block>
-  <block id="8b91c4c18527ee91c2c399b04a87600c" category="list-text">從BlueXP backup and recovery主頁，存取 *設定* 下拉式選單並選擇 *策略*。</block>
   <block id="1db0dd7fde7d56dfa9fe1a1f01bd5900" category="paragraph"><block ref="1db0dd7fde7d56dfa9fe1a1f01bd5900" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6f6ac8531dfacb86c47a059017038eb1" category="list-text">按一下「*建立策略*」以存取「*建立混合備份策略*」視窗。</block>
   <block id="f04e98350e411695587e6669af53c1db" category="list-text">新增策略名稱</block>
@@ -5310,7 +5228,6 @@
   <block id="6c302d6f69fc91f2572712f003676d83" category="list-text">按一下「*建立*」完成策略建立。</block>
   <block id="b376eb1d1a81946ce7cc5b483b394614" category="example-title">將資料儲存備份到 Amazon Web Services</block>
   <block id="0683dcf442cdbe8d60b5c07d40f32d46" category="paragraph">最後一步是啟動各個資料儲存區和虛擬機器的資料保護。以下步驟概述如何啟動 AWS 備份。</block>
-  <block id="ea304a58f425305bd76d96e195240e41" category="list-text">從BlueXP backup and recovery主頁，存取要備份的資料儲存區的設定下拉式選單並選擇*啟動備份*。</block>
   <block id="addf19ca5aa2245b4311a5fda42a2a57" category="inline-image-macro">啟動備份</block>
   <block id="499f0b0f60bcd76722da4a70b9aaf3e0" category="paragraph"><block ref="499f0b0f60bcd76722da4a70b9aaf3e0" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2d2feec53ea251226e3bc25b8f966325" category="list-text">指派用於資料保護操作的策略，然後按一下「下一步」。</block>
@@ -5328,11 +5245,9 @@
   <block id="3a27bf198d7aaec4b69fdd91a21db0f3" category="list-text">最後，查看備份作業詳細信息，然後按一下「*啟動備份*」按鈕以啟動資料儲存的資料保護。</block>
   <block id="a87637f111ffdb2fa219abf2e190e471" category="inline-image-macro">審核並激活</block>
   <block id="0c853b97ef74cb06dc5c58ad8f908b9a" category="paragraph"><block ref="0c853b97ef74cb06dc5c58ad8f908b9a" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="799321d74f0d57d43edc67a54c1ef707" category="admonition">此時資料傳輸可能不會立即開始。  BlueXP backup and recovery每小時掃描任何未完成的快照，然後將其傳輸到物件儲存。</block>
   <block id="a0d35efe3991e429a3bc58db5b630996" category="section-title">資料遺失時恢復虛擬機</block>
   <block id="1cc4cdfb25de99e21c56bd2f0c899a83" category="paragraph">確保資料的安全只是全面資料保護的一個面向。同樣重要的是，在發生資料遺失或勒索軟體攻擊時能夠從任何位置迅速恢復資料。此功能對於維持無縫業務營運和滿足復原點目標至關重要。</block>
   <block id="acdac876b9032f5b222cf73fc7456ce3" category="paragraph">NetApp提供高度適應性的 3-2-1 策略，可對主儲存、輔助儲存和物件儲存位置的保留計畫進行客製化控制。該策略提供了靈活性，可以根據特定需求自訂資料保護方法。</block>
-  <block id="ecbeffc5d7f9792e6cd466bdf664edb5" category="paragraph">本節概述了適用於SnapCenter Plug-in for VMware vSphere和適用於虛擬機器的BlueXP backup and recovery的資料還原流程。</block>
   <block id="e418db144eab640511d76294a7f2c7a2" category="section-title">從SnapCenter Plug-in for VMware vSphere還原虛擬機</block>
   <block id="0b156eb7ae06ec8e963e1dd7bed83e94" category="inline-link">從備份還原虛擬機</block>
   <block id="6685bca68d0a1fe5d6c289520a21e10a" category="paragraph">對於此解決方案，虛擬機器被恢復到原始位置和備用位置。該解決方案並未涵蓋 SCV 資料復原功能的所有面向。有關 SCV 提供的所有服務的詳細信息，請參閱<block ref="a56bca9fd4ed3fad8a28404cdf47ba7c" category="inline-link-rx"></block>在產品文件中。</block>
@@ -5352,11 +5267,7 @@
   <block id="d87670b3add7f5b6a740edfe8b8e91aa" category="inline-image-macro">選擇主要或次要</block>
   <block id="48fa7ca54b1f69f3fd7706c895a8e716" category="paragraph"><block ref="48fa7ca54b1f69f3fd7706c895a8e716" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d0a57165744947d2a15e0465f96c7224" category="list-text">最後，查看備份作業的摘要並按一下「完成」以開始復原程序。</block>
-  <block id="d8d9151889f2e5c47ace43970e545363" category="section-title">從BlueXP backup and recovery中還原虛擬機</block>
-  <block id="c6c605b662ef94c68391b5451e95455d" category="paragraph">BlueXP backup and recovery允許將虛擬機器還原到原始位置。可透過BlueXP Web 控制台存取恢復功能。</block>
   <block id="ffa1e37a2c6478ff157a0a7d25a607e9" category="inline-link">從雲端恢復虛擬機器數據</block>
-  <block id="51dac82a8b88ae2579c7783d71b88447" category="example-title">從BlueXP backup and recovery中還原虛擬機</block>
-  <block id="d2b7af1fe2cbeff098166770c3666278" category="paragraph">若要從BlueXP backup and recovery和還原還原虛擬機，請完成下列步驟。</block>
   <block id="37f8e514cc85f6be4997337d7410cb05" category="list-text">導航至*保護&gt;備份和還原&gt;虛擬機器*，然後按一下虛擬機器以查看可還原的虛擬機器清單。</block>
   <block id="9f9a3f0d1822c0693db87fb0974c34c6" category="inline-image-macro">存取虛擬機器列表</block>
   <block id="0343122b9ab790320739ebf87a33be7b" category="paragraph"><block ref="0343122b9ab790320739ebf87a33be7b" category="inline-image-macro-rx" type="image"></block></block>
@@ -5370,39 +5281,18 @@
   <block id="f53f4a113807a68a2f782e05b8e0a70e" category="list-text">從「作業監控」標籤監控恢復作業的進度。</block>
   <block id="081875fb99dedbd0c048ca990a597eb3" category="inline-image-macro">從「作業監控」標籤檢查還原</block>
   <block id="040b4116e5789c3b20171c45d32df22b" category="paragraph"><block ref="040b4116e5789c3b20171c45d32df22b" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="4eabedc19022ae64ee6fb8cf3eb22d25" category="paragraph">3-2-1 備份策略與SnapCenter Plug-in for VMware vSphere以及適用於虛擬機器的BlueXP backup and recovery一起實施時，可提供強大、可靠且經濟高效的資料保護解決方案。此策略不僅確保了資料冗餘和可存取性，而且還提供了從任何位置以及從內部ONTAP儲存系統和基於雲端的物件儲存恢復資料的靈活性。</block>
-  <block id="d85d2913422ca9221fd9749107f26b98" category="paragraph">本文檔中介紹的用例重點關注經過驗證的資料保護技術，突出了NetApp、VMware 和領先的雲端供應商之間的整合。SnapCenter Plug-in for VMware vSphere可與 VMware vSphere 無縫集成，從而實現高效、集中的資料保護作業管理。這種整合簡化了虛擬機器的備份和復原流程，從而可以在 VMware 生態系統內輕鬆進行調度、監控和靈活的復原作業。 BlueXP backup and recovery透過將虛擬機資料安全、隔離地備份到基於雲端的物件存儲，實現了 3-2-1 中的 1。直覺的介面和邏輯的工作流程為關鍵資料的長期存檔提供了一個安全的平台。</block>
   <block id="2d3786cce4bbee81c9852997cc1bef39" category="list-text"><block ref="2d3786cce4bbee81c9852997cc1bef39" category="inline-link-rx"></block></block>
-  <block id="eeb8e055593f1709925a03e2ebb13265" category="inline-link">BlueXP文檔</block>
-  <block id="97672c1115415f474694aeff39263665" category="list-text"><block ref="97672c1115415f474694aeff39263665" category="inline-link-rx"></block></block>
   <block id="6120544c737d67dd31f47d101fe21a84" category="doc">在雲端提供者中配置虛擬化環境</block>
   <block id="f4f7adb7cbe18f2cdd82be75a52b0417" category="paragraph">這裡介紹如何在每個受支援的超大規模器中配置虛擬化環境的詳細資訊。</block>
-  <block id="6cb43bd601a5b5136a526116da305aad" category="summary">本文檔的此部分介紹了BlueXP DRaaS 的配置，以便為本地 VMware VM 設定災難復原到另一個指定站點。</block>
-  <block id="70076cb75d527d3d73de5a6996cab93f" category="doc">使用BlueXP DRaaS 為 NFS 資料儲存進行災難復原</block>
   <block id="468d1a8c7a9f04fd5aecc327c6525fd6" category="paragraph">透過從生產站點到災難復原站點的區塊級複製來實現災難復原是一種具有彈性且經濟高效的方法，可保護工作負載免受網站中斷和資料損壞事件（例如勒索軟體攻擊）的影響。使用NetApp SnapMirror複製，在具有 NFS 資料儲存的本機ONTAP系統上執行的 VMware 工作負載可以複製到位於指定復原資料中心的另一個ONTAP儲存系統，該資料中心也部署了 VMware。</block>
-  <block id="7109b0a7471da638ea8bdaec8cb0f02b" category="paragraph">本文檔的此部分介紹了BlueXP DRaaS 的配置，以便為本地 VMware VM 設定災難復原到另一個指定站點。作為此設定的一部分， BlueXP帳戶、 BlueXP連接器、 BlueXP工作區內新增的ONTAP陣列是實現從 VMware vCenter 到ONTAP儲存的通訊所必需的。此外，本文檔詳細介紹如何設定網站之間的複製以及如何設定和測試復原計畫。最後一部分介紹如何執行完整網站故障轉移以及在主網站恢復並在線上購買後如何進行故障復原。</block>
-  <block id="45ed7117e45105097c407d1f8e40fb84" category="paragraph">利用整合到NetApp BlueXP控制台的BlueXP disaster recovery服務，公司可以輕鬆發現其內部部署的 VMware vCenter 和ONTAP儲存。然後，組織可以建立資源群組、建立災難復原計畫、將其與資源群組關聯，以及測試或執行故障轉移和故障復原。 SnapMirror提供儲存層級區塊複製，使兩個網站保持最新的增量變化，從而實現長達 5 分鐘的復原點目標 (RPO)。此外，還可以模擬災難復原程序，而不會影響生產或產生額外的儲存成本。</block>
-  <block id="39429cfafa60b7175bd54dcd3ae8a180" category="paragraph">BlueXP disaster recovery利用 ONTAP 的FlexClone技術從災難復原站點上最後複製的快照建立 NFS 資料儲存庫的空間高效副本。完成災難復原測試後，客戶可以輕鬆刪除測試環境，而不會影響實際複製的生產資源。如果發生實際故障轉移， BlueXP disaster recovery服務會協調所有必要步驟，只需點擊幾下即可自動在指定的災難復原站點上啟動受保護的虛擬機器。該服務還將逆轉與主站點的SnapMirror關係，並在需要時將任何變更從輔助站點複製到主站點以進行故障恢復操作。與其他知名的替代品相比，所有這些功能的成本只是其一小部分。</block>
   <block id="38171e25de586d9a218b5c60a44bdd64" category="paragraph"><block ref="38171e25de586d9a218b5c60a44bdd64" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="9e145778b8ea3c5fa8ee5bcae872b9b8" category="paragraph">若要開始使用BlueXP disaster recovery，請使用BlueXP控制台，然後存取服務。</block>
-  <block id="ad84736d27b7f84414783598f4ffd0d9" category="list-text">登入BlueXP。</block>
-  <block id="fb80c96275a48c05ea94cd7a6981514c" category="list-text">從BlueXP左側導覽中，選擇保護 &gt; 災難復原。</block>
-  <block id="e9790176dca71baec70ca5e6b5d39389" category="list-text">出現BlueXP disaster recovery儀表板。</block>
   <block id="c6ad534013ff5709fc1021efb0d5b094" category="paragraph"><block ref="c6ad534013ff5709fc1021efb0d5b094" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a0918e7a0b2691b9ebf1a31f40b2c6b4" category="paragraph">在配置災難復原計畫之前，請確保滿足以下先決條件：</block>
-  <block id="961f056ab40e4dd931269acc276ffaff" category="list-text">BlueXP Connector 在NetApp BlueXP中設定。</block>
-  <block id="98ea1ce72e094ba549a8479522ef1136" category="list-text">BlueXP連接器執行個體與來源和目標 vCenter 和儲存系統具有連線。</block>
-  <block id="f419955fef6d34f70931c4c28fb8f16a" category="list-text">NetApp Data ONTAP叢集提供儲存 NFS 資料儲存區。</block>
-  <block id="0a59b2e2756c8314755beaae5f9db66f" category="list-text">BlueXP中新增了託管 VMware NFS 資料儲存區的本機NetApp儲存系統。</block>
   <block id="436e68f1ecbb1aad162f323520820215" category="list-text">使用 DNS 名稱時應該進行 DNS 解析。否則，請使用 vCenter 的 IP 位址。</block>
   <block id="8a4e266803c59af4746c58962ecd8d33" category="list-text">SnapMirror複製是為指定的基於 NFS 的資料儲存庫磁碟區配置的。</block>
   <block id="182e56e650699ca4b371ce3f1d77f3a0" category="list-text">確保環境具有支援的 vCenter Server 和 ESXi 伺服器版本。</block>
   <block id="53bdebd2eb1b3c1ce7c7cffa9fded9db" category="paragraph">一旦來源站點和目標站點之間建立了連接，請繼續執行設定步驟，這需要幾次點擊和大約 3 到 5 分鐘的時間。</block>
-  <block id="f3609706043002db3b973eee3e584667" category="admonition">NetApp建議在目標站點或第三個站點部署BlueXP連接器，以便BlueXP連接器可以透過網路與來源資源和目標資源進行通訊。</block>
   <block id="bc83849cf0af080d9a51f49e02b1587b" category="paragraph"><block ref="bc83849cf0af080d9a51f49e02b1587b" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="4857cb93d2e3bac7259731181411be0c" category="section-title">BlueXP disaster recovery配置</block>
-  <block id="5a6249691b2a2d88ba314544955e618d" category="paragraph">準備災難復原的第一步是發現並將內部部署 vCenter 和儲存資源新增至BlueXP disaster recovery。</block>
-  <block id="e48ab08dd254343e930c2ff31afffbcb" category="paragraph">開啟BlueXP控制台並從左側導覽中選擇 *保護 &gt; 災難復原*。選擇*發現 vCenter 伺服器*或使用頂部選單，選擇*網站 &gt; 新增 &gt; 新增 vCenter*。</block>
   <block id="22e2f65bcbb56a9509e40b61819f4daf" category="paragraph"><block ref="22e2f65bcbb56a9509e40b61819f4daf" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c3f34b7f80e0fc989e20a5d527c2e8db" category="paragraph">新增以下平台：</block>
   <block id="ca0a90859a7d563e39734efed11a43cd" category="list-text">*來源*。本機 vCenter。</block>
@@ -5411,21 +5301,12 @@
   <block id="e39149062b3a81313ae0591b529afb20" category="paragraph"><block ref="e39149062b3a81313ae0591b529afb20" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8a3c920cd1fa47108a7889c161ba89dc" category="paragraph">一旦新增了 vCenter，就會觸發自動發現。</block>
   <block id="97cad0ae0c6dc5b034abbccc8dd1a1b6" category="section-title">配置來源站點陣列和目標站點陣列之間的儲存複製</block>
-  <block id="3aebd796e97fb3e8df280a32bf47cef5" category="paragraph">SnapMirror在NetApp環境中提供資料複製。 SnapMirror複製是基於NetApp Snapshot 技術構建，非常高效，因為它僅複製自上次更新以來已更改或添加的區塊。可以使用NetApp OnCommand System Manager或ONTAP CLI 輕鬆設定SnapMirror 。如果預先配置了叢集和 SVM 對等連接， BlueXP DRaaS 也會建立SnapMirror關係。</block>
-  <block id="471de55d4cd6be0fa752c67b543f51fb" category="paragraph">對於主儲存沒有完全遺失的情況， SnapMirror提供了重新同步主網站和 DR 網站的有效方法。 SnapMirror可以重新同步兩個站點，只需反轉SnapMirror關係即可將變更的資料或新資料從 DR 站點傳回主站點。這意味著BlueXP DRaaS 中的複製計劃可以在故障轉移後在任一方向重新同步，而無需重新複製整個磁碟區。如果以相反方向重新同步關係，則只有自上次成功同步 Snapshot 副本以來寫入的新資料才會傳回目標。</block>
-  <block id="8ebd3c88ac6bcf3cb9859fe46c217ed4" category="admonition">如果已經透過 CLI 或系統管理員為磁碟區配置了SnapMirror關係， BlueXP DRaaS 將取得該關係並繼續其餘工作流程作業。</block>
   <block id="23b7310220fc32adb5560c6bf58daf39" category="section-title">如何設定 VMware 災難復原</block>
-  <block id="1367c1cd3a042879d23721e027b7544a" category="paragraph">對於任何給定的應用程序，創建SnapMirror複製的過程都是相同的。過程可以是手動的，也可以是自動的。最簡單的方法是利用BlueXP配置SnapMirror複製，只需將環境中的來源ONTAP系統拖曳到目標上即可觸發指導其餘流程的精靈。</block>
   <block id="bfa3e89293cc445f9e644b4f71ce4bcb" category="paragraph"><block ref="bfa3e89293cc445f9e644b4f71ce4bcb" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="77b7d283a75de0eef9fd17e92aeaa6e2" category="paragraph">如果滿足以下兩個條件， BlueXP DRaaS 也可以自動執行相同的操作：</block>
   <block id="c8edc2deb5ed92498ad22d7beaad61cc" category="list-text">源集群和目標集群具有對等關係。</block>
   <block id="57801dda5c659eb9e39aa610e44b756b" category="list-text">源 SVM 和目標 SVM 具有對等關係。</block>
   <block id="b1c9d1ff1503cddd79637cc9a3346fc0" category="paragraph"><block ref="b1c9d1ff1503cddd79637cc9a3346fc0" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b675a07a929497dda608c6bb6f9ec45f" category="admonition">如果已經透過 CLI 為磁碟區配置了SnapMirror關係， BlueXP DRaaS 將取得該關係並繼續其餘工作流程操作。</block>
-  <block id="5f0b8159e3dcb027d38cc6ac95613405" category="section-title">BlueXP disaster recovery能為您做什麼？</block>
-  <block id="a8a84ce85260071e304ae36b4bf417b9" category="paragraph">在新增來源站點和目標站點後， BlueXP disaster recovery將執行自動深度發現並顯示虛擬機器及其相關元資料。  BlueXP disaster recovery也會自動偵測虛擬機器使用的網路和連接埠群組並填入它們。</block>
   <block id="4da9782b9eb85822f889e0304ad54332" category="paragraph"><block ref="4da9782b9eb85822f889e0304ad54332" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="2daccab4c0e7ea4a13d66568db17f6c2" category="paragraph">新增網站後，虛擬機器可以分組到資源組。 BlueXP disaster recovery資源群組可讓您將一組依賴的虛擬機器分組為邏輯群組，這些邏輯群組包含可在復原時執行的啟動順序和啟動延遲。若要開始建立資源組，請導覽至*資源組*並點選*建立新資源組*。</block>
   <block id="e2ce71473c3b9032969b1345e89dc02a" category="paragraph"><block ref="e2ce71473c3b9032969b1345e89dc02a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6d604b19aa0868c05a23ec07a69bf917" category="paragraph"><block ref="6d604b19aa0868c05a23ec07a69bf917" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8af8369e28e2edd2c8f7f0c54480accb" category="admonition">在建立複製計劃時也可以建立資源組。</block>
@@ -5444,7 +5325,6 @@
   <block id="733ed58a4aa1b26eb5b227015019a16d" category="paragraph">如果未事先建立資源群組，則下列螢幕截圖顯示了根據組織要求過濾虛擬機器或特定資料儲存的選項。</block>
   <block id="0d7b3de8fd96fef65c75ee9b69c1e473" category="paragraph"><block ref="0d7b3de8fd96fef65c75ee9b69c1e473" category="inline-image-macro-rx" type="image"></block></block>
   <block id="64bbb11437b30da2acf631c36bd785dd" category="inline-link-macro">建立複製計劃</block>
-  <block id="0a63ecd1725c27c3fa105e0f6d91cc19" category="paragraph">選擇資源組後，建立故障轉移對映。在此步驟中，指定來源環境中的資源如何對應到目標。這包括運算資源、虛擬網路。 IP 自訂、前腳本和後腳本、啟動延遲、應用程式一致性等。有關詳細信息，請參閱<block ref="b14ee9e1d83fbf162774416594cbd539" category="inline-link-macro-rx"></block>。</block>
   <block id="ec2eb9ac82800b711eac505aa997e920" category="paragraph"><block ref="ec2eb9ac82800b711eac505aa997e920" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2fdfb196ba275fb6b60f63aeed873a3e" category="admonition">預設情況下，測試和故障轉移操作使用相同的映射參數。若要為測試環境設定不同的映射，請取消勾選方塊後選擇測試映射選項，如下所示：</block>
   <block id="d83bca5909212164df272f23779467a9" category="paragraph"><block ref="d83bca5909212164df272f23779467a9" category="inline-image-macro-rx" type="image"></block></block>
@@ -5453,18 +5333,13 @@
   <block id="cde9f1f26b9e012117c47275059306ef" category="paragraph">選擇重複類型。簡單來說，選擇遷移（使用故障轉移的一次性遷移）或重複連續複製選項。在本演練中，選擇了「複製」選項。</block>
   <block id="de6c7cf2feb58849b0c9c32e5cd2452d" category="paragraph"><block ref="de6c7cf2feb58849b0c9c32e5cd2452d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="37cc0c44f401ea67c97f6a5a6491d57c" category="paragraph">完成後，檢查已建立的映射，然後按一下*新增計劃*。</block>
-  <block id="2eea075012f1e59d3a64e8f0c784e06a" category="admonition">複製計劃中可以包含來自不同磁碟區和 SVM 的虛擬機器。根據 VM 的放置位置（位於同一磁碟區上、同一 SVM 內的單獨磁碟區上、不同 SVM 上的單獨磁碟區上）， BlueXP disaster recovery會建立一致性群組快照。</block>
   <block id="d2e05273b22b143fb0e724d73f831899" category="paragraph"><block ref="d2e05273b22b143fb0e724d73f831899" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4da6775de22ea1c608b823b2f18deec6" category="paragraph"><block ref="4da6775de22ea1c608b823b2f18deec6" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3bd10d088b7881097eb14b52c132ce34" category="paragraph">BlueXP DRaaS 包含以下工作流程：</block>
   <block id="efa12a4609298e5ea0d51d5e4fc0a56f" category="list-text">測試故障轉移（包括定期自動模擬）</block>
   <block id="59dbddf5fddf3a6a5566226050952c3f" category="list-text">清理故障轉移測試</block>
   <block id="cebb1167d3e78885137c837f0abf8026" category="section-title">測試故障轉移</block>
-  <block id="2400f7929abfd32c51c3e7ce246e844a" category="paragraph">BlueXP DRaaS 中的測試故障轉移是一種操作程序，可讓 VMware 管理員在不中斷生產環境的情況下全面驗證其復原計畫。</block>
   <block id="645349b232f4dfd10421067f7c93f88f" category="paragraph"><block ref="645349b232f4dfd10421067f7c93f88f" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c92b735c372f6409d4012c3fc76b0ce9" category="paragraph">BlueXP DRaaS 結合了在測試故障轉移操作中選擇快照作為選用功能的能力。此功能可讓 VMware 管理員驗證環境中最近所做的任何變更是否都會複製到目標站點，從而在測試期間出現。這些變更包括對 VM 客戶作業系統的補丁</block>
   <block id="68cff487c9311e413ab0c2b4ef382a3d" category="paragraph"><block ref="68cff487c9311e413ab0c2b4ef382a3d" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="5207e912f9aa3fca8b9f0410095348c9" category="paragraph">當 VMware 管理員執行測試故障轉移操作時， BlueXP DRaaS 會自動執行下列任務：</block>
   <block id="b4a61a3c64898c54fc20da0aeb9410eb" category="list-text">觸發SnapMirror關係，使用生產網站上所做的任何最新變更來更新目標網站上的儲存空間。</block>
   <block id="45c5328f2afa9bc8709cd7b920527b53" category="list-text">在 DR 儲存陣列上建立FlexVol磁碟區的NetApp FlexClone磁碟區。</block>
   <block id="c3f1723870bf6c0ce748396d5d8bc035" category="list-text">將FlexClone磁碟區中的 NFS 資料儲存庫連接到 DR 站點的 ESXi 主機。</block>
@@ -5477,13 +5352,10 @@
   <block id="c6946bce954fc2200f0636844216de95" category="paragraph">清理故障轉移測試操作在複製計劃測試完成並且 VMware 管理員回應清理提示後發生。</block>
   <block id="cf4d40e370510cf9ec1af4442dbeeb14" category="paragraph"><block ref="cf4d40e370510cf9ec1af4442dbeeb14" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8e7efa203a1b5ca374a0d58da81b2e71" category="paragraph">此操作將虛擬機器 (VM) 和複製計劃的狀態重設為就緒狀態。</block>
-  <block id="3304bcf788f9c4ba49dfa691e7e3c1b7" category="paragraph">當 VMware 管理員執行復原作業時， BlueXP DRaaS 完成下列程序：</block>
   <block id="fd816d97dd824560065e4edf7fca66c6" category="list-text">它關閉用於測試的FlexClone副本中的每個恢復的虛擬機器。</block>
   <block id="3812ca4dc70b1e25afaf060519cb82b6" category="list-text">它會刪除在測試期間用於呈現復原的虛擬機器的 FlexClone磁碟區。</block>
   <block id="2346b33a79cad8f858d1fb5a7be358de" category="section-title">計劃遷移和故障轉移</block>
-  <block id="7db6858c8e97a27c9eff3c92d5300d86" category="paragraph">BlueXP DRaaS 有兩種執行實際故障轉移的方法：規劃遷移和故障轉移。第一種方法，計劃遷移，將虛擬機器關閉和儲存複製同步納入到恢復或有效地將虛擬機器移動到目標站點的過程中。計劃遷移需要存取來源站點。第二種方法，故障轉移，是計劃內/非計劃內故障轉移，其中虛擬機器從上次能夠完成的儲存複製間隔在目標站點恢復。根據解決方案中設計的 RPO，在 DR 場景中可能會出現一定程度的資料遺失。</block>
   <block id="b8042c2e7e90a7c61bc5d7254a38bf43" category="paragraph"><block ref="b8042c2e7e90a7c61bc5d7254a38bf43" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="8d3bf36aa60d94fb971a87b96071e963" category="paragraph">當 VMware 管理員執行故障轉移操作時， BlueXP DRaaS 會自動執行下列任務：</block>
   <block id="57d800536825747d3a80660af13e2044" category="list-text">中斷並故障轉移NetApp SnapMirror關係。</block>
   <block id="b06b8a486bf6638e35b306e463f03e15" category="list-text">將複製的 NFS 資料儲存連接到 DR 站點的 ESXi 主機。</block>
   <block id="834947172fddc920d0eb6a882f691481" category="list-text">將 VM 網路介面卡連接到適當的目標站點網路。</block>
@@ -5494,44 +5366,30 @@
   <block id="c1a0e626fe3ba0a52bf8751a3f7d6fb7" category="paragraph">故障回復是一種選用過程，可在復原後還原來源站台和目標站台的原始設定。</block>
   <block id="cdc95d30e05f79e73235d1e96f700696" category="paragraph"><block ref="cdc95d30e05f79e73235d1e96f700696" category="inline-image-macro-rx" type="image"></block></block>
   <block id="dd8ae88d21674d0b7f507d3a1d669d4d" category="paragraph">當 VMware 管理員準備將服務還原到原始來源網站時，他們可以設定並執行故障回應程式。</block>
-  <block id="aeb6aaa2a986c040ca3ab65330ceda9d" category="paragraph">*注意：* BlueXP DRaaS 在反轉複製方向之前，會將任何變更複製（重新同步）回原始來源虛擬機器。此程序從已完成故障轉移到目標的關係開始，並涉及以下步驟：</block>
   <block id="5f03da2fbb677a2e4a22d071a87a375a" category="list-text">關閉並取消註冊虛擬機，並卸載目標網站上的磁碟區。</block>
   <block id="80c37abcdff8430ce92ad5d7121fb248" category="list-text">打破原始來源上的SnapMirror關係，使其變成讀/寫。</block>
   <block id="09643636b721247aeb09087c50a6dea7" category="list-text">重新同步SnapMirror關係以逆轉複製。</block>
   <block id="3ec5667891208628171d0fd52c57826d" category="list-text">在來源上安裝卷，啟動並註冊來源虛擬機器。</block>
-  <block id="5cf48db73118042df4bcd67ac36de1a2" category="inline-link-macro">了解適用於 VMware 的BlueXP災難復原</block>
-  <block id="1fa9d6cdb6599a1e61e8b998dd4c000e" category="paragraph">有關訪問和配置BlueXP DRaaS 的更多詳細信息，請參閱<block ref="fb2dacb7b34e3ba9609f2d2b1029be06" category="inline-link-macro-rx"></block>。</block>
   <block id="1a7430f17e9c18c66dfc1e6ecc182b5c" category="section-title">監控和儀表板</block>
-  <block id="3287c88f48c906185f3187739e7b6d26" category="paragraph">從BlueXP或ONTAP CLI，您可以監控對應資料儲存磁碟區的複製健康狀態，並且可以透過作業監控追蹤故障轉移或測試故障轉移的狀態。</block>
   <block id="f834cc6aa5c742ecef058e51ec538a06" category="paragraph"><block ref="f834cc6aa5c742ecef058e51ec538a06" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f94ce2d6983c6329bbb778871df38bab" category="admonition">如果某項工作目前正在進行或排隊，而您希望停止它，則可以選擇取消它。</block>
-  <block id="57999d5fefc97c45758432aa3282384a" category="paragraph">使用BlueXP disaster recovery儀表板，可以自信地評估災難復原站點和複製計畫的狀態。這使管理員能夠快速識別健康、斷開連接或降級的站點和計劃。</block>
   <block id="497e7b35bf8236c8936b1a6f0cdb010c" category="paragraph"><block ref="497e7b35bf8236c8936b1a6f0cdb010c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a7d55ec71867c23293b32208ebb2160a" category="paragraph">這為處理量身定制的災難復原計劃提供了強大的解決方案。當發生災難並決定啟動 DR 站點時，可以按計劃進行故障轉移或單擊按鈕進行故障轉移。</block>
   <block id="583a64b0188b7e98980a3b3ca79dcec9" category="inline-link-macro">解決方案模擬器</block>
   <block id="01094e5b1efc6bf8b05df69babb5bfcc" category="paragraph">要了解有關此過程的更多信息，請隨意觀看詳細的演示視頻或使用<block ref="aa573919712b823abf625c5e9ca4bc15" category="inline-link-macro-rx"></block>。</block>
-  <block id="e13239dff6d0e94077fc57578f04f14c" category="paragraph">災難復原是每個 VMware 管理員最關心的問題。由於 VMware 將整個伺服器封裝成構成虛擬機器的一系列檔案；管理員利用基於區塊儲存的技術（例如複製、快照和副本）來保護這些虛擬機器。  ONTAP陣列提供內建複製功能，用於將磁碟區資料（以及駐留在指定資料儲存 LUN 上的虛擬機器）從一個站點傳輸到另一個站點。 BlueXP DRaaS 與 vSphere 整合並自動化整個工作流程，以便在災難發生時實現無縫故障轉移和故障復原。透過將儲存複製與智慧自動化相結合，管理員現在不僅可以採用可管理的方式來配置、自動化和測試災難復原計劃，而且還可以在災難發生時輕鬆運行這些計劃。</block>
   <block id="a067598429f391b2db5f58ce6c06abc6" category="paragraph">VMware vSphere 環境中 DR 故障轉移最耗時的部分是在 DR 站點執行清點、註冊、重新配置和啟動虛擬機器所需的步驟。理想的解決方案既具有低 RPO（以分鐘為單位），又具有低 RTO（以分鐘到小時為單位）。  DR 解決方案中經常被忽略的一個因素是定期有效地測試 DR 解決方案的能力。</block>
   <block id="560cb60644a2ea71b74a72053b1902e1" category="paragraph">要建立 DR 解決方案，請牢記以下因素：</block>
   <block id="2db514bd20b218e10055fe5660bcee1b" category="list-text">恢復時間目標 (RTO)。  RTO 是指企業從災難中復原的速度，或者更具體地說，是執行復原過程以使業務服務再次可用所需的時間。</block>
   <block id="7a01f74e1f0148762845307fa5a5ba5a" category="list-text">恢復點目標 (RPO)。  RPO 是指復原的資料相對於災難發生的時間而言，可供使用的時間。</block>
   <block id="ba411c29f6eac97efd9649181af127ec" category="list-text">可擴展性和適應性。此因素包括隨著需求的增加而逐步增加儲存資源的能力。</block>
   <block id="dcf7e571c6c2ef2889a4015ad9f58a31" category="paragraph">有關可用解決方案的更多技術信息，請參閱：</block>
-  <block id="7f8c01ac8889abf0000a1f0611347882" category="list-text"><block ref="7f8c01ac8889abf0000a1f0611347882" category="inline-link-macro-rx"></block></block>
-  <block id="1aad650ff0e4b1d039be883307973e9f" category="inline-link-macro">使用BlueXP DRaaS 對 VMFS 資料儲存進行災難復原</block>
-  <block id="6277a6777639f390d11c0d48fe1776fa" category="list-text"><block ref="6277a6777639f390d11c0d48fe1776fa" category="inline-link-macro-rx"></block></block>
   <block id="a4ce027c4c0ef3d1b24bb2d633c9a9b5" category="paragraph">使用從生產站點到災難復原站點的區塊級複製進行災難復原是一種有彈性且經濟高效的方法，可保護工作負載免受網站中斷和資料損壞事件（如勒索軟體攻擊）的影響。透過NetApp SnapMirror複製，使用 VMFS 資料儲存區運行本地ONTAP系統的 VMware 工作負載可以複製到 VMware 所在的指定復原資料中心的另一個ONTAP儲存系統</block>
-  <block id="486f7b1eda49ba01925d7bad8149b593" category="paragraph">使用整合到NetApp BlueXP控制台中的BlueXP disaster recovery服務，客戶可以發現其內部部署的 VMware vCenter 以及ONTAP儲存、建立資源群組、建立災難復原計畫、將其與資源群組關聯，以及測試或執行故障轉移和故障復原。 SnapMirror提供儲存層級區塊複製，使兩個網站保持最新的增量更改，使 RPO 達到最長 5 分鐘。也可以將 DR 流程模擬為常規演習，而不會影響生產和複製的資料儲存或產生額外的儲存成本。 BlueXP disaster recovery利用 ONTAP 的FlexClone技術，從 DR 站點上最後複製的快照建立 VMFS 資料儲存區的節省空間的副本。一旦 DR 測試完成，客戶就可以簡單地刪除測試環境，而不會對實際複製的生產資源產生任何影響。當需要（計劃內或計劃外）進行實際故障轉移時，只需單擊幾下， BlueXP disaster recovery服務就會協調所需的所有步驟，自動在指定的災難復原站點上啟動受保護的虛擬機器。該服務還將逆轉與主站點的SnapMirror關係，並在需要時將任何變更從輔助站點複製到主站點以進行故障恢復操作。與其他知名替代方案相比，所有這些都只需花費極少的成本即可實現。</block>
   <block id="bb3fb0ee5ea5887fd97399d9a9b2e47c" category="paragraph"><block ref="bb3fb0ee5ea5887fd97399d9a9b2e47c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e4b021b4d8fb5dc29759f09b964bbe84" category="paragraph"><block ref="e4b021b4d8fb5dc29759f09b964bbe84" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="4357b99e389864eabde0c31aeefc2a1f" category="list-text">BlueXP Connector 在NetApp BlueXP中設定。連接器應部署在 AWS VPC 中。</block>
-  <block id="ec874e92bc1500b9ce2b4c454052c241" category="list-text">BlueXP中新增了為 VMware 託管 VMFS 資料儲存區的本機NetApp儲存系統。</block>
   <block id="cd2d8450b6244623d405c63d2a73db8e" category="list-text">SnapMirror複製是為指定的基於 VMFS 的資料儲存磁碟區配置的。</block>
   <block id="2bca3437e5263a2fd7822d4ecd6f0c37" category="paragraph">一旦來源站點和目標站點之間建立連接，請繼續執行設定步驟，這大約需要 3 到 5 分鐘。</block>
-  <block id="17cf318e21daf64bc287a4ece401c628" category="admonition">NetApp建議在災難復原站點或第三個站點部署BlueXP連接器，以便BlueXP連接器可以在實際中斷或自然災害期間透過網路與來源資源和目標資源進行通訊。</block>
   <block id="de07693e6684efaa5714f5f27fca54d4" category="paragraph"><block ref="de07693e6684efaa5714f5f27fca54d4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8e8fd8fccc4f81ad909b109319a8dcf4" category="admonition">在撰寫本文檔時，對本地到本機 VMFS 資料儲存的支援處於技術預覽階段。基於 FC 和 ISCSI 協定的 VMFS 資料儲存均支援此功能。</block>
-  <block id="b80989eb76a4d4d415f885b201027a52" category="admonition">確保ONTAP儲存系統已新增至畫布內的工作環境。開啟BlueXP控制台並從左側導覽中選擇 *保護 &gt; 災難復原*。選擇*發現 vCenter 伺服器*或使用頂部選單，選擇*網站 &gt; 新增 &gt; 新增 vCenter*。</block>
   <block id="7ac02f6a9c4b496fddd76fc7f03cbf08" category="paragraph"><block ref="7ac02f6a9c4b496fddd76fc7f03cbf08" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2e75c3c389d4201524afd77fcd543685" category="paragraph"><block ref="2e75c3c389d4201524afd77fcd543685" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a190be626525181e02a76348a7c81b3c" category="paragraph"><block ref="a190be626525181e02a76348a7c81b3c" category="inline-image-macro-rx" type="image"></block></block>
@@ -5541,7 +5399,6 @@
   <block id="6f671e2d6cf7a8bde26e28938b5e18db" category="paragraph">中斷SnapMirror關係會使目標磁碟區變得可寫，並且通常在使用SnapMirror將資料同步到 DR 環境時用於執行故障轉移。  SnapMirror足夠複雜，可以允許故障轉移網站上更改的資料有效地重新同步回主系統（如果主系統稍後恢復上線），然後允許重新建立原始的SnapMirror關係。</block>
   <block id="28c941b7d5f80583af98a1ac305d2207" category="paragraph"><block ref="28c941b7d5f80583af98a1ac305d2207" category="inline-image-macro-rx" type="image"></block></block>
   <block id="01671892e6b10068f455a6019f02cc23" category="paragraph"><block ref="01671892e6b10068f455a6019f02cc23" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1efeb295c8fdf01a280f8c69572aa229" category="admonition">除了上述方法之外，還可以透過ONTAP CLI 或系統管理器建立SnapMirror複製。無論使用SnapMirror同步資料的方法是什麼， BlueXP DRaaS 都會協調工作流程，實現無縫、高效的災難復原作業。</block>
   <block id="82be57ee10b53ca4a062b60875521f0e" category="paragraph"><block ref="82be57ee10b53ca4a062b60875521f0e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8b9187e958878ef885468cf4513471d6" category="paragraph"><block ref="8b9187e958878ef885468cf4513471d6" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6f8e79239d83c92171bcc62783e9c284" category="paragraph"><block ref="6f8e79239d83c92171bcc62783e9c284" category="inline-image-macro-rx" type="image"></block></block>
@@ -5550,7 +5407,6 @@
   <block id="a636c9e8332054f60903e9f925d0a7fd" category="paragraph"><block ref="a636c9e8332054f60903e9f925d0a7fd" category="inline-image-macro-rx" type="image"></block></block>
   <block id="bd709d6516119d28b550003b0c2faebb" category="paragraph"><block ref="bd709d6516119d28b550003b0c2faebb" category="inline-image-macro-rx" type="image"></block></block>
   <block id="680c0b34b35c46ddd71f9f4c360e5a85" category="paragraph"><block ref="680c0b34b35c46ddd71f9f4c360e5a85" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="d3985d19a9f46b4277768e47f888699e" category="paragraph">選擇資源組後，建立故障轉移對映。在此步驟中，指定來源環境中的資源如何對應到目標。這包括運算資源、虛擬網路。 IP 自訂、前腳本和後腳本、啟動延遲、應用程式一致性等。有關詳細信息，請參閱<block ref="0551135cf5aaba9b8581b0c6659fa233" category="inline-link-macro-rx"></block>。</block>
   <block id="96a15956b0d0b54882658f0e6db07f4d" category="paragraph"><block ref="96a15956b0d0b54882658f0e6db07f4d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2c1a8d9fb27b6cad64a3de034f2155b1" category="admonition">預設情況下，測試和故障轉移操作使用相同的映射參數。若要對測試環境套用不同的映射，請取消選取複選框後選擇測試映射選項，如下所示：</block>
   <block id="7a7b943e34dfaefbe5541ec4908ef8e3" category="paragraph"><block ref="7a7b943e34dfaefbe5541ec4908ef8e3" category="inline-image-macro-rx" type="image"></block></block>
@@ -5559,26 +5415,20 @@
   <block id="9216ed7ba10ce1ea0b5375d155f328bd" category="paragraph">完成後，檢查建立的映射，然後按一下新增計劃。</block>
   <block id="5f8cb51cbb64511fe94834469ffa8e12" category="paragraph"><block ref="5f8cb51cbb64511fe94834469ffa8e12" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a82275e7ba137c34ae559e348b28f272" category="paragraph"><block ref="a82275e7ba137c34ae559e348b28f272" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="ce4f6168f2129078831b701fd13d33c9" category="paragraph">建立複製計劃後，可以根據需求透過選擇故障轉移選項、測試故障轉移選項或遷移選項來執行故障轉移。 BlueXP disaster recovery確保每 30 分鐘按照計畫執行複製程序。在故障轉移和測試故障轉移選項期間，您可以使用最新的SnapMirror Snapshot 副本，也可以從時間點 Snapshot 副本中選擇特定的 Snapshot 副本（根據SnapMirror的保留策略）。如果發生勒索軟體等損壞事件，其中最新的副本已被破壞或加密，則時間點選項會非常有用。  BlueXP disaster recovery顯示所有可用的復原點。</block>
   <block id="233988a393fcb955f74b5a5ac8b0e5ae" category="paragraph"><block ref="233988a393fcb955f74b5a5ac8b0e5ae" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6c4e7b958d45f75591136a4c51bc07b3" category="paragraph">若要使用複製計畫中指定的配置觸發故障轉移或測試故障轉移，請按一下「*故障轉移*」或「*測試故障轉移*」。</block>
   <block id="4a65a24870107911961852b4d98b9f0c" category="paragraph"><block ref="4a65a24870107911961852b4d98b9f0c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="bd45e34d299d599c471230fb64821c67" category="section-title">故障轉移或測試故障轉移操作期間會發生什麼？</block>
-  <block id="c17c025dc57b5ab207ffb5f6350dc9f9" category="paragraph">在測試故障轉移作業期間， BlueXP disaster recovery使用最新的 Snapshot 副本或目標磁碟區的選取快照在目標ONTAP儲存系統上建立FlexClone區。</block>
   <block id="3a9e9b48af658799c2a2d9beae902cc9" category="admonition">測試故障轉移操作會在目標ONTAP儲存系統上建立複製磁碟區。</block>
   <block id="6e44ea00af57fce0df6bf2fc5beeb4aa" category="admonition">執行測試恢復操作不會影響SnapMirror複製。</block>
   <block id="e592fb43926dc0ae052abc48d9e25684" category="paragraph"><block ref="e592fb43926dc0ae052abc48d9e25684" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="7c00699111787c154e282a384484762a" category="paragraph">在此過程中， BlueXP disaster recovery不會對應原始目標磁碟區。相反，它會根據選定的快照建立一個新的FlexClone區，並將支援該FlexClone磁碟區的暫存資料儲存對應到 ESXi 主機。</block>
   <block id="f98a46382716e4202771e1d64d1164b6" category="paragraph"><block ref="f98a46382716e4202771e1d64d1164b6" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c2a200f7ae82f93e9b182ae8e877dc7c" category="paragraph"><block ref="c2a200f7ae82f93e9b182ae8e877dc7c" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1f4dd5dfa58e64024f4a07b7ce308a8d" category="paragraph">當測試故障轉移操作完成時，可以使用「清理故障轉移測試」觸發清理操作。在此操作期間， BlueXP disaster recovery會破壞操作中使用的FlexClone磁碟區。</block>
-  <block id="9eee5d2520b1d7a301ef3cb5da2b0c95" category="paragraph">當真正的災難事件發生時， BlueXP disaster recovery將執行以下步驟：</block>
   <block id="7a64511956165411786db69cbf16995d" category="list-text">中斷站點之間的SnapMirror關係。</block>
   <block id="dd317f3aa246068ad7236fc4d39df56f" category="list-text">重新簽署後掛載 VMFS 資料儲存磁碟區以供立即使用。</block>
   <block id="6d3619c3555fe2c4b3cffa453385fb51" category="list-text">註冊虛擬機</block>
   <block id="31a25d90eefda973d8361a24bd73d646" category="list-text">啟動虛擬機</block>
   <block id="d399820eba2cbd611bde9680238cce1b" category="paragraph"><block ref="d399820eba2cbd611bde9680238cce1b" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="77a1ba60c22ef9714d6fcca8514d53b8" category="paragraph">一旦主網站啟動並運行， BlueXP disaster recovery就會啟用SnapMirror的反向重新同步並啟用故障恢復，這些操作只需點擊按鈕即可執行。</block>
   <block id="0af58edbddf981280e5fcc3d670995f8" category="paragraph"><block ref="0af58edbddf981280e5fcc3d670995f8" category="inline-image-macro-rx" type="image"></block></block>
   <block id="85133b96f0d4c58a31f32dbcb6e488ea" category="paragraph">如果選擇遷移選項，則它將被視為計劃內的故障轉移事件。在這種情況下，將觸發額外的步驟，即關閉來源站點的虛擬機器。其餘步驟與故障轉移事件相同。</block>
   <block id="c093d20bc732b250812e38cd56257c1e" category="paragraph"><block ref="c093d20bc732b250812e38cd56257c1e" category="inline-image-macro-rx" type="image"></block></block>
@@ -5633,7 +5483,6 @@
   <block id="e3bdc3102c3de4f73860c229550bc6f4" category="paragraph">因此，使用NetApp Cloud Volumes 作為客戶機連接儲存將有助於擴展儲存和最佳化 TCO，同時滿足效能和資料保護要求。</block>
   <block id="c63dc0feeff939bc83ba1537a1e8ac9a" category="admonition">在撰寫本文檔時，客艙內儲存是唯一可用的選項。</block>
   <block id="8e6eaed3852a3b311ab6ed1b8b6fc239" category="list-text">在混合儲存模型中，將第 1 層或高優先級工作負載放置在 vSAN 資料儲存上，以滿足任何特定的延遲要求，因為它們是主機本身的一部分並且在附近。對於任何可以接受交易延遲的工作負載虛擬機，請使用客戶機內機制。</block>
-  <block id="5d40c29eb52e7ed1de50981fa343aee3" category="list-text">使用NetApp SnapMirror技術將工作負載資料從本機ONTAP系統複製到Cloud Volumes ONTAP或Amazon FSx ONTAP ，以簡化使用區塊級機制的遷移。這不適用於Azure NetApp Files和Google Cloud NetApp Volumes。若要將資料移轉到Azure NetApp Files或Google Cloud NetApp Volumes，請根據所使用的檔案協定使用NetApp XCP、 BlueXP Copy and Sync、rysnc 或 robocopy。</block>
   <block id="d3c0fd4b510310b9bd00463208eade94" category="list-text">測試表明，從相應的 SDDC 存取儲存空間時會有 2-4ms 的額外延遲。在映射儲存時，將此額外的延遲考慮進應用程式要求中。</block>
   <block id="b83cf0bc9b65a0fcd5f49d4c96dceea8" category="list-text">為了在測試故障轉移和實際故障轉移期間掛載來賓連接的存儲，請確保重新配置 iSCSI 啟動器、為 SMB 共享更新 DNS、並在 fstab 中更新 NFS 掛載點。</block>
   <block id="1b4048870ed334dbc2e7d6f09a814188" category="list-text">確保虛擬機器內部的 Microsoft 多路徑 I/O (MPIO)、防火牆和磁碟逾時登錄設定配置正確。</block>
@@ -5749,7 +5598,6 @@
   <block id="de72a1541bfb3134eb7b389745b29cd4" category="sidebar">適用於 AWS/EVS 的NetApp</block>
   <block id="a2178bda762f733a0eb5c161cb0e8a45" category="sidebar">NetApp適用於 Azure/AVS</block>
   <block id="ee86f5d96c441812b229949aec1d9c99" category="sidebar">NetApp適用於 GCP/GCVE</block>
-  <block id="9cbdaaae1425029c06e92fc0ff0ff025" category="sidebar">適用於 VMware 的BlueXP disaster recovery</block>
   <block id="b5456b9e86d1692ae589dde463fcd460" category="sidebar">適用於 OpenShift 的NetApp雲端解決方案</block>
   <block id="11905c1cbb08b2bee5559783652478f9" category="sidebar">適用於本機的 OpenShift</block>
   <block id="054fa2f30c268e8996e915c615b94918" category="sidebar">具有自管理元件的混合雲</block>
@@ -5789,16 +5637,9 @@
   <block id="b4e37421a2328f49d631331027882f75" category="sidebar">ANF + AVS模擬器</block>
   <block id="3e8eabd2fde53e35a19ece67df934429" category="sidebar">帶有 VMC 模擬器的 AWS DRO</block>
   <block id="1dddbcd1b30e63693a82a81f696a9bf8" category="sidebar">帶有 AVS 模擬器的 ANF 的 DRO</block>
-  <block id="6abf23f75427b3ebb151f7c93ba3e162" category="sidebar">BlueXP DRaaS模擬器</block>
-  <block id="525d3bfbda194b5879b732661e63b9d2" category="sidebar">BlueXP - 虛擬機器模擬器的備份和恢復</block>
   <block id="7be0bd11f67b1a57d57f3d9c343755ad" category="sidebar">TCO計算機</block>
   <block id="1281f32cf6fc0bc363006abf453df792" category="sidebar">ANF + AVS TCO 計算器</block>
   <block id="053d2c0952babedd93245bc3164b6003" category="sidebar">GCVE + NetApp Volumes TCO 估算器</block>
-  <block id="c08885153d0680dab7349b930f5310c4" category="sidebar">BlueXP disaster recovery</block>
-  <block id="077496600e567c0886e339420e3471ab" category="sidebar">使用SnapCenter插件和BlueXP backup and recovery保護 VMware 數據</block>
-  <block id="85e3ac4894e74e8442286fe66ee5cfc6" category="sidebar">使用BlueXP進行災難復原</block>
-  <block id="c7351fe0c5f4c9fcef6396e7f12e2a26" category="sidebar">使用BlueXP對 NFS 資料儲存進行災難復原</block>
-  <block id="01b18d6c3385f4a649bf9b2d74c4758f" category="sidebar">使用BlueXP對 VMFS 資料儲存進行災難復原</block>
   <block id="362aa6274734aadfbface7a8ba102c79" category="sidebar">NetApp混合多雲解決方案與 Red Hat OpenShift 容器平台結合，是一組策略和技術能力，展示了在本地和公有雲中輕鬆協調有狀態容器工作負載的資料保護和遷移功能。</block>
   <block id="5c1796d26f9cc05455469703db5b5232" category="sidebar">NetApp混合多雲與 Red Hat OpenShift 容器工作負載</block>
   <block id="25889ae37741d5ac967d13951b59c981" category="sidebar">NetApp混合多雲解決方案與 Red Hat OpenShift 容器平台結合，是一組策略和技術能力，展示了在本地和公有雲中輕鬆協調有狀態容器工作負載的資料保護和遷移功能。</block>
@@ -5899,11 +5740,6 @@
   <block id="ebd8431a0b14e9588377860f5d21d80b" category="sidebar">架構概述</block>
   <block id="523364a2639e926f4ced968a56255f4f" category="sidebar">其他 NAS 基礎設施服務相依性（KDC、LDAP、DNS）</block>
   <block id="0f68b904e33d9ac04605aecc958bcf52" category="sidebar">附加資訊</block>
-  <block id="8ecba9935c825bf19182624b400a6961" category="sidebar">使用SnapCenter插件和BlueXP保護 VMware 數據</block>
-  <block id="98a9e0f4e1be790cffb754cc0a629cb7" category="sidebar">使用BlueXP DRaaS 進行災難復原</block>
-  <block id="7a0e6ff7d0a1b9ba9fafe56216a54e89" category="sidebar">使用BlueXP DRaaS 進行災難復原</block>
-  <block id="fb62ebd2f8727f247995e3fea9c33556" category="sidebar">NFS 資料儲存區的災難復原</block>
-  <block id="91e6ade7bb885fd1e70ed124697c8277" category="sidebar">VMFS 資料儲存的災難復原</block>
   <block id="b19f727d0952ffa17f737bf24e2b3578" category="sidebar">NetApp混合多雲與 Red Hat OpenShift</block>
   <block id="a97e2d3e00cc3f891fc4f8d7537383ad" category="sidebar">適用於混合多雲的 Red Hat Openshift</block>
   <block id="8cd58c89ff3d51a256ecfe3fe8bab20f" category="sidebar">其他資源</block>
@@ -5934,7 +5770,6 @@
   <block id="068f5a3c2c43d2c98585ba811f53448d" category="list-text"><block ref="068f5a3c2c43d2c98585ba811f53448d" category="inline-link-macro-rx"></block></block>
   <block id="b5ab67622f999884d1e02f03a5ff9516" category="inline-link-macro">將 VMware 工作負載遷移到 Azure VMware Solution ？請先閱讀本文。</block>
   <block id="3aa22d916fadd4a53cbd677391da8dfe" category="list-text"><block ref="3aa22d916fadd4a53cbd677391da8dfe" category="inline-link-macro-rx"></block></block>
-  <block id="3a8cc54cc77b4e52aebe58c284605cad" category="list-text"><block ref="3a8cc54cc77b4e52aebe58c284605cad" category="inline-link-macro-rx"></block></block>
   <block id="ee66058cbe8482df37bb01fb27da7a35" category="list-text"><block ref="ee66058cbe8482df37bb01fb27da7a35" category="inline-link-macro-rx"></block></block>
   <block id="52e7ee593147c20e72ba0d82102407ba" category="list-text"><block ref="52e7ee593147c20e72ba0d82102407ba" category="inline-link-macro-rx"></block></block>
   <block id="cdde9d74010f079e21c7c6bb9f28e361" category="paragraph"><block ref="b8ddfaae9f91b6ce3bc63839a5a12b48" category="inline-link-rx"></block>為管理員提供指導，以便提供用於放置電腦帳戶的特定 Active Directory 架構資訊，例如：</block>
@@ -6176,7 +6011,6 @@
   <block id="503a6eea13f2000ade7b8f73b47f6126" category="paragraph">有關使用 Trident Protect 保護和遷移容器工作負載的詳細資訊，請參閱以下章節：- <block ref="f825d2a6feac66171ea153caddf5efc4" category="inline-link-macro-rx"></block></block>
   <block id="23a222c2ec8017930655b74b88cf5d9a" category="paragraph">有關 Trident Protect 資料保護功能的詳細資訊，請參閱<block ref="8a7b93525889199f21bea5877c33c6b6" category="inline-link-macro-rx"></block>。</block>
   <block id="c1a7cd61e139ae5874159d51ca345518" category="paragraph"><block ref="c1a7cd61e139ae5874159d51ca345518" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="f02cfb11445a691de846b7334e503c85" category="paragraph">此解決方案測試並驗證了使用 OpenShift Container Platform (OCP)、OpenShift Advanced Cluster Manager (ACM)、NetApp ONTAP、NetApp BlueXP 和 NetApp Trident Protect 進行遷移和集中式資料保護。</block>
   <block id="4b45368310338985e587391cd7cdfd12" category="list-text">使用 Trident Protect 保護應用程式並支援內部部署叢集之間的遷移。</block>
   <block id="23c2190eef5d639fe9074700a8ca0b67" category="list-text">使用 Trident Protect 保護應用程式，並支援在本機叢集和 AWS 中的自管理 OpenShift 叢集之間進行遷移。</block>
   <block id="7c98717ab04ebf34dcbe0fefff52872d" category="list-text">使用 Trident Protect 保護應用程式，並支援在本地叢集和 Google Cloud OpenShift 叢集之間進行遷移。</block>
@@ -6286,7 +6120,6 @@
   <block id="122f25fa4135a6f278aee53402db3807" category="list-text"><block ref="122f25fa4135a6f278aee53402db3807" category="inline-link-macro-rx"></block></block>
   <block id="1bc28ada1e3a8c93363efbd956281f27" category="list-text"><block ref="1bc28ada1e3a8c93363efbd956281f27" category="inline-link-macro-rx"></block></block>
   <block id="f16dd96ff15aa34fe7db06e2c8c45330" category="list-text"><block ref="ce06c104c0af95b337c108430c00cd74" category="inline-link-macro-rx"></block> - Verda（開源）提供了一系列適用於熱門雲端原生資料密集型應用程式的參考執行掛鉤</block>
-  <block id="0de368763e843138fe700f4b2508ce20" category="list-text"><block ref="0de368763e843138fe700f4b2508ce20" category="inline-link-macro-rx"></block></block>
   <block id="0590cece0084ebc06cfbb1e44bbd49fb" category="list-text"><block ref="0590cece0084ebc06cfbb1e44bbd49fb" category="inline-link-macro-rx"></block></block>
   <block id="103d083d560520cc80800305ed72e735" category="list-text"><block ref="103d083d560520cc80800305ed72e735" category="inline-link-macro-rx"></block></block>
   <block id="995ab6d6d5bb69975037b3f28adcc6f3" category="list-text"><block ref="995ab6d6d5bb69975037b3f28adcc6f3" category="inline-link-macro-rx"></block></block>
@@ -6304,4 +6137,180 @@
   <block id="71dc7e7b294a93352ae90298511cd77a" category="list-text"><block ref="71dc7e7b294a93352ae90298511cd77a" category="inline-link-macro-rx"></block></block>
   <block id="5e8103bb1916579dd98fa386e2c79112" category="list-text">設定 VMware Cloud on AWS，請參閱 VMware Cloud Tech Zone 文章 <block ref="e8043ec5591ebbd4394405d542308830" category="inline-link-macro-rx"></block> 以部署、設定 VMware Cloud on AWS SDDC 和 FSx ONTAP 作為 NFS 資料儲存。（可以使用設定為最低組態的試驗環境來進行災難復原。發生事件時，VMs 將容錯移轉至此叢集，並且可以新增額外的節點。）</block>
   <block id="5b1325f759c14b5e2dece9541c225fe7" category="list-text">請參閱說明<block ref="79bea77f03fef0626d8f9094b6973fe2" category="inline-link-macro-rx"></block>。</block>
+  <block id="72917c2e5a5314446bd2665dfc41e4ff" category="list-text"><block ref="72917c2e5a5314446bd2665dfc41e4ff" category="inline-link-macro-rx"></block></block>
+  <block id="8ffd69435bf651b9fc2a88a87bd980b5" category="inline-link-macro">搭配 SnapCenter 外掛程式與虛擬機器的 NetApp Backup and Recovery 的 VMware 3-2-1 資料保護</block>
+  <block id="011947c70276e9965586301bebca0748" category="list-text"><block ref="011947c70276e9965586301bebca0748" category="inline-link-macro-rx"></block></block>
+  <block id="5db6d589ce154612b0426ad73db5e773" category="paragraph">本節說明在 AWS （ROSA） 上設定代管 Red Hat OpenShift 叢集的高階工作流程。它展示了 Trident 如何使用代管的 Amazon FSx for NetApp ONTAP （FSx ONTAP） 作為儲存設備後端，以提供持續性 Volume。其中提供了有關使用 NetApp Console 在 AWS 上部署 FSx ONTAP 的詳細資料。此外，也提供了有關使用 NetApp Console 和 OpenShift GitOps （Argo CD） 對 ROSA 叢集上的有狀態應用程式執行資料保護和移轉活動的詳細資料。</block>
+  <block id="f1a970992e93963e724e7d38b1468461" category="list-text">從 NetApp Console 在 VPC 上安裝 FSx ONTAP。請參閱 <block ref="28e6ff70af9ed354e8cb1927d7273a67" category="inline-link-macro-rx"></block> 以建立 NetApp Console 帳戶並開始使用。請參閱 <block ref="2295d3162905f9dd45d3ca6c8a209ad1" category="inline-link-macro-rx"></block> 以安裝 FSx ONTAP。請參閱 <block ref="28e6ff70af9ed354e8cb1927d7273a67" category="inline-link-macro-rx"></block> 以在 AWS 中建立連接器來管理 FSx ONTAP。</block>
+  <block id="bdb61d81553739f65828c2f91b0dd4e1" category="example-title">使用 NetApp Console 在 Azure 中部署 Cloud Volumes ONTAP。</block>
+  <block id="a458df8b2fc79ce78cd34bea191c6750" category="list-text">在 Azure 中安裝 NetApp Console 代理程式。請參閱說明<block ref="bb3854c6094443e101f4b05e764e730f" category="inline-link-rx"></block>。</block>
+  <block id="ebd63187c1e8e21934bc37500b8b3115" category="list-text">使用代理程式在 Azure 中部署 CVO 執行個體。請參閱指示 <block ref="b1748b110c9a7831c81d7db0b79caa21" category="inline-link-macro-rx"></block>。</block>
+  <block id="c108fcef53bf96922a56d8ec91e9d480" category="list-title">使用 NetApp Console 在 GCP 中部署 Cloud Volumes ONTAP</block>
+  <block id="7f76aa536081d36742e47bf711cd178f" category="list-text">在 Google Cloud 中安裝主控台代理程式。請參閱指示<block ref="4d601371192f924e1dc75bef28fc550a" category="inline-link-rx"></block>。</block>
+  <block id="c087bd40645be8f8f54bf435f726caea" category="list-text">使用代理程式在 Google Cloud 中部署 CVO 執行個體。請參閱相關說明<block ref="e26e4e2f403228d0ad475e7fa7b8ee80" category="inline-link-rx"></block>。</block>
+  <block id="99dc20a46a80cbc8a72be7410e8bf741" category="example-title">使用 NetApp Console 在 AWS 中部署 Cloud Volumes ONTAP。</block>
+  <block id="c764ddff3e07142d0ba2b86151aadec2" category="paragraph">**NetApp Console** 可讓您透過單一控制平面/介面管理所有儲存設備和資料資產。</block>
+  <block id="0f4fd1f58e8a7c201cdf8f05968d227d" category="paragraph">您可以使用 NetApp Console 建立和管理雲端儲存（例如 Cloud Volumes ONTAP 和 Azure NetApp Files），移動、保護和分析資料，以及控制許多內部部署和邊緣儲存設備。</block>
+  <block id="2561e39e43a752f0567c60e0365aaeca" category="inline-link-macro">NetApp 資料服務</block>
+  <block id="afdfd1f8a3e3205681055a41b69fac21" category="list-text"><block ref="afdfd1f8a3e3205681055a41b69fac21" category="inline-link-macro-rx"></block></block>
+  <block id="778b3e6ca2c8bec36f5042adab808c3b" category="paragraph">此解決方案測試並驗證使用 OpenShift 容器平台 (OCP)、OpenShift 進階叢集管理員 (ACM)、NetApp ONTAP、NetApp Console 和 NetApp Trident Protect 進行的移轉與集中式資料保護。</block>
+  <block id="a8960eaf41c3a67edc1d9f0b41e146f5" category="list-text">使用 NetApp Console，執行持續性 Volume（FSx ONTAP）的複寫。</block>
+  <block id="65ce8710f398ee741db7a2043793e386" category="example-title">NetApp Console 帳戶驗證</block>
+  <block id="4a4ecca1b005a7738ac40fc80dcb3579" category="paragraph">您必須能夠使用 NetApp Console 部署資源。若要驗證您是否具備此能力，請完成以下任務：</block>
+  <block id="f40ef76c07f36be4a3fdcaa4dddc5e73" category="inline-link">了解 NetApp Console 的運作方式</block>
+  <block id="720fce9334ce0d893f9a7cd14f697bfa" category="list-text"><block ref="d5d06558b87d9fb497ee2e21e4633fdc" category="inline-link-rx"></block>。</block>
+  <block id="4ed65ffe4d683312518a55dd1f52a93e" category="inline-link">登入 NetApp Console</block>
+  <block id="2ee01eecce8c4031b6a77f0d389ab969" category="list-text"><block ref="973f54ea8952677cc804fc2e199e4bc3" category="inline-link-rx"></block>。</block>
+  <block id="f08a90f8052a06bc59df588df8f4a4ce" category="inline-link">了解何時需要控制台代理程式</block>
+  <block id="2913f46acb8928f1ac1282c952911ed0" category="list-text"><block ref="eb2300b9b1103b90cc8e7c735b6a138b" category="inline-link-rx"></block>。</block>
+  <block id="8f529a7b727f02209073f7d361aea2eb" category="inline-link">在 AWS 上部署 NetApp Console 代理程式</block>
+  <block id="1ce5f9deeaf6dd0046b2fbf903e084a6" category="list-text"><block ref="50be06a5670ba0b37af851913eb0db9d" category="inline-link-rx"></block>。</block>
+  <block id="f7b6580903c87cc26eec67a5b6e9a235" category="section-title">NetApp 備份與還原工具</block>
+  <block id="dd861e728d683356c73fc3b237313f7d" category="paragraph">下一步是使用 NetApp Console 發現已在 AWS 上配置的 FSx ONTAP 執行個體，並以適當的頻率和 NetApp Snapshot 複本保留，將所需的資料存放區 Volume 從內部部署環境複寫至 FSx ONTAP：</block>
+  <block id="e5f37c70507eb43b9923b94b897cc050" category="inline-image-macro">此圖描繪系統關係圖，顯示已啟用服務之間的各種互動。</block>
+  <block id="a6a9a9750d783a0bd5f41db823fe4b79" category="paragraph"><block ref="a6a9a9750d783a0bd5f41db823fe4b79" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="41623a21004ddf72afc16225b4b41552" category="paragraph">請按照此連結中的步驟設定 DRO。您也可以使用 NetApp ONTAP CLI，按照此連結中的步驟安排複寫。</block>
+  <block id="b7d42c9cf1940b5940415114479a66ce" category="paragraph">在 NetApp Console 中，我們可以看到適當 Volume 的複寫健全狀況已中斷（即那些以讀寫 Volume 形式對應至 VMC 的 Volume）。在測試容錯移轉期間，DRO 不會對應目的地或複本 Volume。而是會建立所需 SnapMirror （或 Snapshot 快照技術）執行個體的 FlexClone® 複本，並公開 FlexClone® 執行個體，而不會為 FSx ONTAP 使用額外的實體容量。此程序可確保 Volume 不會遭到修改，且即使在 DR 測試或分類工作流程期間，複本工作也能持續執行。此外，此程序可確保在發生錯誤或恢復損毀資料的情況下，能夠清除恢復內容，而不會有複本遭到銷毀的風險。</block>
+  <block id="43d5d5135ed6269760201378b99a59bb" category="section-title">NetApp Backup and Recovery 工具與組態</block>
+  <block id="9309e9c184dcf4a9619139007fea4b02" category="list-text">選擇 Cloud Volumes ONTAP 部署的附加服務，包括 NetApp Data Classification、NetApp Backup and Recovery，以及 Data Infrastructure Insights。按一下繼續。</block>
+  <block id="5baabaf071de5af866c295b7603717f6" category="list-text">選擇 Cloud Volumes ONTAP 部署的附加服務，包括 NetApp Data Classification、NetApp Backup and Recovery，以及 Data Infrastructure Insights。選擇服務，然後按一下「繼續」。</block>
+  <block id="360e8fba020a2912f58dc0e0d36a4d2f" category="example-title">NetApp Backup and Recovery 適用於虛擬機器</block>
+  <block id="ac6bb8286da5b2e7deedaf90e226aef7" category="paragraph">NetApp Backup and Recovery for Virtual Machines 在 vCenter 上提供 vSphere Web 用戶端 GUI，可透過備份原則保護 Azure VMware Solution 虛擬機器和 Azure NetApp Files 資料存放區。這些原則可定義排程、保留及其他功能。NetApp Backup and Recovery for Virtual Machine 的功能可使用 Run 命令進行部署。</block>
+  <block id="21cf5e1fd8c19d1ee68d2a0770725bf4" category="list-text">使用 Run 命令在 Azure VMware Solution 私有雲中安裝虛擬機器的 NetApp Backup and Recovery。</block>
+  <block id="6d79284175bee11d0882dd545783bc98" category="list-text">使用 NetApp Console 在適當的訂閱和虛擬網路中配置具有正確執行個體大小的 Cloud Volumes ONTAP。</block>
+  <block id="691dd4438f0ee40a2d39ecf20635a945" category="list-text">在災難事件期間，將 SnapMirror 關係透過 NetApp Console 中斷，並使用 Veeam 觸發虛擬機器的容錯移轉。</block>
+  <block id="eeb579ff2456e644ea75c0e669741f8a" category="list-text">能夠重新對應在 Veeam 外部複寫的現有資料（例如來自 NetApp 系統的複寫資料）</block>
+  <block id="fba8659dfba81650c77962a25289b87c" category="doc">適用於 VMware 的 3-2-1 資料保護，搭配 SnapCenter 外掛程式與 NetApp Backup and Recovery，以保護 VMware 工作負載</block>
+  <block id="476ff581922c2bb586806f29176f8543" category="paragraph">本解決方案文件涵蓋 3-2-1 備份解決方案，使用 SnapCenter Plug-in for VMware vSphere (SCV) 建立內部部署虛擬機器的主要與次要備份，並使用虛擬機器專用的 NetApp Backup and Recovery 將資料複本備份至雲端儲存或 StorageGRID。</block>
+  <block id="b409e6693a61740d1ae5b1029c0b1748" category="list-text">備份與還原內部部署虛擬機器與資料存放區，其託管於 ONTAP 叢集，並使用適用於虛擬機器的 NetApp Backup and Recovery 備份至物件儲存。</block>
+  <block id="b35f63024bac414f8587d6218239ef3e" category="section-title">NetApp Backup and Recovery 以保護 VMware 工作負載</block>
+  <block id="76685ed9cc458ab6ed381c6f675a9dff" category="paragraph">NetApp Backup and Recovery 是一款雲端型資料管理員工具，可為內部部署與雲端環境中的各種備份與還原作業提供單一控制層。NetApp Backup and Recovery for VM 套件包含一項功能，可與 SnapCenter 外掛程式（適用於 VMware vSphere ，內部部署）整合，將資料複本延伸至雲端的物件儲存。這會建立第三份異地資料複本，其來源為主儲存設備或次要儲存設備備份。NetApp Backup and Recovery for VMs 可讓您輕鬆設定儲存設備原則，從這兩個內部部署位置的任一個傳輸資料複本。</block>
+  <block id="242544c696f1044952804850684ef1d4" category="paragraph">在 NetApp Backup and Recovery 中選擇主要或次要備份作為來源，將會實作兩種拓撲的其中一種：</block>
+  <block id="4affb4177e6a6ec4bcb5c4f2c59061a6" category="paragraph">*連出拓撲* – 當 SnapCenter Plug-in for VMware vSphere 啟動備份時，會立即建立本機快照。然後，SCV 會啟動 SnapMirror 作業，將最新的快照複寫到次要 ONTAP 叢集。在 NetApp Backup and Recovery 中，原則會將主要 ONTAP 叢集指定為要傳輸至您所選雲端供應商之物件儲存的資料 Snapshot 複本來源。</block>
+  <block id="81094cd9c2ea41d02ee268f327dbf07a" category="paragraph">*級聯拓撲* – 使用 SCV 建立主要和次要資料複本與上述連出拓撲相同。不過，這次會在 NetApp Backup and Recovery 中建立一項原則，指定備份至物件儲存的作業將源自次要 ONTAP 叢集。</block>
+  <block id="c2f308bf5aa9e4257f64904539a05d47" category="paragraph">NetApp Backup and Recovery 可將內部部署 ONTAP 快照的備份複本建立至 AWS Glacier、Azure Blob 與 GCP Archive 儲存設備。</block>
+  <block id="dfd22ec3fc1c8a6a3c080d7e7614e62c" category="paragraph">此清單提供設定此解決方案，以及從 SCV 和 NetApp Console 執行備份與還原作業所需的高階步驟：</block>
+  <block id="0dd24dc837ebd1766bae9c658d2e33e1" category="list-text">為虛擬機器設定 NetApp Backup and Recovery</block>
+  <block id="3cf8db64f86cbfd9b9c493f228cae6c6" category="list-text">使用 NetApp Console 從物件儲存還原虛擬機器。</block>
+  <block id="083a2ecebf9a4abe67c75790c5ff45e7" category="list-text">已為用於物件儲存備份的雲端供應商安裝主控台代理程式。</block>
+  <block id="52cacfa63d5d17bb4ab520396110c9ef" category="list-text">Console 代理程式與內部部署 ONTAP 儲存設備叢集管理介面之間的網路連線。</block>
+  <block id="f86b9cd435e2d61fdd157ca31d06f3d8" category="list-text">主控台代理程式與內部部署 SCV 應用裝置 VM 之間，以及主控台代理程式與 vCenter 之間的網路連線。</block>
+  <block id="b9282902ef8c939a2ced7b59407ab806" category="paragraph">在此解決方案中，我們提供詳細指示，說明如何部署與驗證利用 SnapCenter Plug-in for VMware vSphere 以及備份與還原的解決方案，以執行位於內部部署資料中心的 VMware vSphere 叢集內 Windows 和 Linux 虛擬機器的備份與還原。此設定中的虛擬機器儲存在由 ONTAP A300 儲存設備叢集所託管的 NFS 資料存放區上。此外，一個分隔的 ONTAP A300 儲存設備叢集可作為使用 SnapMirror 複寫之 Volume 的次要目的地。此外，託管在 Amazon Web Services 和 Azure Blob 上的物件儲存被用作第三個資料複本的目標。</block>
+  <block id="8e7c1b2120af896a83ea514e0af9d265" category="paragraph">我們將介紹為 SCV 代管的備份次要複本建立 SnapMirror 關係，以及在 SCV 和 NetApp Console 中組態備份作業。</block>
+  <block id="a34428791f8c5ce4b1184d505db69402" category="inline-link">備份與還原文件</block>
+  <block id="760fb1aa726103713a691c936c1a6afe" category="paragraph">有關備份與還原的詳細資訊，請參閱<block ref="73b1e11aa63aa74e11f76b3adb587f1d" category="inline-link-rx"></block>。</block>
+  <block id="bed838ca0e72b817de948a879ab4007d" category="paragraph">設定 SnapMirror 關係可以在 NetApp Console 中完成（其中許多步驟已自動化），也可以使用 System Manager 和 ONTAP CLI 來完成。以下將討論所有這些方法。</block>
+  <block id="47c23771753603848eea7b40eea420e8" category="section-title">透過 NetApp Console 建立 SnapMirror 關係</block>
+  <block id="6dc16724b16c20b5685948c956871a0e" category="paragraph">以下步驟必須在 NetApp Console 中完成：</block>
+  <block id="b0cc7437379b9e84c08cc031f74e4a8d" category="paragraph">首先登入 NetApp Console 並導覽至系統。</block>
+  <block id="35c940097066b1973697a5789d940739" category="admonition">Snapshot 快照技術標籤非常有用，因為它們可用於對複寫至次要 ONTAP 叢集的 SnapVault 複本，實施具有特定保留期間的原則。當 SCV 與 NetApp Data Services 搭配使用時，Snapshot 快照技術標籤欄位必須為空白，或與備份原則中指定的標籤 [underline]#相符#。</block>
+  <block id="c0db907c0a9a59c3c520fceeddc7b6fa" category="admonition">目前，用於保護 VMware 工作負載的備份與還原不支援備份具有跨越多個資料存放區之 VMDK 的虛擬機器。</block>
+  <block id="81dcfa5a60bbac18d2864dd215a41f3d" category="admonition">使用備份與還原將 SCV 代管的快照備份到物件儲存時，每個資源群組只能與單一原則關聯。</block>
+  <block id="0b506fca7f3e6f6dafd6ec3cb599e160" category="paragraph">最後一步，執行備份作業並監控其進度。至少必須在 SCV 中成功完成一個備份作業，才能從 NetApp Console 發現資源。</block>
+  <block id="dc45ba1b08923b85ad6bf0eb50bc93e2" category="section-title">在 NetApp Console 中設定備份至物件儲存</block>
+  <block id="2408a79a5e601dafa9fe65b7ef5e16ce" category="paragraph">為了讓 NetApp Console 有效地管理資料基礎架構，需要預先安裝 Console 代理程式。Console 代理程式會執行與探索資源和管理資料作業相關的動作。</block>
+  <block id="91e534d044a3d9c6a1c8575f89e73c9b" category="inline-link">了解 Console 代理程式</block>
+  <block id="1f5e180b559cab66d16104f3bcd78b49" category="paragraph">如需有關 Console 代理程式的詳細資訊，請參閱 NetApp Console 文件中的<block ref="4639ea8f4a39ac84bc74e8df3870d8ce" category="inline-link-rx"></block>。</block>
+  <block id="962953e9405b3a3eddede5a98077b978" category="paragraph">一旦為所使用的雲端供應商安裝了代理程式，即可從系統中查看物件儲存的圖形表示。</block>
+  <block id="686ebd7e6b5c75d9bd164f726ad4aebf" category="paragraph">若要設定備份與還原以備份 SCV 在內部部署代管的資料，請完成下列步驟：</block>
+  <block id="799c857110f61943599759ead7f3735a" category="example-title">將 ONTAP 儲存系統新增至系統</block>
+  <block id="b12396ca23da4755d712677b831a6b40" category="paragraph">第一步是將內部部署的 ONTAP 儲存系統新增至 NetApp Console。</block>
+  <block id="e617236c9f62de8c1669b32a2f0ad4a4" category="list-text">從「系統」中，按一下 *+ 新增* 以開始。</block>
+  <block id="433b02a4e6cd28831cdde7681e80f624" category="list-text">從 NetApp Console 左側選單中選擇 *保護 &gt; 備份與還原 &gt; 工作負載 &gt; VMware*</block>
+  <block id="1263bac14b961c8270dc270d426f2f2c" category="paragraph">在虛擬機器的 NetApp Backup and Recovery 中，建立原則以指定保留期間、備份來源和歸檔原則。</block>
+  <block id="d3bc7420d7e89fa51ba74ffa21c65564" category="inline-link">建立保護群組</block>
+  <block id="b75bd902ff1966d67a6fce27787335e5" category="paragraph">如需建立保護群組的詳細資訊，請參閱<block ref="380025a016e20bcb9b94cb9e7d9020c1" category="inline-link-rx"></block>。</block>
+  <block id="4fd6eb3b34f250943460049addb68232" category="list-text">從適用於虛擬機器的 NetApp Backup and Recovery 主頁，存取 *設定* 下拉式選單，然後選擇 *原則*。</block>
+  <block id="0f454c71d705adb8019d472a05daece0" category="list-text">從 NetApp Backup and Recovery for Virtual Machines 主頁，存取要備份的資料存放區的設定下拉式選單，然後選取 *啟動備份*。</block>
+  <block id="bebf2b8b80da6279c1c96aaa91abc531" category="admonition">此時資料傳輸可能不會立即開始。NetApp Backup and Recovery 每小時掃描一次任何未完成的 Snapshot 複本，然後將其傳輸至物件儲存。</block>
+  <block id="42a36472203bf607d32b69215c5e8a91" category="paragraph">本節提供從 SnapCenter Plug-in for VMware vSphere 和虛擬機器的 NetApp Backup and Recovery 還原資料程序的總覽。</block>
+  <block id="a65eb1eb71e152ed6af47f2cf6a5d363" category="section-title">從適用於虛擬機器的 NetApp Backup and Recovery 還原虛擬機器</block>
+  <block id="bbef28952857c6a41dfe1f107e12d21f" category="paragraph">適用於虛擬機器的 NetApp Backup and Recovery 可將虛擬機器還原至其原始位置。還原功能可透過 NetApp Backup and Recovery 網頁主控台進行存取。</block>
+  <block id="fcb247056bff920d63648b7dd07c72d8" category="example-title">從 NetApp Backup and Recovery 還原虛擬機器</block>
+  <block id="e46ebef0829a9ae2186b5aa31af0f84d" category="paragraph">若要從 NetApp Backup and Recovery 還原虛擬機器，請完成下列步驟。</block>
+  <block id="23da93c0df897a1c0918bb8d762dd87b" category="paragraph">當 3-2-1 備份策略與 SnapCenter Plug-in for VMware vSphere 和適用於虛擬機器的 NetApp Backup and Recovery 搭配實作時，可為資料保護提供強大、可靠且具成本效益的解決方案。此策略不僅確保資料備援和存取能力，還提供從任何位置，以及從內部部署 ONTAP 儲存系統和雲端物件儲存還原資料的靈活度。</block>
+  <block id="684d2832d470178f2be7b6cfdfb88a42" category="paragraph">本文件介紹的使用案例重點在於獲證實的資料保護技術，這些技術重點摘要了 NetApp、VMware 與領先業界的雲端供應商之間的整合。SnapCenter Plug-in for VMware vSphere 可與 VMware vSphere 無縫整合，進而實現高效且集中的資料保護作業管理。此整合簡化了虛擬機器的備份與還原流程，能夠在 VMware 生態系統內輕鬆進行排程、監控和靈活的還原作業。針對虛擬機器的 NetApp Backup and Recovery 透過將虛擬機器資料安全、實體隔離地備份到雲端物件儲存，提供了 3-2-1 中的一 (1)。直覺式的介面和邏輯清晰的工作流程為關鍵資料的長期歸檔提供了一個安全的平台。</block>
+  <block id="454bb1110d6093b9ef29fd01d063b03f" category="inline-link">NetApp Console 文件</block>
+  <block id="e4bbf7f0f1ea5010529874da16226bb3" category="list-text"><block ref="e4bbf7f0f1ea5010529874da16226bb3" category="inline-link-rx"></block></block>
+  <block id="e545255292ce9dd5a7afb9af4b7fccf7" category="summary">本文件的此節說明了 NetApp Disaster Recovery 的組態，以便為 NFS 資料存放區上的內部部署 VMware VM 設定災難恢復至另一個指定站台。</block>
+  <block id="6ef9378e10c57027b95bcec1c6d82be6" category="doc">適用於 NFS 資料存放區的 NetApp Disaster Recovery</block>
+  <block id="1e2c8b36d152b8b6bbd9d7d65f0f2700" category="paragraph">本文件的這一節說明 NetApp Disaster Recovery 的組態，以便為內部部署 VMware VM 設定至另一個指定站台的災難恢復。作為此設定的一部分，包括 Console 代理程式、將 ONTAP 陣列上線、定義站台以及關聯 VMware vCenter。此外，本文件詳細說明如何設定站台之間的複寫，以及如何設定與測試恢復計畫。最後一節提供執行完整站台容錯移轉的指示，以及在主要站台恢復並處於線上狀態時如何進行容錯回復。</block>
+  <block id="e77c946cdd54f34e9ac1cfc87f695769" category="paragraph">利用 NetApp Data Services 中的災難恢復功能，企業可以輕鬆探索其內部部署的 VMware vCenters 和 ONTAP 儲存設備。然後，組織可以建立資源群組、建立災難恢復計畫、將其與資源群組建立關聯，並測試或執行容錯移轉與容錯回復。SnapMirror 提供儲存層級的區塊複寫，透過遞增變更讓兩個站台保持最新狀態，進而達成最多 5 分鐘的復原點目標（RPO）。此外，還可以模擬災難恢復程序，而不會影響正式作業或產生額外儲存容量成本。</block>
+  <block id="11f26ef80573e3bb1db47d581b624d81" category="paragraph">災難恢復利用 ONTAP 的 FlexClone 技術，從災難恢復站台上最後一次複寫的 Snapshot 快照技術建立 NFS 資料儲存的極具空間效率複本。完成災難恢復測試後，客戶可以輕鬆刪除測試環境，而不會影響實際複寫的生產資源。如果發生實際容錯移轉，災難恢復會協調所有必要步驟，只需按幾下即可在指定的災難恢復站台上自動啟動受保護的虛擬機器。該服務也會在需要時反轉與主站台的 SnapMirror 關係，並將次要站台的任何變更複寫到主站台，以執行回復作業。與其他知名替代方案相比，所有這些功能的成本都低得多。</block>
+  <block id="b4a03ff93d046894eaa9dd257d42775c" category="inline-link-macro">災難恢復支援的組態</block>
+  <block id="0f165f633458c427ced8109c3497190c" category="admonition">如需用於災難恢復的 vCenter Server、ESXi 和 ONTAP 的最新資訊與支援版本，請參閱 <block ref="7da5a34ac359ea95f0d3b1537b7f906d" category="inline-link-macro-rx"></block>。</block>
+  <block id="4410aeb6524793074520162ab230b97f" category="paragraph">若要開始使用 NetApp 災難恢復，請使用 NetApp 控制台，然後存取服務。</block>
+  <block id="76da33ce62725f9592568e4b69877e51" category="list-text">登入控制台。</block>
+  <block id="ff3bb4e851f9bfb5b289c9491c43ce03" category="list-text">從主控台左側導覽中，選擇 保護 &gt; 災難恢復。</block>
+  <block id="6ab9cc3a4b8fca6ddfa46355a746002f" category="list-text">災難恢復儀表板隨即顯示。</block>
+  <block id="5dfb07dcac8e3982ba0b4cfde1bfaaee" category="paragraph">在設定災難恢復計畫之前，請確保滿足以下先決條件：</block>
+  <block id="62769a26187ef733c25d80b81ab904c7" category="list-text">主控台代理程式已部署。</block>
+  <block id="790eeed769c1e98e4e5afd519642a165" category="list-text">代理程式可連線至來源和目的地 vCenter 與儲存系統。</block>
+  <block id="31034b289848a78a23cba4ae06b9491d" category="list-text">已啟用 NFS 服務的 ONTAP 叢集 SVM 可用。</block>
+  <block id="f0ed07fa14e4825bf0cf74bb43cd5b4a" category="list-text">託管 VMware NFS 資料存放區的內部部署 NetApp 儲存系統已在 Console 中新增。</block>
+  <block id="4f4520ecca62c7b5eea9d158b86bca3d" category="admonition">NetApp 建議將 Console 代理程式部署在目的地站台或第三個站台，以便 Console 代理程式可以透過網路與來源和目的地資源進行通訊。</block>
+  <block id="32014d6540df638b4afdb77641a3e87d" category="section-title">NetApp 災難恢復組態</block>
+  <block id="d260fc708704c28074ae084fd1409ccb" category="paragraph">準備災難恢復的第一步是探索並將內部部署的 vCenter 和儲存資源新增至 NetApp Disaster Recovery。</block>
+  <block id="1451438a9c4bbaa09fffc22a57b814ea" category="paragraph">開啟主控台，從左側導覽列選擇 *保護 &gt; 災難恢復*。按一下 *站台*，提供名稱並選擇位置類型。然後，按一下 *新增 vCenter* 按鈕。</block>
+  <block id="f926b34f5c728f9a4ddc6befcc2283cc" category="paragraph">SnapMirror 在 NetApp 環境中提供資料複寫功能。SnapMirror 複寫以 NetApp Snapshot 快照技術為基礎，效率極高，因為它只複寫自上次更新以來已變更或新增的區塊。SnapMirror 可透過 NetApp OnCommand System Manager 或 ONTAP CLI 輕鬆設定。NetApp Data Services 也可建立 SnapMirror 關係，前提是事先設定叢集與 SVM 對等關係。</block>
+  <block id="721cab6a2c7654d29fb08ad950b3b61c" category="paragraph">對於主儲存設備未完全遺失的情況，SnapMirror 提供了一種重新同步主站台和災難恢復站台的高效方法。SnapMirror 可以重新同步這兩個站台，只需反轉 SnapMirror 關係，即可僅將變更或新增的資料從災難恢復站台傳回主站台。這意味著在災難恢復中，容錯移轉後可以雙向重新同步複寫計畫，而無需重新複製整個 Volume。如果以相反方向重新同步關係，則只會將自上次成功同步 Snapshot 複本以來寫入的新資料傳回目的地。</block>
+  <block id="8fa858dd7e5a60004bfe97ae4bcb390c" category="admonition">如果已透過 CLI 或 System Manager 為 Volume 設定 SnapMirror 關係，NetApp Data Services 會取得該關係，並繼續執行其餘的工作流程作業。</block>
+  <block id="cea7dafbf246b75c9eade68de68d31ba" category="paragraph">建立 SnapMirror 複寫的過程對於任何指定的應用程式皆相同。過程可以是手冊或自動化的。最簡單的方法是運用 NetApp Console 來設定 SnapMirror 複寫，只需在環境中將來源 ONTAP 系統拖放至目的地，即可觸發精靈以引導完成剩餘的過程。</block>
+  <block id="2b33d4591c8883f895ddcc908a2ea559" category="paragraph">如果滿足以下兩個條件，災難恢復也可以自動化相同的作業：</block>
+  <block id="42952611a0267d0dd03a136c15f43a0a" category="admonition">如果已透過 CLI 為 Volume 設定 SnapMirror 關係，則災難恢復會取得該關係並繼續執行其餘的工作流程操作。</block>
+  <block id="f7560e598a9de691105f72640088efe5" category="section-title">災難恢復能為您帶來什麼好處？</block>
+  <block id="6dd617de6ef6db97a17a12f2ad76466b" category="paragraph">新增來源和目的地站台後，災難恢復會自動執行深度探索，並顯示虛擬機器及其關聯的中繼資料。災難恢復也會自動偵測虛擬機器使用的網路和連接埠群組，並將其填入。</block>
+  <block id="782a88486a2e921f70d86aa4ec1ba827" category="paragraph">新增站台後，即可將虛擬機器分組到資源群組。災難恢復資源群組可讓您將一組相依的虛擬機器分組到邏輯群組中，這些邏輯群組包含其開機順序和開機延遲，以便在恢復時執行。若要開始建立資源群組，請導覽至 *資源群組* ，然後按一下 *建立新資源群組* 。</block>
+  <block id="185267a7fc4765fd4a78d3267bfb1c4a" category="paragraph">選取資源群組後，建立容錯移轉對應。在此步驟中，指定來源環境中的資源如何對應至目的地。這包括運算資源、虛擬網路。IP 自訂、執行前與執行後指令碼、開機延遲、應用程式一致性等等。如需詳細資訊，請參閱 <block ref="e89a5c1708de2db6d0f8fac7c89f284b" category="inline-link-macro-rx"></block>。</block>
+  <block id="d9ade9cfecf9c487969231bbf20551af" category="admonition">來自不同 Volume 和 SVM 的虛擬機器可以包含在複寫計畫中。根據虛擬機器的放置位置（無論是在同一 Volume 上、同一 SVM 內的分隔 Volume 上，或是不同 SVM 上的分隔 Volume 上），災難恢復會建立一致性群組 Snapshot 快照技術。</block>
+  <block id="beabb8a244b63d3c89eae1bfccfdf1ca" category="paragraph">災難恢復包括以下工作流程：</block>
+  <block id="71b11380e99192000c73f9436efcc5f0" category="paragraph">災難恢復中的測試容錯移轉是一項操作程序，可讓 VMware 系統管理員在不中斷生產環境的情況下，全面驗證其恢復計畫。在測試容錯移轉期間，災難恢復會在災難恢復儲存系統上，建立複寫的 NFS 資料存放區 Volume 的極具空間效率 NetApp FlexClone 複本。然後，這些 FlexClone Volume 會掛載到災難恢復站台的 ESXi 主機，並在隔離的測試網路中將虛擬機器開機。此程序可讓系統管理員驗證其災難恢復計畫在發生實際災難時，是否能如預期運作。</block>
+  <block id="d0b6855fe4c4c144e4b1093c64f9ac84" category="paragraph">災難恢復包含在測試容錯移轉作業中選擇 Snapshot 複本做為選用功能的能力。此功能可讓 VMware 系統管理員驗證環境中最近所做的任何變更是否已複寫到目的地站台，從而在測試期間呈現。此類變更包括虛擬機器客體作業系統的修補程式</block>
+  <block id="ef75cc5e8030339a8cfa594a268d234e" category="paragraph">當 VMware 系統管理員執行測試容錯移轉作業時，災難恢復會自動化下列工作：</block>
+  <block id="72883091fb410094d3fd59d74741c405" category="paragraph">當 VMware 系統管理員執行恢復作業時，災難恢復會完成下列程序：</block>
+  <block id="40f3c3145cf02279f196f4044593085d" category="paragraph">災難恢復有兩種執行真正容錯移轉的方法：計畫性移轉和容錯移轉。第一種方法是計畫性移轉，將虛擬機器關機和儲存設備複寫同步整合到流程中，以恢復或有效地將虛擬機器移轉到目的地站台。計畫性移轉需要存取來源站台。第二種方法是容錯移轉，這是一種計畫性/非計畫性的容錯移轉，其中虛擬機器會在目的地站台，從上一次成功完成的儲存設備複寫間隔中恢復。根據解決方案中設計的 RPO，在災難恢復情境中可能會出現一定程度的資料遺失。</block>
+  <block id="caaba2ee630900edc1e507070b9e9ca4" category="paragraph">當 VMware 系統管理員執行容錯移轉作業時，災難恢復會自動化下列任務：</block>
+  <block id="77b902c1cbf1b735c3354ced8a96cb0c" category="paragraph">*注意：*災難恢復會在反轉複寫方向之前，將任何變更複寫（重新同步）回原始來源虛擬機器。此程序從已完成容錯移轉至目標的關係開始，並包含下列步驟：</block>
+  <block id="80a1a03679a72461e49380f11d9f9351" category="inline-link-macro">了解適用於 VMware 的 NetApp Disaster Recovery</block>
+  <block id="fe9125bda2a3261abc8267151663972a" category="paragraph">如需存取與設定災難恢復的詳細資訊，請參閱<block ref="bbf55c574ddd3318b61afd1853bb709a" category="inline-link-macro-rx"></block>。</block>
+  <block id="aa06b3734c7c4d9d50517ac1cc667923" category="paragraph">從 Console 或 ONTAP CLI，您可以監控適當資料存放區 Volume 的複寫健全狀況，並可透過作業監控來追蹤容錯移轉或測試容錯移轉的狀態。</block>
+  <block id="bf41633c6763733f08ea0f4a81eee94b" category="paragraph">透過災難恢復儀表板，您可以自信地評估災難恢復站台與複寫計畫的狀態。這可讓系統管理員迅速識別健全、已斷線或降級的站台與計畫。</block>
+  <block id="4d405a1f595c9583d67359341d49e084" category="summary">本文件的這一節描述了 NetApp Disaster Recovery 的組態，以為內部部署 VMware VM 設定至另一個指定站台的災難恢復。</block>
+  <block id="c0d1d0aecd841e3e819f31c2d9e31bf6" category="paragraph">災難恢復是每位 VMware 系統管理員最為關注的問題。由於 VMware 將整個伺服器封裝成一系列構成虛擬機器的檔案，系統管理員會利用複製、快照和複本等區塊儲存設備技術來保護這些虛擬機器。ONTAP 陣列提供內建複寫，可將 Volume 資料（以及駐留在指定資料儲存區 LUN 上的虛擬機器）從一個站台傳輸到另一個站台。NetApp Disaster Recovery 整合 vSphere 並自動化整個工作流程，以便在發生災難時實現無縫容錯移轉與容錯回復。透過將儲存設備複寫與至能自動化相結合，系統管理員現在不僅能夠以可管理的方式設定、自動化和測試災難恢復計畫，而且還能夠在災難發生時輕鬆執行這些計畫。</block>
+  <block id="7b0e4cfd1a9aa7b7ed4fcba196afe9c5" category="list-text"><block ref="7b0e4cfd1a9aa7b7ed4fcba196afe9c5" category="inline-link-macro-rx"></block></block>
+  <block id="07b5b43eb6483bc631ccf8cb3370a910" category="inline-link-macro">適用於 VMFS 資料儲存的 NetApp Disaster Recovery</block>
+  <block id="48310264c828e78e7be34f7a84803d9d" category="list-text"><block ref="48310264c828e78e7be34f7a84803d9d" category="inline-link-macro-rx"></block></block>
+  <block id="30728a0e0692c0c0a1ead99886bd25cf" category="paragraph">本文件的此節說明 NetApp Disaster Recovery 的組態，以為內部部署 VMware VM 設定災難恢復至另一個指定站台。做為此設定的一部分，包括 Console 代理程式、上線 ONTAP 陣列、定義站台以及關聯 VMware vCenter。此外，本文件詳細說明如何設定站台之間的複寫，以及如何設定與測試恢復計畫。最後一節提供執行完整站台容錯移轉的指示，以及在主站台恢復並上線時如何進行容錯回復。</block>
+  <block id="20a79969b88c98a5d926f7e318c9490b" category="paragraph">運用 NetApp Data Services 的災難恢復功能，客戶可以探索其內部部署的 VMware vCenters 以及 ONTAP 儲存設備，建立資源群組，建立災難恢復計畫，將其與資源群組建立關聯，並測試或執行容錯移轉與容錯回復。SnapMirror 提供儲存層級的區塊複寫，透過遞增變更讓兩個站台保持最新狀態，進而達成最短 5 分鐘的 RPO。此外，也可以將 DR 程序模擬為常規演練，而不會影響生產環境與複寫的資料存放區，也不會產生額外儲存容量成本。NetApp Data Services 運用 ONTAP 的 FlexClone 技術，從 DR 站台上最後一次複寫的 Snapshot 快照技術，建立 VMFS 資料存放區極具空間效率的複本。DR 測試完成後，客戶只需刪除測試環境即可，同樣不會對實際複寫的生產資源造成任何影響。當需要（計畫內或計畫外）進行實際容錯移轉時，只需按幾下，災難恢復功能即可協調所有必要步驟，自動在指定的災難恢復站台上啟動受保護的虛擬機器。該服務也會反轉與主要站台的 SnapMirror 關係，並在需要時將任何變更從次要站台複寫到主要站台，以進行容錯回復作業。與其他知名替代方案相比，只需極低的成本即可達成所有這些目標。</block>
+  <block id="d986e4029fc87abe8e3d311e5b735450" category="paragraph">若要開始使用災難恢復，請使用 NetApp Console，然後存取服務。</block>
+  <block id="2c3e8c66ebfcac29acce90e41a90b4e6" category="list-text">從主控台左側導覽中，選取「保護」&gt;「災難恢復」。</block>
+  <block id="307b4199d5ff79f1de5b501b1bdb74d7" category="list-text">控制台代理程式已部署在 AWS VPC 中。</block>
+  <block id="e5ff05ccba387ae7f1e70da57ec2dd01" category="list-text">控制台代理程式執行個體與來源和目的地 vCenter 及儲存系統具有連線能力。</block>
+  <block id="c4ac5a465ad32732ac11a80518f94906" category="list-text">為 VMware 託管 VMFS 資料存放區的內部部署 NetApp 儲存系統已新增至 Console。</block>
+  <block id="ff70b3ee3f6b94eb11409c9d84406a53" category="admonition">NetApp 建議將主控台代理程式部署在災難恢復站台或第三個站台，以便主控台代理程式在實際中斷或自然災害期間，可以透過網路與來源和目的地資源進行通訊。</block>
+  <block id="5a7fcc9af50f65504b0c60b09c4bd275" category="section-title">災難恢復組態</block>
+  <block id="34d7e007ef5f3d463942b99d8207a88d" category="paragraph">準備災難恢復的第一步是探索並將內部部署的 vCenter 和儲存資源新增至災難恢復。</block>
+  <block id="d2262d251511f95325f848eb8b08dc6f" category="admonition">確保已將 ONTAP 儲存系統新增至畫布中的工作環境。開啟主控台，並從左側導覽列選擇 *保護 &gt; 災難恢復*。選擇 *探索 vCenter 伺服器* 或使用頂部選單，選擇 *站台 &gt; 新增 &gt; 新增 vCenter*。</block>
+  <block id="758164846180a2fa7b1677ab79ed36fc" category="paragraph">建立 SnapMirror 複寫的程序對於任何指定的應用程式皆相同。此程序可以是手冊或自動化。最簡單的方法是運用 Console 來設定 SnapMirror 複寫，只需將環境中的來源 ONTAP 系統拖放至目的地，即可觸發精靈來引導完成其餘程序。</block>
+  <block id="c2580a407f7ed11c1db0f5a038dbc85b" category="paragraph">NetApp Data Services 也可以自動化相同的作業，前提是符合下列兩個條件：</block>
+  <block id="04f2107509063697c5b0915cafd431ad" category="admonition">如果已透過 CLI 為 Volume 設定 SnapMirror 關係，Console 會取得該關係並繼續執行其餘的工作流程操作。</block>
+  <block id="183bdda742848b9a2accc4b9240b6c0a" category="admonition">除了上述方法外，也可以透過 ONTAP CLI 或 System Manager 建立 SnapMirror 複寫。無論採用何種方法使用 SnapMirror 同步資料，災難恢復都會協調工作流程，以實現無縫且有效率的災難恢復作業。</block>
+  <block id="9127b3831fce06a9391804786fd8ab9b" category="paragraph">選取資源群組後，請建立容錯移轉對應。在此步驟中，請指定來源環境中的資源如何對應至目的地。這包括運算資源、虛擬網路。IP 自訂、前置與後置指令碼、開機延遲、應用程式一致性等。如需詳細資訊，請參閱 <block ref="0fb05420c47387834779fe251518cd25" category="inline-link-macro-rx"></block>。</block>
+  <block id="7b570493c9d9b0e0038900a1e4cad3d5" category="paragraph">建立複寫計畫後，可以根據需求選擇容錯移轉選項、測試容錯移轉選項或移轉選項來執行容錯移轉。災難恢復確保複寫程序每 30 分鐘按照計畫執行一次。在容錯移轉和測試容錯移轉選項期間，您可以使用最新的 SnapMirror Snapshot 複本，也可以從時間點 Snapshot 複本中選擇特定的 Snapshot 複本（根據 SnapMirror 的保留政策）。如果發生勒索軟體等毀損事件，導致最新的複本已被破壞或加密，時間點選項會非常有用。災難恢復會顯示所有可用的恢復點。</block>
+  <block id="77ca52dfb07d53c10ecc78752c413e59" category="paragraph">在測試容錯移轉作業期間，災難恢復會使用目的地 Volume 的最新 Snapshot 複本或選定的快照，在目的地 ONTAP 儲存系統上建立 FlexClone Volume。</block>
+  <block id="151e8915f2f45879cc33ea44737b271f" category="paragraph">在此過程中，災難恢復不會對應原始目標 Volume。相反地，它會從選定的 Snapshot 快照技術建立一個新的 FlexClone Volume，並將支援該 FlexClone Volume 的暫存資料存放區對應至 ESXi 主機。</block>
+  <block id="d9902b9f2a1f10be1dac3b1c7439272c" category="paragraph">當測試容錯移轉作業完成時，可以使用 *"Clean Up failover test"* 觸發清理作業。在此作業期間，災難恢復會銷毀在作業中使用的 FlexClone Volume。</block>
+  <block id="b0c4b21641a1133ae5095a9ac6fd20f5" category="paragraph">若發生真實的災難事件，災難恢復會執行下列步驟：</block>
+  <block id="784072bceaedc24f40c523d77d8cdc4d" category="paragraph">主站台啟動並運作後，災難恢復可為 SnapMirror 啟用反向重新同步並啟用容錯回復，同樣只需按一下按鈕即可執行。</block>
+  <block id="92f05289d95a63cd9a1a591105778572" category="list-text">使用 NetApp SnapMirror 技術將工作負載資料從內部部署 ONTAP 系統複寫到 Cloud Volumes ONTAP 或 Amazon FSx ONTAP，以使用區塊層級機制簡化移轉。這不適用於 Azure NetApp Files 和 Google Cloud NetApp Volumes。若要將資料移轉至 Azure NetApp Files 或 Google Cloud NetApp Volumes，請根據所使用的檔案協定，使用 NetApp XCP、NetApp Copy and Sync、rysnc 或 robocopy。</block>
+  <block id="afc0499d75c01f132ef66dea3848e48b" category="sidebar">適用於 VMware 的 NetApp Disaster Recovery</block>
+  <block id="e04c67cef48725ca88e7121f3b4e416b" category="sidebar">NetApp 災難恢復模擬器</block>
+  <block id="edc663d43539f79e91e9311bd7a27eaa" category="sidebar">NetApp Backup and Recovery 虛擬機器模擬器</block>
+  <block id="19cbafc0246850c97323cac4fb786794" category="sidebar">NetApp Disaster Recovery</block>
+  <block id="1c3f20d8e36880b1b5fc6b8eec40fb9f" category="sidebar">使用 SnapCenter 外掛程式與 NetApp Backup and Recovery for VMs 保護 VMware 資料</block>
+  <block id="b87c104bf767c5fd9bde9075ec299736" category="sidebar">使用 NetApp 進行災難恢復</block>
+  <block id="1b7417b022bab7d3b69b8fb1110c0f79" category="sidebar">NetApp NFS 資料儲存的災難恢復</block>
+  <block id="cda22072a0914c289d071ab25b6c1978" category="sidebar">NetApp VMFS 資料儲存的災難恢復</block>
+  <block id="51f76c45eb7b32a058fa55ae940a99f6" category="sidebar">NFS 資料儲存的災難恢復</block>
+  <block id="6de29981a8cf2b52481f931babfac751" category="sidebar">VMFS 資料儲存的災難恢復</block>
 </blocks>

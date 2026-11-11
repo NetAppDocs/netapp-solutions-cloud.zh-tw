@@ -58,9 +58,9 @@ indexpage:
       url: https://netapp-automation.github.io/dro-simulator/?intro-1
     - title: 帶有 AVS 模擬器的 ANF 的 DRO
       url: https://netapp-automation.github.io/dro-simulator-avs-anf/?intro-1
-    - title: BlueXP DRaaS模擬器
+    - title: NetApp 災難恢復模擬器
       url: https://netapp-automation.github.io/DRaaS_Simulator/?0.1
-    - title: BlueXP - 虛擬機器模擬器的備份和恢復
+    - title: NetApp Backup and Recovery 虛擬機器模擬器
       url: https://netapp-automation.github.io/Backup_and_Recovery_for_VMs_Simulator/?0.1
   - title: TCO計算機
     links:
@@ -70,13 +70,13 @@ indexpage:
       url: https://tco.solutions.netapp.com/anfavstco/
     - title: GCVE + NetApp Volumes TCO 估算器
       url: https://tco.solutions.netapp.com/gcvegcnvtco/
-  - title: BlueXP disaster recovery
+  - title: NetApp Disaster Recovery
     links:
-    - title: 使用SnapCenter插件和BlueXP backup and recovery保護 VMware 數據
+    - title: 使用 SnapCenter 外掛程式與 NetApp Backup and Recovery for VMs 保護 VMware 資料
       url: "../vmware/vmw-hybrid-321-dp-scv.html"
-    - title: 使用BlueXP進行災難復原
+    - title: 使用 NetApp 進行災難恢復
       url: "../vmware/vmw-hybrid-dr-overview.html"
-    - title: 使用BlueXP對 NFS 資料儲存進行災難復原
+    - title: NetApp NFS 資料儲存的災難恢復
       url: "../vmware/vmw-hybrid-dr-nfs.html"
-    - title: 使用BlueXP對 VMFS 資料儲存進行災難復原
+    - title: NetApp VMFS 資料儲存的災難恢復
       url: "../vmware/vmw-hybrid-dr-vmfs.html"

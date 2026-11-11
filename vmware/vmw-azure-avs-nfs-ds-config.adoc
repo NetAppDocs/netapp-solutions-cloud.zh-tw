@@ -310,14 +310,14 @@ image:vmware-dr-006.png["此圖顯示輸入/輸出對話框或表示書面內容
 
 NOTE: 使用 ANF 資料存儲，「恢復到新磁碟區」選項可用於複製整個資料儲存卷，並且復原的磁碟區可以作為另一個資料儲存安裝到 AVS SDDC 內的主機。安裝資料儲存後，可以註冊、重新配置和自訂其中的虛擬機，就像單獨複製的虛擬機一樣。
 
-.BlueXP backup and recovery
+.NetApp Backup and Recovery 適用於虛擬機器
 [%collapsible%open]
 =====
-BlueXP backup and recovery在 vCenter 上提供了 vSphere Web 用戶端 GUI，以透過備份策略保護 Azure VMware 解決方案虛擬機器和 Azure NetApp檔案資料儲存。這些策略可以定義計劃、保留和其他功能。可以使用運行指令來部署BlueXP backup and recovery功能。
+NetApp Backup and Recovery for Virtual Machines 在 vCenter 上提供 vSphere Web 用戶端 GUI，可透過備份原則保護 Azure VMware Solution 虛擬機器和 Azure NetApp Files 資料存放區。這些原則可定義排程、保留及其他功能。NetApp Backup and Recovery for Virtual Machine 的功能可使用 Run 命令進行部署。
 
 可以透過完成以下步驟來安裝設定和保護策略：
 
-. 使用執行指令為 Azure VMware 解決方案私有雲中的虛擬機器安裝BlueXP backup and recovery。
+. 使用 Run 命令在 Azure VMware Solution 私有雲中安裝虛擬機器的 NetApp Backup and Recovery。
 . 新增雲端訂閱憑證（用戶端和金鑰值），然後新增包含您想要保護的資源的雲端訂閱帳戶（NetApp帳戶和相關資源群組）。
 . 建立一個或多個備份策略來管理資源組備份的保留、頻率和其他設定。
 . 建立一個容器來新增一個或多個需要使用備份策略保護的資源。

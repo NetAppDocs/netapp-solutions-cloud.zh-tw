@@ -21,7 +21,7 @@ keywords: netapp, solutions, blogs
 [[vmware-integration-with-aws-and-amazon-fsx-for-ontap]]
 == VMware 與 AWS 和Amazon FSx for ONTAP 的集成
 
-* link:https://bluexp.netapp.com/blog/aws-fsxn-blg-migrate-vmware-to-amazon-ec2-iscsi-based-fsx-for-ontap["使用 Amazon EC2 和Amazon FSx ONTAP iSCSI 協定將 VMware VM 移轉到 AWS"]
+* link:https://www.netapp.com/blog/aws-fsxn-blg-migrate-vmware-to-amazon-ec2-iscsi-based-fsx-for-ontap/["使用 Amazon EC2 和Amazon FSx ONTAP iSCSI 協定將 VMware VM 移轉到 AWS"]
 * link:https://aws.amazon.com/about-aws/whats-new/2025/06/amazon-elastic-vmware-service-fsx-netapp-ontap/["Amazon EVS 現已與 FSx for ONTAP集成"]
 * link:https://www.netapp.com/blog/amazon-elastic-vmware-service-fsx-ontap/["Amazon EVS 宣布支援 FSx for ONTAP"]
 * link:https://www.netapp.com/blog/aws-fsxo-blg-configure-hybrid-cloud-with-fsx-for-netapp-ontap-and-vmware-cloud-on-aws-sddc-using-vmware-hcx/["使用 VMware HCX 配置具有 FSx ONTAP和 VMware Cloud on AWS SDDC 的混合雲"]
@@ -51,7 +51,7 @@ keywords: netapp, solutions, blogs
 [[data-protection-and-management]]
 == 資料保護和管理
 
-* link:https://community.netapp.com/t5/Tech-ONTAP-Blogs/3-2-1-Data-Protection-for-VMware-with-SnapCenter-Plug-in-and-BlueXP-backup-and/ba-p/446180["透過SnapCenter插件和BlueXP虛擬機器備份與恢復，為 VMware 提供 3-2-1 資料保護"]
+* link:https://community.netapp.com/t5/Tech-ONTAP-Blogs/3-2-1-Data-Protection-for-VMware-with-SnapCenter-Plug-in-and-BlueXP-backup-and/ba-p/446180["搭配 SnapCenter 外掛程式與虛擬機器的 NetApp Backup and Recovery 的 VMware 3-2-1 資料保護"]
 * link:https://community.netapp.com/t5/Tech-ONTAP-Blogs/Observability-for-the-Modern-Datacenter-with-NetApp-Cloud-Insights/ba-p/447495["利用NetApp Cloud Insights實現現代資料中心的可觀察性"]
 
 

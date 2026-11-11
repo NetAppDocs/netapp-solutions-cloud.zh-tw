@@ -43,7 +43,7 @@ NOTE: 您也可以透過 OpenShift 混合雲主控台在 AWS 中建立叢集。�
 TIP: 使用 ACM 建立叢集時，您可以在表單檢視中填寫詳細資料後透過編輯 yaml 檔案來自訂安裝。叢集建立完成後，可以透過ssh登入叢集的節點進行故障排除或額外的手動設定。使用您在安裝過程中提供的 ssh 金鑰和使用者名稱 core 登入。
 
 ====
-.使用BlueXP在 AWS 中部署Cloud Volumes ONTAP 。
+.使用 NetApp Console 在 AWS 中部署 Cloud Volumes ONTAP。
 [%collapsible%open]
 ====
 * 在本機 VMware 環境中安裝連接器。參考說明link:https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-on-prem.html#install-the-connector["這裡"]。

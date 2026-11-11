@@ -111,7 +111,7 @@ NOTE: 在撰寫本文檔時，客艙內儲存是唯一可用的選項。
 === 需要記住的要點
 
 * 在混合儲存模型中，將第 1 層或高優先級工作負載放置在 vSAN 資料儲存上，以滿足任何特定的延遲要求，因為它們是主機本身的一部分並且在附近。對於任何可以接受交易延遲的工作負載虛擬機，請使用客戶機內機制。
-* 使用NetApp SnapMirror技術將工作負載資料從本機ONTAP系統複製到Cloud Volumes ONTAP或Amazon FSx ONTAP ，以簡化使用區塊級機制的遷移。這不適用於Azure NetApp Files和Google Cloud NetApp Volumes。若要將資料移轉到Azure NetApp Files或Google Cloud NetApp Volumes，請根據所使用的檔案協定使用NetApp XCP、 BlueXP Copy and Sync、rysnc 或 robocopy。
+* 使用 NetApp SnapMirror 技術將工作負載資料從內部部署 ONTAP 系統複寫到 Cloud Volumes ONTAP 或 Amazon FSx ONTAP，以使用區塊層級機制簡化移轉。這不適用於 Azure NetApp Files 和 Google Cloud NetApp Volumes。若要將資料移轉至 Azure NetApp Files 或 Google Cloud NetApp Volumes，請根據所使用的檔案協定，使用 NetApp XCP、NetApp Copy and Sync、rysnc 或 robocopy。
 * 測試表明，從相應的 SDDC 存取儲存空間時會有 2-4ms 的額外延遲。在映射儲存時，將此額外的延遲考慮進應用程式要求中。
 * 為了在測試故障轉移和實際故障轉移期間掛載來賓連接的存儲，請確保重新配置 iSCSI 啟動器、為 SMB 共享更新 DNS、並在 fstab 中更新 NFS 掛載點。
 * 確保虛擬機器內部的 Microsoft 多路徑 I/O (MPIO)、防火牆和磁碟逾時登錄設定配置正確。

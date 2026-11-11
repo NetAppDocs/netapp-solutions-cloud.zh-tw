@@ -311,25 +311,25 @@ SnapCenter需要多個許可證才能啟用資料保護操作。您安裝的Snap
 
 
 =====
-.Cloud Manager 帳戶驗證
+.NetApp Console 帳戶驗證
 [%collapsible%open]
 =====
-您必須能夠使用NetApp Cloud Manager 部署資源。為了驗證您是否可以，請完成以下任務：
+您必須能夠使用 NetApp Console 部署資源。若要驗證您是否具備此能力，請完成以下任務：
 
-* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html["註冊 Cloud Central"^]如果你還沒有這樣做的話。
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html["登入雲端管理器"^] 。
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-setting-up-netapp-accounts.html["設定工作區和用戶"^] 。
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["建立連接器"^] 。
+* https://docs.netapp.com/us-en/console-setup-admin/concept-overview.html["了解 NetApp Console 的運作方式"]。
+* https://docs.netapp.com/us-en/console-setup-admin/task-logging-in.html["登入 NetApp Console"^]。
+* https://docs.netapp.com/us-en/console-setup-admin/concept-agents.html#when-you-need-a-console-agent["了解何時需要控制台代理程式"]。
+* https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-aws-console.html["在 AWS 上部署 NetApp Console 代理程式"^]。
 
 
-=====
-.Amazon FSx ONTAP
-[%collapsible%open]
 =====
 擁有 AWS 帳戶後，您必須能夠執行下列任務：
 
 * 建立一個能夠為NetApp ONTAP檔案系統設定Amazon FSx 的IAM 管理使用者。
 
+
+[]
+=====
 
 =====
 ====
@@ -669,8 +669,8 @@ image:dr-vmc-aws-009.png["此圖顯示輸入/輸出對話框或表示書面內�
 ====
 
 
-[[bluexp-backup-and-recovery-tools]]
-== BlueXP backup and recovery工具
+[[netapp-backup-and-recovery-tools]]
+== NetApp 備份與還原工具
 
 為了將我們的應用程式虛擬機器和資料庫磁碟區故障轉移到在 AWS 中執行的 VMware Cloud Volume 服務，必須安裝和設定SnapCenter Server 和 Veeam Backup and Replication Server 的執行執行個體。故障轉移完成後，也必須設定這些工具以還原正常的備份作業，直到計畫和執行故障還原到內部資料中心。
 

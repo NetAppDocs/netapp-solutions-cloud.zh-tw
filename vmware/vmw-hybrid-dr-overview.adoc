@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: vmware/vmw-hybrid-dr-overview.html 
-keywords: dr, draas, bluexp, disaster recovery, vmfs datastore, nfs datastore, overview 
-summary: 本文檔的此部分介紹了BlueXP DRaaS 的配置，以便為本地 VMware VM 設定災難復原到另一個指定站點。 
+keywords: dr, draas, Console, disaster recovery, vmfs datastore, nfs datastore, overview 
+summary: 本文件的這一節描述了 NetApp Disaster Recovery 的組態，以為內部部署 VMware VM 設定至另一個指定站台的災難恢復。 
 ---
 = 概況
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 本文檔的此部分介紹了BlueXP DRaaS 的配置，以便為本地 
 
 
 [role="lead"]
-災難復原是每個 VMware 管理員最關心的問題。由於 VMware 將整個伺服器封裝成構成虛擬機器的一系列檔案；管理員利用基於區塊儲存的技術（例如複製、快照和副本）來保護這些虛擬機器。  ONTAP陣列提供內建複製功能，用於將磁碟區資料（以及駐留在指定資料儲存 LUN 上的虛擬機器）從一個站點傳輸到另一個站點。 BlueXP DRaaS 與 vSphere 整合並自動化整個工作流程，以便在災難發生時實現無縫故障轉移和故障復原。透過將儲存複製與智慧自動化相結合，管理員現在不僅可以採用可管理的方式來配置、自動化和測試災難復原計劃，而且還可以在災難發生時輕鬆運行這些計劃。
+災難恢復是每位 VMware 系統管理員最為關注的問題。由於 VMware 將整個伺服器封裝成一系列構成虛擬機器的檔案，系統管理員會利用複製、快照和複本等區塊儲存設備技術來保護這些虛擬機器。ONTAP 陣列提供內建複寫，可將 Volume 資料（以及駐留在指定資料儲存區 LUN 上的虛擬機器）從一個站台傳輸到另一個站台。NetApp Disaster Recovery 整合 vSphere 並自動化整個工作流程，以便在發生災難時實現無縫容錯移轉與容錯回復。透過將儲存設備複寫與至能自動化相結合，系統管理員現在不僅能夠以可管理的方式設定、自動化和測試災難恢復計畫，而且還能夠在災難發生時輕鬆執行這些計畫。
 
 VMware vSphere 環境中 DR 故障轉移最耗時的部分是在 DR 站點執行清點、註冊、重新配置和啟動虛擬機器所需的步驟。理想的解決方案既具有低 RPO（以分鐘為單位），又具有低 RTO（以分鐘到小時為單位）。  DR 解決方案中經常被忽略的一個因素是定期有效地測試 DR 解決方案的能力。
 
@@ -27,6 +27,6 @@ VMware vSphere 環境中 DR 故障轉移最耗時的部分是在 DR 站點執行
 
 有關可用解決方案的更多技術信息，請參閱：
 
-* link:vmw-hybrid-dr-nfs.html["使用BlueXP DRaaS 為 NFS 資料儲存進行災難復原"]
-* link:vmw-hybrid-dr-vmfs.html["使用BlueXP DRaaS 對 VMFS 資料儲存進行災難復原"]
+* link:vmw-hybrid-dr-nfs.html["適用於 NFS 資料存放區的 NetApp Disaster Recovery"]
+* link:vmw-hybrid-dr-vmfs.html["適用於 VMFS 資料儲存的 NetApp Disaster Recovery"]
 

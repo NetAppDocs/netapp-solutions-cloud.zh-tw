@@ -26,7 +26,7 @@ indexpage:
       url: "/vmware/vmw-azure-avs-overview.html"
     - title: NetApp適用於 GCP/GCVE
       url: "/vmware/vmw-gcp-gcve-overview.html"
-    - title: 適用於 VMware 的BlueXP disaster recovery
+    - title: 適用於 VMware 的 NetApp Disaster Recovery
       url: "/vmware/vmw-hybrid-dr-overview.html"
   - title: 適用於 OpenShift 的NetApp雲端解決方案
     links:

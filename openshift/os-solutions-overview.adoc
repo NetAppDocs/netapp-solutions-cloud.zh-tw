@@ -49,9 +49,9 @@ NetApp發現，越來越多的客戶正在對其傳統企業應用程式進行�
 
 image:rhhc-ontap-features.png["此圖顯示輸入/輸出對話框或表示書面內容"]
 
-** NetApp BlueXP** 可讓您從單一控制平面/介面管理所有儲存和資料資產。
+**NetApp Console** 可讓您透過單一控制平面/介面管理所有儲存設備和資料資產。
 
-您可以使用BlueXP建立和管理雲端儲存（例如， Cloud Volumes ONTAP和Azure NetApp Files），移動、保護和分析數據，以及控制許多本地和邊緣儲存設備。
+您可以使用 NetApp Console 建立和管理雲端儲存（例如 Cloud Volumes ONTAP 和 Azure NetApp Files），移動、保護和分析資料，以及控制許多內部部署和邊緣儲存設備。
 
 ** NetApp Trident** 是符合 CSI 標準的儲存編排器，可快速輕鬆地使用由上述各種NetApp儲存選項支援的持久性儲存。它是由NetApp維護和支援的開源軟體。
 
