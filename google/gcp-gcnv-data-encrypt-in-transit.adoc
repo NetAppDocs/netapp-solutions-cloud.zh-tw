@@ -56,7 +56,7 @@ Kerberos 目前最強大的加密類型是 AES-256-CTS-HMAC-SHA1。 Google Cloud
 
 Kerberos 為 NFS 掛載提供了三種不同的安全級別，可供您選擇 Kerberos 安全性的強度。
 
-根據 RedHat 的 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/s1-nfs-client-config-options["常見安裝選項"^]文件:
+根據 RedHat 的 https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/6/html/storage_administration_guide/s1-nfs-client-config-options["常見安裝選項"^] 文件：
 
 ....
 sec=krb5 uses Kerberos V5 instead of local UNIX UIDs and GIDs to authenticate users.

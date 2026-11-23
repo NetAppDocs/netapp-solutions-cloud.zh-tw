@@ -17,11 +17,11 @@ summary:
 以下是一些可供參考的附加文件：
 
 . link:https://docs.vmware.com/en/VMware-vSphere/index.html["VMware vSphere"^]
-. link:https://access.redhat.com/documentation/en-us/openshift_container_platform/4.12["OpenShift 容器平台產品文檔"^]
+. link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.12["OpenShift 容器平台產品文檔"^]
 . link:https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/installation_overview/index["安裝 OpenShift 容器平台集群"^]
-. link:https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.4["高階叢集管理產品文檔"]
-. link:https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.4/html/clusters/managing-your-clusters#creating-a-cluster["使用 ACM 建立集群"^]
-. link:https://access.redhat.com/documentation/en-us/red_hat_quay/2.9/html-single/deploy_red_hat_quay_on_openshift/index["在 OpenShift 上部署 Red Hat Quay"^]
+. link:https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for_kubernetes/2.4["高階叢集管理產品文檔"^]
+. link:https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for_kubernetes/2.4/html/clusters/managing-your-clusters#creating-a-cluster["使用 ACM 建立集群"^]
+. link:https://docs.redhat.com/en/documentation/red_hat_quay/2.9/html-single/deploy_red_hat_quay_on_openshift/index["在 OpenShift 上部署 Red Hat Quay"^]
 . link:https://docs.netapp.com/us-en/trident/["Trident"^]
 . link:https://docs.netapp.com/us-en/ontap/["ONTAP 9"^]
 . link:https://github.com/NetApp/Verda["NetApp Verda"^] - Verda（開源）提供了一系列適用於熱門雲端原生資料密集型應用程式的參考執行掛鉤

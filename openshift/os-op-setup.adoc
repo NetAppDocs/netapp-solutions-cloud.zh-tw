@@ -46,7 +46,7 @@ TIP: 請記住以下內容： - 建立 ssh 公鑰和私鑰以提供給安裝程�
 .在 Hub 叢集上安裝進階叢集管理
 [%collapsible%open]
 ====
-這是使用 Hub 叢集上的高級叢集管理操作員安裝的。參考說明link:https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.7/html/install/installing#doc-wrapper["這裡"]。
+這是使用 Hub 叢集上的 Advanced Cluster Management Operator 所安裝。請參閱指示 link:https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for_kubernetes/2.7/html/install/installing#doc-wrapper["這裡"^]。
 
 ====
 .安裝兩個額外的 OCP 叢集（來源和目標）

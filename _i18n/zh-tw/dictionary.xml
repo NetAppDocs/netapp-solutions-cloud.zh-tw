@@ -246,7 +246,6 @@
   <block id="71b0cde5c82d4fce43062f4c6ab6ffed" category="paragraph">Kerberos 目前最強大的加密類型是 AES-256-CTS-HMAC-SHA1。 Google Cloud NetApp Volumes支援 NFS 的 AES-256-CTS-HMAC-SHA1、AES-128-CTS-HMAC-SHA1、DES3 和 DES。它也支援用於 CIFS/SMB 流量的 ARCFOUR-HMAC (RC4)，但不支援用於 NFS。</block>
   <block id="59417c70dd426d4c6a1a81a09043bb7b" category="paragraph">Kerberos 為 NFS 掛載提供了三種不同的安全級別，可供您選擇 Kerberos 安全性的強度。</block>
   <block id="710c8a535ea62cee124026e31e71a5bd" category="inline-link">常見安裝選項</block>
-  <block id="e67cbf2de1080fc7770dec46df05c0e9" category="paragraph">根據 RedHat 的<block ref="1849b335749f623c227052141b2e8b11" category="inline-link-rx"></block>文件:</block>
   <block id="babd6b3b4aea27ca41d56a231f2625af" category="paragraph">一般來說，Kerberos 安全等級要做的工作越多，效能就越差，因為客戶端和伺服器要花時間對發送的每個資料包進行加密和解密 NFS 操作。許多用戶端和 NFS 伺服器都支援將 AES-NI 卸載到 CPU 以獲得更好的整體體驗，但 Kerberos 5p（完全端對端加密）對效能的影響明顯大於 Kerberos 5（用戶身份驗證）的影響。</block>
   <block id="986c123032dbfdac18bc180d1a2c3562" category="paragraph">下表顯示了每個等級在安全性和效能方面的差異。</block>
   <block id="f12149bd43eabe8557e021017cfb9b1f" category="cell">安全等級</block>
@@ -1318,7 +1317,6 @@
   <block id="9e925e9341b490bfd3b4c4ca3b0c1ef2" category="inline-link-macro">這</block>
   <block id="bc4ca673b1da75d1fc9d8fb4c7d5be52" category="admonition">請記住以下內容： - 建立 ssh 公鑰和私鑰以提供給安裝程式。如果需要，這些金鑰將用於登入主節點和工作節點。 - 從輔助安裝程式下載安裝程式。此程式用於啟動您在 VMware vSphere 環境中為主節點和工作節點所建立的虛擬機器。  - 虛擬機器應具備最低 CPU、記憶體和硬碟需求。  （請參閱 vm create 命令<block ref="ad56d2cae35f81c0593c34aac3d8101d" category="inline-link-macro-rx"></block>提供此資訊的主節點和工作節點的頁面） - 應在所有虛擬機器上啟用 diskUUID。  - 為 master 建立至少 3 個節點，為 worker 建立至少 3 個節點。  - 一旦安裝程式發現它們，請開啟 VMware vSphere 整合切換按鈕。</block>
   <block id="5ee7e5d095a85988457e6852e94af6e8" category="example-title">在 Hub 叢集上安裝進階叢集管理</block>
-  <block id="643c48205940ae10b1f2c5f6f8aa5f64" category="paragraph">這是使用 Hub 叢集上的高級叢集管理操作員安裝的。參考說明<block ref="4bb39576c102d9630dc961b3998ecbd9" category="inline-link-macro-rx"></block>。</block>
   <block id="c0090a527266898baf1b6d9a9978eeb3" category="example-title">安裝兩個額外的 OCP 叢集（來源和目標）</block>
   <block id="a4fcf9c2586b5e93f63d9c1290438839" category="list-text">可以使用 Hub 叢集上的 ACM 部署附加叢集。</block>
   <block id="4cb2dca6265c22cd883513131d603c5f" category="example-title">配置NetApp ONTAP存儲</block>
@@ -1463,7 +1461,6 @@
   <block id="8b35ba920859760c3b7ab07c1f52df88" category="inline-link-macro">OpenShift 容器平台產品文檔</block>
   <block id="010bce66eda52af8597098e33d12e767" category="inline-link-macro">安裝 OpenShift 容器平台集群</block>
   <block id="9e4f27bab2ba4dcc223eabe15d060c22" category="inline-link-macro">高階叢集管理產品文檔</block>
-  <block id="0de84e35816fe2bf24a2d62358c71ec0" category="list-text"><block ref="0de84e35816fe2bf24a2d62358c71ec0" category="inline-link-macro-rx"></block></block>
   <block id="1a28b2dbd24896f9ae4e7ea905e79d07" category="inline-link-macro">使用 ACM 建立集群</block>
   <block id="88c39d9e07dd53d7dfe71bcc634dd892" category="inline-link-macro">在 OpenShift 上部署 Red Hat Quay</block>
   <block id="10f0fa4079121b371145e16713fdbb44" category="inline-link-macro">Trident</block>
@@ -6113,10 +6110,7 @@
   <block id="b67b5c15053211b1d63473f9df5b1ab8" category="list-text">取得安裝方案和拉取機密，並按照文件中提供的步驟部署叢集 <block ref="072197b16ac4bac15f286e5c622d9439" category="inline-link-macro-rx"></block>。</block>
   <block id="bd203bf7c34fef7dccc4c39161c78dc8" category="admonition">您也可以透過 OpenShift 混合雲主控台在 AWS 中建立叢集。請參閱 <block ref="adab8e48d805755a937b8ae49e0ee7b7" category="inline-link-macro-rx"></block> 相關說明。</block>
   <block id="b272b3fad6d7e2dc24417fce138d59f0" category="list-text"><block ref="b272b3fad6d7e2dc24417fce138d59f0" category="inline-link-macro-rx"></block></block>
-  <block id="2e5e19e6aa211b5fbf5ec029c54234c3" category="list-text"><block ref="2e5e19e6aa211b5fbf5ec029c54234c3" category="inline-link-macro-rx"></block></block>
   <block id="ae28a5decafe6d5c821bf3f3af745b68" category="list-text"><block ref="ae28a5decafe6d5c821bf3f3af745b68" category="inline-link-macro-rx"></block></block>
-  <block id="b538fa533b3feb4047e609177c09e0c1" category="list-text"><block ref="b538fa533b3feb4047e609177c09e0c1" category="inline-link-macro-rx"></block></block>
-  <block id="8c6518684f03117be0fa781cb78c25fd" category="list-text"><block ref="8c6518684f03117be0fa781cb78c25fd" category="inline-link-macro-rx"></block></block>
   <block id="122f25fa4135a6f278aee53402db3807" category="list-text"><block ref="122f25fa4135a6f278aee53402db3807" category="inline-link-macro-rx"></block></block>
   <block id="1bc28ada1e3a8c93363efbd956281f27" category="list-text"><block ref="1bc28ada1e3a8c93363efbd956281f27" category="inline-link-macro-rx"></block></block>
   <block id="f16dd96ff15aa34fe7db06e2c8c45330" category="list-text"><block ref="ce06c104c0af95b337c108430c00cd74" category="inline-link-macro-rx"></block> - Verda（開源）提供了一系列適用於熱門雲端原生資料密集型應用程式的參考執行掛鉤</block>
@@ -6313,4 +6307,10 @@
   <block id="cda22072a0914c289d071ab25b6c1978" category="sidebar">NetApp VMFS 資料儲存的災難恢復</block>
   <block id="51f76c45eb7b32a058fa55ae940a99f6" category="sidebar">NFS 資料儲存的災難恢復</block>
   <block id="6de29981a8cf2b52481f931babfac751" category="sidebar">VMFS 資料儲存的災難恢復</block>
+  <block id="a1eed947bb61e8bc603007f81e00de2e" category="paragraph">根據 RedHat 的<block ref="c27a12af4b20a1ce93e32b79d2b84a68" category="inline-link-rx"></block> 文件：</block>
+  <block id="10d4600ffb9809c11fd9fbcccc467f7b" category="paragraph">這是使用 Hub 叢集上的 Advanced Cluster Management Operator 所安裝。請參閱指示 <block ref="e42622b652f9818f19937989d1f442be" category="inline-link-macro-rx"></block>。</block>
+  <block id="cf6d8997b5ec040231c35073edec56e3" category="list-text"><block ref="cf6d8997b5ec040231c35073edec56e3" category="inline-link-macro-rx"></block></block>
+  <block id="e3e35e1b84c784f9defb3d94a3007b10" category="list-text"><block ref="e3e35e1b84c784f9defb3d94a3007b10" category="inline-link-macro-rx"></block></block>
+  <block id="07d84ad3f5d033273b418d24d10bfcee" category="list-text"><block ref="07d84ad3f5d033273b418d24d10bfcee" category="inline-link-macro-rx"></block></block>
+  <block id="fda45d1fe193d65714509cae66e08eed" category="list-text"><block ref="fda45d1fe193d65714509cae66e08eed" category="inline-link-macro-rx"></block></block>
 </blocks>
