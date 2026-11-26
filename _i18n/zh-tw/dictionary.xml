@@ -3125,7 +3125,6 @@
   <block id="17e39d08ab88f20eb5755f45fbb47a12" category="paragraph"><block ref="17e39d08ab88f20eb5755f45fbb47a12" category="inline-image-macro-rx" type="image"></block></block>
   <block id="059ac984f45a5c6aed1d7b2054c18c9a" category="example-title">使用 iSCSI 將 FSx ONTAP LUN 連接到主機</block>
   <block id="f6199aef3ca86cfa9f9794d7590ab7e1" category="paragraph">FSx 的 iSCSI 流量透過上一節提供的路由遍歷 VMware Transit Connect/AWS Transit Gateway。若要在Amazon FSx ONTAP中設定 LUN，請依照下列文件操作<block ref="70da71f7286decf7407c5db884b5344a" category="inline-link-macro-rx"></block>。</block>
-  <block id="32139f76f200f13f9078d49f80c95815" category="paragraph">在 Linux 用戶端上，確保 iSCSI 守護程序正在執行。配置 LUN 後，請參閱使用 Ubuntu 配置 iSCSI 的詳細指南（作為範例）<block ref="6e395450a47e52243c1b6632fa351858" category="inline-link-macro-rx"></block> 。</block>
   <block id="102b54837bec429c2bc9f3f9fee8a857" category="paragraph">本文說明如何將 iSCSI LUN 連接到 Windows 主機：</block>
   <block id="5cfee2e26aef5116a38b7d08760d608b" category="example-title">在 FSx ONTAP中設定 LUN：</block>
   <block id="6da38655de350d44c878e17adb0fd12c" category="list-text">使用 FSx for ONTAP檔案系統的管理連接埠存取NetApp ONTAP CLI。</block>
@@ -3216,7 +3215,6 @@
   <block id="000356e69b60b4a0f68b2aa643234756" category="paragraph"><block ref="000356e69b60b4a0f68b2aa643234756" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f8a056111a10f9e055d309c54e7ca2bb" category="paragraph">當 Windows 主機首次存取新的 LUN 時，它沒有分割區或檔案系統。初始化 LUN；並且（可選）透過完成以下步驟使用檔案系統格式化 LUN：</block>
   <block id="cfa5bba75a043240ec4a8611db6ebc79" category="paragraph"><block ref="cfa5bba75a043240ec4a8611db6ebc79" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1085f8441673a34397360c417066d18f" category="paragraph">在 Linux 用戶端上，確保 iSCSI 守護程序正在執行。設定 LUN 後，請參閱有關 Linux 發行版的 iSCSI 設定的詳細指南。例如，Ubuntu iSCSI 配置可以找到<block ref="6e395450a47e52243c1b6632fa351858" category="inline-link-macro-rx"></block>。要驗證，請從 shell 運行 lsblk cmd。</block>
   <block id="7b88883556cc41d9ed2a47bd0cfe1bb4" category="example-title">在 Linux 用戶端上掛載Cloud Volumes ONTAP NFS 卷</block>
   <block id="af16b968e0e3b3975cdcefb5cdd9858a" category="paragraph">若要從 AWS SDDC 上的 VMC 內的虛擬機器掛載Cloud Volumes ONTAP (DIY) 檔案系統，請完成下列步驟：</block>
   <block id="b3bcde31f03d76e154f81e6b5221b007" category="list-text">使用安全殼 (SSH) 在執行個體上開啟終端並使用適當的憑證登入。</block>
@@ -5029,7 +5027,6 @@
   <block id="5c3eb3a1c6330fe124fc0706cbdd91df" category="paragraph">使用 CloudOwner@gve.local 使用者Sign invcenter。若要存取憑證，請前往 VMware Engine 門戶，前往資源，然後選擇適當的私有雲。在「基本資訊」部分中，按一下 vCenter 登入資訊（vCenter Server、HCX 管理員）或 NSX-T 登入資訊（NSX 管理員）的「檢視」連結。</block>
   <block id="59979b9402f6e7e20880098f4f30a2ea" category="paragraph"><block ref="59979b9402f6e7e20880098f4f30a2ea" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c4fc7138878e803ac78cccb45d543111" category="paragraph">在 Windows 虛擬機器中，開啟瀏覽器並導覽至 vCenter Web 用戶端 URL<block ref="2f06cb73f297a33408090d1ca889decc" prefix="(" category="inline-code"></block> ) 並使用管理者使用者名稱作為 CloudOwner@gve.local 並貼上複製的密碼。同樣，也可以使用 Web 用戶端 URL 存取 NSX-T 管理器<block ref="b11b17830e20ea5c266b8449ac98d28c" prefix="(" category="inline-code"></block>) 並使用管理員使用者名稱和貼上複製的密碼來建立新的段或修改現有的層網關。</block>
-  <block id="3a9cff0eb1abb119c1c264dbfff216f6" category="paragraph">若要從本地網路連接到 VMware Engine 私有雲，請利用雲端 VPN 或 Cloud Interconnect 進行適當的連接，並確保所需的連接埠已開啟。有關詳細步驟，請依照<block ref="6fe8ac83365e22e24c5c8eb9edc2d548" category="inline-link-macro-rx"></block>。</block>
   <block id="50133a2d08ebc0cefec22971fb5745f2" category="paragraph"><block ref="50133a2d08ebc0cefec22971fb5745f2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0a3b3306c6128e9ff9373d0890d1c334" category="paragraph"><block ref="0a3b3306c6128e9ff9373d0890d1c334" category="inline-image-macro-rx" type="image"></block></block>
   <block id="40237c40f43b510cb96f21f5d18ae730" category="example-title">將Google Cloud NetApp Volumes補充資料儲存區部署到 GCVE</block>
@@ -6313,4 +6310,7 @@
   <block id="e3e35e1b84c784f9defb3d94a3007b10" category="list-text"><block ref="e3e35e1b84c784f9defb3d94a3007b10" category="inline-link-macro-rx"></block></block>
   <block id="07d84ad3f5d033273b418d24d10bfcee" category="list-text"><block ref="07d84ad3f5d033273b418d24d10bfcee" category="inline-link-macro-rx"></block></block>
   <block id="fda45d1fe193d65714509cae66e08eed" category="list-text"><block ref="fda45d1fe193d65714509cae66e08eed" category="inline-link-macro-rx"></block></block>
+  <block id="e04404bb52f872f701865f9127f73175" category="paragraph">在 Linux 用戶端上，請確定 iSCSI 常駐程式正在執行。LUN 配置完成後，請參考使用 Ubuntu（作為範例）進行 iSCSI 組態的詳細指南 <block ref="b91137e8f43f5aa34226e9d551bcdf51" category="inline-link-macro-rx"></block>。</block>
+  <block id="e904c75c37e18b1306ad82cad79e32bf" category="paragraph">在 Linux 用戶端上，請確保 iSCSI 守護程式正在執行。LUN 佈建完成後，請參考適用於您 Linux 經銷的詳細 iSCSI 組態指南。例如，Ubuntu 的 iSCSI 組態可以在這裡找到 <block ref="b91137e8f43f5aa34226e9d551bcdf51" category="inline-link-macro-rx"></block>。若要進行驗證，請從 shell 執行 lsblk cmd。</block>
+  <block id="8f68f9d1edef63cb5a7a57ff040f36bd" category="paragraph">若要從本地網路連接到 VMware Engine 私有雲，運用雲端 VPN 或雲端互連（Cloud Interconnect）以確保連接正常，並確保所需連接埠已開啟。詳細步驟請參閱此<block ref="840d8d9cd3022b6323d4bc7ce2357db7" category="inline-link-macro-rx"></block>。</block>
 </blocks>

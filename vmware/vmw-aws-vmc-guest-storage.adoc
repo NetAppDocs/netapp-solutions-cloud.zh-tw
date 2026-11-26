@@ -174,7 +174,7 @@ image:aws-fsx-guest-026.png["此圖顯示輸入/輸出對話框或表示書面�
 video::0d03e040-634f-4086-8cb5-b01200fb8515[panopto]
 FSx 的 iSCSI 流量透過上一節提供的路由遍歷 VMware Transit Connect/AWS Transit Gateway。若要在Amazon FSx ONTAP中設定 LUN，請依照下列文件操作link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/supported-fsx-clients.html["這裡"]。
 
-在 Linux 用戶端上，確保 iSCSI 守護程序正在執行。配置 LUN 後，請參閱使用 Ubuntu 配置 iSCSI 的詳細指南（作為範例）link:https://ubuntu.com/server/docs/service-iscsi["這裡"] 。
+在 Linux 用戶端上，請確定 iSCSI 常駐程式正在執行。LUN 配置完成後，請參考使用 Ubuntu（作為範例）進行 iSCSI 組態的詳細指南 link:https://ubuntu.com/server/docs/how-to/storage/iscsi-initiator-or-client/["這裡"^]。
 
 本文說明如何將 iSCSI LUN 連接到 Windows 主機：
 
@@ -445,7 +445,7 @@ image:aws-cvo-guest-033.png["此圖顯示輸入/輸出對話框或表示書面�
 
 image:aws-cvo-guest-034.png["此圖顯示輸入/輸出對話框或表示書面內容"]
 
-在 Linux 用戶端上，確保 iSCSI 守護程序正在執行。設定 LUN 後，請參閱有關 Linux 發行版的 iSCSI 設定的詳細指南。例如，Ubuntu iSCSI 配置可以找到link:https://ubuntu.com/server/docs/service-iscsi["這裡"]。要驗證，請從 shell 運行 lsblk cmd。
+在 Linux 用戶端上，請確保 iSCSI 守護程式正在執行。LUN 佈建完成後，請參考適用於您 Linux 經銷的詳細 iSCSI 組態指南。例如，Ubuntu 的 iSCSI 組態可以在這裡找到 link:https://ubuntu.com/server/docs/how-to/storage/iscsi-initiator-or-client/["這裡"^]。若要進行驗證，請從 shell 執行 lsblk cmd。
 
 ====
 .在 Linux 用戶端上掛載Cloud Volumes ONTAP NFS 卷
